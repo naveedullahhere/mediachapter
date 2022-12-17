@@ -3983,20 +3983,20 @@ fieldset:disabled .btn {
     text-decoration: none;
     white-space: nowrap;
     background-color: transparent;
-    border: 0
+    border: 0;
+    transition: all .3s ease;
 }
 
 .dropdown-item:focus,
 .dropdown-item:hover {
-    color: var(--bs-dropdown-link-hover-color);
-    background-color: var(--bs-dropdown-link-hover-bg)
+    color: white;
+    background-color: #55595c
 }
 
 .dropdown-item.active,
 .dropdown-item:active {
-    color: var(--bs-dropdown-link-active-color);
-    text-decoration: none;
-    background-color: var(--bs-dropdown-link-active-bg)
+    color: white;
+    background-color: #55595c
 }
 
 .dropdown-item.disabled,
@@ -4185,7 +4185,7 @@ fieldset:disabled .btn {
         transition: none
     }
 }
- 
+
 
 .nav-link.disabled {
     color: var(--bs-nav-link-disabled-color);
@@ -4211,14 +4211,14 @@ fieldset:disabled .btn {
     border-top-left-radius: var(--bs-nav-tabs-border-radius);
     border-top-right-radius: var(--bs-nav-tabs-border-radius)
 }
- 
+
 .nav-tabs .nav-link.disabled,
 .nav-tabs .nav-link:disabled {
     color: var(--bs-nav-link-disabled-color);
     background-color: transparent;
     border-color: transparent
 }
- 
+
 
 .nav-tabs .dropdown-menu {
     margin-top: calc(-1 * var(--bs-nav-tabs-border-width));
@@ -4242,7 +4242,7 @@ fieldset:disabled .btn {
     color: var(--bs-nav-link-disabled-color);
     background-color: transparent;
     border-color: transparent
-} 
+}
 
 .nav-fill .nav-item,
 .nav-fill>.nav-link {
@@ -4340,7 +4340,7 @@ fieldset:disabled .btn {
     margin-bottom: 0;
     list-style: none
 }
- 
+
 .navbar-nav .dropdown-menu {
     position: static
 }
@@ -4865,7 +4865,8 @@ fieldset:disabled .btn {
     margin-bottom: calc(-1 * var(--bs-card-cap-padding-y));
     margin-left: calc(-.5 * var(--bs-card-cap-padding-x));
     border-bottom: 0
-} 
+}
+
 .card-header-pills {
     margin-right: calc(-.5 * var(--bs-card-cap-padding-x));
     margin-left: calc(-.5 * var(--bs-card-cap-padding-x))
@@ -8059,7 +8060,7 @@ fieldset:disabled .btn {
 }
 
 .shadow-sm {
-    box-shadow:0 0.125rem 1rem rgb(0 0 0 / 8%) !important 
+    box-shadow: 0 0.125rem 1rem rgb(0 0 0 / 8%) !important
 }
 
 .shadow-lg {
