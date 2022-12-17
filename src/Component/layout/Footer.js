@@ -6,14 +6,14 @@ export const Footer = () => {
         <footer class="pt-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-5">
+                    <div class="col-md-5 my-md-0 my-3">
                         <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
                             <img src={Logo} className={'w-75'} alt="" />
                         </a>
                         <p className="para-sm">MediaChapter is a team of dedicated designers, developers, content creators, SEO specialists, digital marketers, and other experts who share a common passion for great brands</p>
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-md-2 my-md-0 my-3">
                         <h5>SITE MAP</h5>
                         <ul class="nav flex-column mt-3">
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 para-sm">ABOUT</a></li>
@@ -27,7 +27,7 @@ export const Footer = () => {
 
 
 
-                    <div class="col-2">
+                    <div class="col-md-2 my-md-0 my-3">
                         <h5>OUR POLICIES</h5>
                         <ul class="nav flex-column mt-3">
                             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 para-sm">Privacy Policy</a></li>
@@ -36,7 +36,7 @@ export const Footer = () => {
                         </ul>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-md-3 my-md-0 my-3">
                         <form>
                             <h5>Get Our Brochure
                             </h5>

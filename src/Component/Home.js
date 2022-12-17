@@ -79,7 +79,7 @@ export const Home = () => {
                                 From branding strategies and graphic design to web development and SEO, our masterful team cover everything with perfection to help you transform your visionary company into a reality.
                             </p>
                         </div>
-                        <div className="col-md-4 col-6 my-3">
+                        <div className="col-md-4 col-12 my-3">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
                                     <img src={card0} draggable={false} className={'w-card'} alt="card" />
@@ -91,7 +91,7 @@ export const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4 col-6 my-3">
+                        <div className="col-md-4 col-12 my-3">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
                                     <img src={card1} draggable={false} className={'w-card'} alt="card" />
@@ -103,7 +103,7 @@ export const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4 col-6 my-3">
+                        <div className="col-md-4 col-12 my-3">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
                                     <img src={card2} draggable={false} className={'w-card'} alt="card" />
@@ -115,7 +115,7 @@ export const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4 col-6 my-3 ms-auto">
+                        <div className="col-md-4 col-12 my-3 ms-auto">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
                                     <img src={card3} draggable={false} className={'w-card'} alt="card" />
@@ -127,7 +127,7 @@ export const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4 col-6 my-3 me-auto">
+                        <div className="col-md-4 col-12 my-3 me-auto">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
                                     <img src={card4} draggable={false} className={'w-card'} alt="card" />
@@ -245,6 +245,20 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="sec py-5">
+                <section class="customer-logos slider">
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-08.png" /></div>
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-11.png" /></div>
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-14.png" /></div>
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-17.png" /></div>
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-03.png" /></div>
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-06.png" /></div>
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-12.png" /></div>
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-09.png" /></div>
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-15.png" /></div>
+                    <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-18.png" /></div>
+                </section>
             </div>
         </>
     )
