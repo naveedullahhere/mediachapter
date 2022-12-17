@@ -14,7 +14,7 @@ export const Home = () => {
     return (
         <>
             <div className="sliderMain position-relative">
-                <CarouselProvider className='slider container'
+                <CarouselProvider className='slider container bannerSlider'
                     naturalSlideWidth={100}
                     naturalSlideHeight={50}
                     totalSlides={3}
@@ -240,7 +240,7 @@ export const Home = () => {
 
                             </div>
                         </div>
-                        <div className="col-12 mx-auto mt-5">
+                        <div className="col-12 mx-auto mt-md-5">
                             <button className="btn btn-main">GET A QUOTE</button>
                         </div>
                     </div>
@@ -259,6 +259,64 @@ export const Home = () => {
                     <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-15.png" /></div>
                     <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-18.png" /></div>
                 </section>
+            </div>
+            <div className="sec py-5">
+                <div className="testimonialsMain">
+                    <div className="testimonials row">
+                        <div className="col-lg-6 col-md-8 col-12 mx-auto">
+
+                            <div className="testimonialImg">
+                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2021/12/Image-1-03.jpg" alt="clients" />
+                            </div>
+                            <div className="testimonialsContent my-4">
+                                <p className="text-muted"><i>“Full marks for creativity. Plus, I have found them extremely friendly during the whole working process. Keep doing what you are doing Media Chapter. Make a difference”</i></p>
+                            </div>
+                            <div className="testimonialsFooter">
+                                <p className="fw-bold mb-2"><i>Robert Rice</i></p>
+                                <p className="text-muted"><i>Baixo Inc</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="testimonials row">
+                        <div className="col-lg-6 col-md-8 col-12 mx-auto">
+
+                            <div className="testimonialImg">
+                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2021/12/Image-1-04.jpg" alt="clients" />
+                            </div>
+                            <div className="testimonialsContent my-4">
+                                <p className="text-muted"><i>“It was an outstanding experience working with Media Chapter. Working with them was a memorable experience. They are not skilled and passionate about the work but also deliver every project.”</i></p>
+                            </div>
+                            <div className="testimonialsFooter">
+                                <p className="fw-bold mb-2"><i>Mickey Divk</i></p>
+                                <p className="text-muted"><i>Baixo Inc</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="testimonials row">
+                        <div className="col-lg-6 col-md-8 col-12 mx-auto">
+
+                            <div className="testimonialImg">
+                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2021/12/Image-1-05.jpg" alt="clients" />
+                            </div>
+                            <div className="testimonialsContent my-4">
+                                <p className="text-muted"><i>“Everyone at the office is happy with the social media strategies created by MediaChapter. Works like a charm. i love the ease of the app and would highly recommend Thank you, guys!”</i></p>
+                            </div>
+                            <div className="testimonialsFooter">
+                                <p className="fw-bold mb-2"><i>Joseph Stickles</i></p>
+                                <p className="text-muted"><i>Baixo Inc</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div className="sec py-5">
+                <div className="container">
+                    <div className="row">
+                        <div className="col text-center">
+                            <img src="https://www.mediachapter.us/wp-content/uploads/2022/02/trust-pilot-img.png" alt="trustpiolet" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )
