@@ -1,17 +1,15 @@
 import React from 'react';
-import seo from "./assets/seo.png";
-import { ContactForm } from './ContactForm';
+import content from "../assets/content.png";
+import { ContactForm } from '../ContactForm';
 
-export const Seo = () => {
+export const ContentWriting = () => {
     return (
         <>
-            <div className="seo image-banner sec">
+            <div className="content-writing image-banner sec">
                 <div className="container h-100">
                     <div className="row h-100">
                         <div className="h-100 col-sm-6 d-flex flex-column align-items-start justify-content-center">
-                            <h1 className='text-white text-start'>Make Your Brand
-                                Recognizable with Our
-                                Astounding SEO Services</h1>
+                            <h1 className='text-white text-start'>An Energy That Builds Memorable Brands</h1>
                             <button className="btn btn-dark">
                                 GET A QUOTE
                             </button>
@@ -23,26 +21,25 @@ export const Seo = () => {
                 <div className="container">
                     <div className="row text-start">
                         <div className="col-md-6 my-md-auto my-3">
-                            <h1 className="heading">SEO</h1>
-                            <h1 className="fs-4 heading line-height-sm fw-normal">Boost Your Website Ranking with Advanced SEO Services
+                            <h1 className="heading">Content Writing</h1>
+                            <h1 className="fs-4 heading line-height-sm fw-normal">Make Your SEO Successful with High-Quality Content
+
                             </h1>
                             <p className="para-sm text-muted my-4">
-                                Want your website to appear on Google’s first page when someone
-                                searches the keyword relevant to your business? You can achieve
-                                this feat with our result-oriented SEO services.
+                                Fresh, original, and flawless content can help you win clients and meet your goals. Get in touch with professional writers at Media Chapter today and produce the best content for your brand.
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Boost Ranking
+                                <i class="fa-regular fa-circle-dot text-danger"></i>Customer-focused Content
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Maximize Your Website’s Visibility
+                                <i class="fa-regular fa-circle-dot text-danger"></i>Out-of-the-ideas Ideas
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Bring Leads and Sales
+                                <i class="fa-regular fa-circle-dot text-danger"></i>100% Original
                             </p>
                         </div>
                         <div className="col-md-6 my-md-auto my-3">
-                            <img src={seo} alt="seo" className="w-100" />
+                            <img src={content} alt="seo" className="w-100" />
                         </div>
                     </div>
                 </div>
@@ -61,40 +58,52 @@ export const Seo = () => {
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
                             <h1 className="heading fs-4">
-                                Keyword Research
+                                Web Content
                             </h1>
                             <p className="para-sm text-muted">
-                                We have a dedicated research team that can help you find relevant and high-volume keywords googled by your target audience to find products and services same as provided by you.
+                                A website is a salesman that never sleep. So, it’s
+                                important to make sure that your website has content
+                                that make visitors stay and take desired actions.
+                                Hire our professional writers to create such content.
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
                             <h1 className="heading fs-4">
-                                Link Building
+                                Blog Posts
                             </h1>
                             <p className="para-sm text-muted">
-                                Getting links from high-ranking and authoritative sites is a key to rank higher on search engine result pages (SERPs). Link builders at Media Chapter always generate powerful links.
+                                Blogging is the sure-fire way to win audience if
+                                done rightly. Our top-rated bloggers can help
+                                you create and post high-quality content
+                                that speaks to your target audience.
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
                             <h1 className="heading fs-4">
-                                Local Search
+                                Press Release
                             </h1>
                             <p className="para-sm text-muted">
-                                You can’t only drive organic audience to your
-                                website but also bring foot traffic to your physical
-                                store with our smart SEO services.
+                                A press release in another great way of marketing.
+                                Deliver your message effectively to your preferred
+                                media outlets, social media channels, and search
+                                engines with the help of our skilled writers.
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
                             <h1 className="heading fs-4">
-                                eCommerce SEO
+                                Social Media Content
                             </h1>
                             <p className="para-sm text-muted">
-                                Nobody will come across your online store until it
-                                starters appearing on Google’s first page. Bring your
-                                eCommerce website in the eyes of searchers
-                                with our top-notch SEO services.
+                                In a cut-throat environment on social media,
+                                only a good content can make your campaigns
+                                successful. Hire our acclaimed writers and produce
+                                innovative social media content.
                             </p>
+                        </div>
+                        <div className="col-12 mx-auto">
+                            <button className="btn btn-main">
+                                see more
+                            </button>
                         </div>
                     </div>
                 </div>

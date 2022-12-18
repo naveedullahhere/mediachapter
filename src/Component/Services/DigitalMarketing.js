@@ -1,6 +1,6 @@
 import React from 'react';
-import digital from "./assets/digitalmarketing.png";
-import { ContactForm } from './ContactForm';
+import digital from "../assets/digitalmarketing.png";
+import { ContactForm } from '../ContactForm';
 
 export const DigitalMarketing = () => {
     return (

@@ -1,18 +1,22 @@
-// $(document).ready(function () {
+$(document).ready(function () {
+    //MixitUp Gallery Filters
+    if ($(".filter-list").length) {
+        $(".filter-list").mixItUp({});
+    }
+
+    window.addEventListener('click', () => {
+        if (window.location.href.indexOf("graphic-design") > -1) {
+            if ($(".filter-list").length) {
+                $(".filter-list").mixItUp({});
+            }
+        }
+    })
+})
+
+
 window.addEventListener('load', function () {
     document.addEventListener('click', () => {
 
-        if (window.location.href.indexOf("graphic-design") > -1) {
-            setTimeout(() => {
-
-                $('#gallery').mixItUp({
-                    selectors: {
-                        target: '.gallery-item',
-                        filter: '.filter'
-                    }
-                });
-            }, 500);
-        }
 
         $('.customer-logos').slick({
             slidesToShow: 6,
@@ -197,10 +201,5 @@ window.addEventListener('load', function () {
 
     })(jQuery);
 
-    $('#gallery').mixItUp({
-        selectors: {
-            target: '.gallery-item',
-            filter: '.filter'
-        }
-    });
+
 });
