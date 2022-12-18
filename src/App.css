@@ -481,6 +481,11 @@ h2 {
 
 @media (max-width: 767px) {
   .image-banner {
+    height: 248px;
+  }
+}
+@media (max-width: 480px) {
+  .image-banner {
     height: 140px;
   }
 }
