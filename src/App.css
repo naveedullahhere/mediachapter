@@ -74,6 +74,16 @@ a {
 
 }
 
+.fs-smm {
+  font-size: 12px!important;
+}
+
+.blog .card-img-top {
+  height: 222px;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
 .crd:hover {
   transform: translateY(-4px) scale(1.01);
 
