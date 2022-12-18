@@ -1,12 +1,15 @@
 import React from 'react';
 import Logo from '../assets/logo.png';
+import { Link, useLocation } from "react-router-dom";
+
 
 export const Header = () => {
+    const { pathname } = useLocation();
     return (
         <>
             <nav class="navbar navbar-expand-lg navbar-light" >
                 <div class="container">
-                    <a class="navbar-brand me-5" href="#"><img src={Logo} alt="MediaChapter" width="136" /></a>
+                    <Link class="navbar-brand me-5" to={'/'}><img src={Logo} alt="MediaChapter" width="136" /></Link>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navToggler" aria-controls="navToggler" >
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -14,29 +17,29 @@ export const Header = () => {
                     <div class="collapse navbar-collapse justify-content-between" id="navToggler">
                         <ul class="navbar-nav  mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <Link class={`nav-link ${pathname === '/' && "active"}`} aria-current="page" to={'/'}>Home</Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
+                                <Link class={`nav-link ${pathname === '/about' && "active"}`} to={'/about'}>About</Link>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Graphics Design</a></li>
-                                    <li><a class="dropdown-item" href="#">Web Development</a></li>
-                                    <li><a class="dropdown-item" href="#">SEO</a></li>
-                                    <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
-                                    <li><a class="dropdown-item" href="#">Content Writing</a></li>
+                                    <li><Link class="dropdown-item" to={'/graphic-design'}>Graphics Design</Link></li>
+                                    <li><Link class="dropdown-item" to={'/web-development'}>Web Development</Link></li>
+                                    <li><Link class="dropdown-item" to={'/'}>SEO</Link></li>
+                                    <li><Link class="dropdown-item" to={'/'}>Digital Marketing</Link></li>
+                                    <li><Link class="dropdown-item" to={'/'}>Content Writing</Link></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Portfolio</a>
+                                <Link class={`nav-link ${pathname === '/Portfolio' && "active"}`} to={'/Portfolio'}>Portfolio</Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
+                                <Link class={`nav-link ${pathname === '/Blog' && "active"}`} to={'/Blog'}>Blog</Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
+                                <Link class={`nav-link ${pathname === '/Contact' && "active"}`} to={'/Contact'}>Contact</Link>
                             </li>
                         </ul>
                         <div role="Quote text-white">
