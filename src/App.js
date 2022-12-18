@@ -11,6 +11,8 @@ import { Seo } from './Component/Seo';
 import { DigitalMarketing } from './Component/DigitalMarketing';
 import { ContentWriting } from './Component/ContentWriting';
 import { Portfolio } from './Component/Portfolio';
+import { Contact } from './Component/Contact';
+import { Blog } from './Component/Blog';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route path="/digital-marketing" element={<DigitalMarketing />} />
           <Route path="/content-writing" element={<ContentWriting />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,20 +1,21 @@
 import React from 'react';
 import email from "./assets/mail.png";
 import phone from "./assets/phone.png";
+import ContactImg from "./assets/contact.png";
 
-export const ContactForm = ({ action }) => {
+export const Contact = () => {
     return (
         <>
             <div className="sec py-5">
                 <div className="container">
                     <div className={`row`}>
-                        <div className="col-md-8 mx-auto">
+                        <div className="col-md-6 my-md-auto my-3 text-start">
                             <h1 className='heading'>Let’s Chat
                             </h1>
                             <p className="para-sm text-muted">
                                 Fill up the form and connect with us now.
                             </p>
-                            <form action={action}>
+                            <form action={'/'}>
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" name='name' id="name" placeholder="Name" />
                                     <label for="name">Name</label>
@@ -36,6 +37,7 @@ export const ContactForm = ({ action }) => {
                                 </button>
                             </form>
                         </div>
+                        <div className="col-md-6 my-md-auto my-3"><img src={ContactImg} alt="contact" className="w-100 p-md-5 p-0" /></div>
                     </div>
                 </div>
             </div>
