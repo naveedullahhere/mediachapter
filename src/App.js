@@ -8,6 +8,9 @@ import { Footer } from './Component/layout/Footer';
 import { Graphics } from './Component/Services/Graphics';
 import { WebDevelopment } from './Component/WebDevelopment';
 import { Seo } from './Component/Seo';
+import { DigitalMarketing } from './Component/DigitalMarketing';
+import { ContentWriting } from './Component/ContentWriting';
+import { Portfolio } from './Component/Portfolio';
 
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
           <Route path="/graphic-design" element={<Graphics />} />
           <Route path="/web-development" element={<WebDevelopment />} />
           <Route path="/seo" element={<Seo />} />
+          <Route path="/digital-marketing" element={<DigitalMarketing />} />
+          <Route path="/content-writing" element={<ContentWriting />} />
+          <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
         <Footer />
       </BrowserRouter>

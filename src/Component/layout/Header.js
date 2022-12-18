@@ -32,8 +32,8 @@ export const Header = () => {
                                                 <li><Link class="dropdown-item" to={'/graphic-design'}>Graphics Design</Link></li>
                                                 <li><Link class="dropdown-item" to={'/web-development'}>Web Development</Link></li>
                                                 <li><Link class="dropdown-item" to={'/seo'}>SEO</Link></li>
-                                                <li><Link class="dropdown-item" to={'/'}>Digital Marketing</Link></li>
-                                                <li><Link class="dropdown-item" to={'/'}>Content Writing</Link></li>
+                                                <li><Link class="dropdown-item" to={'/digital-marketing'}>Digital Marketing</Link></li>
+                                                <li><Link class="dropdown-item" to={'/content-writing'}>Content Writing</Link></li>
                                             </ul>
                                         </li>
 

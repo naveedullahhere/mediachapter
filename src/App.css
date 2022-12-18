@@ -159,7 +159,7 @@ a {
 }
 
 footer .nav-link {
-  color: var(--white);
+  color: var(--white)!important;
 }
 
 .heading {
@@ -167,7 +167,9 @@ footer .nav-link {
   font-weight: 600;
   line-height: 48px;
 }
-
+footer .nav-item:after{
+  display: none!important;
+}
 .w-card {
   width: 86px;
 }
@@ -450,6 +452,12 @@ h2 {
 }
 .seo {
   background-image: url(./Component/assets/seo-banner.jpg);
+}
+.digital-marketing {
+  background-image: url(./Component/assets/digital-marketing.jpg);
+}
+.content-writing {
+  background-image: url(./Component/assets/content-writing.jpg);
 }
 
 .basic-cards .crd-image img {
