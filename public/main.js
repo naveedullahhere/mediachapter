@@ -1,5 +1,18 @@
 $(document).ready(function () {
 
+    window.addEventListener('click', () => {
+        console.log("hon");
+        if (window.location.href.indexOf("graphic-design") > -1) {
+            console.log("entr");
+            $('#gallery').mixItUp({
+                selectors: {
+                    target: '.gallery-item',
+                    filter: '.filter'
+                }
+            });
+            console.log("mixed");
+        }
+    })
     if (window.location.href.indexOf("graphic-design") > -1) {
         $('#gallery').mixItUp({
             selectors: {
@@ -8,16 +21,6 @@ $(document).ready(function () {
             }
         });
     }
-    window.addEventListener('click', () => {
-        if (window.location.href.indexOf("graphic-design") > -1) {
-            $('#gallery').mixItUp({
-                selectors: {
-                    target: '.gallery-item',
-                    filter: '.filter'
-                }
-            });
-        }
-    })
 
 
 
@@ -90,26 +93,22 @@ $(document).ready(function () {
     (function ($) {
         "use strict";
 
-        $(function () {
-            var header = $(".start-style");
-            $(window).scroll(function () {
-                var scroll = $(window).scrollTop();
+        // $(function () {
+        //     var header = $(".start-style");
+        //     $(window).scroll(function () {
+        //         var scroll = $(window).scrollTop();
 
-                if (scroll >= 10) {
-                    header.removeClass('start-style').addClass("scroll-on");
-                } else {
-                    header.removeClass("scroll-on").addClass('start-style');
-                }
-            });
-        });
+        //         if (scroll >= 10) {
+        //             header.removeClass('start-style').addClass("scroll-on");
+        //         } else {
+        //             header.removeClass("scroll-on").addClass('start-style');
+        //         }
+        //     });
+        // });
 
         //Animation
 
-        $(document).ready(function () {
-            $('body.hero-anime').removeClass('hero-anime');
-        });
 
-        //Menu On Hover
 
         $('body').on('mouseenter mouseleave', '.nav-item', function (e) {
             if ($(window).width() > 750) {
@@ -120,19 +119,7 @@ $(document).ready(function () {
             }
         });
 
-        //Switch light/dark
-
-        $("#switch").on('click', function () {
-            if ($("body").hasClass("dark")) {
-                $("body").removeClass("dark");
-                $("#switch").removeClass("switched");
-            }
-            else {
-                $("body").addClass("dark");
-                $("#switch").addClass("switched");
-            }
-        });
 
     })(jQuery);
-    
+
 });

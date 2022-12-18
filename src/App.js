@@ -7,6 +7,7 @@ import { Header } from './Component/layout/Header';
 import { Footer } from './Component/layout/Footer';
 import { Graphics } from './Component/Services/Graphics';
 import { WebDevelopment } from './Component/WebDevelopment';
+import { Seo } from './Component/Seo';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/graphic-design" element={<Graphics />} />
           <Route path="/web-development" element={<WebDevelopment />} />
+          <Route path="/seo" element={<Seo />} />
         </Routes>
         <Footer />
       </BrowserRouter>

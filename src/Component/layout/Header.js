@@ -20,42 +20,42 @@ export const Header = () => {
 
                                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
                                     <ul class="navbar-nav ml-auto py-4 py-md-0 gap-3">
-                                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-                                            <Link class="nav-link" to='/'>Home</Link>
+                                        <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/' && "active"}`}>
+                                            <Link class={`nav-link`} to='/'>Home</Link>
                                         </li>
-                                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                            <Link class="nav-link" to="/About">About</Link>
+                                        <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/About' && "active"}`}>
+                                            <Link class={`nav-link`} to="/About">About</Link>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                                             <ul class="dropdown-menu">
                                                 <li><Link class="dropdown-item" to={'/graphic-design'}>Graphics Design</Link></li>
                                                 <li><Link class="dropdown-item" to={'/web-development'}>Web Development</Link></li>
-                                                <li><Link class="dropdown-item" to={'/'}>SEO</Link></li>
+                                                <li><Link class="dropdown-item" to={'/seo'}>SEO</Link></li>
                                                 <li><Link class="dropdown-item" to={'/'}>Digital Marketing</Link></li>
                                                 <li><Link class="dropdown-item" to={'/'}>Content Writing</Link></li>
                                             </ul>
                                         </li>
 
-                                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                            <Link class={`nav-link ${pathname === '/Portfolio' && "active"}`} to={'/Portfolio'}>Portfolio</Link>
+                                        <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Portfolio' && "active"}`}>
+                                            <Link class={`nav-link`} to={'/Portfolio'}>Portfolio</Link>
                                         </li>
-                                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                            <Link class={`nav-link ${pathname === '/Blog' && "active"}`} to={'/Blog'}>Blog</Link>
+                                        <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Blog' && "active"}`}>
+                                            <Link class={`nav-link`} to={'/Blog'}>Blog</Link>
                                         </li>
-                                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                            <Link class={`nav-link ${pathname === '/Contact' && "active"}`} to={'/Contact'}>Contact</Link>
+                                        <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Contact' && "active"}`}>
+                                            <Link class={`nav-link`} to={'/Contact'}>Contact</Link>
                                         </li>
                                     </ul>
                                     <div role="Quote text-white">
                                         <button className="btn btn-main">get a quote</button>
                                     </div>
-                                </div> 
+                                </div>
                             </nav>
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </>
     )
 }
