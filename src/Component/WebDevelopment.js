@@ -181,13 +181,13 @@ export const WebDevelopment = () => {
                     <div className="row">
                         <div className="col-md-8 mx-auto">
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-6 my-4">
                                     <div className="contct d-flex align-items-center gap-3">
                                         <img src={email} alt="email" className='contact-img' />
                                         <a href="mailto:info@mediachapter.us" className="main">info@mediachapter.us</a>
                                     </div>
                                 </div>
-                                <div className="col-md-6">
+                                <div className="col-md-6 my-4">
                                     <div className="contct d-flex align-items-center gap-3">
                                         <img src={phone} alt="email" className='contact-img' />
                                         <a href="tel:+12017938468" className="main">+1 201 793 8468</a>

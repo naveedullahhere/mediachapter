@@ -248,7 +248,11 @@ footer {
   }
 
   .bannerSlider h1,
-  .about h1 {
+  .about h1,
+  .web-development h1,
+  .graphic-design h1
+  
+  {
     font-size: 18px;
   }
 }
