@@ -9,7 +9,7 @@ import { DigitalMarketing } from './Component/Services/DigitalMarketing';
 import { ContentWriting } from './Component/Services/ContentWriting';
 import { Portfolio } from './Component/Portfolio';
 import { Contact } from './Component/Contact';
-import { Blog } from './Component/Blog';
+import { Blog } from './Component/Blog'; 
 
 
 export const MainRoutes = () => {
@@ -25,7 +25,7 @@ export const MainRoutes = () => {
             <Route path="/content-writing" element={<ContentWriting />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} /> 
         </Routes>
     )
 }

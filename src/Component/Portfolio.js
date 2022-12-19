@@ -1,49 +1,34 @@
-import { ReactMixitup } from 'react-mixitup';
+ 
 import React from 'react';
+import { MainPortfolio } from './MainPortfolio';
+
 
 
 export const Portfolio = () => {
-    const [keys, setKeys] = React.useState([1, 2, 3]);
-    console.log("Portfolio");
+
     return (
-        <div style={{ height: 64 }}>
-            <button onClick={() => {
-                setKeys(keys[0] === 1 ? [3, 2, 1] : [1, 2, 3]);
-            }}>
-                Mixitup
-            </button>
-            <ReactMixitup
-                keys={keys}
-                renderCell={(key, style, ref) => (
-                    <div
-                        key={key}
-                        ref={ref}
-                        style={{
-                            // You must set the transition property here!
-                            transition: 'transform 300ms linear',
-                            ...style,
-                        }}
-                    >
-                        {key}
-                    </div>
-                )}
-                renderWrapper={(style, ref, cells) => {
-                    return (
-                        <div
-                            style={{
-                                transition: 'height 300ms ease',
-                                display: 'flex',
-                                ...style
-                            }}
-                            ref={ref}
-                        >
-                            {cells}
+        <>
+            <div className="sec py-5">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h1 className="heading">
+                                Graphic Design
+                            </h1>
+                            <p className="para-sm text-muted my-3">
+                                Our graphic design services help clients meet their goals and generate
+                                desired results. Have a look at some of our most prestigious work.
+                            </p>
                         </div>
-                    );
-                }}
-                dynamicDirection="horizontal"
-                transitionDuration={300}
-            />
-        </div>
+                        <div className="col-12 my-5">
+                            <MainPortfolio />
+                        </div>
+                        <div className="col-12 text-center my-5  ">
+                            <button className="btn btn-main">See More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }

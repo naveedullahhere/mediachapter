@@ -18,7 +18,7 @@ export const Header = () => {
                                 </button>
 
 
-                                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                                <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent">
                                     <ul class="navbar-nav ml-auto py-4 py-md-0 gap-3">
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/' && "active"}`}>
                                             <Link class={`nav-link`} to='/'>Home</Link>

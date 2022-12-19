@@ -6,14 +6,17 @@ import ContactImg from "./assets/contact.png";
 export const Contact = () => {
     return (
         <>
-            <div className="sec py-5">
+            <div className="sec py-5 bg-white">
                 <div className="container">
                     <div className={`row`}>
                         <div className="col-md-6 my-md-auto my-3 text-start">
-                            <h1 className='heading'>Let’s Chat
+                            <h1 className='heading'>Get in touch
+
                             </h1>
                             <p className="para-sm text-muted">
-                                Fill up the form and connect with us now.
+                                MediaChapter is always up to talk about brands. Here is the way to grab our attention.
+
+
                             </p>
                             <form action={'/'}>
                                 <div class="form-floating mb-3">

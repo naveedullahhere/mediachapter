@@ -22,7 +22,7 @@ export const About = () => {
                 </div>
             </div>
             <div className="sec py-5">
-                <div className="container">
+                <div className="container my-5">
                     <div className="row text-start">
                         <div className="col-md-6 my-md-auto my-3"><video className='w-100' muted src="https://mediachapter.us/wp-content/uploads/2021/12/VID-20211216-WA0019.mp4" autoplay="" controlslist="nodownload"></video></div>
                         <div className="col-md-6 my-md-auto my-3">
@@ -92,7 +92,7 @@ export const About = () => {
             <div className="sec py-5">
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 my-4">
+                        <div className="col-md-8 mx-auto my-4">
                             <h1 className="heading">
                                 Our Team
                             </h1>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PortfolioMain } from '../PortfolioMain';
+import { MainPortfolio } from '../MainPortfolio'; 
 
 
 export const Graphics = () => {
@@ -31,7 +31,7 @@ export const Graphics = () => {
                             </p>
                         </div>
                         <div className="col-12 my-5">
-                            <PortfolioMain />
+                            <MainPortfolio />
                         </div>
                         <div className="col-12 text-center my-5  ">
                             <button className="btn btn-main">See More</button>

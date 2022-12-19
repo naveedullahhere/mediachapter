@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    //MixitUp Gallery Filters
+
     if ($(".filter-list").length) {
-        $(".filter-list").mixItUp({});
+    
     }
 
     window.addEventListener('click', () => {
-        if (window.location.href.indexOf("graphic-design") > -1) {
+        if (window.location.href.indexOf("graphic-design") > -1 || window.location.href.indexOf("Portfolio") > -1) {
             if ($(".filter-list").length) {
                 $(".filter-list").mixItUp({});
             }
@@ -22,7 +22,7 @@ window.addEventListener('load', function () {
             slidesToShow: 6,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 1500,
+            autoplaySpeed: 4500,
             arrows: false,
             dots: false,
             pauseOnHover: false,
@@ -42,7 +42,7 @@ window.addEventListener('load', function () {
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 1500,
+            autoplaySpeed: 4500,
             arrows: false,
             dots: false,
             pauseOnHover: false,

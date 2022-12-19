@@ -4,7 +4,7 @@ import React from 'react';
 export const Footer = () => {
     return (
         <footer class="pt-5">
-            <div class="container">
+            <div class="container py-md-5">
                 <div class="row">
                     <div class="col-md-5 my-md-0 my-3">
                         <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">

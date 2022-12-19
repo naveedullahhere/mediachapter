@@ -75,7 +75,7 @@ a {
 }
 
 .fs-smm {
-  font-size: 12px!important;
+  font-size: 12px !important;
 }
 
 .blog .card-img-top {
@@ -932,4 +932,15 @@ h2 {
     max-height: 100%;
   }
 
+}
+
+
+
+
+
+
+
+
+.nav-link {
+  text-transform: uppercase;
 }
