@@ -8,10 +8,10 @@ export const Header = () => {
     return (
         <>
             <div class="navigation-wrap bg-white start-header start-style">
-                <div class="container-lg">
+                <div class="">
                     <div class="row">
                         <div class="col-12">
-                            <nav class="navbar navbar-expand-md navbar-light">
+                            <nav class="navbar navbar-expand-md navbar-light px-md-5 px-3">
                                 <Link class="navbar-brand me-5" to={'/'}><img src={Logo} alt="MediaChapter" width="136" /></Link>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" >
                                     <span class="navbar-toggler-icon"></span>
@@ -46,8 +46,12 @@ export const Header = () => {
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Contact' && "active"}`}>
                                             <Link class={`nav-link`} to={'/Contact'}>Contact</Link>
                                         </li>
+                                        <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 mx-md-5`}>
+                                            <i class="nectar-menu-icon fa fa-phone"></i>
+                                            <a class={`nav-link`} href="tel:+12483464854">+1-248-346-4854</a>
+                                        </li>
                                     </ul>
-                                    <div role="Quote text-white">
+                                    <div>
                                         <button className="btn btn-main">get a quote</button>
                                     </div>
                                 </div>
