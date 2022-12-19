@@ -1,12 +1,141 @@
 import React from 'react';
-import email from "./assets/mail.png";
-import phone from "./assets/phone.png";
+import email from "./assets/email0.png";
+import phone from "./assets/phone0.png";
+import address from "./assets/location0.png";
 import ContactImg from "./assets/contact.png";
 
 export const Contact = () => {
     return (
         <>
-            <div className="sec py-5 bg-white">
+            <div className="sec py-5">
+
+                <div class="container my-5 text-start">
+                    <span class="big-circle"></span>
+                    <img src="img/shape.png" class="square" alt="" />
+                    <div class="form row mx-auto">
+                        <div className="contact-info col-12 my-auto">
+
+                            <h3 class="heading text-main">CONTACT US</h3>
+                            <p class="text">
+                                We are eager to be a partner in your digital journey as a digital marketing specialist
+                            </p>
+
+                            <div class="info">
+                                <div class="information mb-4">
+                                    <img src={address} class="icon" alt="" />
+                                    <p className='mb-0'>Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
+                                </div>
+                                <div class="information mb-4">
+                                    <img src={address} class="icon" alt="" />
+                                    <p className='mb-0'>Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
+                                </div>
+                                <div class="information mb-4">
+                                    <img src={email} class="icon" alt="" />
+                                    <p className='mb-0'>info@eliteblue.net</p>
+                                </div>
+                                <div class="information mb-4">
+                                    <img src={phone} class="icon" alt="" />
+                                    <p className='mb-0'>+92 333 051 8880</p>
+                                </div>
+                            </div>
+
+                            {/* <div class="social-media">
+                                <p>Connect with us :</p>
+                                <div class="social-icons">
+                                    <a href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div> */}
+                        </div>
+
+                        <div class="contact-form">
+                            <span class="circle one"></span>
+                            <span class="circle two"></span>
+
+                            <form action="index.html" autocomplete="off">
+                                <div className="row">
+                                    <div className="col-12">
+                                        <h3 class="title">Contact us</h3>
+
+                                    </div>
+                                    <div className="col-md-6">
+
+                                        <div class="input-container">
+                                            <input type="text" name="firstname" class="input" placeholder='.' />
+                                            <label for="">First Name*</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+
+                                        <div class="input-container">
+                                            <input type="text" name="lastname" class="input" placeholder='.' />
+                                            <label for="">Last Name*</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+
+                                        <div class="input-container">
+                                            <input type="email" name="email" class="input" placeholder='.' />
+                                            <label for="">Email*</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6">
+
+                                        <div class="input-container">
+                                            <input type="tel" name="phone" class="input" placeholder='.' />
+                                            <label for="">Phone*</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12">
+
+                                        <div class="input-container">
+                                            <input type="text" name="lastname" class="input" placeholder='.' />
+                                            <label for="">Company Name*</label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12">
+
+                                        <div class="input-container">
+                                            <select name="inquiry" class="input">
+                                                <option value="Inquiring About">Inquiring About</option>
+                                                <option value="Software Development">Software Development</option>
+                                                <option value="Web Development">Web Development</option>
+                                                <option value="Digital Marketing">Digital Marketing</option>
+                                                <option value="Graphic Design">Graphic Design</option>
+                                                <option value="Branding">Branding</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="col-12">
+
+                                        <div class="input-container textarea">
+                                            <textarea name="projectsummary" class="input" placeholder='.'></textarea>
+                                            <label for="">Project Summary*
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div className="col-12">
+                                        <input type="submit" value="Send" class="btn btn-light bg-white text-dark" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            {/* <div className="sec py-5 bg-white">
                 <div className="container">
                     <div className={`row`}>
                         <div className="col-md-6 my-md-auto my-3 text-start">
@@ -65,7 +194,7 @@ export const Contact = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }
