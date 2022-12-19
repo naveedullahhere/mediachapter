@@ -1,34 +1,34 @@
 $(document).ready(function () {
 
-    $('.customer-logos').slick({
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        arrows: false,
-        dots: false,
-        pauseOnHover: false,
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 4
-            }
-        }, {
-            breakpoint: 520,
-            settings: {
-                slidesToShow: 3
-            }
-        }]
-    });
-    $('.testimonialsMain').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        arrows: false,
-        dots: false,
-        pauseOnHover: false,
-    });
+    // $('.customer-logos').slick({
+    //     slidesToShow: 6,
+    //     slidesToScroll: 1,
+    //     autoplay: true,
+    //     autoplaySpeed: 1500,
+    //     arrows: false,
+    //     dots: false,
+    //     pauseOnHover: false,
+    //     responsive: [{
+    //         breakpoint: 768,
+    //         settings: {
+    //             slidesToShow: 4
+    //         }
+    //     }, {
+    //         breakpoint: 520,
+    //         settings: {
+    //             slidesToShow: 3
+    //         }
+    //     }]
+    // });
+    // $('.testimonialsMain').slick({
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     autoplay: true,
+    //     autoplaySpeed: 1500,
+    //     arrows: false,
+    //     dots: false,
+    //     pauseOnHover: false,
+    // });
     $('.clients').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -110,35 +110,35 @@ window.addEventListener('load', function () {
     document.addEventListener('click', () => {
 
 
-        $('.customer-logos').slick({
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 4500,
-            arrows: false,
-            dots: false,
-            pauseOnHover: false,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 4
-                }
-            }, {
-                breakpoint: 520,
-                settings: {
-                    slidesToShow: 3
-                }
-            }]
-        });
-        $('.testimonialsMain').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 4500,
-            arrows: false,
-            dots: false,
-            pauseOnHover: false,
-        });
+        // $('.customer-logos').slick({
+        //     slidesToShow: 6,
+        //     slidesToScroll: 1,
+        //     autoplay: true,
+        //     autoplaySpeed: 4500,
+        //     arrows: false,
+        //     dots: false,
+        //     pauseOnHover: false,
+        //     responsive: [{
+        //         breakpoint: 768,
+        //         settings: {
+        //             slidesToShow: 4
+        //         }
+        //     }, {
+        //         breakpoint: 520,
+        //         settings: {
+        //             slidesToShow: 3
+        //         }
+        //     }]
+        // });
+        // $('.testimonialsMain').slick({
+        //     slidesToShow: 1,
+        //     slidesToScroll: 1,
+        //     autoplay: true,
+        //     autoplaySpeed: 4500,
+        //     arrows: false,
+        //     dots: false,
+        //     pauseOnHover: false,
+        // });
         $('.clients').slick({
             slidesToShow: 4,
             slidesToScroll: 1,

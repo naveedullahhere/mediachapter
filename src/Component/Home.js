@@ -3,6 +3,7 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-re
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import slide from './assets/home-slider.png';
 import slide0 from './assets/home-slider0.png';
+import Sliderz from "react-slick";
 import slide1 from './assets/home-slider1.png';
 import card0 from './assets/card0.png';
 import card1 from './assets/card1.png';
@@ -10,8 +11,29 @@ import card2 from './assets/card2.png';
 import card3 from './assets/card3.png';
 import card4 from './assets/card4.png';
 import { motion } from 'framer-motion';
+import { Testimonials } from './Testimonials';
 
 export const Home = () => {
+    const settings = {
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 4
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 3
+            }
+        }]
+    };
     return (
         <>
             <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
@@ -250,67 +272,22 @@ export const Home = () => {
                 </div>
                 <div className="sec py-5">
                     <section class="customer-logos slider">
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-08.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-11.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-14.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-17.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-03.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-06.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-12.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-09.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-15.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-18.png" /></div>
+                        <Sliderz {...settings}>
+
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-08.png" /></div>
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-11.png" /></div>
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-14.png" /></div>
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-17.png" /></div>
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-03.png" /></div>
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-06.png" /></div>
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-12.png" /></div>
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-09.png" /></div>
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-15.png" /></div>
+                            <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-18.png" /></div>
+                        </Sliderz>
                     </section>
                 </div>
-                <div className="sec py-5">
-                    <div className="testimonialsMain">
-                        <div className="testimonials row">
-                            <div className="col-lg-6 col-md-8 col-12 mx-auto">
-
-                                <div className="testimonialImg">
-                                    <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2021/12/Image-1-03.jpg" alt="clients" />
-                                </div>
-                                <div className="testimonialsContent my-4">
-                                    <p className="text-muted"><i>“Full marks for creativity. Plus, I have found them extremely friendly during the whole working process. Keep doing what you are doing Media Chapter. Make a difference”</i></p>
-                                </div>
-                                <div className="testimonialsFooter">
-                                    <p className="fw-bold mb-2"><i>Robert Rice</i></p>
-                                    <p className="text-muted"><i>Baixo Inc</i></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="testimonials row">
-                            <div className="col-lg-6 col-md-8 col-12 mx-auto">
-
-                                <div className="testimonialImg">
-                                    <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2021/12/Image-1-04.jpg" alt="clients" />
-                                </div>
-                                <div className="testimonialsContent my-4">
-                                    <p className="text-muted"><i>“It was an outstanding experience working with Media Chapter. Working with them was a memorable experience. They are not skilled and passionate about the work but also deliver every project.”</i></p>
-                                </div>
-                                <div className="testimonialsFooter">
-                                    <p className="fw-bold mb-2"><i>Mickey Divk</i></p>
-                                    <p className="text-muted"><i>Baixo Inc</i></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="testimonials row">
-                            <div className="col-lg-6 col-md-8 col-12 mx-auto">
-
-                                <div className="testimonialImg">
-                                    <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2021/12/Image-1-05.jpg" alt="clients" />
-                                </div>
-                                <div className="testimonialsContent my-4">
-                                    <p className="text-muted"><i>“Everyone at the office is happy with the social media strategies created by MediaChapter. Works like a charm. i love the ease of the app and would highly recommend Thank you, guys!”</i></p>
-                                </div>
-                                <div className="testimonialsFooter">
-                                    <p className="fw-bold mb-2"><i>Joseph Stickles</i></p>
-                                    <p className="text-muted"><i>Baixo Inc</i></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <Testimonials /> 
                 <div className="sec py-5">
                     <div className="container">
                         <div className="row">

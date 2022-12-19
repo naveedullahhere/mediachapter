@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Logo from '../assets/logo.png';
 import { Link, useLocation } from "react-router-dom";
 
 
 export const Header = () => {
     const { pathname } = useLocation();
+    const closeRef = useRef(null)
+    useEffect(() => {
+        return () => {
+            closeRef.current.click();
+        }
+    }, [pathname])
+
     return (
         <>
             <div class="navigation-wrap bg-white start-header start-style">
@@ -13,7 +20,7 @@ export const Header = () => {
                         <div class="col-12">
                             <nav class="navbar navbar-expand-md navbar-light px-xl-5 px-3">
                                 <Link class="navbar-brand me-lg-5" to={'/'}><img src={Logo} alt="MediaChapter" width="136" /></Link>
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" >
+                                <button class="navbar-toggler" ref={closeRef} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" >
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
 
