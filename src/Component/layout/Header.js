@@ -7,7 +7,7 @@ export const Header = () => {
     const { pathname } = useLocation();
     return (
         <>
-            <div class="navigation-wrap bg-light start-header start-style">
+            <div class="navigation-wrap bg-white start-header start-style">
                 <div class="container-lg">
                     <div class="row">
                         <div class="col-12">
