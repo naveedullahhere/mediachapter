@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import seo from "../assets/seo.png";
 import { ContactForm } from '../ContactForm';
+import { SkillsCircle } from '../SkillsCircle';
 
 export const Seo = () => {
     return (
@@ -61,7 +62,9 @@ export const Seo = () => {
                                     and flawless execution. Take a look below and find out what exactly you need
                                 </p>
                             </div>
-                            <div className="col-md-6 my-3 px-md-5">
+                            <div className="col-md-6 my-3 px-md-5 position-relative">
+                                <SkillsCircle value={96} />
+
                                 <h1 className="heading fs-4">
                                     Keyword Research
                                 </h1>
@@ -69,7 +72,9 @@ export const Seo = () => {
                                     We have a dedicated research team that can help you find relevant and high-volume keywords googled by your target audience to find products and services same as provided by you.
                                 </p>
                             </div>
-                            <div className="col-md-6 my-3 px-md-5">
+                            <div className="col-md-6 my-3 px-md-5 position-relative">
+                                <SkillsCircle value={46} />
+
                                 <h1 className="heading fs-4">
                                     Link Building
                                 </h1>
@@ -77,7 +82,9 @@ export const Seo = () => {
                                     Getting links from high-ranking and authoritative sites is a key to rank higher on search engine result pages (SERPs). Link builders at Media Chapter always generate powerful links.
                                 </p>
                             </div>
-                            <div className="col-md-6 my-3 px-md-5">
+                            <div className="col-md-6 my-3 px-md-5 position-relative">
+                                <SkillsCircle value={36} />
+
                                 <h1 className="heading fs-4">
                                     Local Search
                                 </h1>
@@ -87,7 +94,9 @@ export const Seo = () => {
                                     store with our smart SEO services.
                                 </p>
                             </div>
-                            <div className="col-md-6 my-3 px-md-5">
+                            <div className="col-md-6 my-3 px-md-5 position-relative">
+                                <SkillsCircle value={56} />
+
                                 <h1 className="heading fs-4">
                                     eCommerce SEO
                                 </h1>

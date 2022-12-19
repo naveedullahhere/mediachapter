@@ -23,10 +23,10 @@ export const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="sec py-5">
-                    <div className="container my-5">
+                <div className="sec py-md-5">
+                    <div className="container my-md-5">
                         <div className="row text-start">
-                            <div className="col-md-6 my-md-auto my-3"><video className='w-100' muted src="https://mediachapter.us/wp-content/uploads/2021/12/VID-20211216-WA0019.mp4" autoplay="" controlslist="nodownload"></video></div>
+                            <div className="col-md-6 my-md-auto my-3"><video className='w-100' src="https://mediachapter.us/wp-content/uploads/2021/12/VID-20211216-WA0019.mp4" autoplay="" controlslist="nodownload"></video></div>
                             <div className="col-md-6 my-md-auto my-3">
                                 <h1 className="heading">Who We Are
                                 </h1>

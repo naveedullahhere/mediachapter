@@ -32,10 +32,10 @@ export const Graphics = () => {
                                     desired results. Have a look at some of our most prestigious work.
                                 </p>
                             </div>
-                            <div className="col-12 my-5">
+                            <div className="col-12 my-md-5 my-4">
                                 <MainPortfolio />
                             </div>
-                            <div className="col-12 text-center my-5  ">
+                            <div className="col-12 text-center my-md-5">
                                 <button className="btn btn-main">See More</button>
                             </div>
                         </div>

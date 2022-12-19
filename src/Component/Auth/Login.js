@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 
 export const Login = () => {
     return (
@@ -22,9 +22,9 @@ export const Login = () => {
                     </div>
                     <div class="remember-me">
                         <input type="checkbox" checked name="" id="checkbox" />
-                        <label for="checkbox">Remember Me</label>
+                        <label for="checkbox" className='ps-2'>Remember Me</label>
                     </div>
-                    <button type="submit">Login To Website</button>
+                    <button type="submit">Login</button>
                     <div class="auth-action">
                         <Link to="/register">Sign Up</Link>
                         <a href="#">Forget Password?</a>

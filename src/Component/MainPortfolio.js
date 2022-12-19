@@ -10,34 +10,30 @@ export const MainPortfolio = () => {
     const [activeFilter, setActiveFilter] = useState("all");
 
     return (
-        
-        <div className="sec py-5">
+        <>
+            <Filter
+                all={PortfolioItems}
+                setFiltered={setFiltered}
+                activeFilter={activeFilter}
+                setActiveFilter={setActiveFilter}
+            />
+            <motion.div
+                layout
+            >
+                <div className="row">
 
-            <div className="container">
-                <Filter
-                    all={PortfolioItems}
-                    setFiltered={setFiltered}
-                    activeFilter={activeFilter}
-                    setActiveFilter={setActiveFilter}
-                />
-                <motion.div
-                    layout
-                >
-                    <div className="row">
-
-                        <AnimatePresence>
-                            {filtered.map(items => (
-                                <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-6">
-                                    <FilteredItems
-                                        key={items.id}
-                                        item={items}
-                                    />
-                                </div>
-                            ))}
-                        </AnimatePresence>
-                    </div>
-                </motion.div>
-            </div>
-        </div>
+                    <AnimatePresence>
+                        {filtered.map(items => (
+                            <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-12">
+                                <FilteredItems
+                                    key={items.id}
+                                    item={items}
+                                />
+                            </div>
+                        ))}
+                    </AnimatePresence>
+                </div>
+            </motion.div>
+        </>
     )
 }

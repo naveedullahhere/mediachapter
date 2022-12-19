@@ -11,7 +11,7 @@ export const Contact = () => {
             <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
                 <div className="sec py-5">
 
-                    <div class="container my-5 text-start">
+                    <div class="container my-md-5 text-start">
                         <span class="big-circle"></span>
                         <img src="img/shape.png" class="square" alt="" />
                         <div class="form row mx-auto">
