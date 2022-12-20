@@ -44,8 +44,8 @@ export const Testimonials = () => {
                                         <div className="testimonialImg">
                                             <img className='testImg' src={`${img}/${item.image}`} alt="clients" />
                                         </div>
-                                        <div className="testimonialsContent my-4">
-                                            <p className="text-muted"><i>{item.comment}</i></p>
+                                        <div className="testimonialsContent my-4 px-3">
+                                            <p className="text-muted para-sm"><i>{item.comment}</i></p>
                                         </div>
                                         <div className="testimonialsFooter">
                                             <p className="fw-bold mb-2"><i>{item.name}</i></p>
