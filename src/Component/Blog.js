@@ -3,8 +3,7 @@ import React from 'react'
 
 export const Blog = () => {
     return (
-        <>
-            <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
+        <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
             <div className="sec py-5 blog">
                 <div className="container">
                     <div className="row">
@@ -153,7 +152,6 @@ export const Blog = () => {
                     </div>
                 </div>
             </div>
-            </motion.div>
-        </>
+        </motion.div>
     )
 }

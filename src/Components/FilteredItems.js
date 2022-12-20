@@ -5,9 +5,7 @@ function FilteredItems({ item }) {
     return (
         <motion.div
             layout
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}
             transition={{ duration: 0.5 }}
         >
             <a class={`${item.filter}`} href="#" data-cat={`${item.filter}`} key={item.id}>

@@ -19,7 +19,7 @@ export const MainRoutes = () => {
     const { pathname } = useLocation();
     return (
         <AnimatePresence>
-            <Routes>
+            <Routes key={pathname}>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/graphic-design" element={<Graphics />} />

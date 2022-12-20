@@ -323,7 +323,8 @@ footer {
 .navbar-collapse,
 .navbar-collapse.collapse,
 .collapsing {
-  transition: all .3s;
+  /* transition: all 50s; */
+  transition: all .005s ease 0s;
 }
 
 .navbar-collapse.collapse {
@@ -359,6 +360,36 @@ h2 {
 
 .slick-slide img {
   width: 100%;
+  padding: 20px;
+}
+
+.slick-slide img.testImg {
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  img[alt="trustpiolet"] {
+    width: 65%;
+  }
+
+}
+
+@media (max-width: 784px) {
+
+  .navbar-collapse,
+  .navbar-collapse.collapse,
+  .collapsing {
+    transition: all .3s;
+    /* transition: all .005s ease 0s; */
+  }
+
+}
+
+@media (max-width: 768px) {
+  img[alt="trustpiolet"] {
+    width: 65%;
+  }
+
 }
 
 .sec .h-100.col-sm-6 {
@@ -672,6 +703,17 @@ h2 {
   transition: all 0.3s ease-out;
 }
 
+.cursorMain {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  z-index: 2147483647;
+  border-radius: 12px;
+}
+
+
+
 .navigation-wrap {
   position: absolute;
   /* position: fixed;
@@ -799,7 +841,8 @@ footer .nav-item::before {
   opacity: 0;
 }
 
-.nav-item {
+.nav-item,
+.anotherLink {
   position: relative;
   transition: all 200ms linear;
 }
@@ -909,8 +952,7 @@ footer .nav-item::before {
 
 
 @media (max-width: 767px) {
-  .navbar-nav {
-
+  .navbar-nav { 
     padding-left: 2em;
   }
 
@@ -1336,6 +1378,15 @@ textarea.input {
 @media (max-width: 480px) {
   .contact-info:before {
     display: none;
+  }
+
+  .navigation-wrap+div {
+    transform: translateY(90px) !important;
+    margin-bottom: 90px;
+  }
+
+  .navbar-brand img {
+    width: 90px;
   }
 
   .square,

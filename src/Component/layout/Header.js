@@ -8,7 +8,7 @@ export const Header = () => {
     const closeRef = useRef(null)
     useEffect(() => {
         return () => {
-            closeRef.current.click();
+            closeRef.current.className != "navbar-toggler collapsed" && closeRef.current.click();
         }
     }, [pathname])
 
@@ -16,7 +16,7 @@ export const Header = () => {
         <>
             <div class="navigation-wrap bg-white start-header start-style">
                 <div class="">
-                    <div class="row">
+                    <div class="row w-100 mx-auto">
                         <div class="col-12">
                             <nav class="navbar navbar-expand-md navbar-light px-xl-5 px-3">
                                 <Link class="navbar-brand me-lg-5" to={'/'}><img src={Logo} alt="MediaChapter" width="136" /></Link>
@@ -26,7 +26,7 @@ export const Header = () => {
 
 
                                 <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent">
-                                    <ul class="navbar-nav ml-auto py-4 py-md-0 gap-3">
+                                    <ul class="navbar-nav ml-auto py-4 py-md-0 gap-3 pb-3">
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/' && "active"}`}>
                                             <Link class={`nav-link`} to='/'>Home</Link>
                                         </li>
@@ -53,13 +53,19 @@ export const Header = () => {
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Contact' && "active"}`}>
                                             <Link class={`nav-link`} to={'/Contact'}>Contact</Link>
                                         </li>
-                                        <li class={`nav-item pl-4 pl-md-0 mx-lg-4 mx-md-3`}>
-                                            <i class="nectar-menu-icon fa fa-phone"></i>
-                                            <a class={`nav-link`} href="tel:+12483464854">+1-248-346-4854</a>
-                                        </li>
+
                                     </ul>
-                                    <div>
-                                        <button className="btn btn-main">get a quote</button>
+                                    <div className='d-flex align-items-md-center gap-3 flex-md-row flex-column'>
+                                        <div className="navbar-nav">
+
+                                            <div class={`nav-item pl-4 pl-md-0 mx-lg-4 mx-md-3 anotherLink`}>
+                                                <i class="nectar-menu-icon fa fa-phone"></i>
+                                                <a class={`nav-link`} href="tel:+12483464854">+1-248-346-4854</a>
+                                            </div>
+                                        </div>
+                                        <Link to={'/contact'} className="btn btn-main">
+                                            GET A QUOTE
+                                        </Link>
                                     </div>
                                 </div>
                             </nav>
