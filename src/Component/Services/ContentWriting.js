@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import content from "../assets/content.png";
 import { AppContext } from '../../context/AppContext';
 import { ContactForm } from '../ContactForm';
+import { SkillsCircle } from '../SkillsCircle';
+
 
 export const ContentWriting = () => {
     const { AppName, setTitle } = useContext(AppContext);
@@ -53,6 +55,7 @@ export const ContentWriting = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 mx-auto">
+
                             <h2 className="heading fs-2">
                                 Our Digital Marketing Services Cover Everything
                             </h2>
@@ -62,6 +65,7 @@ export const ContentWriting = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
+                            <SkillsCircle value={80} />
                             <h1 className="heading fs-4">
                                 Web Content
                             </h1>
@@ -73,6 +77,7 @@ export const ContentWriting = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
+                            <SkillsCircle value={79} />
                             <h1 className="heading fs-4">
                                 Blog Posts
                             </h1>
@@ -84,6 +89,7 @@ export const ContentWriting = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
+                            <SkillsCircle value={95} />
                             <h1 className="heading fs-4">
                                 Press Release
                             </h1>
@@ -95,6 +101,7 @@ export const ContentWriting = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
+                            <SkillsCircle value={80} />
                             <h1 className="heading fs-4">
                                 Social Media Content
                             </h1>

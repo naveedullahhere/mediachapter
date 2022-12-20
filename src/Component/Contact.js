@@ -63,23 +63,7 @@ export const Contact = () => {
                                     We are eager to be a partner in your digital journey as a digital marketing specialist
                                 </p>
 
-                                <div class="info">
-                                    <div class="information mb-4">
-                                        <p className='mb-0'><span><b>Pakistan:</b></span><br /> </p>
-                                    </div>
-                                    <div class="information mb-4">
-                                        <img src={address} class="icon" alt="" />
-                                        <p className='mb-0'> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
-                                    </div>
-                                    <div class="information mb-4">
-                                        <img src={email} class="icon" alt="" />
-                                        <p className='mb-0'>info@eliteblue.net</p>
-                                    </div>
-                                    <div class="information mb-4">
-                                        <img src={phone} class="icon" alt="" />
-                                        <p className='mb-0'>+92 333 051 8880</p>
-                                    </div>
-                                </div>
+
                                 <div class="info">
                                     <div class="information mb-4">
                                         <p className='mb-0'><span><b>USA:</b></span><br /> </p>
@@ -90,10 +74,27 @@ export const Contact = () => {
                                     </div>
                                     <div class="information mb-4">
                                         <img src={email} class="icon" alt="" />
-                                        <p className='mb-0'>info@eliteblue.net</p>
+                                        <p className='mb-0'>info@mediachapter.us</p>
                                     </div>
                                     <div class="information mb-4">
                                         <img src={phone} class="icon" alt="" />
+                                        <p className='mb-0'>+92 333 051 8880</p>
+                                    </div>
+                                </div>
+                                <div className="info">
+                                    <div className="information mb-4">
+                                        <p className='mb-0'><span><b>Pakistan:</b></span><br/></p>
+                                    </div>
+                                    <div className="information mb-4">
+                                        <img src={address} className="icon" alt=""/>
+                                        <p className='mb-0'> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
+                                    </div>
+                                    <div className="information mb-4">
+                                        <img src={email} className="icon" alt=""/>
+                                        <p className='mb-0'>info@mediachapter.us</p>
+                                    </div>
+                                    <div className="information mb-4">
+                                        <img src={phone} className="icon" alt=""/>
                                         <p className='mb-0'>+92 333 051 8880</p>
                                     </div>
                                 </div>

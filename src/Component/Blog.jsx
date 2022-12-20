@@ -43,7 +43,7 @@ export const Blog = () => {
                         {
                             data.length >= 1 &&
 
-                            <div className="col-lg-10 mx-auto my-4">
+                            <div className="col-lg-11 mx-auto my-4">
                                 <div className="row">
                                     {data.map((item) => {
                                         return <div className="col-lg-4 col-md-6 col-sm-6 col-12 my-3 text-start">
@@ -52,9 +52,9 @@ export const Blog = () => {
                                                 <div class="card-body my-3">
                                                     <h6 class="card-title">{item.title}</h6>
                                                     <p className="my-3 text-danger fs-smm">
-                                                        October 17, 2021  No Comments
-                                                    </p>{item.short_description}
-                                                    <p class="card-text para-sm fs-smm text-muted">
+                                                        {new Date(item.updated_at).toLocaleString("en-us")}
+                                                    </p>
+                                                    <p class="card-text para-sm fs-smm text-muted" dangerouslySetInnerHTML={{__html: item.short_description}}>
                                                           </p>
                                                     <a href={`${singleUrl}/${item.slug}`} class="text-danger">Read More ↗</a>
                                                 </div>

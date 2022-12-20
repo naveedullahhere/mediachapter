@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { AppContext } from '../../context/AppContext';
 import digital from "../assets/digitalmarketing.png";
 import { ContactForm } from '../ContactForm';
+import { SkillsCircle } from '../SkillsCircle';
+
 
 export const DigitalMarketing = () => {
     const { AppName, setTitle } = useContext(AppContext);
@@ -64,6 +66,7 @@ export const DigitalMarketing = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
+                            <SkillsCircle value={70} />
                             <h1 className="heading fs-4">
                                 Search Engine Optimization (SEO)
                             </h1>
@@ -74,6 +77,7 @@ export const DigitalMarketing = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
+                            <SkillsCircle value={90} />
                             <h1 className="heading fs-4">
                                 Social Media Marketing (SMM)
                             </h1>
@@ -83,6 +87,7 @@ export const DigitalMarketing = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
+                            <SkillsCircle value={80} />
                             <h1 className="heading fs-4">
                                 Social Media Marketing (SMM)
                             </h1>
@@ -93,6 +98,7 @@ export const DigitalMarketing = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
+                            <SkillsCircle value={85} />
                             <h1 className="heading fs-4">
                                 Content Writing
                             </h1>
