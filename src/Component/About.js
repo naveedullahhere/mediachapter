@@ -1,7 +1,8 @@
-import React from 'react';
-import { aboutBanner } from "./assets/about-banner.jpg";
+import React, { useContext } from 'react';
 import number1 from "./assets/num1.png";
 import number2 from "./assets/num2.png";
+import { AppContext } from '../context/AppContext';
+import Slider from "react-slick";
 import number3 from "./assets/num3.png";
 import number4 from "./assets/num4.png";
 import { motion } from 'framer-motion';
@@ -9,7 +10,41 @@ import { Link } from 'react-router-dom';
 
 
 export const About = () => {
+    const { AppName, setTitle } = useContext(AppContext);
+    setTitle(`${AppName}About`);
+
+    const settings = {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
     return (
+
         <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
             <div className="about sec image-banner">
                 <div className="container h-100">
@@ -26,7 +61,7 @@ export const About = () => {
             <div className="sec py-md-5">
                 <div className="container my-md-5">
                     <div className="row text-start py-md-0 py-4">
-                        <div className="col-md-6 my-md-auto my-3"><video className='w-100' muted src="https://mediachapter.us/wp-content/uploads/2021/12/VID-20211216-WA0019.mp4" autoplay="" controlslist="nodownload"></video></div>
+                        <div className="col-md-6 my-md-auto my-3"><video className='w-100' src="https://mediachapter.us/wp-content/uploads/2021/12/VID-20211216-WA0019.mp4" autoplay="" controlslist="nodownload"></video></div>
                         <div className="col-md-6 my-md-auto my-3">
                             <h1 className="heading">Who We Are
                             </h1>
@@ -104,78 +139,80 @@ export const About = () => {
                         </div>
                         <div className="col-12">
                             <div className="clients">
-                                <div className=" row">
-                                    <div className="col-12 mx-auto">
+                                <Slider {...settings}>
+                                    <div className="testimonials row">
+                                        <div className="col-12 mx-auto">
 
-                                        <div className="testimonialImg">
-                                            <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Sara-Ali-300x300.jpg" alt="clients" />
-                                        </div>
-                                        <div className="testimonialsFooter">
-                                            <p className="fw-bold mt-3 fs-5 mb-2"><i>Sara Ali</i></p>
-                                            <p className="text-muted"><i>Baixo Inc</i></p>
+                                            <div className="testimonialImg">
+                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Sara-Ali-300x300.jpg" alt="clients" />
+                                            </div>
+                                            <div className="testimonialsFooter">
+                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Sara Ali</i></p>
+                                                <p className="text-muted"><i>Baixo Inc</i></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="testimonials row">
-                                    <div className="col-12 mx-auto">
+                                    <div className="testimonials row">
+                                        <div className="col-12 mx-auto">
 
-                                        <div className="testimonialImg">
-                                            <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Stella-Flora-300x300.jpg" alt="clients" />
-                                        </div>
-                                        <div className="testimonialsFooter">
-                                            <p className="fw-bold mt-3 fs-5 mb-2"><i>Stella Flora</i></p>
-                                            <p className="text-muted"><i>SEO Specialist</i></p>
+                                            <div className="testimonialImg">
+                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Stella-Flora-300x300.jpg" alt="clients" />
+                                            </div>
+                                            <div className="testimonialsFooter">
+                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Stella Flora</i></p>
+                                                <p className="text-muted"><i>SEO Specialist</i></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="testimonials row">
-                                    <div className="col-12 mx-auto">
+                                    <div className="testimonials row">
+                                        <div className="col-12 mx-auto">
 
-                                        <div className="testimonialImg">
-                                            <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Erick-Rowan-300x300.jpg" alt="clients" />
-                                        </div>
-                                        <div className="testimonialsFooter">
-                                            <p className="fw-bold mt-3 fs-5 mb-2"><i>Erick Rowan</i></p>
-                                            <p className="text-muted"><i>Web Developer</i></p>
+                                            <div className="testimonialImg">
+                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Erick-Rowan-300x300.jpg" alt="clients" />
+                                            </div>
+                                            <div className="testimonialsFooter">
+                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Erick Rowan</i></p>
+                                                <p className="text-muted"><i>Web Developer</i></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="testimonials row">
-                                    <div className="col-12 mx-auto">
+                                    <div className="testimonials row">
+                                        <div className="col-12 mx-auto">
 
-                                        <div className="testimonialImg">
-                                            <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/shayan-rao-300x300.jpg" alt="clients" />
-                                        </div>
-                                        <div className="testimonialsFooter">
-                                            <p className="fw-bold mt-3 fs-5 mb-2"><i>Shayan R.</i></p>
-                                            <p className="text-muted"><i>CEO/Founder</i></p>
+                                            <div className="testimonialImg">
+                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/shayan-rao-300x300.jpg" alt="clients" />
+                                            </div>
+                                            <div className="testimonialsFooter">
+                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Shayan R.</i></p>
+                                                <p className="text-muted"><i>CEO/Founder</i></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="testimonials row">
-                                    <div className="col-12 mx-auto">
+                                    <div className="testimonials row">
+                                        <div className="col-12 mx-auto">
 
-                                        <div className="testimonialImg">
-                                            <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Erick-Rowan-300x300.jpg" alt="clients" />
-                                        </div>
-                                        <div className="testimonialsFooter">
-                                            <p className="fw-bold mt-3 fs-5 mb-2"><i>Azhar Ali</i></p>
-                                            <p className="text-muted"><i>Business Developer</i></p>
+                                            <div className="testimonialImg">
+                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Erick-Rowan-300x300.jpg" alt="clients" />
+                                            </div>
+                                            <div className="testimonialsFooter">
+                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Azhar Ali</i></p>
+                                                <p className="text-muted"><i>Business Developer</i></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="testimonials row">
-                                    <div className="col-12 mx-auto">
+                                    <div className="testimonials row">
+                                        <div className="col-12 mx-auto">
 
-                                        <div className="testimonialImg">
-                                            <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/William-Joe-300x300.jpg" alt="clients" />
-                                        </div>
-                                        <div className="testimonialsFooter">
-                                            <p className="fw-bold mt-3 fs-5 mb-2"><i>William Joe</i></p>
-                                            <p className="text-muted"><i>Brand Specialst</i></p>
+                                            <div className="testimonialImg">
+                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/William-Joe-300x300.jpg" alt="clients" />
+                                            </div>
+                                            <div className="testimonialsFooter">
+                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>William Joe</i></p>
+                                                <p className="text-muted"><i>Brand Specialst</i></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Slider>
                             </div>
                         </div>
                     </div>

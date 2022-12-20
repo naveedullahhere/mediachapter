@@ -1,46 +1,85 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import email from "./assets/email0.png";
 import { motion } from 'framer-motion';
 import phone from "./assets/phone0.png";
+import { useForm } from 'react-hook-form';
 import address from "./assets/location0.png";
-import ContactImg from "./assets/contact.png";
+import { AppContext } from '../context/AppContext';
+import toast, { Toaster } from "react-hot-toast";
 
 export const Contact = () => {
+    const { AppName, setTitle, URL } = useContext(AppContext);
+    setTitle(`${AppName}Contact`);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+
+
+    const onSubmit = (data) => {
+        data = JSON.stringify(data);
+
+        const fetchData = async () => {
+            await fetch(`${URL}api/contact-post`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: data
+            })
+                .then(res => res.json())
+                .then(json => {
+                    if (json.success) {
+                        return json.message;
+                    }
+                }).catch(err => {
+                    console.log(err);
+                    return null
+                })
+        };
+        toast.promise(
+            fetchData(),
+            {
+                duration: 4000,
+                loading: 'loading...',
+                success: "Your Query Has Been Submitted Successfully Our Team Will Be Contact To You ASAP",
+                error: "Something went wrong!",
+            }
+        );
+    };
+
     return (
 
-        <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
-            <div className="sec py-5">
+        <>
 
-                <div class="container my-md-5 text-start">
-                    <span class="big-circle"></span>
-                    <img src="img/shape.png" class="square" alt="" />
-                    <div class="form row mx-auto">
-                        <div className="contact-info col-12 my-auto">
-                            <h3 class="heading text-main">CONTACT US</h3>
-                            <p class="text">
-                                We are eager to be a partner in your digital journey as a digital marketing specialist
-                            </p>
+            <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
+                <div className="sec py-5">
+                    <div class="container my-md-5 text-start">
+                        <span class="big-circle"></span>
+                        <img src="img/shape.png" class="square" alt="" />
+                        <div class="form row mx-auto">
+                            <div className="contact-info col-12 my-auto">
+                                <h3 class="heading text-main">CONTACT US</h3>
+                                <p class="text">
+                                    We are eager to be a partner in your digital journey as a digital marketing specialist
+                                </p>
 
-                            <div class="info">
-                                <div class="information mb-4">
-                                    <img src={address} class="icon" alt="" />
-                                    <p className='mb-0'>Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
+                                <div class="info">
+                                    <div class="information mb-4">
+                                        <img src={address} class="icon" alt="" />
+                                        <p className='mb-0'><span><b>Pakistan:</b></span><br /> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
+                                        <p className='mb-0'><span><b>USA:</b></span><br /> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
+                                    </div>
+                                    <div class="information mb-4">
+                                        <img src={email} class="icon" alt="" />
+                                        <p className='mb-0'>info@eliteblue.net</p>
+                                    </div>
+                                    <div class="information mb-4">
+                                        <img src={phone} class="icon" alt="" />
+                                        <p className='mb-0'>+92 333 051 8880</p>
+                                    </div>
                                 </div>
-                                <div class="information mb-4">
-                                    <img src={address} class="icon" alt="" />
-                                    <p className='mb-0'>Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
-                                </div>
-                                <div class="information mb-4">
-                                    <img src={email} class="icon" alt="" />
-                                    <p className='mb-0'>info@eliteblue.net</p>
-                                </div>
-                                <div class="information mb-4">
-                                    <img src={phone} class="icon" alt="" />
-                                    <p className='mb-0'>+92 333 051 8880</p>
-                                </div>
-                            </div>
 
-                            {/* <div class="social-media">
+                                {/* <div class="social-media">
                                 <p>Connect with us :</p>
                                 <div class="social-icons">
                                     <a href="#">
@@ -57,145 +96,110 @@ export const Contact = () => {
                                     </a>
                                 </div>
                             </div> */}
-                        </div>
+                            </div>
 
-                        <div class="contact-form">
-                            <span class="circle one"></span>
-                            <span class="circle two"></span>
+                            <div class="contact-form">
+                                <span class="circle one"></span>
+                                <span class="circle two"></span>
 
-                            <form action="/" autocomplete="off">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <h3 class="title">Contact us</h3>
-
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div class="input-container">
-                                            <input type="text" name="firstname" class="input" placeholder='.' />
-                                            <label for="">First Name*</label>
+                                <form onSubmit={handleSubmit(onSubmit)} autocomplete="off">
+                                    <div className="row">
+                                        <div className="col-12">
+                                            <h3 class="title">Contact us</h3>
                                         </div>
-                                    </div>
-                                    <div className="col-md-6">
-
-                                        <div class="input-container">
-                                            <input type="text" name="lastname" class="input" placeholder='.' />
-                                            <label for="">Last Name*</label>
+                                        <div className="col-12">
+                                            <input type="hidden" {...register('domain')} name="domain" value={window.location.href} />
+                                            <input type="hidden" {...register('user_id')} name="user_id" value={null} />
+                                            <input type="hidden" {...register('page_name')} name="page_name" value={document.title.slice("-")[1]} />
                                         </div>
-                                    </div>
-                                    <div className="col-md-6">
+                                        <div className="col-md-6">
+                                            <div class="input-container">
+                                                <input {...register('firstname', { required: true })} type="text" name="firstname" class={`input ${errors.firstname && "form-control is-invalid"}`} placeholder='.' />
+                                                <label for="">First Name*</label>
+                                            </div>
 
-                                        <div class="input-container">
-                                            <input type="email" name="email" class="input" placeholder='.' />
-                                            <label for="">Email*</label>
                                         </div>
-                                    </div>
-                                    <div className="col-md-6">
+                                        <div className="col-md-6">
 
-                                        <div class="input-container">
-                                            <input type="tel" name="phone" class="input" placeholder='.' />
-                                            <label for="">Phone*</label>
+                                            <div class="input-container">
+                                                <input type="text" name="lastname" class={`input ${errors.lastname && "form-control is-invalid"}`} placeholder='.' {...register('lastname', { required: true })} />
+                                                <label for="">Last Name*</label>
+                                            </div>
+
                                         </div>
-                                    </div>
-                                    <div className="col-12">
+                                        <div className="col-md-6">
 
-                                        <div class="input-container">
-                                            <input type="text" name="companyname" class="input" placeholder='.' />
-                                            <label for="">Company Name*</label>
+                                            <div class="input-container mb-2">
+                                                <input type="email" name="email" class={`input ${errors.email && "form-control is-invalid"}`} placeholder='.' {...register('email', { required: true, pattern: /^\S+@\S+$/i })} />
+                                                <label for="">Email*</label>
+                                            </div>
+                                            {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>}
+
+
                                         </div>
-                                    </div>
-                                    <div className="col-12">
+                                        <div className="col-md-6">
 
-                                        <div class="input-container">
-                                            <select name="inquiry" class="input">
-                                                <option value="Inquiring About">Inquiring About</option>
-                                                <option value="Software Development">Software Development</option>
-                                                <option value="Web Development">Web Development</option>
-                                                <option value="Digital Marketing">Digital Marketing</option>
-                                                <option value="Graphic Design">Graphic Design</option>
-                                                <option value="Branding">Branding</option>
-                                            </select>
+                                            <div class="input-container">
+                                                <input type="tel" name="phone" class={`input ${errors.phone && "form-control is-invalid"}`} placeholder='.' {...register('phone', { required: true })} />
+                                                <label for="">Phone*</label>
+                                            </div>
+
                                         </div>
-                                    </div>
-                                    <div className="col-12">
+                                        <div className="col-12">
 
-                                        <div class="input-container textarea">
-                                            <textarea name="projectsummary" class="input" placeholder='.'></textarea>
-                                            <label for="">Project Summary*
-                                            </label>
+                                            <div class="input-container">
+                                                <input type="text" name="company_name" class={`input ${errors.company_name && "form-control is-invalid"}`} placeholder='.' {...register('company_name', { required: true })} />
+                                                <label for="">Company Name*</label>
+                                            </div>
+
                                         </div>
+                                        <div className="col-12">
+
+                                            <div class="input-container">
+                                                <select name="inquiry_about" class={`input ${errors.inquiry_about && "form-control is-invalid"}`}  {...register('inquiry_about', { required: true })}>
+                                                    <option value="null" disabled hidden selected>Select Inquiry</option>
+                                                    <option value="Inquiring About">Inquiring About</option>
+                                                    <option value="Software Development">Software Development</option>
+                                                    <option value="Web Development">Web Development</option>
+                                                    <option value="Digital Marketing">Digital Marketing</option>
+                                                    <option value="Graphic Design">Graphic Design</option>
+                                                    <option value="Branding">Branding</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div className="col-12">
+
+                                            <div class="input-container textarea">
+                                                <textarea name="project_summary" class={`input ${errors.project_summary && "form-control is-invalid"}`} placeholder='.' {...register('project_summary', { required: true })}></textarea>
+                                                <label for="">Project Summary*
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div className="col-12">
+                                            <input type="submit" value="Send" class="btn btn-light bg-white text-dark" />
+                                        </div>
+                                        {/* <div className="col-12 mt-4">
+                                            <p className="h5 text-white">{message}</p>
+                                        </div> */}
                                     </div>
-                                    <div className="col-12">
-                                        <input type="submit" value="Send" class="btn btn-light bg-white text-dark" />
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            {/* <div className="sec py-5 bg-white">
-                <div className="container">
-                    <div className={`row`}>
-                        <div className="col-md-6 my-md-auto my-3 text-start">
-                            <h1 className='heading'>Get in touch
-
-                            </h1>
-                            <p className="para-sm text-muted">
-                                MediaChapter is always up to talk about brands. Here is the way to grab our attention.
-
-
-                            </p>
-                            <form action={'/'}>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name='name' id="name" placeholder="Name" />
-                                    <label for="name">Name</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" name='email' id="floatingInput" placeholder="name@example.com" />
-                                    <label for="floatingInput">Email</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" name='phone' id="contact" placeholder="Phone" />
-                                    <label for="contact">Phone</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <textarea class="form-control" name='message' placeholder="Leave a comment here" id="floatingTextarea2" style={{ "height": "100px" }}></textarea>
-                                    <label for="floatingTextarea2">Message</label>
-                                </div>
-                                <button type='submit' className="btn btn-main">
-                                    Submit
-                                </button>
-                            </form>
-                        </div>
-                        <div className="col-md-6 my-md-auto my-3"><img src={ContactImg} alt="contact" className="w-100 p-md-5 p-0" /></div>
-                    </div>
-                </div>
-            </div>
-            <div className="sec py-5 contact-foot">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 mx-auto">
-                            <div className="row">
-                                <div className="col-md-6 my-4">
-                                    <div className="contct d-flex align-items-center gap-3">
-                                        <img src={email} alt="email" className='contact-img' />
-                                        <a href="mailto:info@mediachapter.us" className="main">info@mediachapter.us</a>
-                                    </div>
-                                </div>
-                                <div className="col-md-6 my-4">
-                                    <div className="contct d-flex align-items-center gap-3">
-                                        <img src={phone} alt="email" className='contact-img' />
-                                        <a href="tel:+12017938468" className="main">+1 201 793 8468</a>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div> */}
-        </motion.div>
+                <Toaster position="top-right" />
+
+            </motion.div>
+
+            {/* <form onSubmit={handleSubmit(onSubmit)}>
+                <input defaultValue="test" {...register('example')} />
+                <input {...register('exampleRequired', { required: true })} />
+                {errors.exampleRequired && <span>This field is required</span>}
+                <input type="submit" />
+            </form> */}
+        </>
 
     )
 }

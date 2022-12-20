@@ -1,11 +1,14 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { MainPortfolio } from './MainPortfolio';
+import { AppContext } from '../context/AppContext';
 
 
 
 export const Portfolio = () => {
+    const { AppName, setTitle } = useContext(AppContext);
+    setTitle(`${AppName}Portfolio`);
 
     return (
         <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>

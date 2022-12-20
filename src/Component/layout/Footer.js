@@ -1,5 +1,6 @@
 import Logo from '../assets/logof.png';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     return (
@@ -16,10 +17,10 @@ export const Footer = () => {
                     <div class="col-md-2 my-md-0 my-3">
                         <h5>SITE MAP</h5>
                         <ul class="nav flex-column mt-3">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 para-sm">ABOUT</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 para-sm">PORTFOLIO</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 para-sm">BLOGS</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 para-sm">CONTACT</a></li>
+                            <li class="nav-item mb-2"><Link to="about" class="nav-link p-0 para-sm">ABOUT</Link></li>
+                            <li class="nav-item mb-2"><Link to="portfolio" class="nav-link p-0 para-sm">PORTFOLIO</Link></li>
+                            <li class="nav-item mb-2"><Link to="blog" class="nav-link p-0 para-sm">BLOGS</Link></li>
+                            <li class="nav-item mb-2"><Link to="contact" class="nav-link p-0 para-sm">CONTACT</Link></li>
                         </ul>
                     </div>
 
@@ -30,8 +31,8 @@ export const Footer = () => {
                     <div class="col-md-2 my-md-0 my-3">
                         <h5>OUR POLICIES</h5>
                         <ul class="nav flex-column mt-3">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 para-sm">Privacy Policy</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 para-sm">Terms & Condition</a></li>
+                            <li class="nav-item mb-2"><Link to="/" class="nav-link p-0 para-sm">Privacy Policy</Link></li>
+                            <li class="nav-item mb-2"><Link to="/" class="nav-link p-0 para-sm">Terms & Condition</Link></li>
 
                         </ul>
                     </div>

@@ -260,6 +260,7 @@ footer {
 
   .heading {
     font-size: 2em;
+    line-height: 1.4;
   }
 
   .para-sm {
@@ -501,7 +502,7 @@ h2 {
 
 .image-banner {
   background-size: cover;
-  background-position: 50%;
+  background-position: center right;
   background-repeat: no-repeat;
   min-width: 100%;
   min-height: 100%;
@@ -712,10 +713,13 @@ h2 {
   border-radius: 12px;
 }
 
-
+.scroll-on .nav-link {
+  font-size: 15px;
+}
 
 .navigation-wrap {
-  position: absolute;
+  position: sticky;
+  top: 0;
   /* position: fixed;
   top: 0;
   left: 0; */
@@ -728,8 +732,8 @@ h2 {
 }
 
 .navigation-wrap+div {
-  transform: translateY(106px) !important;
-  margin-bottom: 106px;
+  /* transform: translateY(106px) !important;
+  margin-bottom: 106px; */
 }
 
 @media (max-width:992px) {}
@@ -952,7 +956,7 @@ footer .nav-item::before {
 
 
 @media (max-width: 767px) {
-  .navbar-nav { 
+  .navbar-nav {
     padding-left: 2em;
   }
 
@@ -1190,8 +1194,11 @@ textarea.input {
   transform: translateY(0);
 }
 
+.contact-form select option {
+  color: var(--black);
+}
 
-.input-container span {
+/* .input-container span {
   position: absolute;
   top: 0;
   left: 25px;
@@ -1222,7 +1229,7 @@ textarea.input {
 
 .input-container span:after {
   right: 50%;
-}
+} */
 
 .input-container.focus label {
   top: 0;
@@ -1381,8 +1388,8 @@ textarea.input {
   }
 
   .navigation-wrap+div {
-    transform: translateY(90px) !important;
-    margin-bottom: 90px;
+    /* transform: translateY(90px) !important;
+    margin-bottom: 90px; */
   }
 
   .navbar-brand img {

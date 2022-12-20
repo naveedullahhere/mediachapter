@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Slider from "react-slick";
+import { AppContext } from '../context/AppContext';
+
 
 
 
@@ -7,11 +9,11 @@ export const Testimonials = () => {
 
     const [data, setData] = useState([]);
     const [img, setImg] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const { URL } = useContext(AppContext);
+
 
     useEffect(() => {
-        fetch(`https://eliteblue.net/webcms/public/api/testimonials`)
+        fetch(`${URL}api/testimonials`)
             .then((response) => response.json())
             .then((actualData) => { setData(actualData.data); setImg(actualData.media_path) })
             .catch((err) => {

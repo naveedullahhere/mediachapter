@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import slide from './assets/home-slider.png';
@@ -13,8 +14,14 @@ import card3 from './assets/card3.png';
 import card4 from './assets/card4.png';
 import { motion } from 'framer-motion';
 import { Testimonials } from './Testimonials';
+import { AppContext } from '../context/AppContext';
+
 
 export const Home = () => {
+    const { AppName, setTitle } = useContext(AppContext);
+    setTitle(`${AppName}Home`);
+
+
     const settings = {
         slidesToShow: 6,
         slidesToScroll: 1,

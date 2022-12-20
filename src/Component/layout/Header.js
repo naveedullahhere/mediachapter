@@ -1,17 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import Logo from '../assets/logo.png';
 import { Link, useLocation } from "react-router-dom";
 
 
 export const Header = () => {
     const { pathname } = useLocation();
-    const closeRef = useRef(null)
+    const [isActive, setActive] = useState(false);
+    // const closeRef = useRef(null)
+
+
     useEffect(() => {
-        return () => {
-            closeRef.current.className != "navbar-toggler collapsed" && closeRef.current.click();
-        }
+        window.scrollTo(0, 0);
+        setActive(false);
     }, [pathname])
 
+
+    const toggleClass = () => {
+        setActive(!isActive);
+    };
     return (
         <>
             <div class="navigation-wrap bg-white start-header start-style">
@@ -20,12 +27,11 @@ export const Header = () => {
                         <div class="col-12">
                             <nav class="navbar navbar-expand-md navbar-light px-xl-5 px-3">
                                 <Link class="navbar-brand me-lg-5" to={'/'}><img src={Logo} alt="MediaChapter" width="136" /></Link>
-                                <button class="navbar-toggler" ref={closeRef} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" >
+                                <button class={`navbar-toggler ${isActive && ""}`} onClick={toggleClass} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={isActive} >
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
 
-
-                                <div class="collapse navbar-collapse justify-content-evenly" id="navbarSupportedContent">
+                                <div class={`collapse navbar-collapse justify-content-evenly ${isActive ? "show" : " "}`} id="navbarSupportedContent">
                                     <ul class="navbar-nav ml-auto py-4 py-md-0 gap-3 pb-3">
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/' && "active"}`}>
                                             <Link class={`nav-link`} to='/'>Home</Link>

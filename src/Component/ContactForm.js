@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import email from "./assets/mail.png";
 import phone from "./assets/phone.png";
 

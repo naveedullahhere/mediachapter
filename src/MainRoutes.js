@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Home } from './Component/Home';
 import { About } from './Component/About';
@@ -17,6 +17,9 @@ import { Register } from './Component/Auth/Register';
 
 export const MainRoutes = () => {
     const { pathname } = useLocation();
+
+
+
     return (
         <AnimatePresence>
             <Routes key={pathname}>

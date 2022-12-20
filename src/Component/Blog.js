@@ -1,7 +1,30 @@
 import { motion } from 'framer-motion';
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import { AppContext } from '../context/AppContext';
+
+
+
 
 export const Blog = () => {
+
+    const { AppName, setTitle, URL } = useContext(AppContext);
+
+    const [data, setData] = useState([]);
+    const [img, setImg] = useState(null);
+    const [singleUrl, setSingleUrl] = useState(null);
+
+    useEffect(() => {
+        fetch(`${URL}api/blogs?token=152784823qtjzdfg213&paginate=2&since_id=0`)
+            .then((response) => response.json())
+            .then((actualData) => { setData(actualData.data.data); setImg(actualData.media_path); setSingleUrl(actualData.single_blog); })
+            .catch((err) => {
+                setData([]);
+            });
+    }, []);
+
+
+
+    setTitle(`${AppName}Blog`);
     return (
         <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
             <div className="sec py-5 blog">
@@ -15,49 +38,29 @@ export const Blog = () => {
                                 Reading can help you build opinions and make better decisions. Let’s go through our creative and informative blog and enhance your knowledge.
                             </p>
                         </div>
-                        <div className="col-lg-10 mx-auto my-4">
-                            <div className="row">
-                                <div className="col-lg-4 col-md-6 col-sm-6 col-12 my-3 text-start">
-                                    <div class="card rounded-4 overflow-hidden shadow">
-                                        <img src="https://www.mediachapter.us/wp-content/uploads/2021/10/benefits-of-graphics-1-300x256.jpg" class="card-img-top" alt="blog" />
-                                        <div class="card-body my-3">
-                                            <h6 class="card-title">Benefits of Graphic design for businesses in 2022</h6>
-                                            <p className="my-3 text-danger fs-smm">
-                                                October 17, 2021  No Comments
-                                            </p>
-                                            <p class="card-text para-sm fs-smm text-muted">Benefits of Graphic design for businesses in 2022 The value of graphic design for business Whether you have a small</p>
-                                            <a href="#" class="text-danger">Read More ↗</a>
+                        {
+                            data.length >= 1 &&
+
+                            <div className="col-lg-10 mx-auto my-4">
+                                <div className="row">
+                                    {data.map((item) => {
+                                        return <div className="col-lg-4 col-md-6 col-sm-6 col-12 my-3 text-start">
+                                            <div class="card rounded-4 overflow-hidden shadow">
+                                                <img src={`${img}/${item.image}`} class="card-img-top" alt="blog" />
+                                                <div class="card-body my-3">
+                                                    <h6 class="card-title">{item.title}</h6>
+                                                    <p className="my-3 text-danger fs-smm">
+                                                        October 17, 2021  No Comments
+                                                    </p>
+                                                    <p class="card-text para-sm fs-smm text-muted">{item.short_description}</p>
+                                                    <a href={`${singleUrl}/${item.slug}`} class="text-danger">Read More ↗</a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6 col-sm-6 col-12 my-3 text-start">
-                                    <div class="card rounded-4 overflow-hidden shadow">
-                                        <img src="https://www.mediachapter.us/wp-content/uploads/2021/10/9-reason-why-300x256.jpg" class="card-img-top" alt="blog" />
-                                        <div class="card-body my-3">
-                                            <h6 class="card-title">Benefits of Graphic design for businesses in 2022</h6>
-                                            <p className="my-3 text-danger fs-smm">
-                                                October 17, 2021  No Comments
-                                            </p>
-                                            <p class="card-text para-sm fs-smm text-muted">Benefits of Graphic design for businesses in 2022 The value of graphic design for business Whether you have a small</p>
-                                            <a href="#" class="text-danger">Read More ↗</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-lg-4 col-md-6 col-sm-6 col-12 my-3 text-start">
-                                    <div class="card rounded-4 overflow-hidden shadow">
-                                        <img src="https://www.mediachapter.us/wp-content/uploads/2021/10/benefit-of-content-1-300x256.jpg" class="card-img-top" alt="blog" />
-                                        <div class="card-body my-3">
-                                            <h6 class="card-title">Benefits of Graphic design for businesses in 2022</h6>
-                                            <p className="my-3 text-danger fs-smm">
-                                                October 17, 2021  No Comments
-                                            </p>
-                                            <p class="card-text para-sm fs-smm text-muted">Benefits of Graphic design for businesses in 2022 The value of graphic design for business Whether you have a small</p>
-                                            <a href="#" class="text-danger">Read More ↗</a>
-                                        </div>
-                                    </div>
+                                    })}
                                 </div>
                             </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>

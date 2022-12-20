@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { AppContext } from '../../context/AppContext';
 import digital from "../assets/digitalmarketing.png";
 import { ContactForm } from '../ContactForm';
 
 export const DigitalMarketing = () => {
+    const { AppName, setTitle } = useContext(AppContext);
+    setTitle(`${AppName}Digital Marketing`);
     return (
         <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
             <div className="digital-marketing image-banner sec">

@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useState ,useContext} from 'react';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../../context/AppContext';
 import { ContactForm } from '../ContactForm';
 import Portfolio from "../Portfolio.json";
 
 
 export const WebDevelopment = () => {
+    const { AppName, setTitle } = useContext(AppContext);
+    setTitle(`${AppName}Web Development`);
 
 
     return (
