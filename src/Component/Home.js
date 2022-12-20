@@ -218,7 +218,7 @@ export const Home = () => {
                         </div>
                         <div className="col-12 my-5">
                             <div className="row">
-                                <div className="col-md-4 col-12">
+                                <div className="col-md-4 col-12 my-md-auto my-4">
                                     <div className="main text-center">
                                         <div className="bg-danger px-4 py-2 rounded-2 text-white d-inline">
                                             STEP 01
@@ -231,7 +231,7 @@ export const Home = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-md-4 col-12">
+                                <div className="col-md-4 col-12 my-md-auto my-4">
                                     <div className="main text-center">
                                         <div className="bg-danger px-4 py-2 rounded-2 text-white d-inline">
                                             STEP 02
@@ -245,7 +245,7 @@ export const Home = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-md-4 col-12">
+                                <div className="col-md-4 col-12 my-md-auto my-4">
                                     <div className="main text-center">
                                         <div className="bg-danger px-4 py-2 rounded-2 text-white d-inline">
                                             STEP 03
