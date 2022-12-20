@@ -37,7 +37,7 @@ export const Header = () => {
                                             <Link class={`nav-link`} to='/'>Home</Link>
                                         </li>
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/About' && "active"}`}>
-                                            <Link class={`nav-link`} to="/About">About</Link>
+                                            <Link class={`nav-link`} to="/about">About</Link>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
@@ -51,13 +51,13 @@ export const Header = () => {
                                         </li>
 
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Portfolio' && "active"}`}>
-                                            <Link class={`nav-link`} to={'/Portfolio'}>Portfolio</Link>
+                                            <Link class={`nav-link`} to={'/portfolio'}>Portfolio</Link>
                                         </li>
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Blog' && "active"}`}>
-                                            <Link class={`nav-link`} to={'/Blog'}>Blog</Link>
+                                            <Link class={`nav-link`} to={'/blog'}>Blog</Link>
                                         </li>
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Contact' && "active"}`}>
-                                            <Link class={`nav-link`} to={'/Contact'}>Contact</Link>
+                                            <Link class={`nav-link`} to={'/contact'}>Contact</Link>
                                         </li>
 
                                     </ul>

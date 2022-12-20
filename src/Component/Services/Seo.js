@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import seo from "../assets/seo.png";
 import { AppContext } from '../../context/AppContext';
@@ -18,7 +18,7 @@ export const Seo = () => {
                             <h1 className='text-white text-start'>Make Your Brand
                                 Recognizable with Our
                                 Astounding SEO Services</h1>
-                                <Link to={'/contact'} className="btn btn-dark">
+                            <Link to={'/contact'} className="btn btn-dark">
                                 GET A QUOTE
                             </Link>
                         </div>

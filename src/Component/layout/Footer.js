@@ -31,8 +31,8 @@ export const Footer = () => {
                     <div class="col-md-2 my-md-0 my-3">
                         <h5>OUR POLICIES</h5>
                         <ul class="nav flex-column mt-3">
-                            <li class="nav-item mb-2"><Link to="/" class="nav-link p-0 para-sm">Privacy Policy</Link></li>
-                            <li class="nav-item mb-2"><Link to="/" class="nav-link p-0 para-sm">Terms & Condition</Link></li>
+                            <li class="nav-item mb-2"><Link to="/privacy-policy" class="nav-link p-0 para-sm">Privacy Policy</Link></li>
+                            <li class="nav-item mb-2"><Link to="/terms-conditions" class="nav-link p-0 para-sm">Terms & Condition</Link></li>
 
                         </ul>
                     </div>

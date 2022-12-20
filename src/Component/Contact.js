@@ -65,9 +65,11 @@ export const Contact = () => {
 
                                 <div class="info">
                                     <div class="information mb-4">
+                                        <p className='mb-0'><span><b>Pakistan:</b></span><br /> </p>
+                                    </div>
+                                    <div class="information mb-4">
                                         <img src={address} class="icon" alt="" />
-                                        <p className='mb-0'><span><b>Pakistan:</b></span><br /> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
-                                        <p className='mb-0'><span><b>USA:</b></span><br /> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
+                                        <p className='mb-0'> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
                                     </div>
                                     <div class="information mb-4">
                                         <img src={email} class="icon" alt="" />
@@ -78,24 +80,23 @@ export const Contact = () => {
                                         <p className='mb-0'>+92 333 051 8880</p>
                                     </div>
                                 </div>
-
-                                {/* <div class="social-media">
-                                <p>Connect with us :</p>
-                                <div class="social-icons">
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
+                                <div class="info">
+                                    <div class="information mb-4">
+                                        <p className='mb-0'><span><b>USA:</b></span><br /> </p>
+                                    </div>
+                                    <div class="information mb-4">
+                                        <img src={address} class="icon" alt="" />
+                                        <p className='mb-0'> Address Omega Heights, 103, E11/3, Islamabad, USA</p>
+                                    </div>
+                                    <div class="information mb-4">
+                                        <img src={email} class="icon" alt="" />
+                                        <p className='mb-0'>info@eliteblue.net</p>
+                                    </div>
+                                    <div class="information mb-4">
+                                        <img src={phone} class="icon" alt="" />
+                                        <p className='mb-0'>+92 333 051 8880</p>
+                                    </div>
                                 </div>
-                            </div> */}
                             </div>
 
                             <div class="contact-form">
@@ -157,7 +158,7 @@ export const Contact = () => {
 
                                             <div class="input-container">
                                                 <select name="inquiry_about" class={`input ${errors.inquiry_about && "form-control is-invalid"}`}  {...register('inquiry_about', { required: true })}>
-                                                    <option value="null" disabled hidden selected>Select Inquiry</option>
+                                                    <option value="null" disabled selected>Select Inquiry</option>
                                                     <option value="Inquiring About">Inquiring About</option>
                                                     <option value="Software Development">Software Development</option>
                                                     <option value="Web Development">Web Development</option>

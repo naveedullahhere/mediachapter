@@ -21,7 +21,9 @@ export const Blog = () => {
                 setData([]);
             });
     }, []);
-
+    if (data.length > 0) { 
+        console.log(data[0].short_description);
+    }
 
 
     setTitle(`${AppName}Blog`);
@@ -51,8 +53,9 @@ export const Blog = () => {
                                                     <h6 class="card-title">{item.title}</h6>
                                                     <p className="my-3 text-danger fs-smm">
                                                         October 17, 2021  No Comments
-                                                    </p>
-                                                    <p class="card-text para-sm fs-smm text-muted">{item.short_description}</p>
+                                                    </p>{item.short_description}
+                                                    <p class="card-text para-sm fs-smm text-muted">
+                                                          </p>
                                                     <a href={`${singleUrl}/${item.slug}`} class="text-danger">Read More ↗</a>
                                                 </div>
                                             </div>
@@ -64,7 +67,7 @@ export const Blog = () => {
                     </div>
                 </div>
             </div>
-            <div className="sec py-5 blog">
+            {/* <div className="sec py-5 blog">
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
@@ -154,7 +157,7 @@ export const Blog = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </motion.div>
     )
 }

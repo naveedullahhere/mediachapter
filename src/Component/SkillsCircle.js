@@ -1,18 +1,31 @@
 import React from 'react'
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+import { Progress, Space } from 'antd';
+import GradientSVG from './layout/GradiantSVG';
 
 export const SkillsCircle = ({ value }) => {
+    const idCSS = "hello";
+
     return (
 
-        <div style={{ width: 150, height: 150 }} className="mx-auto skillsCircles">
-            <CircularProgressbar value={value} strokeWidth={2} text={`${value}%`} styles={buildStyles({
-                strokeLinecap: 'butt', textSize: '16px',
-                textColor: 'var(--primary)',
-                trailColor: 'var(--light)',
-                pathColor: `var(--primary)`,
-                backgroundColor: '#3e98c7',
-            })} />
+
+        <div style={{ height: "150px", width: "150px" }} className="mx-auto skillsCircles">
+            <GradientSVG />
+            <CircularProgressbar
+                strokeWidth={8}
+                value={value}
+                text={`${value}%`}
+                styles={{
+                    path: { stroke: `url(#${idCSS})`, height: "100%" },
+                    trail: {
+                        stroke: "#eee"
+                    },
+                    textColor: "red"
+                }}
+            />
+
         </div>
+
     )
 }

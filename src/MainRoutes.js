@@ -13,6 +13,8 @@ import { Contact } from './Component/Contact';
 import { Blog } from './Component/Blog';
 import { Login } from './Component/Auth/Login';
 import { Register } from './Component/Auth/Register';
+import { TermsNConditions } from './Component/TermsNConditions';
+import { Privacy } from './Component/Privacy';
 
 
 export const MainRoutes = () => {
@@ -35,6 +37,8 @@ export const MainRoutes = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/terms-conditions" element={<TermsNConditions />} />
+                <Route path="/privacy-policy" element={<Privacy />} />
             </Routes>
         </AnimatePresence>
     )

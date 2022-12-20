@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useState ,useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import { ContactForm } from '../ContactForm';
@@ -31,7 +31,6 @@ export const WebDevelopment = () => {
                         <div className="col-12">
                             <h1 className="heading">
                                 Web Development
-
                             </h1>
                             <p className="para-sm text-muted my-3">
                                 We create client-focused websites that generate desired results. Transform your digital presence with the help of our professional web developers.
