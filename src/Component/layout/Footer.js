@@ -1,8 +1,41 @@
 import Logo from '../assets/logof.png';
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import toast, { Toaster } from "react-hot-toast";
+import { AppContext } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
+    const { AppName, setTitle, URL } = useContext(AppContext);
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+
+
+    const onSubmit = (data) => {
+        data = JSON.stringify(data);
+        console.log(data);
+        fetch(`${URL}api/newsletter-subscribe`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: data
+        })
+            .then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    toast.success(json.message);
+                }
+                else {
+                    toast.error(json.message);
+                }
+            }).catch(err => {
+                toast.error("Something Went Wrong!");
+            })
+    };
+    const userid = 1;
     return (
         <footer class="pt-5">
             <div class="container py-md-5">
@@ -24,10 +57,6 @@ export const Footer = () => {
                         </ul>
                     </div>
 
-
-
-
-
                     <div class="col-md-2 my-md-0 my-3">
                         <h5>OUR POLICIES</h5>
                         <ul class="nav flex-column mt-3">
@@ -38,24 +67,27 @@ export const Footer = () => {
                     </div>
 
                     <div class="col-md-3 my-md-0 my-3">
-                        <form>
-                            <h5>Get Our Brochure
-                            </h5>
-                            <div class="d-flex w-100 gap-2 flex-column mt-3">
+                        <h5>Get Our Brochure
+                        </h5>
+                        <div class="d-flex w-100 gap-2 flex-column mt-3">
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <label for="newsletter1" class="visually-hidden">Email address</label>
-                                <input id="newsletter1" type="text" class="form-control shadow-none border-0 py-2" placeholder="Email address" />
-                                <button class="btn btn-main w-100" type="button">Subscribe</button>
-                            </div>
-                            <h5 className='my-3'>Follow US
-                            </h5>
-                            <div className="footericons d-flex gap-2 align-items-center">
-                                <a href='#' className="ico"><i class="fa-brands fa-facebook"></i></a>
-                                <a href='#' className="ico"><i class="fa-brands fa-twitter"></i></a>
-                                <a href='#' className="ico"><i class="fa-brands fa-instagram"></i></a>
-                                <a href='#' className="ico"><i class="fa-brands fa-pinterest"></i></a>
-                                <a href='#' className="ico"><i class="fa-brands fa-linkedin"></i></a>
-                            </div>
-                        </form>
+                                <input id="newsletter1" type="text" class={`form-control shadow-none text-dark border-0 py-2 ${errors.email && "form-control is-invalid  text-dark"}`} {...register('email', { required: true, pattern: /^\S+@\S+$/i })} placeholder="Email address" />
+                                <input type="hidden" name="user_id" value={userid} />
+                                <button class="btn btn-main w-100" type="submit">Subscribe</button>
+                                {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>}
+
+                            </form>
+                        </div>
+                        <h5 className='my-3'>Follow US
+                        </h5>
+                        <div className="footericons d-flex gap-2 align-items-center">
+                            <a href='#' className="ico"><i class="fa-brands fa-facebook"></i></a>
+                            <a href='#' className="ico"><i class="fa-brands fa-twitter"></i></a>
+                            <a href='#' className="ico"><i class="fa-brands fa-instagram"></i></a>
+                            <a href='#' className="ico"><i class="fa-brands fa-pinterest"></i></a>
+                            <a href='#' className="ico"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -64,6 +96,7 @@ export const Footer = () => {
                 <p className='mb-0 pb-3 text-black'>Media Chapter is a registered trademark. Media Chapter is registered in Wyoming, United States. Company no: 45999-0038.
                 </p>
             </div>
+
         </footer>
     )
 }

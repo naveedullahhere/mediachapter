@@ -15,6 +15,7 @@ import { Login } from './Component/Auth/Login';
 import { Register } from './Component/Auth/Register';
 import { TermsNConditions } from './Component/TermsNConditions';
 import { Privacy } from './Component/Privacy';
+import { BlogDetails } from './Component/BlogDetails';
 
 
 export const MainRoutes = () => {
@@ -34,6 +35,7 @@ export const MainRoutes = () => {
                 <Route path="/content-writing" element={<ContentWriting />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:singleBlog" element={<BlogDetails />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

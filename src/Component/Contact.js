@@ -3,9 +3,9 @@ import email from "./assets/email0.png";
 import { motion } from 'framer-motion';
 import phone from "./assets/phone0.png";
 import { useForm } from 'react-hook-form';
+import toast, { Toaster } from "react-hot-toast";
 import address from "./assets/location0.png";
 import { AppContext } from '../context/AppContext';
-import toast, { Toaster } from "react-hot-toast";
 
 export const Contact = () => {
     const { AppName, setTitle, URL } = useContext(AppContext);
@@ -19,34 +19,32 @@ export const Contact = () => {
 
     const onSubmit = (data) => {
         data = JSON.stringify(data);
-
-        const fetchData = async () => {
-            await fetch(`${URL}api/contact-post`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: data
+        fetch(`${URL}api/contact-post`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: data
+        })
+            .then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    toast.success(json.message);
+                }
+                else {
+                    toast.error(json.message);
+                }
+            }).catch(err => {
+                toast.error("Something Went Wrong!");
             })
-                .then(res => res.json())
-                .then(json => {
-                    if (json.success) {
-                        return json.message;
-                    }
-                }).catch(err => {
-                    console.log(err);
-                    return null
-                })
-        };
-        toast.promise(
-            fetchData(),
-            {
-                duration: 4000,
-                loading: 'loading...',
-                success: "Your Query Has Been Submitted Successfully Our Team Will Be Contact To You ASAP",
-                error: "Something went wrong!",
-            }
-        );
+        // toast.promise(
+        //     fetchData(),
+        //     {
+        //         duration: 4000,
+        //         loading: 'loading...',
+        //         success: "Your Query Has Been Submitted Successfully Our Team Will Be Contact To You ASAP",
+        //         error: "Something went wrong!",
+        //     }
+        // );
     };
-
     return (
 
         <>
@@ -83,18 +81,18 @@ export const Contact = () => {
                                 </div>
                                 <div className="info">
                                     <div className="information mb-4">
-                                        <p className='mb-0'><span><b>Pakistan:</b></span><br/></p>
+                                        <p className='mb-0'><span><b>Pakistan:</b></span><br /></p>
                                     </div>
                                     <div className="information mb-4">
-                                        <img src={address} className="icon" alt=""/>
+                                        <img src={address} className="icon" alt="" />
                                         <p className='mb-0'> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
                                     </div>
                                     <div className="information mb-4">
-                                        <img src={email} className="icon" alt=""/>
+                                        <img src={email} className="icon" alt="" />
                                         <p className='mb-0'>info@mediachapter.us</p>
                                     </div>
                                     <div className="information mb-4">
-                                        <img src={phone} className="icon" alt=""/>
+                                        <img src={phone} className="icon" alt="" />
                                         <p className='mb-0'>+92 333 051 8880</p>
                                     </div>
                                 </div>
@@ -110,9 +108,9 @@ export const Contact = () => {
                                             <h3 class="title">Contact us</h3>
                                         </div>
                                         <div className="col-12">
-                                            <input type="hidden" {...register('domain')} name="domain" value={window.location.href} />
+                                            <input type="hidden" {...register('domain')} name="domain" value={window.location.host} />
                                             <input type="hidden" {...register('user_id')} name="user_id" value={null} />
-                                            <input type="hidden" {...register('page_name')} name="page_name" value={document.title.slice("-")[1]} />
+                                            <input type="hidden" {...register('page_name')} name="page_name" value={document.title.split("- ")[1]} />
                                         </div>
                                         <div className="col-md-6">
                                             <div class="input-container">
@@ -156,10 +154,9 @@ export const Contact = () => {
 
                                         </div>
                                         <div className="col-12">
-
                                             <div class="input-container">
                                                 <select name="inquiry_about" class={`input ${errors.inquiry_about && "form-control is-invalid"}`}  {...register('inquiry_about', { required: true })}>
-                                                    <option value="null" disabled selected>Select Inquiry</option>
+                                                    <option hidden value=''>Select About</option>
                                                     <option value="Inquiring About">Inquiring About</option>
                                                     <option value="Software Development">Software Development</option>
                                                     <option value="Web Development">Web Development</option>
@@ -191,7 +188,6 @@ export const Contact = () => {
                     </div>
 
                 </div>
-                <Toaster position="top-right" />
 
             </motion.div>
 

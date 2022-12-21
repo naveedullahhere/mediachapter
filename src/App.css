@@ -36,9 +36,22 @@ a {
 /* .😕 {
   height: 100%;
 } */
+/* p.p2,
+p.p9,
+p.p8 {
+  display: none;
+} */
 
 .crd .cardImg>img {
   transition: all .75s ease;
+}
+#newsletter1{
+  filter: none!important;
+}
+b,
+strong {
+  font-weight: bolder;
+  font-size: 1.35em;
 }
 
 .crd:hover .cardImg>img {

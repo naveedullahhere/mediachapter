@@ -139,7 +139,7 @@ export const ContactForm = ({ action }) => {
 
                                             <div class="input-container">
                                                 <select name="inquiry_about" class={`input ${errors.inquiry_about && "form-control is-invalid"}`}  {...register('inquiry_about', { required: true })}>
-                                                    <option value="null" disabled selected>Select Inquiry</option>
+                                                <option hidden value=''>Select About</option>
                                                     <option value="Inquiring About">Inquiring About</option>
                                                     <option value="Software Development">Software Development</option>
                                                     <option value="Web Development">Web Development</option>
@@ -171,8 +171,7 @@ export const ContactForm = ({ action }) => {
                     </div>
 
                 </div>
-
-                <Toaster position="top-right" containerStyle={{ "transform": "translateY(94px)" }} />
+ 
 
             </motion.div>
         </>
