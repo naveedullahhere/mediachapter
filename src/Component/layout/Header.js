@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from 'react';
-
 import Logo from '../assets/logo.png';
 import { Link, useLocation } from "react-router-dom";
+import { AppContext } from '../../context/AppContext';
+import React, { useState, useEffect, useContext } from 'react';
 
 
 export const Header = () => {
+
+    const { isUserLogin, setIsUserLogin, setCookieinLocal, userName } = useContext(AppContext);
+
     const { pathname } = useLocation();
     const [isActive, setActive] = useState(false);
-    // const closeRef = useRef(null)
 
-
+    const Logout = () => {
+        setIsUserLogin(false);
+        setCookieinLocal("USER", "");
+    }
     useEffect(() => {
         window.scrollTo(0, 0);
         setActive(false);
@@ -63,7 +68,26 @@ export const Header = () => {
                                     </ul>
                                     <div className='d-flex align-items-md-center gap-3 flex-md-row flex-column'>
                                         <div className="navbar-nav">
-
+                                            <div class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                        <path fill="#212121" d="M11.5,8 C12.3284271,8 13,8.67157288 13,9.5 L13,10 C13,11.9714437 11.14049,14 8,14 C4.85950997,14 3,11.9714437 3,10 L3,9.5 C3,8.67157288 3.67157288,8 4.5,8 L11.5,8 Z M8,1.5 C9.51878306,1.5 10.75,2.73121694 10.75,4.25 C10.75,5.76878306 9.51878306,7 8,7 C6.48121694,7 5.25,5.76878306 5.25,4.25 C5.25,2.73121694 6.48121694,1.5 8,1.5 Z" />
+                                                    </svg> {isUserLogin ? userName : "Accounts"}
+                                                </a>
+                                                {isUserLogin ?
+                                                    <ul class="dropdown-menu">
+                                                        <li><Link class="dropdown-item" to={'my-account'}>Account</Link></li>
+                                                        <li><Link class="dropdown-item" to={'projects'}>Projects</Link></li>
+                                                        <li><Link class="dropdown-item" to={'invoices'}>Invoices</Link></li>
+                                                        <li><a class="dropdown-item" onClick={Logout}>Logout</a></li>
+                                                    </ul>
+                                                    :
+                                                    <ul class="dropdown-menu">
+                                                        <li><Link class="dropdown-item" to={'login'}>Login</Link></li>
+                                                        <li><Link class="dropdown-item" to={'register'}>Signup</Link></li>
+                                                    </ul>
+                                                }
+                                            </div>
                                             <div class={`nav-item pl-4 pl-md-0 mx-lg-4 mx-md-3 anotherLink`}>
                                                 <i class="nectar-menu-icon fa fa-phone"></i>
                                                 <a class={`nav-link`} href="tel:+12483464854">+1-248-346-4854</a>

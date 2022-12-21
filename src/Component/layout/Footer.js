@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     const { AppName, setTitle, URL } = useContext(AppContext);
+    const [isLoading, setIsLoading] = useState(false);
 
     const {
         register,
@@ -16,6 +17,8 @@ export const Footer = () => {
 
 
     const onSubmit = (data) => {
+        setIsLoading(true)
+
         data = JSON.stringify(data);
         console.log(data);
         fetch(`${URL}api/newsletter-subscribe`, {
@@ -31,8 +34,11 @@ export const Footer = () => {
                 else {
                     toast.error(json.message);
                 }
+                setIsLoading(false);
+
             }).catch(err => {
                 toast.error("Something Went Wrong!");
+                setIsLoading(false);
             })
     };
     const userid = 1;
@@ -74,7 +80,15 @@ export const Footer = () => {
                                 <label for="newsletter1" class="visually-hidden">Email address</label>
                                 <input id="newsletter1" type="text" class={`form-control shadow-none text-dark border-0 py-2 ${errors.email && "form-control is-invalid  text-dark"}`} {...register('email', { required: true, pattern: /^\S+@\S+$/i })} placeholder="Email address" />
                                 <input type="hidden" name="user_id" value={userid} />
-                                <button class="btn btn-main w-100" type="submit">Subscribe</button>
+
+                                <button class="btn btn-main w-100" type="submit">
+                                    Subscribe
+                                    {isLoading &&
+                                        <div class="spinner-border me-5" style={{ "float": "right" }} role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    }
+                                </button>
                                 {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>}
 
                             </form>

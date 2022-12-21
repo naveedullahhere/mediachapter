@@ -3,11 +3,13 @@ import email from "./assets/email0.png";
 import { motion } from 'framer-motion';
 import phone from "./assets/phone0.png";
 import { useForm } from 'react-hook-form';
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import address from "./assets/location0.png";
 import { AppContext } from '../context/AppContext';
 
 export const Contact = () => {
+    const [isLoading, setIsLoading] = useState(false);
+
     const { AppName, setTitle, URL } = useContext(AppContext);
     setTitle(`${AppName}Contact`);
     const {
@@ -18,6 +20,8 @@ export const Contact = () => {
 
 
     const onSubmit = (data) => {
+        setIsLoading(true)
+
         data = JSON.stringify(data);
         fetch(`${URL}api/contact-post`, {
             method: 'POST',
@@ -32,18 +36,13 @@ export const Contact = () => {
                 else {
                     toast.error(json.message);
                 }
+                setIsLoading(false);
+
             }).catch(err => {
                 toast.error("Something Went Wrong!");
+                setIsLoading(false);
+
             })
-        // toast.promise(
-        //     fetchData(),
-        //     {
-        //         duration: 4000,
-        //         loading: 'loading...',
-        //         success: "Your Query Has Been Submitted Successfully Our Team Will Be Contact To You ASAP",
-        //         error: "Something went wrong!",
-        //     }
-        // );
     };
     return (
 
@@ -176,7 +175,14 @@ export const Contact = () => {
 
                                         </div>
                                         <div className="col-12">
-                                            <input type="submit" value="Send" class="btn btn-light bg-white text-dark" />
+                                            <button class="btn btn-light bg-white w-100 text-dark" type="submit">
+                                                Submit
+                                                {isLoading &&
+                                                    <div class="spinner-border me-5" style={{ "float": "right" }} role="status">
+                                                        <span class="visually-hidden">Loading...</span>
+                                                    </div>
+                                                }
+                                            </button>
                                         </div>
                                         {/* <div className="col-12 mt-4">
                                             <p className="h5 text-white">{message}</p>

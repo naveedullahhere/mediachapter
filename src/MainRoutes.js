@@ -16,11 +16,13 @@ import { Register } from './Component/Auth/Register';
 import { TermsNConditions } from './Component/TermsNConditions';
 import { Privacy } from './Component/Privacy';
 import { BlogDetails } from './Component/BlogDetails';
+import { MyAccount } from './Component/Dashboard/MyAccount';
+import { Projects } from './Component/Dashboard/Projects';
+import { Invoices } from './Component/Dashboard/Invoices';
 
 
 export const MainRoutes = () => {
     const { pathname } = useLocation();
-
 
 
     return (
@@ -41,6 +43,9 @@ export const MainRoutes = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/terms-conditions" element={<TermsNConditions />} />
                 <Route path="/privacy-policy" element={<Privacy />} />
+                <Route path="/my-account" element={<MyAccount />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/invoices" element={<Invoices />} />
             </Routes>
         </AnimatePresence>
     )
