@@ -41,7 +41,9 @@ export const Register = () => {
                     setCookieinLocal("USER", JSON.stringify(data), 1);
                     setIsUserLogin(true);
                     toast.success(data.message);
-                    setUserName(data.data.name)
+                    setUserName(data.data.name);
+                    reset();
+
                 } else {
                     toast.error(data.message);
                     setIsUserLogin(false);

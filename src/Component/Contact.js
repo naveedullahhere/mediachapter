@@ -15,6 +15,7 @@ export const Contact = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
 
@@ -32,6 +33,7 @@ export const Contact = () => {
             .then(json => {
                 if (json.success) {
                     toast.success(json.message);
+                    reset();
                 }
                 else {
                     toast.error(json.message);
@@ -67,7 +69,7 @@ export const Contact = () => {
                                     </div>
                                     <div class="information mb-4">
                                         <img src={address} class="icon" alt="" />
-                                        <p className='mb-0'> Address Omega Heights, 103, E11/3, Islamabad, USA</p>
+                                        <p className='mb-0'>Timber Creek CT Clark Ville, Maryland, US</p>
                                     </div>
                                     <div class="information mb-4">
                                         <img src={email} class="icon" alt="" />

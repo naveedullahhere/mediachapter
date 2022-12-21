@@ -16,6 +16,7 @@ export const ContactForm = ({ action }) => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
 
@@ -32,8 +33,10 @@ export const ContactForm = ({ action }) => {
                 .then(res => res.json())
                 .then(json => {
                     if (json.success) {
+                        reset();
                         return json.message;
                     }
+
                 }).catch(err => {
                     console.log(err);
                     return null
@@ -48,6 +51,7 @@ export const ContactForm = ({ action }) => {
                 error: "Something went wrong!",
             }
         );
+
     };
 
     return (
@@ -64,10 +68,10 @@ export const ContactForm = ({ action }) => {
                                     We are eager to be a partner in your digital journey as a digital marketing specialist
                                 </p>
 
-                                <div class="info"> 
+                                <div class="info">
                                     <div class="information mb-4">
                                         <img src={address} class="icon" alt="" />
-                                        <p className='mb-0'> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
+                                        <p className='mb-0'>Timber Creek CT Clark Ville, Maryland, US</p>
                                     </div>
                                     <div class="information mb-4">
                                         <img src={email} class="icon" alt="" />
@@ -77,7 +81,7 @@ export const ContactForm = ({ action }) => {
                                         <img src={phone} class="icon" alt="" />
                                         <p className='mb-0'>+92 333 051 8880</p>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
 
                             <div class="contact-form">
@@ -139,13 +143,15 @@ export const ContactForm = ({ action }) => {
 
                                             <div class="input-container">
                                                 <select name="inquiry_about" class={`input ${errors.inquiry_about && "form-control is-invalid"}`}  {...register('inquiry_about', { required: true })}>
-                                                <option hidden value=''>Select About</option>
-                                                    <option value="Inquiring About">Inquiring About</option>
+                                                    <option hidden value=''>Select About</option>
                                                     <option value="Software Development">Software Development</option>
-                                                    <option value="Web Development">Web Development</option>
                                                     <option value="Digital Marketing">Digital Marketing</option>
+                                                    <option value="Web Development">Web Development</option>
+                                                    <option value="Inquiring About">Inquiring About</option>
+                                                    <option value="Content Writing">Content Writing</option>
                                                     <option value="Graphic Design">Graphic Design</option>
                                                     <option value="Branding">Branding</option>
+                                                    <option value="SEO">SEO</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -171,7 +177,7 @@ export const ContactForm = ({ action }) => {
                     </div>
 
                 </div>
- 
+
 
             </motion.div>
         </>

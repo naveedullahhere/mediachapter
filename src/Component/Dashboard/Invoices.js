@@ -1,7 +1,19 @@
-import React from 'react'
-import { Sidebar } from './Sidebar'
 
+import React, { useState, useContext, useEffect } from 'react';
+import { AppContext } from '../../context/AppContext';
+import { Sidebar } from './Sidebar'
+import { Link, useNavigate } from 'react-router-dom';
 export const Invoices = () => {
+    const { isUserLogin, setIsUserLogin, URL, setCookieinLocal, setUserName } = useContext(AppContext);
+    let navigate = useNavigate();
+    isUserLogin === false && navigate('/login');
+
+    useEffect(() => {
+        return () => {
+            !isUserLogin && navigate('/login');
+        }
+    }, [isUserLogin])
+
     return (
         <div>
             <div className="container">

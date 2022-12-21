@@ -45,9 +45,11 @@ p.p8 {
 .crd .cardImg>img {
   transition: all .75s ease;
 }
-#newsletter1{
-  filter: none!important;
+
+#newsletter1 {
+  filter: none !important;
 }
+
 b,
 strong {
   font-weight: bolder;
@@ -260,10 +262,13 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .login-box {
+    min-width: 90%!important;
+  }
 
   .bannerSlider,
   .mainSlide {
-    height: 55vh !important;
+    height: 30vh !important;
   }
 
   .btn {
@@ -282,7 +287,7 @@ footer {
 
   .bannerSlider h5,
   .about h5 {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .bannerSlider h1,
@@ -1508,7 +1513,6 @@ textarea.input::-webkit-input-placeholder {
 
 
 
-/* LOGIN FORM STYLES */
 .login-box {
   background: linear-gradient(108deg, var(--secondary) 8%, var(--primary) 66%);
   padding: 40px;

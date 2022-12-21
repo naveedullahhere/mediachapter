@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const Login = () => {
 
-    const { isUserLogin, setIsUserLogin, URL, setCookieinLocal } = useContext(AppContext);
+    const { isUserLogin, setIsUserLogin, URL, setCookieinLocal, setUserName } = useContext(AppContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -17,6 +17,7 @@ export const Login = () => {
 
     const {
         register,
+        reset,
         handleSubmit,
         formState: { errors },
     } = useForm();
@@ -32,7 +33,8 @@ export const Login = () => {
                     setCookieinLocal("USER", JSON.stringify(data), 1);
                     setIsUserLogin(true);
                     toast.success(data.message);
-
+                    setUserName(data.data.name);
+                    reset();
                 } else {
                     toast.error(data.message);
                     setIsUserLogin(false);
@@ -59,7 +61,7 @@ export const Login = () => {
         <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
             <div className="loginMain">
 
-                <form onSubmit={handleSubmit(onSubmit)} class="login-box" method='POST' autocomplete="on">
+                <form onSubmit={handleSubmit(onSubmit)} class="login-box" method='POST' autocomplete="off">
                     <div class="title">
                         <h1>LOGIN</h1>
                     </div>
@@ -70,7 +72,7 @@ export const Login = () => {
                     {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>}
 
                     <div class="input-box">
-                        <input type="password" name="password" class="input pass-input" id="password"  {...register('password', { required: true })} onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" autocomplete="false" name="password" class="input pass-input" id="password"  {...register('password', { required: true })} onChange={(e) => setPassword(e.target.value)} />
                         <img src="assets/img/view.png" class="view-pass" alt="" />
                         <label for="password">Password</label>
                     </div>
