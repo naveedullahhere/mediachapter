@@ -18,9 +18,9 @@ import { AppContext } from '../context/AppContext';
 
 
 export const Home = () => {
-    const { AppName, setTitle } = useContext(AppContext);
-    setTitle(`${AppName}Home`);
 
+    const { AppName, setTitle } = useContext(AppContext);
+    // setTitle(`${AppName}Home`);
 
     const settings = {
         slidesToShow: 6,
@@ -43,61 +43,62 @@ export const Home = () => {
         }]
     };
     return (
-        <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>            <div className="sliderMain position-relative">
-            <CarouselProvider className='slider container bannerSlider'
-                naturalSlideWidth={100}
-                naturalSlideHeight={50}
-                totalSlides={3}
-                isPlaying={true}
-                interval={5000}
-            >
-                <Slider>
-                    <Slide index={0} className="mainSlide">
-                        <div className="row w-100 h-100">
-                            <div className="col-6 my-auto">
-                                <h5>
-                                    A world full of wonder
-                                </h5>
-                                <h1 className='my-4'>We Write The Best Chapter for Your Brand</h1>
-                                <Link to={'/contact'} className="btn btn-dark">
-                                    GET A QUOTE
-                                </Link>
+        <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
+            <div className="sliderMain position-relative">
+                <CarouselProvider className='slider container bannerSlider'
+                    naturalSlideWidth={100}
+                    naturalSlideHeight={50}
+                    totalSlides={3}
+                    isPlaying={true}
+                    interval={5000}
+                >
+                    <Slider>
+                        <Slide index={0} className="mainSlide">
+                            <div className="row w-100 h-100">
+                                <div className="col-6 my-auto">
+                                    <h5>
+                                        A world full of wonder
+                                    </h5>
+                                    <h1 className='my-4'>We Write The Best Chapter for Your Brand</h1>
+                                    <Link to={'/contact'} className="btn btn-dark">
+                                        GET A QUOTE
+                                    </Link>
+                                </div>
+                                <div className="col-6 sliderImage my-auto"><img src={slide} alt="slide" className='w-100' /></div>
                             </div>
-                            <div className="col-6 sliderImage my-auto"><img src={slide} alt="slide" className='w-100' /></div>
-                        </div>
 
-                    </Slide>
-                    <Slide index={1} className="mainSlide">
-                        <div className="row w-100 h-100">
-                            <div className="col-6 my-auto">
-                                <h5>
-                                    A world full of wonder
-                                </h5>
-                                <h1 className='my-4'>We Write The Best Chapter for Your Brand</h1>
-                                <button className="btn btn-dark">
-                                    GET A QUOTE
-                                </button>
-                            </div>
-                            <div className="col-6 sliderImage my-auto"><img src={slide0} alt="slide" className='w-100' /></div>
-                        </div></Slide>
-                    <Slide index={2} className="mainSlide">
-                        <div className="row w-100 h-100">
-                            <div className="col-6 my-auto">
-                                <h5>
-                                    A world full of wonder
-                                </h5>
-                                <h1 className='my-4'>We Write The Best Chapter for Your Brand</h1>
-                                <button className="btn btn-dark">
-                                    GET A QUOTE
-                                </button>
-                            </div>
-                            <div className="col-6 sliderImage my-auto"><img src={slide1} alt="slide" className='w-100' /></div>
-                        </div></Slide>
-                </Slider>
-                <ButtonBack>Back</ButtonBack>
-                <ButtonNext>Next</ButtonNext>
-            </CarouselProvider>
-        </div>
+                        </Slide>
+                        <Slide index={1} className="mainSlide">
+                            <div className="row w-100 h-100">
+                                <div className="col-6 my-auto">
+                                    <h5>
+                                        A world full of wonder
+                                    </h5>
+                                    <h1 className='my-4'>We Write The Best Chapter for Your Brand</h1>
+                                    <button className="btn btn-dark">
+                                        GET A QUOTE
+                                    </button>
+                                </div>
+                                <div className="col-6 sliderImage my-auto"><img src={slide0} alt="slide" className='w-100' /></div>
+                            </div></Slide>
+                        <Slide index={2} className="mainSlide">
+                            <div className="row w-100 h-100">
+                                <div className="col-6 my-auto">
+                                    <h5>
+                                        A world full of wonder
+                                    </h5>
+                                    <h1 className='my-4'>We Write The Best Chapter for Your Brand</h1>
+                                    <button className="btn btn-dark">
+                                        GET A QUOTE
+                                    </button>
+                                </div>
+                                <div className="col-6 sliderImage my-auto"><img src={slide1} alt="slide" className='w-100' /></div>
+                            </div></Slide>
+                    </Slider>
+                    <ButtonBack>Back</ButtonBack>
+                    <ButtonNext>Next</ButtonNext>
+                </CarouselProvider>
+            </div>
             <div className="sec py-5">
                 <div className="container">
 

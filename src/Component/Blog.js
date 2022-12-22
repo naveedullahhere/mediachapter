@@ -1,15 +1,34 @@
 import { motion } from 'framer-motion';
 import React, { useContext, useState, useEffect } from 'react'
 import { AppContext } from '../context/AppContext';
+import { Error } from './Error';
+import { Spinner } from './Spinner';
 
 
 
 
 export const Blog = () => {
 
-    const { AppName, setTitle, URL, data, img } = useContext(AppContext);
+    const { AppName, setTitle, URL } = useContext(AppContext);
 
+    const [isLoading, setIsLoading] = useState(true);
+    const [isErr, setIsError] = useState(false);
 
+    const [data, setData] = useState([]);
+    const [img, setImg] = useState(null);
+    const [singleUrl, setSingleUrl] = useState(null);
+
+    useEffect(() => {
+        fetch(`${URL}api/blogs?token=152784823qtjzdfg213&paginate=2&since_id=0`)
+            .then((response) => response.json())
+            .then((actualData) => { setData(actualData.data.data); setIsLoading(false); setImg(actualData.media_path); setSingleUrl(actualData.single_blog); })
+            .catch((err) => {
+                setData([]);
+                setIsError(true);
+                setIsLoading(false);
+            }
+            );
+    }, []);
 
     if (data.length > 0) {
         console.log(data[0].short_description);
@@ -22,43 +41,44 @@ export const Blog = () => {
             <div className="sec py-5 blog  ">
                 <div className="container">
                     {
-                        data.length >= 1 ?
+                        data.length >= 1 &&
 
-                            <div className="row">
-                                <div className="col-12">
-                                    <h1 className="heading">
-                                        Boost Your Knowledge with Creative Blog
-                                    </h1>
-                                    <p className="para-sm text-muted">
-                                        Reading can help you build opinions and make better decisions. Let’s go through our creative and informative blog and enhance your knowledge.
-                                    </p>
-                                </div>
-                                <div className="col-lg-11 mx-auto my-4">
-                                    <div className="row">
-                                        {data.map((item) => {
-                                            return <div className="col-lg-4 col-md-6 col-sm-6 col-12 my-3 text-start">
-                                                <div class="card rounded-4 overflow-hidden shadow">
-                                                    <img src={`${img}/${item.image}`} class="card-img-top" alt="blog" />
-                                                    <div class="card-body my-3">
-                                                        <h6 class="card-title">{item.title}</h6>
-                                                        <p className="my-3 text-danger fs-smm">
-                                                            {new Date(item.updated_at).toLocaleString("en-us")}
-                                                        </p>
-                                                        <p class="card-text para-sm fs-smm text-muted" dangerouslySetInnerHTML={{ __html: item.short_description }}>
-                                                        </p>
-                                                        <a href={`/blog/${item.slug}`} class="text-danger">Read More ↗</a>
-                                                    </div>
+                        <div className="row">
+                            <div className="col-12">
+                                <h1 className="heading">
+                                    Boost Your Knowledge with Creative Blog
+                                </h1>
+                                <p className="para-sm text-muted">
+                                    Reading can help you build opinions and make better decisions. Let’s go through our creative and informative blog and enhance your knowledge.
+                                </p>
+                            </div>
+                            <div className="col-lg-11 mx-auto my-4">
+                                <div className="row">
+                                    {data.map((item) => {
+                                        return <div className="col-lg-4 col-md-6 col-sm-6 col-12 my-3 text-start">
+                                            <div class="card rounded-4 overflow-hidden shadow">
+                                                <img src={`${img}/${item.image}`} class="card-img-top" alt="blog" />
+                                                <div class="card-body my-3">
+                                                    <h6 class="card-title">{item.title}</h6>
+                                                    <p className="my-3 text-danger fs-smm">
+                                                        {new Date(item.updated_at).toLocaleString("en-us")}
+                                                    </p>
+                                                    <p class="card-text para-sm fs-smm text-muted" dangerouslySetInnerHTML={{ __html: item.short_description }}>
+                                                    </p>
+                                                    <a href={`/blog/${item.slug}`} class="text-danger">Read More ↗</a>
                                                 </div>
                                             </div>
-                                        })}
-                                    </div>
+                                        </div>
+                                    })}
                                 </div>
                             </div>
-                            : <div className="row"> <div className="col-12">
-                                <h1 className="heading">
-                                    Something Went Wrong
-                                </h1>
-                            </div></div>}
+                        </div>}
+                    {isLoading &&
+                        <Spinner />
+                    }
+                    {isErr &&
+                        <Error />
+                    }
                 </div>
             </div>
             {/* <div className="sec py-5 blog">

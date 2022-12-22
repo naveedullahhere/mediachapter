@@ -13,28 +13,27 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
 
-  var AppName = APP_NAME;
   const [isUserLogin, setIsUserLogin] = useState(false);
   const [userName, setUserName] = useState(JSON.parse(getCookie("USER")).data.name);
   const [userId, setUserId] = useState(JSON.parse(getCookie("USER")).data.user_token);
   const [couponItems, setCouponItems] = useState([]);
   const [FilterCategory, setFilterCategory] = useState([]);
   const [FilterStore, setFilterStore] = useState([]);
-  const [Title, setTitle] = useState(`${AppName}Home`);
-  const [data, setData] = useState([]);
+  const [Title, setTitle] = useState(`${APP_NAME}Home`);
   const [projects, setProjects] = useState([]);
+  const [data, setData] = useState([]);
+  const [teams, setTeams] = useState([]);
+  const [teamsImgPath, setTeamsImgPath] = useState("");
   const [img, setImg] = useState(null);
   const [singleUrl, setSingleUrl] = useState(null);
+
+
   var values = {
-    isUserLogin, setIsUserLogin, userName, setUserName,
-    couponItems, setCouponItems,
-    FilterCategory, setFilterCategory,
-    FilterStore, setFilterStore, setTitle, AppName, URL, data, setData, img, setImg, setCookieinLocal, setUserId, userId, projects
+    isUserLogin, setIsUserLogin, teams, teamsImgPath, userName, setUserName, couponItems, setCouponItems, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, APP_NAME, URL, data, setData, img, setImg, setCookieinLocal, setUserId, userId, projects
   }
 
   useEffect(() => {
     if (getCookie("USER")) {
-
       setIsUserLogin(true);
       setUserName(JSON.parse(getCookie("USER")).data.name);
       setUserId(JSON.parse(getCookie("USER")).data.user_token);
@@ -44,18 +43,24 @@ function App() {
         .then((actualData) => { setProjects(actualData) })
         .catch((err) => {
           setProjects([]);
-        }
-        );
-
+        })
     }
 
     else {
       setIsUserLogin(false);
     }
-    // console.log(JSON.parse(getCookie("USER")));
+
     fetch(`${URL}api/blogs?token=152784823qtjzdfg213&paginate=2&since_id=0`)
       .then((response) => response.json())
       .then((actualData) => { setData(actualData.data.data); setImg(actualData.media_path); setSingleUrl(actualData.single_blog); })
+      .catch((err) => {
+        setData([]);
+      }
+      );
+
+    fetch(`${URL}api/team-member`)
+      .then((response) => response.json())
+      .then((actualData) => { setTeams(actualData.team); setTeamsImgPath(actualData.media_path); })
       .catch((err) => {
         setData([]);
       }
@@ -94,11 +99,8 @@ function App() {
 
 
   return (
-    <AppContext.Provider
-      value={values}
-    >
+    <AppContext.Provider value={values} >
       <BrowserRouter>
-        {/* <Cursor /> */}
         <Header />
         <MainRoutes />
         <Footer />

@@ -12,6 +12,7 @@ export const Footer = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
 
@@ -35,7 +36,7 @@ export const Footer = () => {
                     toast.error(json.message);
                 }
                 setIsLoading(false);
-
+                reset()
             }).catch(err => {
                 toast.error("Something Went Wrong!");
                 setIsLoading(false);

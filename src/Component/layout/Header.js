@@ -88,10 +88,10 @@ export const Header = () => {
                                                     </ul>
                                                 }
                                             </div>
-                                            <div class={`nav-item pl-4 pl-md-0 mx-lg-4 mx-md-3 anotherLink`}>
+                                            {/* <div class={`nav-item pl-4 pl-md-0 mx-lg-4 mx-md-3 anotherLink`}>
                                                 <i class="nectar-menu-icon fa fa-phone"></i>
                                                 <a class={`nav-link`} href="tel:+12483464854">+1-248-346-4854</a>
-                                            </div>
+                                            </div> */}
                                         </div>
                                         <Link to={'/contact'} className="btn btn-main">
                                             GET A QUOTE

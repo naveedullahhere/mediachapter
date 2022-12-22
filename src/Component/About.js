@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import number1 from "./assets/num1.png";
 import number2 from "./assets/num2.png";
 import { AppContext } from '../context/AppContext';
@@ -10,9 +10,9 @@ import { Link } from 'react-router-dom';
 
 
 export const About = () => {
-    const { AppName, setTitle } = useContext(AppContext);
-    setTitle(`${AppName}About`);
+    const { AppName, setTitle, teams, teamsImgPath } = useContext(AppContext);
 
+    setTitle(`${AppName}About`);
     const settings = {
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -140,78 +140,22 @@ export const About = () => {
                         <div className="col-12">
                             <div className="clients">
                                 <Slider {...settings}>
-                                    <div className="testimonials row">
-                                        <div className="col-12 mx-auto">
-
-                                            <div className="testimonialImg">
-                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Sara-Ali-300x300.jpg" alt="clients" />
+                                    {
+                                        teams.length > 0 &&
+                                        teams.map((item) => {
+                                            return <div className="testimonials row">
+                                                <div className="col-12 mx-auto">
+                                                    <div className="testimonialImg">
+                                                        <img className='testImg' src={`${teamsImgPath}/${item.image}`} alt="clients" />
+                                                    </div>
+                                                    <div className="testimonialsFooter">
+                                                        <p className="fw-bold mt-3 fs-5 mb-2"><i>{item.name}</i></p>
+                                                        <p className="text-muted"><i>{item.designation}</i></p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div className="testimonialsFooter">
-                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Sara Ali</i></p>
-                                                <p className="text-muted"><i>Baixo Inc</i></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="testimonials row">
-                                        <div className="col-12 mx-auto">
-
-                                            <div className="testimonialImg">
-                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Stella-Flora-300x300.jpg" alt="clients" />
-                                            </div>
-                                            <div className="testimonialsFooter">
-                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Stella Flora</i></p>
-                                                <p className="text-muted"><i>SEO Specialist</i></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="testimonials row">
-                                        <div className="col-12 mx-auto">
-
-                                            <div className="testimonialImg">
-                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Erick-Rowan-300x300.jpg" alt="clients" />
-                                            </div>
-                                            <div className="testimonialsFooter">
-                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Erick Rowan</i></p>
-                                                <p className="text-muted"><i>Web Developer</i></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="testimonials row">
-                                        <div className="col-12 mx-auto">
-
-                                            <div className="testimonialImg">
-                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/shayan-rao-300x300.jpg" alt="clients" />
-                                            </div>
-                                            <div className="testimonialsFooter">
-                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Shayan R.</i></p>
-                                                <p className="text-muted"><i>CEO/Founder</i></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="testimonials row">
-                                        <div className="col-12 mx-auto">
-
-                                            <div className="testimonialImg">
-                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/Erick-Rowan-300x300.jpg" alt="clients" />
-                                            </div>
-                                            <div className="testimonialsFooter">
-                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>Azhar Ali</i></p>
-                                                <p className="text-muted"><i>Business Developer</i></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="testimonials row">
-                                        <div className="col-12 mx-auto">
-
-                                            <div className="testimonialImg">
-                                                <img className='testImg' src="https://www.mediachapter.us/wp-content/uploads/2022/05/William-Joe-300x300.jpg" alt="clients" />
-                                            </div>
-                                            <div className="testimonialsFooter">
-                                                <p className="fw-bold mt-3 fs-5 mb-2"><i>William Joe</i></p>
-                                                <p className="text-muted"><i>Brand Specialst</i></p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        })
+                                    }
                                 </Slider>
                             </div>
                         </div>

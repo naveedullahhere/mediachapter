@@ -20,7 +20,6 @@ export const Contact = () => {
         formState: { errors },
     } = useForm();
 
-
     const onSubmit = (data) => {
         setIsLoading(true)
 
