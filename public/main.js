@@ -7,7 +7,7 @@ $(document).ready(function () {
             $(window).scroll(function () {
                 var scroll = $(window).scrollTop();
 
-                if (scroll >= 10) {
+                if (scroll >= 50) {
                     header.removeClass('start-style').addClass("scroll-on");
                 } else {
                     header.removeClass("scroll-on").addClass('start-style');

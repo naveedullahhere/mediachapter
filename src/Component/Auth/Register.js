@@ -9,7 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 export const Register = () => {
 
-    const { isUserLogin, setIsUserLogin, URL, setCookieinLocal, setUserName } = useContext(AppContext);
+    const { isUserLogin, setIsUserLogin, URL, setCookieinLocal, setUserName, setUserId } = useContext(AppContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userName, setUsername] = useState("");
@@ -38,6 +38,7 @@ export const Register = () => {
         postData(`${URL}api/signup`, { email: emailD, password: passwordD, name: usernameD })
             .then(data => {
                 if (data.success != false) {
+                    setUserId(data.data.user_token);
                     setCookieinLocal("USER", JSON.stringify(data), 1);
                     setIsUserLogin(true);
                     toast.success(data.message);

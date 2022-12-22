@@ -19,6 +19,7 @@ import { BlogDetails } from './Component/BlogDetails';
 import { MyAccount } from './Component/Dashboard/MyAccount';
 import { Projects } from './Component/Dashboard/Projects';
 import { Invoices } from './Component/Dashboard/Invoices';
+import { SingleProject } from './Component/Dashboard/SingleProject';
 
 
 export const MainRoutes = () => {
@@ -38,6 +39,7 @@ export const MainRoutes = () => {
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:singleBlog" element={<BlogDetails />} />
+                <Route path="/projects/:singleProject" element={<SingleProject />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

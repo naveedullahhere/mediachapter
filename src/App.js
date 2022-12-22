@@ -15,38 +15,53 @@ function App() {
 
   var AppName = APP_NAME;
   const [isUserLogin, setIsUserLogin] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState(JSON.parse(getCookie("USER")).data.name);
+  const [userId, setUserId] = useState(JSON.parse(getCookie("USER")).data.user_token);
   const [couponItems, setCouponItems] = useState([]);
   const [FilterCategory, setFilterCategory] = useState([]);
   const [FilterStore, setFilterStore] = useState([]);
   const [Title, setTitle] = useState(`${AppName}Home`);
   const [data, setData] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [img, setImg] = useState(null);
   const [singleUrl, setSingleUrl] = useState(null);
   var values = {
     isUserLogin, setIsUserLogin, userName, setUserName,
     couponItems, setCouponItems,
     FilterCategory, setFilterCategory,
-    FilterStore, setFilterStore, setTitle, AppName, URL, data, setData, img, setImg, setCookieinLocal
+    FilterStore, setFilterStore, setTitle, AppName, URL, data, setData, img, setImg, setCookieinLocal, setUserId, userId, projects
   }
 
   useEffect(() => {
+    if (getCookie("USER")) {
+
+      setIsUserLogin(true);
+      setUserName(JSON.parse(getCookie("USER")).data.name);
+      setUserId(JSON.parse(getCookie("USER")).data.user_token);
+
+      fetch(`${URL}api/project/${JSON.parse(getCookie("USER")).data.user_token}?status=`)
+        .then((response) => response.json())
+        .then((actualData) => { setProjects(actualData) })
+        .catch((err) => {
+          setProjects([]);
+        }
+        );
+
+    }
+
+    else {
+      setIsUserLogin(false);
+    }
+    // console.log(JSON.parse(getCookie("USER")));
     fetch(`${URL}api/blogs?token=152784823qtjzdfg213&paginate=2&since_id=0`)
       .then((response) => response.json())
       .then((actualData) => { setData(actualData.data.data); setImg(actualData.media_path); setSingleUrl(actualData.single_blog); })
       .catch((err) => {
         setData([]);
       }
-
       );
-    if (getCookie("USER")) {
-      setIsUserLogin(true);
-      setUserName(JSON.parse(getCookie("USER")).data.name);
-    }
-    else {
-      setIsUserLogin(false);
-    }
-  }, []);
+  }, [userId]);
+
 
 
   function setCookieinLocal(name, value, days = 1) {

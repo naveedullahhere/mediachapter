@@ -20,8 +20,7 @@ export const Testimonials = () => {
                 setData([]);
             });
     }, []);
-
-    console.log(data);
+ 
     const settings = {
         slidesToShow: 1,
         slidesToScroll: 1,

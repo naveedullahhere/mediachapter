@@ -8,6 +8,7 @@ import address from "./assets/location0.png";
 import { AppContext } from '../context/AppContext';
 
 export const Contact = () => {
+
     const [isLoading, setIsLoading] = useState(false);
 
     const { AppName, setTitle, URL } = useContext(AppContext);

@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const Login = () => {
 
-    const { isUserLogin, setIsUserLogin, URL, setCookieinLocal, setUserName } = useContext(AppContext);
+    const { isUserLogin, setIsUserLogin, URL, setCookieinLocal, setUserName, setUserId } = useContext(AppContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -30,6 +30,7 @@ export const Login = () => {
         postData(`${URL}api/signin`, { email: emailD, password: passwordD })
             .then(data => {
                 if (data.success != false) {
+                    setUserId(data.data.user_token);
                     setCookieinLocal("USER", JSON.stringify(data), 1);
                     setIsUserLogin(true);
                     toast.success(data.message);
@@ -45,7 +46,6 @@ export const Login = () => {
             });
 
     };
-
 
     async function postData(url, data) {
         const response = await fetch(url, {
