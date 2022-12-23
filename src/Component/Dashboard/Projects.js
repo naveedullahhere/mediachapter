@@ -33,10 +33,13 @@ export const Projects = () => {
             }
         }
     }, []);
+
+    console.log("projects start");
     projects.map((item) => {
-        console.log("Projects: ",projects);
         console.log("Items: ", item);
     })
+    console.log("projects ended");
+    console.log("Projects: ", projects);
     return (
         <div>
             <div className="container-fluid px-0">
