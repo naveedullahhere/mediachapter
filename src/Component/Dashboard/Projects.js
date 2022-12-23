@@ -16,7 +16,7 @@ export const Projects = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isErr, setIsError] = useState(false);
 
-    isUserLogin === false && navigate('/login');
+    isUserLogin === false && navigate('/login'); 
     useEffect(() => {
         return () => {
             isUserLogin === false && navigate('/login');
@@ -53,7 +53,7 @@ export const Projects = () => {
                                         <h1 className="heading fs-3">No Projects Found!</h1>
                                     </div>
                                 }
-                                {!projects.length >= 0
+                                {projects.length > 0
                                     &&
                                     projects.map((item) => {
                                         return <div className="col-lg-3 col-md-3 col-6">
