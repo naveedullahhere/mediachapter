@@ -28,10 +28,10 @@ function App() {
   const [singleUrl, setSingleUrl] = useState(null);
 
 
-  if (JSON.parse(getCookie("USER")).data.name) {
+  if (JSON.parse(getCookie("USER"))) {
     console.log(JSON.parse(getCookie("USER")).data.name);
   }
-  if (JSON.parse(getCookie("USER")).data.user_token) {
+  if (JSON.parse(getCookie("USER"))) {
     console.log(JSON.parse(getCookie("USER")).data.user_token);
   }
 
