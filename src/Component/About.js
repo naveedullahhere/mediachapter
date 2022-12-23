@@ -87,39 +87,39 @@ export const About = () => {
                         <div className="col-md-9 my-md-auto my-3">
                             <div className="row">
                                 <div className="col-md-6 my-3">
-                                    <div class="crd rounded-4 h-100 shadow p-4 bg-light d-flex gap-2">
-                                        <div class="cardImg">
+                                    <div className="crd rounded-4 h-100 shadow p-4 bg-light d-flex gap-2">
+                                        <div className="cardImg">
                                             <img src={number4} draggable={false} className={'w-card'} alt="card" />
                                         </div>
-                                        <div class="content"><a class="fs-3 text-dark my-3 mt-0 d-inline-block">Logo Design</a><p class="para-sm text-muted">At MediaChapter, we have designers who can create a striking custom logo design for your business, giving your brand an identity that it needs to stand out in the competitive market.</p>
+                                        <div className="content"><a className="fs-3 text-dark my-3 mt-0 d-inline-block">Logo Design</a><p className="para-sm text-muted">At MediaChapter, we have designers who can create a striking custom logo design for your business, giving your brand an identity that it needs to stand out in the competitive market.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-md-6 my-3">
-                                    <div class="crd rounded-4 h-100 shadow p-4 bg-light d-flex gap-2">
-                                        <div class="cardImg">
+                                    <div className="crd rounded-4 h-100 shadow p-4 bg-light d-flex gap-2">
+                                        <div className="cardImg">
                                             <img src={number3} draggable={false} className={'w-card'} alt="card" />
                                         </div>
-                                        <div class="content"><a class="fs-3 text-dark my-3 mt-0 d-inline-block">Web Development</a><p class="para-sm text-muted">A good website is speedy, responsive, and user-friendly. Our developers are expert in building websites that contains all these elements.</p>
+                                        <div className="content"><a className="fs-3 text-dark my-3 mt-0 d-inline-block">Web Development</a><p className="para-sm text-muted">A good website is speedy, responsive, and user-friendly. Our developers are expert in building websites that contains all these elements.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-md-6 my-3">
-                                    <div class="crd rounded-4 h-100 shadow p-4 bg-light d-flex gap-2">
-                                        <div class="cardImg">
+                                    <div className="crd rounded-4 h-100 shadow p-4 bg-light d-flex gap-2">
+                                        <div className="cardImg">
                                             <img src={number2} draggable={false} className={'w-card'} alt="card" />
                                         </div>
-                                        <div class="content"><a class="fs-3 text-dark my-3 mt-0 d-inline-block">SEO</a><p class="para-sm text-muted">SEO specialists at MediaChapter create strategies that boost website traffic and improve its ranking in Google’s search results.</p>
+                                        <div className="content"><a className="fs-3 text-dark my-3 mt-0 d-inline-block">SEO</a><p className="para-sm text-muted">SEO specialists at MediaChapter create strategies that boost website traffic and improve its ranking in Google’s search results.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-md-6 my-3">
-                                    <div class="crd rounded-4 h-100 shadow p-4 bg-light d-flex gap-2">
-                                        <div class="cardImg">
+                                    <div className="crd rounded-4 h-100 shadow p-4 bg-light d-flex gap-2">
+                                        <div className="cardImg">
                                             <img src={number1} draggable={false} className={'w-card'} alt="card" />
                                         </div>
-                                        <div class="content"><a class="fs-3 text-dark my-3 mt-0 d-inline-block">Stationery Design
-                                        </a><p class="para-sm text-muted">Apart from logos, our skilled designers are also specialized in creating the alluring stationery design, including flyers, brochures, packaging, banners, posters, and more.</p>
+                                        <div className="content"><a className="fs-3 text-dark my-3 mt-0 d-inline-block">Stationery Design
+                                        </a><p className="para-sm text-muted">Apart from logos, our skilled designers are also specialized in creating the alluring stationery design, including flyers, brochures, packaging, banners, posters, and more.</p>
                                         </div>
                                     </div>
                                 </div>

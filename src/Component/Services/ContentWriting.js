@@ -36,13 +36,13 @@ export const ContentWriting = () => {
                                 Fresh, original, and flawless content can help you win clients and meet your goals. Get in touch with professional writers at Media Chapter today and produce the best content for your brand.
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Customer-focused Content
+                                <i className="fa-regular fa-circle-dot text-danger"></i>Customer-focused Content
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Out-of-the-ideas Ideas
+                                <i className="fa-regular fa-circle-dot text-danger"></i>Out-of-the-ideas Ideas
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>100% Original
+                                <i className="fa-regular fa-circle-dot text-danger"></i>100% Original
                             </p>
                         </div>
                         <div className="col-md-6 my-md-auto my-3">

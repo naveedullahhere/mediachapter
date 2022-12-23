@@ -11,62 +11,39 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 export const MyAccount = () => {
-    const { isUserLogin, userEmail, URL, setUserName, userId, userAbout, userPhone, getCookie, userName, setCookieinLocal, setUserEmail, setUserAbout, setUserPhone } = useContext(AppContext);
-    let navigate = useNavigate();
+    const { URL, user, dispatch, addUserData } = useContext(AppContext);
+
     const [isActiveEdit, setActiveEdit] = useState("false");
+    const [userName, setUserName] = useState(user.data.name);
+    const [userPhone, setUserPhone] = useState(user.data.phone_number);
+    const [userAbout, setUserAbout] = useState(user.data.about);
     const [isActiveEditPass, setisActiveEditPass] = useState("false");
-    const [ppass, setPpass] = useState("*******");
     const [isLoading, setIsLoading] = useState(false);
     const [isProfileLoading, setIsProfileLoading] = useState(false);
-
-    isUserLogin === false && navigate('/login');
-    useEffect(() => {
-        return () => {
-            !isUserLogin && navigate('/login');
-        }
-    }, [isUserLogin]);
-
-    const [pname, setPname] = useState("user.name");
 
     const enableEditPass = () => {
         setisActiveEditPass(!isActiveEditPass);
     };
 
     const enableEdit = () => {
-        // errors2.name ? setActiveEdit(false) :
         setActiveEdit(!isActiveEdit);
-
     };
-
     const onSubmitProfile = (data) => {
-
         setIsProfileLoading(true);
-        postData(`${URL}api/profile-setting`, { about: userAbout, name: userName, phone_number: userPhone, token: userId })
+        postData(`${URL}api/profile-setting`, { about: userAbout, name: userName, phone_number: userPhone, token: user.data.user_token })
             .then(data => {
                 if (data.success != false) {
-                    // setUserId(data.data.user_token);
-                    // console.log(data.data.user_token); 
-                    setCookieinLocal("USER", JSON.stringify(data), 1);
-                    // console.log(JSON.parse(getCookie("USER")).data.name);
-                    // console.log(JSON.parse(getCookie("USER")).data.email);
-                    // setUserEmail(JSON.parse(getCookie("USER")).data.email);
-                    // console.log("email");
-                    // setUserAbout(JSON.parse(getCookie("USER")).data.about);
-                    // setUserPhone(JSON.parse(getCookie("USER")).data.phone_number);
-                    // setUserName(JSON.parse(getCookie("USER")).data.name);
+                    dispatch(addUserData(data.data));
                     toast.success(data.message);
-                    // console.log("endd");
-                    // reset();
+                    reset();
                 } else {
                     toast.error(data.message);
-                    // setIsUserLogin(false);
                 }
                 setIsProfileLoading(false);
             }).catch((err) => {
                 toast.error("Something went wrong!");
                 setIsProfileLoading(false);
             });
-
     };
 
     const formSchema = Yup.object().shape({
@@ -92,7 +69,7 @@ export const MyAccount = () => {
 
     const onSubmit = (data) => {
         setIsLoading(true)
-        postData(`${URL}api/change-password`, { password: data.cpassword, new_password: data.new_password, token: userId })
+        postData(`${URL}api/change-password`, { password: data.cpassword, new_password: data.new_password, token: user.data.user_token })
             .then(data => {
                 if (data.success != false) {
                     toast.success(data.message);
@@ -124,7 +101,8 @@ export const MyAccount = () => {
             <div className="container-fluid px-0">
                 <div className="row">
                     <div className="col-xl-3 col-lg-3 col-md-4 col-12"><Sidebar pageid={'account'} /></div>
-                    <motion.div className="col-xl-9 col-lg-9 col-md-8 col-12" initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
+                    {/* <motion.div className="col-xl-9 col-lg-9 col-md-8 col-12" initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}> */}
+                    <div className="col-xl-9 col-lg-9 col-md-8 col-12" >
                         <div className='row w-100 mx-0 px-0'>
                             <div className="col-12 mx-0 px-0 text-center">
                                 <div className="profile-page p-4 text-start">
@@ -136,7 +114,7 @@ export const MyAccount = () => {
                                             <form className='row' onSubmit={handleSubmitProfile(onSubmitProfile)}>
                                                 <div className='col-6 d-flex gap-3 my-2 flex-column'>
 
-                                                    <input type="text" name="" value={userEmail}
+                                                    <input type="text" name="" value={user.data.email}
                                                         className={`form-control text-dark`} style={{ "filter": "none" }} disabled={true} />
 
                                                     <input type="text" name="name" id="" {...register2('name', { required: true })}
@@ -144,10 +122,10 @@ export const MyAccount = () => {
 
 
                                                     <input type="text" name="phone_number" id="" {...register2('phone_number')}
-                                                        className={`form-control text-dark ${errors2.phone_number ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Phone Number`} disabled={isActiveEdit} value={userPhone && userPhone} onChange={(e) => setUserPhone(e.target.value)} />
+                                                        className={`form-control text-dark ${errors2.phone_number ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Phone Number`} disabled={isActiveEdit} value={userPhone} onChange={(e) => setUserPhone(e.target.value)} />
 
                                                     <textarea type="text" name="about" id="" {...register2('about')}
-                                                        className={`form-control text-dark ${errors2.about ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`About your self`} disabled={isActiveEdit} onChange={(e) => setUserAbout(e.target.value)} >{userAbout && userAbout}</textarea>
+                                                        className={`form-control text-dark ${errors2.about ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`About your self`} disabled={isActiveEdit} onChange={(e) => setUserAbout(e.target.value)} >{userAbout}</textarea>
 
                                                     <div className="float-end">
                                                         <button type={`${!isActiveEdit ? "button" : "submit"}`} onClick={enableEdit} className={`btn ${!isActiveEdit ? "btn-main" : "btn-dark border-0"} d-flex align-items-center gap-2 btn-sm`}>
@@ -157,8 +135,8 @@ export const MyAccount = () => {
                                                             {!isActiveEdit ? "Save" : "Edit"}
 
                                                             {isProfileLoading &&
-                                                                <div class="spinner-border" style={{ "float": "right" }} role="status">
-                                                                    <span class="visually-hidden">Loading...</span>
+                                                                <div className="spinner-border" style={{ "float": "right" }} role="status">
+                                                                    <span className="visually-hidden">Loading...</span>
                                                                 </div>
                                                             }
 
@@ -170,23 +148,23 @@ export const MyAccount = () => {
                                         </div>
                                         <div className="my-5">
 
-                                            <h3 className="heading fs-3 mb-3">Manage Password</h3>
+                                            <h3 className="heading fs-3 mb-3">Change Password</h3>
                                             <form onSubmit={handleSubmit(onSubmit)} className="row">
                                                 <div className='col-6'>
                                                     <div className='d-flex gap-3 my-2 flex-column'>
-                                                        <div class="input-box">
+                                                        <div className="input-box">
                                                             <input type="password" name="password" id="" {...register('cpassword', { required: true })}
                                                                 className={`form-control text-dark ${errors.cpassword ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Current Password`} disabled={isActiveEditPass} />
 
                                                             <div className="invalid-feedback text-dark">{errors.password?.message}</div>
                                                         </div>
-                                                        <div class="input-box">
+                                                        <div className="input-box">
                                                             <input type="password" name="password" id="password"  {...register('password')}
                                                                 className={`form-control text-dark ${errors.password ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Password`} disabled={isActiveEditPass} />
 
                                                             <div className="invalid-feedback text-dark">{errors.password?.message}</div>
                                                         </div>
-                                                        <div class="input-box">
+                                                        <div className="input-box">
                                                             <input type="password" name="cpassword"  {...register('new_password')}
                                                                 className={`form-control text-dark ${errors.new_password ? 'is-invalid' : ''}`} disabled={isActiveEditPass} style={{ "filter": "none" }} id="cpassword" placeholder={`Confirm Password`} />
 
@@ -194,15 +172,15 @@ export const MyAccount = () => {
                                                         </div>
 
                                                         <div className="float-end">
-                                                            <button type={`${!isActiveEditPass ? "button" : "submit"}`} onClick={() => { enableEditPass(); setPpass("Enter Current Password") }} className={`btn ${!isActiveEditPass ? "btn-main" : "btn-dark border-0"} d-flex align-items-center gap-2 btn-sm`}>
+                                                            <button type={`${!isActiveEditPass ? "button" : "submit"}`} onClick={() => { enableEditPass(); }} className={`btn ${!isActiveEditPass ? "btn-main" : "btn-dark border-0"} d-flex align-items-center gap-2 btn-sm`}>
 
                                                                 <i className={`fa fa-${!isActiveEditPass ? "save" : "edit"} me-1 ms-0 align-middle`}></i>
 
                                                                 {!isActiveEditPass ? "Save" : "Edit"}
 
                                                                 {isLoading &&
-                                                                    <div class="spinner-border" style={{ "float": "right" }} role="status">
-                                                                        <span class="visually-hidden">Loading...</span>
+                                                                    <div className="spinner-border" style={{ "float": "right" }} role="status">
+                                                                        <span className="visually-hidden">Loading...</span>
                                                                     </div>
                                                                 }
 
@@ -220,7 +198,7 @@ export const MyAccount = () => {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </div>

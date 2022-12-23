@@ -5,18 +5,17 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
+import { yupResolver } from '@hookform/resolvers/yup';
 
 export const Register = () => {
 
-    const { isUserLogin, setIsUserLogin, URL, setCookieinLocal, setUserName, setUserId } = useContext(AppContext);
+    const { URL, addUserData, dispatch, user } = useContext(AppContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userName, setUsername] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    let navigate = useNavigate();
-
-    isUserLogin && navigate('/my-account');
+    const navigate = useNavigate();
+    user && navigate("/my-account")
 
     const formSchema = Yup.object().shape({
         password: Yup.string()
@@ -38,16 +37,12 @@ export const Register = () => {
         postData(`${URL}api/signup`, { email: emailD, password: passwordD, name: usernameD })
             .then(data => {
                 if (data.success != false) {
-                    setUserId(data.data.user_token);
-                    setCookieinLocal("USER", JSON.stringify(data), 1);
-                    setIsUserLogin(true);
+                    dispatch(addUserData(data.data));
                     toast.success(data.message);
-                    setUserName(data.data.name);
                     reset();
 
                 } else {
                     toast.error(data.message);
-                    setIsUserLogin(false);
                 }
                 setIsLoading(false);
             }).catch((err) => {
@@ -58,7 +53,6 @@ export const Register = () => {
 
 
     async function postData(url, data) {
-        // console.log(data);
         const response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -68,39 +62,41 @@ export const Register = () => {
         });
         return response.json();
     }
+
+
+
     return (
         <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
             <div className="loginMain">
-
-                <form onSubmit={handleSubmit(onSubmit)} class="login-box" autocomplete="on">
-                    <div class="title">
-                        <h1>Register</h1>
+                <form onSubmit={handleSubmit(onSubmit)} className="login-box" autocomplete="on">
+                    <div className="title">
+                        <h1>Register </h1>
                     </div>
-                    <div class="input-box">
+                    <div className="input-box">
                         <input type="text" name="username" class={`inputLogin ${errors.username && "form-control is-invalid"}`} id="username"  {...register('username', { required: true })} onChange={(e) => setUsername(e.target.value)} />
                         <label for="username">Username</label>
                     </div>
-                    <div class="input-box">
+                    <div className="input-box">
                         <input type="email" name="email" class={`inputLogin ${errors.email && "form-control is-invalid"}`} {...register('email', { required: true, pattern: /^\S+@\S+$/i })} onChange={(e) => setEmail(e.target.value)} />
                         <label for="email">Email</label>
                     </div>
                     {/* {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>} */}
 
-                    <div class="input-box">
+                    <div className="input-box">
                         <input type="password" name="password" id="password"  {...register('password')} onChange={(e) => setPassword(e.target.value)}
                             className={`input pass-input ${errors.password ? 'is-invalid' : ''}`} />
-                        <img src="assets/img/view.png" class="view-pass" alt="" />
+                        <img src="assets/img/view.png" className="view-pass" alt="" />
                         <label for="password">Password</label>
                         <div className="invalid-feedback text-white">{errors.password?.message}</div>
                     </div>
-                    <div class="input-box">
+                    <div className="input-box">
                         <input type="password" name="cpassword"  {...register('confirmPwd')}
                             className={`input pass-input ${errors.confirmPwd ? 'is-invalid' : ''}`} id="cpassword" />
-                        <img src="assets/img/view.png" class="view-pass" alt="" />
+                        <img src="assets/img/view.png" className="view-pass" alt="" />
                         <label for="cpassword">Confirm Password</label>
                         <div className="invalid-feedback text-white">{errors.confirmPwd?.message}</div>
                     </div>
-                    {/* <div class="remember-me">
+                    {/* <div className="remember-me">
                         <input type="checkbox" checked name="" id="checkbox" />
                         <label for="checkbox" className='px-2'>Remember Me</label>
                     </div> */}
@@ -108,13 +104,13 @@ export const Register = () => {
                     <button type="submit">
                         Signup
                         {isLoading &&
-                            <div class="spinner-border me-5" style={{ "float": "right" }} role="status">
-                                <span class="visually-hidden">Loading...</span>
+                            <div className="spinner-border me-5" style={{ "float": "right" }} role="status">
+                                <span className="visually-hidden">Loading...</span>
                             </div>
                         }
                     </button>
 
-                    <div class="auth-action">
+                    <div className="auth-action">
                         <Link to="/login">Sign In</Link>
                         <a href="#">Forget Password?</a>
                     </div>

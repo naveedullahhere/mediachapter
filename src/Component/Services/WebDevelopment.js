@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import { ContactForm } from '../ContactForm';
-import Portfolio from "../Portfolio.json";
 
 
 export const WebDevelopment = () => {

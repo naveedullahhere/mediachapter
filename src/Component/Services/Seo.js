@@ -38,13 +38,13 @@ export const Seo = () => {
                                 this feat with our result-oriented SEO services.
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Boost Ranking
+                                <i className="fa-regular fa-circle-dot text-danger"></i>Boost Ranking
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Maximize Your Website’s Visibility
+                                <i className="fa-regular fa-circle-dot text-danger"></i>Maximize Your Website’s Visibility
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Bring Leads and Sales
+                                <i className="fa-regular fa-circle-dot text-danger"></i>Bring Leads and Sales
                             </p>
                         </div>
                         <div className="col-md-6 my-md-auto my-3">

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React  from 'react';
 
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -13,15 +13,10 @@ import card2 from './assets/card2.png';
 import card3 from './assets/card3.png';
 import card4 from './assets/card4.png';
 import { motion } from 'framer-motion';
-import { Testimonials } from './Testimonials';
-import { AppContext } from '../context/AppContext';
-
+import { Testimonials } from './Testimonials'; 
 
 export const Home = () => {
 
-    const { AppName, setTitle } = useContext(AppContext);
-    // setTitle(`${AppName}Home`);
-    // setIsPageLoading(true);
     const settings = {
         slidesToShow: 6,
         slidesToScroll: 1,
@@ -278,19 +273,19 @@ export const Home = () => {
                 </div>
             </div>
             <div className="sec py-5">
-                <section class="customer-logos slider">
+                <section className="customer-logos slider">
                     <Sliderz {...settings}>
 
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-08.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-11.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-14.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-17.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-03.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-06.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-12.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-09.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-15.png" /></div>
-                        <div class="slide"><img src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-18.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-08.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-11.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-14.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-17.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-03.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-06.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-12.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-09.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-15.png" /></div>
+                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-18.png" /></div>
                     </Sliderz>
                 </section>
             </div>

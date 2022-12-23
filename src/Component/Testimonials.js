@@ -11,7 +11,6 @@ export const Testimonials = () => {
     const [img, setImg] = useState(null);
     const { URL } = useContext(AppContext);
 
-
     useEffect(() => {
         fetch(`${URL}api/testimonials`)
             .then((response) => response.json())
@@ -19,8 +18,8 @@ export const Testimonials = () => {
             .catch((err) => {
                 setData([]);
             });
-    }, []);
- 
+    }, );
+
     const settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -46,7 +45,7 @@ export const Testimonials = () => {
                                             <img className='testImg' src={`${img}/${item.image}`} alt="clients" />
                                         </div>
                                         <div className="testimonialsContent my-4 px-3">
-                                            <p className="text-muted para-sm"><i dangerouslySetInnerHTML={{__html: item.comment}}></i></p>
+                                            <p className="text-muted para-sm"><i dangerouslySetInnerHTML={{ __html: item.comment }}></i></p>
                                         </div>
                                         <div className="testimonialsFooter">
                                             <p className="fw-bold mb-2"><i>{item.name}</i></p>

@@ -21,7 +21,8 @@ import { MyAccount } from './Component/Dashboard/MyAccount';
 import { Projects } from './Component/Dashboard/Projects';
 import { Invoices } from './Component/Dashboard/Invoices';
 import { SingleProject } from './Component/Dashboard/SingleProject';
-import { Spinner } from './Component/Spinner';
+import { Spinner } from './Component/Spinner'; 
+import { PrivateRoutes } from './PrivateRoutes';
 
 
 export const MainRoutes = () => {
@@ -36,7 +37,7 @@ export const MainRoutes = () => {
                     <Spinner />
                 </div>
                 :
-                <Routes key={pathname}>
+                <Routes key={pathname} location={pathname}>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/graphic-design" element={<Graphics />} />
@@ -46,16 +47,18 @@ export const MainRoutes = () => {
                     <Route path="/content-writing" element={<ContentWriting />} />
                     <Route path="/portfolio" element={<Portfolio />} />
                     <Route path="/blog" element={<Blog />} />
-                    <Route path="/blog/:singleBlog" element={<BlogDetails />} />
-                    <Route path="/projects/:singleProject" element={<SingleProject />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/terms-conditions" element={<TermsNConditions />} />
                     <Route path="/privacy-policy" element={<Privacy />} />
-                    <Route path="/my-account" element={<MyAccount />} />
-                    <Route path="/projects" element={<Projects />} />
-                    <Route path="/invoices" element={<Invoices />} />
+                    <Route path="/blog/:singleBlog" element={<BlogDetails />} />
+                    <Route element={<PrivateRoutes />}>
+                        <Route path="/my-account" element={<MyAccount />} exact />
+                        <Route path="/projects/:singleProject" element={<SingleProject />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/invoices" element={<Invoices />} />
+                    </Route>
                 </Routes>
             }
         </AnimatePresence>

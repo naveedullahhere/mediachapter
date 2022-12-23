@@ -15,7 +15,6 @@ const Filter = ({ activeFilter, setActiveFilter, setFiltered, all }) => {
     { 'link': "Book Cover", "category": "book" }
   ];
 
-  const [isActive, setIsActive] = useState(false);
 
   const [active, setActive] = useState(null);
   useEffect(() => {
@@ -33,12 +32,10 @@ const Filter = ({ activeFilter, setActiveFilter, setFiltered, all }) => {
         return items.filter === activeFilter
       }
     });
-    console.log(filtered);
     setFiltered(filtered);
-  }, [activeFilter])
+  },[])
 
   const handleFilter = ({ category, link }) => {
-    setIsActive(isActive => !isActive);
     setActive(link);
     setActiveFilter(category)
   }
@@ -46,10 +43,10 @@ const Filter = ({ activeFilter, setActiveFilter, setFiltered, all }) => {
   return (
     <>
       <div className="filters">
-        <ul id="filters" class="filter-tabs my-4 filter-btns">
+        <ul id="filters" className="filter-tabs my-4 filter-btns">
           {links.map((link) => {
             return <li onClick={() => handleFilter(link)}>
-              <span class={`filter ${active == link.link && 'active'}`}>
+              <span class={`filter ${active === link.link && 'active'}`}>
                 {link.link}
               </span>
             </li>

@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+
+import { useState } from 'react';
 import Filter from '../Components/Filter';
 import FilteredItems from '../Components/FilteredItems';
 import PortfolioItems from "./Portfolio.json";

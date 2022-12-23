@@ -1,7 +1,6 @@
 import React from 'react'
 import { CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
-import { Progress, Space } from 'antd';
+import "react-circular-progressbar/dist/styles.css"; 
 import GradientSVG from './layout/GradiantSVG';
 
 export const SkillsCircle = ({ value }) => {

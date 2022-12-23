@@ -6,18 +6,17 @@ import { Spinner } from '../Spinner';
 
 export const SingleProject = () => {
 
-    const { URL, userId } = useContext(AppContext);
+    const { URL, user } = useContext(AppContext);
     const [isLoading, setIsLoading] = useState(true);
     const [isErr, setIsError] = useState(false);
 
     const params = useParams();
-    const [data, setData] = useState([]);
-    const [img, setImg] = useState(null);
+    const [data, setData] = useState([]); 
     const singleProject = params.singleProject;
 
 
     useEffect(() => {
-        fetch(`${URL}api/single-project/${singleProject}?token=${userId}`)
+        fetch(`${URL}api/single-project/${singleProject}?token=${user.data.user_token}`)
             .then((response) => response.json())
             .then((actualData) => { setData(actualData.data); setIsLoading(false); })
             .catch((err) => {

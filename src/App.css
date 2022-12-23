@@ -1950,3 +1950,7 @@ textarea.input::-webkit-input-placeholder {
   border: 0;
   background-color: #fff;
 }
+
+a:hover{
+  cursor: pointer;
+}

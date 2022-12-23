@@ -37,13 +37,13 @@ export const DigitalMarketing = () => {
                                 Media Chapter is the digital marketing agency that can help you bring traffic to your newly-launched startup and convert them into qualified leads or potential customers. Get your hands on our digital marketing services today and double your business.
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Drive traffic
+                                <i className="fa-regular fa-circle-dot text-danger"></i>Drive traffic
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Increase conversion rate
+                                <i className="fa-regular fa-circle-dot text-danger"></i>Increase conversion rate
                             </p>
                             <p className="para-sm d-flex gap-2 align-items-center my-2">
-                                <i class="fa-regular fa-circle-dot text-danger"></i>Boost return on investment (ROI)
+                                <i className="fa-regular fa-circle-dot text-danger"></i>Boost return on investment (ROI)
                             </p>
                         </div>
                         <div className="col-md-6 my-md-auto my-3">
