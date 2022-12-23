@@ -56,7 +56,7 @@ export const Projects = () => {
                                 {projects.length > 0
                                     &&
                                     projects.map((item) => {
-                                        return <div className="col-lg-3 col-md-3 col-6">
+                                        return <div className="col-lg-3 col-md-3 col-6 my-3">
                                             <div class="card py-2 project-cards position-relative">
                                                 <div class="card-body py-0">
                                                     <h5 class="heading fs-5 mb-0">{item.name}</h5>
