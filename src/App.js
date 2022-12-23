@@ -13,9 +13,9 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
 
-  const [isUserLogin, setIsUserLogin] = useState(false); 
-  const [userName, setUserName] = useState(JSON.parse(getCookie("USER")).data.name ? JSON.parse(getCookie("USER")).data.name : "");
-  const [userId, setUserId] = useState(JSON.parse(getCookie("USER")).data.user_token ? JSON.parse(getCookie("USER")).data.user_token : "");
+  const [isUserLogin, setIsUserLogin] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
   const [couponItems, setCouponItems] = useState([]);
   const [FilterCategory, setFilterCategory] = useState([]);
   const [FilterStore, setFilterStore] = useState([]);
@@ -27,6 +27,13 @@ function App() {
   const [img, setImg] = useState(null);
   const [singleUrl, setSingleUrl] = useState(null);
 
+
+  if (JSON.parse(getCookie("USER")).data.name) {
+    console.log(JSON.parse(getCookie("USER")).data.name);
+  }
+  if (JSON.parse(getCookie("USER")).data.user_token) {
+    console.log(JSON.parse(getCookie("USER")).data.user_token);
+  }
 
   var values = {
     isUserLogin, setIsUserLogin, teams, teamsImgPath, userName, setUserName, couponItems, setCouponItems, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, APP_NAME, URL, data, setData, img, setImg, setCookieinLocal, setUserId, userId, projects
