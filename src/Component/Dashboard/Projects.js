@@ -33,12 +33,6 @@ export const Projects = () => {
         }
     }, [isUserLogin]);
 
-    console.log("projects start");
-    projects.map((item) => {
-        console.log("Items: ", item);
-    })
-    console.log("projects ended");
-    console.log("Projects: ", projects);
     return (
         <div>
             <div className="container-fluid px-0">
@@ -58,7 +52,7 @@ export const Projects = () => {
                                         <h1 className="heading fs-3">No Projects Found!</h1>
                                     </div>
                                 }
-                                {projects.length > 0
+                                {!isProjects
                                     &&
                                     projects.map((item) => {
                                         return <div className="col-lg-3 col-md-3 col-6 my-3">
