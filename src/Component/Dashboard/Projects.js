@@ -4,31 +4,57 @@ import { AppContext } from '../../context/AppContext';
 import { Sidebar } from './Sidebar'
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
+import { Spinner } from '../Spinner';
+import { Error } from '../Error';
 
 export const Projects = () => {
-    const { isUserLogin, projects } = useContext(AppContext);
+    const { isUserLogin, getCookie, URL } = useContext(AppContext);
     let navigate = useNavigate();
+    const [projects, setProjects] = useState([]);
+
+    const [isProjects, setIsProjects] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isErr, setIsError] = useState(false);
+
     isUserLogin === false && navigate('/login');
     useEffect(() => {
         return () => {
             isUserLogin === false && navigate('/login');
+
+            if (getCookie("USER")) {
+                fetch(`${URL}api/project/${JSON.parse(getCookie("USER")).data.user_token}?status=`)
+                    .then((response) => response.json())
+                    .then((actualData) => { setProjects(actualData); setIsLoading(false); console.log(actualData); actualData.length === 0 && setIsProjects(true); })
+                    .catch((err) => {
+                        setProjects([]);
+                        setIsError(true);
+                        setIsLoading(false);
+                    })
+            }
         }
     }, [isUserLogin]);
 
-    console.log(projects);
-
-    // api/single-project/7?token=16717102059769445745720221222
     return (
         <div>
             <div className="container-fluid px-0">
                 <div className="row">
-                    <div className="col-xl-2 col-lg-3 col-md-4 col-12"><Sidebar pageid={'projects'} /></div>
-                    <motion.div className="col-xl-10 col-lg-9 col-md-8 col-12" initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
+                    <div className="col-xl-3 col-lg-3 col-md-4 col-12"><Sidebar pageid={'projects'} /></div>
+                    <motion.div className="col-xl-9 col-lg-9 col-md-8 col-12" initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
                         <div className='py-5'>
                             <div className="row w-100 mx-auto">
-
-                                {projects.lenth != 0
-                                    ?
+                                {isLoading &&
+                                    <Spinner />
+                                }
+                                {isErr &&
+                                    <Error />
+                                }
+                                {isProjects &&
+                                    <div className="col-12">
+                                        <h1 className="heading fs-3">No Projects Found!</h1>
+                                    </div>
+                                }
+                                {!isProjects > 0
+                                    &&
                                     projects.map((item) => {
                                         return <div className="col-lg-3 col-md-3 col-6">
                                             <div class="card py-2 project-cards position-relative">
@@ -47,9 +73,7 @@ export const Projects = () => {
                                             </div>
                                         </div>
                                     })
-
-                                    :
-                                    "No Projects Found!"}
+                                }
                             </div>
                         </div>
                     </motion.div>

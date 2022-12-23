@@ -21,7 +21,7 @@ export const Home = () => {
 
     const { AppName, setTitle } = useContext(AppContext);
     // setTitle(`${AppName}Home`);
-
+    // setIsPageLoading(true);
     const settings = {
         slidesToShow: 6,
         slidesToScroll: 1,
@@ -43,7 +43,7 @@ export const Home = () => {
         }]
     };
     return (
-        <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
+        <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
             <div className="sliderMain position-relative">
                 <CarouselProvider className='slider container bannerSlider'
                     naturalSlideWidth={100}

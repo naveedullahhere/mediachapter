@@ -1930,3 +1930,22 @@ textarea.input::-webkit-input-placeholder {
     left: 90%;
   }
 }
+
+.profile-page {
+  background: linear-gradient(180deg, var(--primary)50%, var(--white) 50%);
+}
+
+.user-profile>img {
+  width: 200px;
+  height: 200px;
+  /* margin-top: 200px; */
+}
+
+.user-profile {
+  /* position: absolute; */
+  background-color: var(--light);
+}
+
+.form-control:disabled {
+  border: 0;
+}

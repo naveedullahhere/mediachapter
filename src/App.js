@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 import { Header } from './Component/layout/Header';
 import { Footer } from './Component/layout/Footer';
 import { MainRoutes } from './MainRoutes';
@@ -15,12 +15,14 @@ function App() {
 
   const [isUserLogin, setIsUserLogin] = useState(false);
   const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userAbout, setUserAbout] = useState("");
+  const [userPhone, setUserPhone] = useState("");
   const [userId, setUserId] = useState("");
   const [couponItems, setCouponItems] = useState([]);
   const [FilterCategory, setFilterCategory] = useState([]);
   const [FilterStore, setFilterStore] = useState([]);
   const [Title, setTitle] = useState(`${APP_NAME}Home`);
-  const [projects, setProjects] = useState([]);
   const [data, setData] = useState([]);
   const [teams, setTeams] = useState([]);
   const [teamsImgPath, setTeamsImgPath] = useState("");
@@ -34,26 +36,24 @@ function App() {
   }
 
   var values = {
-    isUserLogin, setIsUserLogin, teams, teamsImgPath, userName, setUserName, couponItems, setCouponItems, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, APP_NAME, URL, data, setData, img, setImg, setCookieinLocal, setUserId, userId, projects
+    isUserLogin, setIsUserLogin, teams, teamsImgPath, userName, setUserName, couponItems, setCouponItems, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, APP_NAME, URL, data, setData, img, setImg, setCookieinLocal, setUserId, userId, getCookie, userEmail, userAbout, setUserAbout, userPhone, setUserPhone
   }
 
   useEffect(() => {
+
     if (getCookie("USER")) {
       setIsUserLogin(true);
       setUserName(JSON.parse(getCookie("USER")).data.name);
+      setUserEmail(JSON.parse(getCookie("USER")).data.email);
+      setUserPhone(JSON.parse(getCookie("USER")).data.phone_number);
+      setUserAbout(JSON.parse(getCookie("USER")).data.about);
       setUserId(JSON.parse(getCookie("USER")).data.user_token);
-
-      fetch(`${URL}api/project/${JSON.parse(getCookie("USER")).data.user_token}?status=`)
-        .then((response) => response.json())
-        .then((actualData) => { setProjects(actualData) })
-        .catch((err) => {
-          setProjects([]);
-        })
     }
 
     else {
       setIsUserLogin(false);
     }
+
 
     fetch(`${URL}api/blogs?token=152784823qtjzdfg213&paginate=2&since_id=0`)
       .then((response) => response.json())

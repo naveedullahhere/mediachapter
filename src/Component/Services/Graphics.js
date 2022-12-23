@@ -10,7 +10,7 @@ export const Graphics = () => {
     setTitle(`${AppName}Graphics Designing`);
 
     return (
-        <motion.div className="overflow-hidden" initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
+        <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
             <div className="graphic-design image-banner sec">
                 <div className="container h-100">
                     <div className="row h-100">

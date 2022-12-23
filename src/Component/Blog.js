@@ -37,7 +37,7 @@ export const Blog = () => {
 
     setTitle(`${AppName}Blog`);
     return (
-        <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
+        <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
             <div className="sec py-5 blog  ">
                 <div className="container">
                     {
