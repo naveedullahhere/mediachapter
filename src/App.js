@@ -13,9 +13,9 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
 
-  const [isUserLogin, setIsUserLogin] = useState(false);
-  const [userName, setUserName] = useState(JSON.parse(getCookie("USER")).data.name);
-  const [userId, setUserId] = useState(JSON.parse(getCookie("USER")).data.user_token);
+  const [isUserLogin, setIsUserLogin] = useState(false); 
+  const [userName, setUserName] = useState(JSON.parse(getCookie("USER")).data.name ? JSON.parse(getCookie("USER")).data.name : "");
+  const [userId, setUserId] = useState(JSON.parse(getCookie("USER")).data.user_token ? JSON.parse(getCookie("USER")).data.user_token : "");
   const [couponItems, setCouponItems] = useState([]);
   const [FilterCategory, setFilterCategory] = useState([]);
   const [FilterStore, setFilterStore] = useState([]);
