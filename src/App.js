@@ -29,8 +29,8 @@ function App() {
 
 
   if (getCookie("USER")) {
-    setUserName(JSON.parse(getCookie("USER")).data.name);
-    setUserId(JSON.parse(getCookie("USER")).data.user_token);
+    // setUserName(JSON.parse(getCookie("USER")).data.name);
+    // setUserId(JSON.parse(getCookie("USER")).data.user_token);
   }
 
   var values = {

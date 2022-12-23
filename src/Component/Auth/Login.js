@@ -26,11 +26,12 @@ export const Login = () => {
     const onSubmit = (data) => {
         let emailD = email;
         let passwordD = password;
-        setIsLoading(true)
+        setIsLoading(true);
         postData(`${URL}api/signin`, { email: emailD, password: passwordD })
             .then(data => {
                 if (data.success != false) {
                     setUserId(data.data.user_token);
+                    console.log(data.data.user_token);
                     setCookieinLocal("USER", JSON.stringify(data), 1);
                     setIsUserLogin(true);
                     toast.success(data.message);
