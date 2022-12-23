@@ -33,7 +33,8 @@ export const MyAccount = () => {
     };
 
     const enableEdit = () => {
-        errors2.name ? setActiveEdit(false) : setActiveEdit(!isActiveEdit);
+        // errors2.name ? setActiveEdit(false) :
+        setActiveEdit(!isActiveEdit);
 
     };
 
