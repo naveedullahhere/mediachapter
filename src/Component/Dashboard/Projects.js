@@ -16,7 +16,7 @@ export const Projects = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isErr, setIsError] = useState(false);
 
-    isUserLogin === false && navigate('/login'); 
+    isUserLogin === false && navigate('/login');
     useEffect(() => {
         return () => {
             isUserLogin === false && navigate('/login');
@@ -33,7 +33,10 @@ export const Projects = () => {
             }
         }
     }, []);
-
+    projects.map((item) => {
+        console.log("Projects: ",projects);
+        console.log("Items: ", item);
+    })
     return (
         <div>
             <div className="container-fluid px-0">
