@@ -24,7 +24,7 @@ export const Projects = () => {
             if (getCookie("USER")) {
                 fetch(`${URL}api/project/${JSON.parse(getCookie("USER")).data.user_token}?status=`)
                     .then((response) => response.json())
-                    .then((actualData) => { setProjects(actualData); setIsLoading(false); console.log(actualData); actualData.length === 0 && setIsProjects(true); })
+                    .then((actualData) => { setProjects(actualData); setIsLoading(false); actualData.length === 0 && setIsProjects(true); })
                     .catch((err) => {
                         setProjects([]);
                         setIsError(true);
@@ -32,7 +32,7 @@ export const Projects = () => {
                     })
             }
         }
-    }, [isUserLogin]);
+    }, []);
 
     return (
         <div>

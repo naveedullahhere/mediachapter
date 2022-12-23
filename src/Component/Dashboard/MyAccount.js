@@ -33,14 +33,14 @@ export const MyAccount = () => {
     };
 
     const enableEdit = () => {
-        setActiveEdit(!isActiveEdit);
+        errors2.name ? setActiveEdit(false) : setActiveEdit(!isActiveEdit);
+
     };
 
     const onSubmitProfile = (data) => {
 
         setIsProfileLoading(true);
-        console.log(data);
-        postData(`${URL}api/profile-setting`, { about: data.about, name: data.name, phone_number: data.phone_number, token: userId })
+        postData(`${URL}api/profile-setting`, { about: userAbout, name: userName, phone_number: userPhone, token: userId })
             .then(data => {
                 if (data.success != false) {
                     // setUserId(data.data.user_token);
@@ -93,13 +93,11 @@ export const MyAccount = () => {
         setIsLoading(true)
         postData(`${URL}api/change-password`, { password: data.cpassword, new_password: data.new_password, token: userId })
             .then(data => {
-                console.log(data);
                 if (data.success != false) {
                     toast.success(data.message);
                     reset();
 
                 } else {
-                    console.log(data);
                     toast.error(data.message);
                 }
                 setIsLoading(false);
@@ -143,11 +141,12 @@ export const MyAccount = () => {
                                                     <input type="text" name="name" id="" {...register2('name', { required: true })}
                                                         className={`form-control text-dark ${errors2.name ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Name`} disabled={isActiveEdit} value={userName} onChange={(e) => setUserName(e.target.value)} />
 
+
                                                     <input type="text" name="phone_number" id="" {...register2('phone_number')}
-                                                        className={`form-control text-dark ${errors2.phone_number ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Phone Number`} disabled={isActiveEdit} value={userPhone && userPhone} />
+                                                        className={`form-control text-dark ${errors2.phone_number ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Phone Number`} disabled={isActiveEdit} value={userPhone && userPhone} onChange={(e) => setUserPhone(e.target.value)} />
 
                                                     <textarea type="text" name="about" id="" {...register2('about')}
-                                                        className={`form-control text-dark ${errors2.about ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`About`} disabled={isActiveEdit} >{userAbout ? userAbout : "Hey, there i'm using webapp"}</textarea>
+                                                        className={`form-control text-dark ${errors2.about ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`About your self`} disabled={isActiveEdit} onChange={(e) => setUserAbout(e.target.value)} >{userAbout && userAbout}</textarea>
 
                                                     <div className="float-end">
                                                         <button type={`${!isActiveEdit ? "button" : "submit"}`} onClick={enableEdit} className={`btn ${!isActiveEdit ? "btn-main" : "btn-dark border-0"} d-flex align-items-center gap-2 btn-sm`}>
@@ -176,19 +175,19 @@ export const MyAccount = () => {
                                                     <div className='d-flex gap-3 my-2 flex-column'>
                                                         <div class="input-box">
                                                             <input type="password" name="password" id="" {...register('cpassword', { required: true })}
-                                                                className={`form-control text-dark ${errors.cpassword ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`${!isActiveEditPass ? "Current Password" : "********"}`} disabled={isActiveEditPass} />
+                                                                className={`form-control text-dark ${errors.cpassword ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Current Password`} disabled={isActiveEditPass} />
 
                                                             <div className="invalid-feedback text-dark">{errors.password?.message}</div>
                                                         </div>
                                                         <div class="input-box">
                                                             <input type="password" name="password" id="password"  {...register('password')}
-                                                                className={`form-control text-dark ${errors.password ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`${!isActiveEditPass ? "Password" : "********"}`} disabled={isActiveEditPass} />
+                                                                className={`form-control text-dark ${errors.password ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Password`} disabled={isActiveEditPass} />
 
                                                             <div className="invalid-feedback text-dark">{errors.password?.message}</div>
                                                         </div>
                                                         <div class="input-box">
                                                             <input type="password" name="cpassword"  {...register('new_password')}
-                                                                className={`form-control text-dark ${errors.new_password ? 'is-invalid' : ''}`} disabled={isActiveEditPass} style={{ "filter": "none" }} id="cpassword" placeholder={`${!isActiveEditPass ? "Confirm Password" : "********"}`} />
+                                                                className={`form-control text-dark ${errors.new_password ? 'is-invalid' : ''}`} disabled={isActiveEditPass} style={{ "filter": "none" }} id="cpassword" placeholder={`Confirm Password`} />
 
                                                             <div className="invalid-feedback text-dark">{errors.new_password?.message}</div>
                                                         </div>
