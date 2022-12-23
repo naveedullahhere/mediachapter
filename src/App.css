@@ -1948,4 +1948,5 @@ textarea.input::-webkit-input-placeholder {
 
 .form-control:disabled {
   border: 0;
+  background-color: #fff;
 }
