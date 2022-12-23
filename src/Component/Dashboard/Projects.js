@@ -20,7 +20,6 @@ export const Projects = () => {
     useEffect(() => {
         return () => {
             isUserLogin === false && navigate('/login');
-
             if (getCookie("USER")) {
                 fetch(`${URL}api/project/${JSON.parse(getCookie("USER")).data.user_token}?status=`)
                     .then((response) => response.json())
@@ -32,7 +31,7 @@ export const Projects = () => {
                     })
             }
         }
-    }, []);
+    }, [isUserLogin]);
 
     console.log("projects start");
     projects.map((item) => {
