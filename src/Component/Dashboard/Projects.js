@@ -11,34 +11,36 @@ export const Projects = () => {
     const { isUserLogin, getCookie, URL } = useContext(AppContext);
     let navigate = useNavigate();
     const [projects, setProjects] = useState([]);
+    const [isProjects, setIsProjects] = useState(true);
 
-    const [isProjects, setIsProjects] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isErr, setIsError] = useState(false);
 
     isUserLogin === false && navigate('/login');
+    // if (getCookie("USER")) {
+    // }
     useEffect(() => {
-        return () => {
-            isUserLogin === false && navigate('/login');
-            if (getCookie("USER")) {
-                fetch(`${URL}api/project/${JSON.parse(getCookie("USER")).data.user_token}?status=`)
-                    .then((response) => response.json())
-                    .then((actualData) => { setProjects(actualData); setIsLoading(false); actualData.length === 0 && setIsProjects(true); })
-                    .catch((err) => {
-                        setProjects([]);
-                        setIsError(true);
-                        setIsLoading(false);
-                    })
-            }
+        if (getCookie("USER")) {
+            fetchProjects();
         }
-    }, [isUserLogin]);
+    }, []);
 
+    const fetchProjects = () => {
+        fetch(`${URL}api/project/${JSON.parse(getCookie("USER")).data.user_token}?status=`)
+            .then((response) => response.json())
+            .then((actualData) => { setProjects(actualData); setIsLoading(false); actualData.length === 0 ? setIsProjects(false) : setIsProjects(true) })
+            .catch((err) => {
+                setProjects([]);
+                setIsError(true);
+                setIsLoading(false);
+            })
+    }
     return (
         <div>
             <div className="container-fluid px-0">
                 <div className="row">
                     <div className="col-xl-3 col-lg-3 col-md-4 col-12"><Sidebar pageid={'projects'} /></div>
-                    <motion.div className="col-xl-9 col-lg-9 col-md-8 col-12" initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
+                    <motion.div className="col-xl-9 col-lg-9 col-md-8 col-12" initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
                         <div className='py-5'>
                             <div className="row w-100 mx-auto">
                                 {isLoading &&
@@ -47,12 +49,7 @@ export const Projects = () => {
                                 {isErr &&
                                     <Error />
                                 }
-                                {isProjects &&
-                                    <div className="col-12">
-                                        <h1 className="heading fs-3">No Projects Found!</h1>
-                                    </div>
-                                }
-                                {!isProjects
+                                {isProjects
                                     &&
                                     projects.map((item) => {
                                         return <div className="col-lg-3 col-md-3 col-6 my-3">
@@ -73,6 +70,9 @@ export const Projects = () => {
                                         </div>
                                     })
                                 }
+                                {!isProjects && <div className="col-12">
+                                    <h1 className="heading fs-3">No projects found!</h1>
+                                </div>}
                             </div>
                         </div>
                     </motion.div>
