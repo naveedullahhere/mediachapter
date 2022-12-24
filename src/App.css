@@ -2087,3 +2087,12 @@ td:first-child {
 .italic {
   font-style: italic;
 }
+
+.login-box .is-invalid {
+  filter: none !important;
+  background-color: none;
+}
+
+.login-box input:-internal-autofill-selected {
+  background: none;
+}
