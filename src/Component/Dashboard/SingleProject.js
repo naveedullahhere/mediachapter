@@ -57,20 +57,19 @@ export const SingleProject = () => {
                                 Project Details
                             </h2>
                         </div>
-                        {data &&
+                        {data.id &&
 
                             <div div className="col-12">
                                 <div className="d-flex gap-3 align-items-md-center flex-sm-row flex-column">
                                     <h1 className="heading mb-0 fs-md-4 fs-5 fw-normal">Project Name: <span className="fw-bold"> {data.name}</span></h1>
                                     <p className="para-sm mb-0 text-start d-sm-none text-muted" dangerouslySetInnerHTML={{ __html: data.description }}></p>
 
-                                    {data.id &&
-                                        <span class={`badge mb-sm-0 w-auto mb-3 text-bg-${data.status === "0" ? "warning" : data.status === "1" ? "info" : data.status === "2" ? "success" : "danger"}`}>
-                                            {
-                                                data.status === "0" ? "Pending" : data.status === "1" ? "Process" : data.status === "2" ? "Completed" : "Cancelled"
-                                            }
-                                        </span>
-                                    }
+                                    <span class={`badge mb-sm-0 w-auto mb-3 text-bg-${data.status === "0" ? "warning" : data.status === "1" ? "info" : data.status === "2" ? "success" : "danger"}`}>
+                                        {
+                                            data.status === "0" ? "Pending" : data.status === "1" ? "Process" : data.status === "2" ? "Completed" : "Cancelled"
+                                        }
+                                    </span>
+
                                 </div>
                                 <p className="para-sm d-sm-block d-none text-muted" dangerouslySetInnerHTML={{ __html: data.description }}></p>
                             </div>
