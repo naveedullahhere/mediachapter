@@ -18,13 +18,13 @@ export const Testimonials = () => {
             .catch((err) => {
                 setData([]);
             });
-    }, );
+    }, []);
 
     const settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 4500,
+        autoplaySpeed: 5500,
         arrows: false,
         dots: false,
         pauseOnHover: false,

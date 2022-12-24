@@ -23,14 +23,14 @@ function App() {
   const [teams, setTeams] = useState([]);
   const [teamsImgPath, setTeamsImgPath] = useState("");
   const [img, setImg] = useState(null);
- 
+
   var values = {
     teams, teamsImgPath, couponItems, setCouponItems, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, APP_NAME, URL, data, setData, img, setImg, removeUserData, addUserData, updateUserData, dispatch, user
   }
 
   useEffect(() => {
     fetchTeams();
-  }, [user]);
+  }, []);
 
 
   const fetchTeams = () => {
