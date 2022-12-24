@@ -51,37 +51,41 @@ export const SingleProject = () => {
                 <div className="col-xl-3 col-lg-3 col-md-4 col-2"><Sidebar pageid={'projects'} /></div>
 
                 <div className="col-xl-9 col-lg-9 col-md-8 col-10 py-md-0 py-4 projects " >
-                    <h2 className="fs-3 heading text-start p-0">
-                        Project Details
-                    </h2>
-                    {data &&
-                        <div className="row">
+                    <div className="row w-100 mx-auto">
+                        <div className="col-12">
+                            <h2 className="fs-3 heading text-start p-0">
+                                Project Details
+                            </h2>
+                        </div>
+                        {data &&
 
                             <div div className="col-12">
-                                <div className="d-flex justify-content- gap-3 align-items-center">
-                                    <h1 className="heading mb-0 fs-4 fw-normal">Project Name: <span className="fw-bold"> {data.name}</span></h1>
+                                <div className="d-flex gap-3 align-items-md-center flex-sm-row flex-column">
+                                    <h1 className="heading mb-0 fs-md-4 fs-5 fw-normal">Project Name: <span className="fw-bold"> {data.name}</span></h1>
+                                    <p className="para-sm mb-0 text-start d-sm-none text-muted" dangerouslySetInnerHTML={{ __html: data.description }}></p>
 
-                                    <span class={`badge text-bg-${data.status === "0" ? "warning" : data.status === "1" ? "info" : data.status === "2" ? "success" : "danger"}`}>
-                                        {
-                                            data.status === "0" ? "Pending" : data.status === "1" ? "Process" : data.status === "2" ? "Completed" : "Cancelled"
-                                        }
-                                    </span>
-
+                                    {data.id &&
+                                        <span class={`badge mb-sm-0 w-auto mb-3 text-bg-${data.status === "0" ? "warning" : data.status === "1" ? "info" : data.status === "2" ? "success" : "danger"}`}>
+                                            {
+                                                data.status === "0" ? "Pending" : data.status === "1" ? "Process" : data.status === "2" ? "Completed" : "Cancelled"
+                                            }
+                                        </span>
+                                    }
                                 </div>
-                                <p className="para-sm text-muted" dangerouslySetInnerHTML={{ __html: data.description }}></p>
+                                <p className="para-sm d-sm-block d-none text-muted" dangerouslySetInnerHTML={{ __html: data.description }}></p>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
 
                     {isErr &&
                         <Error />
                     }
 
-                    <div className='py-5'>
-                        <div className="row w-100 mx-auto">
-                            {isErr &&
-                                <Error />
-                            }
+                    <div className="row w-100 mx-auto">
+                        {isErr &&
+                            <Error />
+                        }
+                        <div className="col-12">
 
 
                             <div class="card mb-4">
@@ -123,15 +127,13 @@ export const SingleProject = () => {
                                     </div>}
                                 </div>
                             </div>
-
-
-                            {isLoading &&
-                                <Spinner />
-                            }
-
-
-
                         </div>
+
+
+                        {isLoading &&
+                            <Spinner />
+                        }
+
                     </div>
                 </div>
             </div>

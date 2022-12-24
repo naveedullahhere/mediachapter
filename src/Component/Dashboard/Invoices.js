@@ -39,8 +39,10 @@ export const Invoices = () => {
                     <div className="col-xl-3 col-lg-3 col-md-4 col-2"><Sidebar pageid={'invoice'} /></div>
 
                     <div className="col-xl-9 col-lg-9 col-md-8 col-10 py-md-0 py-4 projects" >
-                        <div className='py-5'>
-                            <div className="row w-100 mx-auto">
+
+                        <div className="row w-100 mx-auto">
+                            <div className="col-12">
+
 
                                 {isErr &&
                                     <Error />

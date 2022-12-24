@@ -117,9 +117,8 @@ export const MyAccount = () => {
                                                     <input type="text" name="" value={user.data.email}
                                                         className={`form-control text-dark`} style={{ "filter": "none" }} disabled={true} />
 
-                                                    <input type="text" name="name" id="" {...register2('name', { required: true })}
+                                                    <input type="text" name="name" id="" required {...register2('name',)}
                                                         className={`form-control text-dark ${errors2.name ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Name`} disabled={isActiveEdit} value={userName} onChange={(e) => setUserName(e.target.value)} />
-
 
                                                     <input type="text" name="phone_number" id="" {...register2('phone_number')}
                                                         className={`form-control text-dark ${errors2.phone_number ? 'is-invalid' : ''}`} style={{ "filter": "none" }} placeholder={`Phone Number`} disabled={isActiveEdit} value={userPhone} onChange={(e) => setUserPhone(e.target.value)} />

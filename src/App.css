@@ -2096,3 +2096,32 @@ td:first-child {
 .login-box input:-internal-autofill-selected {
   background: none;
 }
+
+@media (max-width:450px) {
+  .sidebar {
+    width: 66px;
+  }
+
+  .sidebar ul li i {
+    min-width: 33px;
+  }
+
+  .sidebar ul li {
+    line-height: 34px;
+
+  }
+
+  .table-hover :is(td, th) {
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .inviz {
+    flex-direction: column;
+  }
+
+  .invoiceParent { 
+    width: 88%; 
+    margin-inline: auto; 
+  }
+}

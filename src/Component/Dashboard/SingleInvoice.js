@@ -79,7 +79,7 @@ export const SingleInvoice = () => {
                                 </h1>
                                 <div className="inviz d-flex gap-3">
 
-                                    <button className="btn btn-success" disabled={!parseInt(data.payment_status) && "true"} >Pay Invoice</button>
+                                    <button className={`btn btn-${!parseInt(data.payment_status) ? "success" : "warning"}`} disabled={!parseInt(data.payment_status) && "true"} >{!parseInt(data.payment_status) ? "Paid" : "Unpaid"}</button>
                                     <button className="btn btn-main" onClick={payInvoice}>Pay Invoice</button>
                                     <button className="btn btn-main" onClick={downloadInvoice}>Download Invoice</button>
                                 </div>
