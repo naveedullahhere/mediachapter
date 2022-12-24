@@ -32,11 +32,10 @@ export const Projects = () => {
         <div>
             <div className="container-fluid px-0">
                 <div className="row">
-                    <div className="col-xl-3 col-lg-3 col-md-4 col-12"><Sidebar pageid={'projects'} /></div>
-                    {/* <motion.div className="col-xl-9 col-lg-9 col-md-8 col-12" initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}> */}
+                    <div className="col-xl-3 col-lg-3 col-md-4 col-2"><Sidebar pageid={'projects'} /></div>
 
-                    <div className="col-xl-9 col-lg-9 col-md-8 col-12" >
-                        <div className='py-5'>
+                    <div className="col-xl-9 col-lg-9 col-md-8 col-10" >
+                        <div className='py-md-5 py-3'>
                             <div className="row w-100 mx-auto">
                                 {isLoading &&
                                     <Spinner />
@@ -47,7 +46,7 @@ export const Projects = () => {
                                 {isProjects
                                     &&
                                     projects.map((item) => {
-                                        return <div className="col-lg-3 col-md-3 col-6 my-3">
+                                        return <div className="col-xl-3 col-lg-4 col-md-6 col-12 my-3">
                                             <div className="card py-2 project-cards position-relative">
                                                 <div className="card-body py-0">
                                                     <h5 className="heading fs-5 mb-0">{item.name}</h5>
@@ -59,7 +58,7 @@ export const Projects = () => {
                                                     }
                                                 </span>
                                                 <div className='text-center'>
-                                                    <Link to={`/projects/${item.id}`} className="mb-3 btn btn-main">View Detail ↗</Link>
+                                                    <Link to={`/projects/${item.id}`} className="mb-3 w-auto btn btn-main">View Detail ↗</Link>
                                                 </div>
                                             </div>
                                         </div>

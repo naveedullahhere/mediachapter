@@ -26,7 +26,6 @@ window.addEventListener('load', function () {
     (function ($) {
         "use strict";
 
-
         $('body').on('mouseenter mouseleave', '.nav-item', function (e) {
             if ($(window).width() > 750) {
                 var _d = $(e.target).closest('.nav-item'); _d.addClass('show');

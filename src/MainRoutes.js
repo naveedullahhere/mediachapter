@@ -21,8 +21,9 @@ import { MyAccount } from './Component/Dashboard/MyAccount';
 import { Projects } from './Component/Dashboard/Projects';
 import { Invoices } from './Component/Dashboard/Invoices';
 import { SingleProject } from './Component/Dashboard/SingleProject';
-import { Spinner } from './Component/Spinner'; 
+import { Spinner } from './Component/Spinner';
 import { PrivateRoutes } from './PrivateRoutes';
+import { SingleInvoice } from './Component/Dashboard/SingleInvoice';
 
 
 export const MainRoutes = () => {
@@ -55,6 +56,7 @@ export const MainRoutes = () => {
                     <Route path="/blog/:singleBlog" element={<BlogDetails />} />
                     <Route element={<PrivateRoutes />}>
                         <Route path="/my-account" element={<MyAccount />} exact />
+                        <Route path="/invoices/:singleInvoice" element={<SingleInvoice />} exact />
                         <Route path="/projects/:singleProject" element={<SingleProject />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/invoices" element={<Invoices />} />

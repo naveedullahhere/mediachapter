@@ -55,18 +55,18 @@ export const Login = () => {
         <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }}>
             <div className="loginMain">
 
-                <form onSubmit={handleSubmit(onSubmit)} className="login-box" method='POST' autocomplete="off">
+                <form onSubmit={handleSubmit(onSubmit)} className="login-box" method='POST' autoComplete="off">
                     <div className="title">
                         <h1>LOGIN</h1>
                     </div>
                     <div className="input-box">
-                        <input type="text" name="email" class={`inputLogin ${errors.email && "form-control is-invalid"}`} id="username" {...register('email', { required: true, pattern: /^\S+@\S+$/i })} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="text" name="email" autoComplete="off" className={`inputLogin ${errors.email && "form-control is-invalid"}`} id="username" {...register('email', { required: true, pattern: /^\S+@\S+$/i })} onChange={(e) => setEmail(e.target.value)} />
                         <label for="username">Email</label>
                     </div>
                     {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>}
 
                     <div className="input-box">
-                        <input type="password" autocomplete="false" name="password" className="input pass-input" id="password"  {...register('password', { required: true })} onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" name="password" autoComplete="off" className="input pass-input" id="password"  {...register('password', { required: true })} onChange={(e) => setPassword(e.target.value)} />
                         <img src="assets/img/view.png" className="view-pass" alt="" />
                         <label for="password">Password</label>
                     </div>

@@ -15,7 +15,7 @@ export const Register = () => {
     const [userName, setUsername] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
-    user && navigate("/my-account")
+    // user && navigate("/my-account");
 
     const formSchema = Yup.object().shape({
         password: Yup.string()
@@ -36,9 +36,11 @@ export const Register = () => {
         setIsLoading(true)
         postData(`${URL}api/signup`, { email: emailD, password: passwordD, name: usernameD })
             .then(data => {
+                console.log(data);
                 if (data.success != false) {
                     dispatch(addUserData(data.data));
                     toast.success(data.message);
+                    navigate("/my-account");
                     reset();
 
                 } else {
