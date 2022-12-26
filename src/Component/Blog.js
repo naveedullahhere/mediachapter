@@ -9,7 +9,7 @@ import { Spinner } from './Spinner';
 
 export const Blog = () => {
 
-    const { AppName, setTitle, URL } = useContext(AppContext);
+    const { APP_NAME, setTitle, URL } = useContext(AppContext);
 
     const [isLoading, setIsLoading] = useState(true);
     const [isErr, setIsError] = useState(false);
@@ -33,7 +33,7 @@ export const Blog = () => {
     }
 
 
-    setTitle(`${AppName}Blog`);
+    setTitle(`${APP_NAME}Blog`);
     return (
         <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
             <div className="sec py-5 blog  ">

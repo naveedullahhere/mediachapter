@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 
 
 export const Graphics = () => {
-    const { AppName, setTitle } = useContext(AppContext);
-    setTitle(`${AppName}Graphics Designing`);
+    const { APP_NAME, setTitle } = useContext(AppContext);
+    setTitle(`${APP_NAME}Graphics Designing`);
 
     return (
         <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>

@@ -16,7 +16,6 @@ export const Footer = () => {
         formState: { errors },
     } = useForm();
 
-
     const onSubmit = (data) => {
         setIsLoading(true)
 

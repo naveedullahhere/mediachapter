@@ -3,8 +3,11 @@ import { AppContext } from '../../context/AppContext';
 import { useParams } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { Invoice } from './Invoice';
+
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
+import { Spinner } from '../Spinner';
+import { PaypalCheckoutButton } from '../Payment/PaypalCheckoutButton';
 
 export const SingleInvoice = () => {
     const params = useParams();
@@ -14,6 +17,7 @@ export const SingleInvoice = () => {
     const { URL, user } = useContext(AppContext);
     const [isLoading, setIsLoading] = useState(true);
     const [isErr, setIsError] = useState(false);
+    const [isPay, setIsPay] = useState(false);
 
     const [data, setData] = useState([]);
     const [media, setMedia] = useState("");
@@ -32,7 +36,9 @@ export const SingleInvoice = () => {
                 setInvoiceItems([]);
             });
     }, []);
-
+    const isPayable = () => {
+        setIsPay(!isPay);
+    };
     const downloadInvoice = () => {
         const input = document.getElementById('divToPrint');
         html2canvas(input)
@@ -44,23 +50,10 @@ export const SingleInvoice = () => {
             })
 
     }
-    const payInvoice = () => {
 
-        fetch(`${URL}api/pay-invoice`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ "invoice_id": singleInvoice }),
-        })
-            .then((response) => response.json())
-            .then((actualData) => { console.log(actualData); })
-            .catch((err) => {
-                setIsError(true);
-                setIsLoading(false);
-                setData([]);
-                setInvoiceItems([]);
-            });
+    const product = {
+        invoice_number: data.id,
+        price: 1,
     }
     return (
         <div className="container-fluid px-0">
@@ -69,31 +62,49 @@ export const SingleInvoice = () => {
 
                 <div className="col-xl-9 col-lg-9 col-md-8 col-10 py-md-0 py-4  " >
                     <div className="row">
+                        {data.payment_status || invoiceData.length != 0 ?
 
-                        <div className='col-12'>
+                            <div className='col-12'>
 
-                            <div className="headrr d-flex justify-content-between align-items-center flex-md-row flex-column">
+                                <div className="headrr d-flex justify-content-between align-items-center flex-md-row flex-column">
 
-                                <h1 className="heading fs-4 my-4">
-                                    Due Data:  <span className="text-success">{data.due_date}</span>
-                                </h1>
-                                <div className="inviz d-flex gap-3">
+                                    <h1 className="heading fs-4 my-4">
+                                        Due Data:  <span className="text-success">{data.due_date}</span>
+                                    </h1>
+                                    <div className="inviz d-flex gap-3">
 
-                                    <button className={`btn btn-${!parseInt(data.payment_status) ? "success" : "warning"}`} disabled={!parseInt(data.payment_status) && "true"} >{!parseInt(data.payment_status) ? "Paid" : "Unpaid"}</button>
-                                    <button className="btn btn-main" onClick={payInvoice}>Pay Invoice</button>
-                                    <button className="btn btn-main" onClick={downloadInvoice}>Download Invoice</button>
+                                        <button className={`btn btn-${!parseInt(data.payment_status) ? "warning" : "success"}`} disabled >{!parseInt(data.payment_status) ? "Unpaid" : "Paid"}</button>
+                                        {!parseInt(data.payment_status) &&
+                                            <div className="payInvoice" id='payInvoice'>
+
+                                                <button className="btn btn-main" onClick={isPayable}>Pay Invoice</button>
+
+                                            </div>
+                                        }
+                                        <button className="btn btn-main" onClick={downloadInvoice}>Download Invoice</button>
+                                    </div>
+                                    {isPay &&
+                                        <div id='togglerBtnPaypal' className="togglerBtnPaypal my-3">
+                                            <PaypalCheckoutButton product={product} />
+                                        </div>
+                                    }
+
+
                                 </div>
 
+                                <div className='invoiceParent projects'>
+
+                                    <Invoice company={company} data={data} invoiceData={invoiceData} media={media} />
+
+                                </div >
                             </div>
-                            <div className='invoiceParent projects'>
-
-                                <Invoice company={company} data={data} invoiceData={invoiceData} media={media} />
-
-                            </div >
-                        </div>
+                            : ""}
+                        {isLoading &&
+                            <Spinner />
+                        }
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

@@ -7,8 +7,8 @@ import { ContactForm } from '../ContactForm';
 import { SkillsCircle } from '../SkillsCircle';
 
 export const Seo = () => {
-    const { AppName, setTitle } = useContext(AppContext);
-    setTitle(`${AppName}SEO`);
+    const { APP_NAME, setTitle } = useContext(AppContext);
+    setTitle(`${APP_NAME}SEO`);
     return (
         <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
             <div className="seo image-banner sec ">

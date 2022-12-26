@@ -8,8 +8,8 @@ import { SkillsCircle } from '../SkillsCircle';
 
 
 export const DigitalMarketing = () => {
-    const { AppName, setTitle } = useContext(AppContext);
-    setTitle(`${AppName}Digital Marketing`);
+    const { APP_NAME, setTitle } = useContext(AppContext);
+    setTitle(`${APP_NAME}Digital Marketing`);
     return (
         <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
             <div className="digital-marketing image-banner sec">

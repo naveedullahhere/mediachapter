@@ -24,6 +24,7 @@ import { SingleProject } from './Component/Dashboard/SingleProject';
 import { Spinner } from './Component/Spinner';
 import { PrivateRoutes } from './PrivateRoutes';
 import { SingleInvoice } from './Component/Dashboard/SingleInvoice';
+import { Paypal } from './Component/Payment/Paypal';
 
 
 export const MainRoutes = () => {
@@ -53,6 +54,7 @@ export const MainRoutes = () => {
                     <Route path="/register" element={<Register />} />
                     <Route path="/terms-conditions" element={<TermsNConditions />} />
                     <Route path="/privacy-policy" element={<Privacy />} />
+                    <Route path="/paypal" element={<Paypal />} />
                     <Route path="/blog/:singleBlog" element={<BlogDetails />} />
                     <Route element={<PrivateRoutes />}>
                         <Route path="/my-account" element={<MyAccount />} exact />

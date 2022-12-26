@@ -11,8 +11,7 @@ import { AppContext } from '../context/AppContext';
 import toast from "react-hot-toast";
 
 export const ContactForm = ({ action }) => {
-    const { AppName, setTitle, URL } = useContext(AppContext);
-    setTitle(`${AppName}Contact`);
+    const { URL } = useContext(AppContext);
     const {
         register,
         handleSubmit,

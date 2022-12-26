@@ -2,6 +2,8 @@ $(document).ready(function () {
     (function ($) {
         "use strict";
 
+
+
         $(function () {
             var header = $(".start-style");
             $(window).scroll(function () {
@@ -22,6 +24,9 @@ $(document).ready(function () {
 
 
 window.addEventListener('load', function () {
+    $("#payInvoice").click(function () {
+        $("#togglerBtnPaypal").slideToggle();
+    });
 
     (function ($) {
         "use strict";

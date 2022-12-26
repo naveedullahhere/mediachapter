@@ -7,8 +7,8 @@ import { AppContext } from '../context/AppContext';
 
 
 export const Portfolio = () => {
-    const { AppName, setTitle } = useContext(AppContext);
-    setTitle(`${AppName}Portfolio`);
+    const { APP_NAME, setTitle } = useContext(AppContext);
+    setTitle(`${APP_NAME}Portfolio`);
 
     return (
         <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>

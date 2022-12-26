@@ -10,9 +10,9 @@ import { Link } from 'react-router-dom';
 
 
 export const About = () => {
-    const { AppName, setTitle, teams, teamsImgPath } = useContext(AppContext);
+    const { APP_NAME, setTitle, teams, teamsImgPath } = useContext(AppContext);
 
-    setTitle(`${AppName}About`);
+    setTitle(`${APP_NAME}About`);
     const settings = {
         slidesToShow: 4,
         slidesToScroll: 1,

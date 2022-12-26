@@ -1,18 +1,24 @@
 
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { AppContext } from '../../context/AppContext';
 import { Sidebar } from './Sidebar'
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Spinner } from '../Spinner';
+import toast from "react-hot-toast";
 import { Error } from '../Error';
 
 export const Projects = () => {
     const { user, URL } = useContext(AppContext);
     const [projects, setProjects] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [isProjects, setIsProjects] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
     const [isErr, setIsError] = useState(false);
+    const [grater, setGrater] = useState(false);
+    const [isMinv, setIsMin] = useState("");
+
+    const [isCategLoading, setIsCategLoading] = useState(true);
 
     useEffect(() => {
         fetchProjects();
@@ -28,6 +34,76 @@ export const Projects = () => {
                 setIsLoading(false);
             })
     }
+
+    const loadCategories = () => {
+        fetch(`${URL}api/categories?type=service`)
+            .then((response) => response.json())
+            .then((actualData) => { setCategories(actualData); setIsCategLoading(false); })
+            .catch((err) => {
+                setCategories([]);
+                setIsCategLoading(false);
+            })
+    }
+
+    const category = useRef();
+    const isMin = useRef();
+
+
+    const selectChanged = () => {
+        if (parseInt(category.current.selectedOptions[0].getAttribute('data-set')) < isMin.current.value) {
+            setIsMin("Minimum Budget Must Grater Than : " + category.current.selectedOptions[0].getAttribute('data-set'));
+            setGrater(false);
+        }
+        else {
+            setGrater(true);
+        }
+    }
+    const [file, setFile] = useState()
+
+    function handleChange(event) {
+        setFile(event.target.files[0]);
+        var files = event.target.files
+        console.warn("File ", files);
+
+        let reader = new FileReader;
+
+        reader.onload = (e) => {
+            console.log(e.target.result);
+        }
+
+        reader.readAsDataURL(files[0]);
+
+    }
+
+    const createProject = (e) => {
+        e.preventDefault();
+
+        if (grater) {
+            return toast.error("Minimum Budget Greater Than : " + parseInt(category.current.selectedOptions[0].getAttribute('data-set')));
+        }
+
+        var data = {
+            name: e.target.projectname.value,
+            description: e.target.projectdescription.value,
+            category_id: category.current.value,
+            budget: isMin.current.value,
+            category_id: user.data.user_token,
+        }
+
+        fetch(`${URL}api/create-project`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: data
+        })
+            .then(res => res.json())
+            .then(json => {
+                console.log(json);
+
+            }).catch(err => {
+                console.log(err);
+            })
+
+    }
     return (
         <div>
             <div className="container-fluid px-0">
@@ -37,6 +113,70 @@ export const Projects = () => {
                     <div className="col-xl-9 col-lg-9 col-md-8 col-10" >
                         <div className='py-md-5 py-3'>
                             <div className="row w-100 mx-auto">
+                                <div className="col-12 mb-3">
+                                    <button className="btn btn-main" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={loadCategories}>Create Project</button>
+
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Create Project</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+                                                </div>
+                                                <form onSubmit={createProject}>
+                                                    {isCategLoading ?
+                                                        <Spinner />
+                                                        :
+                                                        <div class="modal-body">
+                                                            <div className="my-3">
+
+                                                                <input type="text" placeholder='Project Name' required name='projectname' className='input inp form-control text-dark' />
+
+                                                            </div>
+
+                                                            <div className="my-3">
+
+                                                                <input type="text" placeholder='Project Description' name='projectdescription' required className='input inp form-control text-dark' />
+
+                                                            </div>
+
+                                                            <div class="mb-3">
+                                                                <select class="text-dark input inp" ref={category} onChange={selectChanged} name="category">
+                                                                    <option selected hidden>Select one</option>
+                                                                    {categories.map((item) => {
+                                                                        return <option data-set={item.min_budget} value={`${item.slug}`}>{item.title}</option>
+                                                                    })}
+                                                                </select>
+                                                            </div>
+
+                                                            <div className="my-3">
+
+                                                                <input type="number" ref={isMin} onChange={selectChanged} placeholder='Minimum Budget' required className={`input inp form-control ${grater && "border-danger"} text-dark`} />
+                                                                {grater &&
+                                                                    <p>{isMinv}</p>
+                                                                }
+
+                                                            </div>
+
+                                                            <div className="my-3">
+
+                                                                <input type="file" onChange={handleChange} placeholder='Choose File' required className='input inp form-control text-dark' />
+
+                                                            </div>
+
+                                                        </div>
+                                                    }
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-main">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                                 {isLoading &&
                                     <Spinner />
                                 }
@@ -71,7 +211,7 @@ export const Projects = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }

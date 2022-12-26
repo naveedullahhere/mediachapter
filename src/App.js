@@ -10,6 +10,7 @@ import { URL, APP_NAME } from './config'
 import { Toaster } from "react-hot-toast";
 import { useSelector, useDispatch } from 'react-redux';
 import { removeUserData, addUserData, updateUserData } from './actions';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
 function App() {
@@ -24,8 +25,10 @@ function App() {
   const [teamsImgPath, setTeamsImgPath] = useState("");
   const [img, setImg] = useState(null);
 
+  // var APP_NAME = APP_NAME;
+
   var values = {
-    teams, teamsImgPath, couponItems, setCouponItems, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, APP_NAME, URL, data, setData, img, setImg, removeUserData, addUserData, updateUserData, dispatch, user
+    teams, teamsImgPath, couponItems, setCouponItems, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, Title, APP_NAME, URL, data, setData, img, setImg, removeUserData, addUserData, updateUserData, dispatch, user
   }
 
   useEffect(() => {
@@ -43,17 +46,27 @@ function App() {
       );
   }
 
+
+  const initialOptions = {
+    "client-id": "AeNv_91L0KGqMWRNUl-J00NsP080jqi7csIKewmFf9nQxVzSXsHQkWy5ma94mB7HB4RJY2zGDqkOCqlY",
+    currency: "USD",
+    intent: "capture",
+    "disable-funding": 'credit,card'
+  };
+
   document.title = Title;
 
   return (
-    <AppContext.Provider value={values} >
-      <BrowserRouter>
-        <Header />
-        <MainRoutes />
-        <Footer />
-        <Toaster position="top-right" containerStyle={{ "transform": "translateY(104px)" }} />
-      </BrowserRouter>
-    </AppContext.Provider>
+    <PayPalScriptProvider options={initialOptions}>
+      <AppContext.Provider value={values}>
+        <BrowserRouter>
+          <Header />
+          <MainRoutes />
+          <Footer />
+          <Toaster position="top-right" containerStyle={{ "transform": "translateY(104px)" }} />
+        </BrowserRouter>
+      </AppContext.Provider>
+    </PayPalScriptProvider>
   );
 }
 

@@ -11,8 +11,8 @@ export const Contact = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const { AppName, setTitle, URL } = useContext(AppContext);
-    setTitle(`${AppName}Contact`);
+    const { APP_NAME, setTitle, URL } = useContext(AppContext);
+    setTitle(`${APP_NAME}Contact`);
 
     const {
         register,

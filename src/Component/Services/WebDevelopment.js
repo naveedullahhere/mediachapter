@@ -3,11 +3,19 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import { ContactForm } from '../ContactForm';
+import webImg from '../assets/home-slider.png';
+import first from '../assets/first.png';
+import second from '../assets/sec.png';
+import third from '../assets/third.png';
+import fourth from '../assets/fifth.png';
 
 
 export const WebDevelopment = () => {
-    const { AppName, setTitle } = useContext(AppContext);
-    setTitle(`${AppName}Web Development`);
+    const { APP_NAME, setTitle, Title } = useContext(AppContext);
+
+    setTitle(`${APP_NAME}Web Development`);
+
+    console.log(Title);
 
 
     return (
@@ -20,6 +28,119 @@ export const WebDevelopment = () => {
                             <Link to={'/contact'} className="btn btn-dark">
                                 GET A QUOTE
                             </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="sec py-md-5 py-3">
+                <div class="container">
+                    <div class="row align-items-center text-start">
+                        <div class="col-xl-6 col-lg-7 col-md-8">
+
+                            <div class="about-img about-img1  ">
+                                <img src={webImg} alt="" />
+                            </div>
+                        </div>
+                        <div class="offset-xl-1 col-xxl-4 col-xl-5 col-lg-5 col-md-9">
+                            <div class="about-caption about-caption1">
+
+                                <div class="section-tittle mb-30">
+                                    <h2 className='text-start ps-0 '>All the features<br /> you’d expect.</h2>
+                                </div>
+                                <div class="single-about">
+                                    <h5>Lorem ipsum dolor sit.</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem repudiandae quis excepturi.</p>
+                                </div>
+                                <div class="single-about">
+                                    <h5>Lorem ipsum dolor sit.</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem repudiandae quis excepturi.</p>
+                                </div>
+                                <div class="single-about b-0">
+                                    <h5>Lorem ipsum dolor sit.</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem repudiandae quis excepturi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section sec py-md-5 py-3 mobile-padding-top_0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full">
+                                <div class="">
+                                    <h2 className='heading'>Working <span>Process</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin_top_50">
+                        <div class="col-md-6">
+                            <div class="full text-align_left process_blog process_step">
+                                <h4>
+                                    1
+                                    <span class="sml">st</span>
+                                </h4>
+                                <h3>Greate <span>Idea</span></h3>
+                                <p>At vero eos et accusamus et iusto odio<br />dignissimos ducimus qui blanditiis praesentium<br />voluptatum deleniti atque....</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="full text-align_center process_blog process_step_img">
+                                <img src={first} alt="#" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin_top_30 rowRev">
+                        <div class="col-md-6">
+                            <div class="full text-align_center process_blog process_step_img">
+                                <img src={second} alt="#" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="full text-align_left process_blog process_step">
+                                <h4>
+                                    2
+                                    <span class="sml">nd</span>
+                                </h4>
+                                <h3>Design &amp; <span>Devloped</span></h3>
+                                <p>At vero eos et accusamus et iusto odio<br />dignissimos ducimus qui blanditiis praesentium<br />voluptatum deleniti atque....</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin_top_30">
+                        <div class="col-md-6">
+                            <div class="full text-align_left process_blog process_step">
+                                <h4>
+                                    3
+                                    <span class="sml">rt</span>
+                                </h4>
+                                <h3>Testing <span>Product</span></h3>
+                                <p>At vero eos et accusamus et iusto odio<br />dignissimos ducimus qui blanditiis praesentium<br />voluptatum deleniti atque....</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="full text-align_center process_blog process_step_img">
+                                <img src={third} alt="#" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin_top_30 rowRev">
+                        <div class="col-md-6">
+                            <div class="full text-align_center process_blog process_step_img">
+                                <img src={fourth} alt="#" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="full text-align_left process_blog process_step">
+                                <h4>
+                                    4
+                                    <span class="sml">th</span>
+                                </h4>
+                                <h3>Deliver <span>Project</span></h3>
+                                <p>At vero eos et accusamus et iusto odio<br />dignissimos ducimus qui blanditiis praesentium<br />voluptatum deleniti atque....</p>
+                            </div>
                         </div>
                     </div>
                 </div>
