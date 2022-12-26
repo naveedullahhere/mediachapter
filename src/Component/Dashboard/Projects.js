@@ -50,7 +50,7 @@ export const Projects = () => {
 
 
     const selectChanged = () => {
-        if (parseInt(category.current.selectedOptions[0].getAttribute('data-set')) < isMin.current.value) {
+        if (parseInt(category.current.selectedOptions[0].getAttribute('data-set')) <= isMin.current.value) {
             setIsMin("Minimum Budget Must Grater Than : " + category.current.selectedOptions[0].getAttribute('data-set'));
             setGrater(false);
         }
@@ -58,12 +58,11 @@ export const Projects = () => {
             setGrater(true);
         }
     }
-    const [file, setFile] = useState()
+    const [file, setFile] = useState();
 
     function handleChange(event) {
         setFile(event.target.files[0]);
-        var files = event.target.files
-        console.warn("File ", files);
+        var files = event.target.files;
 
         let reader = new FileReader;
 
@@ -103,6 +102,31 @@ export const Projects = () => {
                 console.log(err);
             })
 
+    }
+
+
+
+
+
+
+
+    function openFile(evt) {
+        let status = [];
+        const fileObj = evt.target.files[0];
+        const reader = new FileReader();
+
+
+        let fileloaded = e => {
+            const fileContents = e.target.result;
+            status.push(`File name: "${fileObj.name}". ` +
+                `Length: ${fileContents.length} bytes.`);
+            const first80char = fileContents.substring(0, 80);
+            status.push(`First 80 characters of the file:\n${first80char}`)
+            console.log({ status: status.join("\n") });
+        }
+        fileloaded = fileloaded.bind(this);
+        reader.onload = fileloaded;
+        reader.readAsText(fileObj);
     }
     return (
         <div>
@@ -160,7 +184,7 @@ export const Projects = () => {
 
                                                             <div className="my-3">
 
-                                                                <input type="file" onChange={handleChange} placeholder='Choose File' required className='input inp form-control text-dark' />
+                                                                <input type="file" onChange={evt => openFile(evt)} placeholder='Choose File' required className='input inp form-control text-dark' />
 
                                                             </div>
 

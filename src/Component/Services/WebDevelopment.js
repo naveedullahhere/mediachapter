@@ -64,18 +64,40 @@ export const WebDevelopment = () => {
                     </div>
                 </div>
             </div>
-            <div class="section sec py-md-5 py-3 mobile-padding-top_0">
+            <section class="design_section layout_padding-top">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="full">
-                                <div class="">
-                                    <h2 className='heading'>Working <span>Process</span></h2>
-                                </div>
-                            </div>
+                    <div class="">
+                        <h2 className='heading'>
+                            UI/UX Design
+                        </h2>
+                    </div>
+                    <div class="design_container layout_padding2">
+                        <div class="box b-1">
+                            <h5>
+                                User <br />
+                                Experience
+                            </h5>
+                        </div>
+                        <div class="box b-2">
+                            <h5>
+                                Interface <br />
+                                Design
+                            </h5>
+                        </div>
+                        <div class="box b-3">
+                            <h5>
+                                Mobile Apps
+                            </h5>
                         </div>
                     </div>
-                    <div class="row margin_top_50">
+                </div>
+            </section>
+            <div>
+                <hr class="section_hr" />
+            </div>
+            <div class="section sec py-md-5 py-3 mobile-padding-top_0">
+                <div class="container"> 
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="full text-align_left process_blog process_step">
                                 <h4>
