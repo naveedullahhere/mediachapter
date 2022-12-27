@@ -1,11 +1,11 @@
 import React from 'react'
 
-export const Invoice = ({ company, data, invoiceData, media }) => {
+export const Invoice = ({ company, data, invoiceData, media, raf }) => {
     return (
-        <div className="mainInvoice shadow-sm" id="divToPrint">
+        <div className="mainInvoice shadow-sm" id="divToPrint" ref={raf}>
             <div className="head d-flex justify-content-between align-items-center">
                 <a href={company.website} target={`_blank`}> <img src={`${media}/${company.logo}`} alt="invoice logo" /></a>
-                <h1 className="text-main text-dark">
+                <h1 className="text-main text-dark invoicee">
                     INVOICE
                 </h1>
             </div>

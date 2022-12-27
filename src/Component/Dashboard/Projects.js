@@ -36,7 +36,7 @@ export const Projects = () => {
     }
 
     const loadCategories = () => {
-        fetch(`${URL}api/categories?type=service`)
+        fetch(`${URL}api/categories?type=project`)
             .then((response) => response.json())
             .then((actualData) => { setCategories(actualData); setIsCategLoading(false); })
             .catch((err) => {
@@ -201,12 +201,15 @@ export const Projects = () => {
                                     </div>
 
                                 </div>
+
                                 {isLoading &&
                                     <Spinner />
                                 }
+
                                 {isErr &&
                                     <Error />
                                 }
+
                                 {isProjects
                                     &&
                                     projects.map((item) => {

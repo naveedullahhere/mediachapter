@@ -14,8 +14,7 @@ export const WebDevelopment = () => {
     const { APP_NAME, setTitle, Title } = useContext(AppContext);
 
     setTitle(`${APP_NAME}Web Development`);
-
-    console.log(Title);
+ 
 
 
     return (

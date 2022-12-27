@@ -1,8 +1,10 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState, useEffect, useRef } from 'react'
 import { AppContext } from '../../context/AppContext';
 import { useParams } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { Invoice } from './Invoice';
+import $ from "jquery";
+import ReactToPrint from 'react-to-print';
 
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
@@ -39,17 +41,32 @@ export const SingleInvoice = () => {
     const isPayable = () => {
         setIsPay(!isPay);
     };
-    const downloadInvoice = () => {
-        const input = document.getElementById('divToPrint');
-        html2canvas(input)
-            .then((canvas) => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF();
-                pdf.addImage(imgData, 'JPEG', 0, 0);
-                pdf.save("download.pdf");
-            })
+
+    const reportTemplateRef = useRef(null);
+
+    const downloadInvoice = (el) => {
+        // const input = document.getElementById('divToPrint'); 
+        // const doc = new jsPDF({
+        //     format: 'a4',
+        //     unit: 'px',
+        // });  
+
+        // doc.html(reportTemplateRef.current, {
+        //     async callback(doc) {
+        //         await doc.save('document');
+        //         console.log(doc);
+        //     },
+        // });
+
+        var restorepage = $('body').html();
+        var printcontent = $('#' + el).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+
 
     }
+    const componentRef = useRef();
 
     const product = {
         invoice_number: data.id,
@@ -81,7 +98,11 @@ export const SingleInvoice = () => {
 
                                             </div>
                                         }
-                                        <button className="btn btn-main" onClick={downloadInvoice}>Download Invoice</button>
+
+                                        <ReactToPrint
+                                            trigger={() => <button className="btn btn-main" >Download Invoice</button>}
+                                            content={() => componentRef.current}
+                                        />
                                     </div>
                                     {isPay &&
                                         <div id='togglerBtnPaypal' className="togglerBtnPaypal my-3">
@@ -89,12 +110,11 @@ export const SingleInvoice = () => {
                                         </div>
                                     }
 
-
                                 </div>
 
                                 <div className='invoiceParent projects'>
 
-                                    <Invoice company={company} data={data} invoiceData={invoiceData} media={media} />
+                                    <Invoice company={company} data={data} invoiceData={invoiceData} raf={componentRef} media={media} />
 
                                 </div >
                             </div>

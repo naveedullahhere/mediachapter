@@ -2041,7 +2041,7 @@ td:first-child {
 
 @media (max-width:700px) {
   .mainInvoice :is(p, i, h1, h2, h3, h4, h5, h6, span, a, th, td) {
-    font-size: 65% !important;
+    font-size: 70% !important;
   }
 
   .tableTotal {
@@ -2050,7 +2050,11 @@ td:first-child {
   }
 
   .mainInvoice img {
-    width: 48px;
+    width: 108px;
+  }
+
+  .mainInvoice .invoicee {
+    font-size: 24px !important;
   }
 
   th:first-child,
@@ -2314,16 +2318,18 @@ img {
   vertical-align: middle;
   border-style: none;
 }
-.design_section{ 
+
+.design_section {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  text-align: left; 
+  text-align: left;
   color: #101010;
   box-sizing: border-box;
   display: block;
   padding-top: 90px;
 }
+
 .design_section .design_container .box.b-1 {
   background-color: #24263c;
   color: #ffffff;
@@ -2347,19 +2353,25 @@ img {
   align-items: center;
   position: relative;
 }
+
 .design_section .design_container .box h5 {
   font-weight: bold;
   font-size: 22px;
 }
+
 .design_section .design_container .box.b-2 {
   background-color: #f4f8fa;
   z-index: 2;
   margin-right: -40px;
-}.design_section .design_container .box.b-3 {
+}
+
+.design_section .design_container .box.b-3 {
   background-color: var(--primary);
   color: #ffffff;
   z-index: 3;
-}.design_section .design_container {
+}
+
+.design_section .design_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2370,7 +2382,9 @@ img {
 
 .layout_padding2 {
   padding: 45px 0;
-}.section_hr {
+}
+
+.section_hr {
   margin: 10px auto;
   width: 1px;
   height: 175px;
