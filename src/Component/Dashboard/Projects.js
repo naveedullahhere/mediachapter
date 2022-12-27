@@ -114,8 +114,7 @@ export const Projects = () => {
             obj[key] = formData.get(key);
         }
 
-        // console.log(JSON.stringify(e.target["file"].files[0]));
-        console.log(obj);
+        // console.log(JSON.stringify(e.target["file"].files[0])); 
         return JSON.stringify(obj);
         return obj;
 
@@ -128,9 +127,8 @@ export const Projects = () => {
         if (grater) {
             return toast.error("Minimum Budget Greater Than : " + parseInt(category.current.selectedOptions[0].getAttribute('data-set')));
         }
-
         setCreatingProject(true);
-
+        console.log(await serializeForm(e.target, e));
         fetch(`${URL}api/create-project`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -144,8 +142,7 @@ export const Projects = () => {
                     projects.push(json);
                     toast.success("Project Created Successfully");
 
-                }
-                console.log(projects);
+                } 
 
             }).catch(err => {
                 console.log(err);
