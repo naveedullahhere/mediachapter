@@ -2391,3 +2391,116 @@ img {
   border: none;
   background-color: #000000;
 }
+
+.services {
+  background: url(./Component/assets/bg-services.png) no-repeat top/cover;
+}
+
+.servicez {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.servicez .inner-box {
+  background: #fff;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 5%);
+  padding: 50px 45px 40px;
+  position: relative;
+}
+
+.servicez .inner-box,
+.servicez .inner-box:before {
+  border-radius: 7px;
+  display: block;
+  transition: all .5s ease;
+}
+
+.servicez .inner-box .bottom-curve {
+  background: #fff;
+  bottom: -10px;
+  height: 120px;
+  opacity: .1;
+  position: absolute;
+  right: -70px;
+  transform: skewX(0deg) scaleX(0);
+  transition: all .5s ease;
+  width: 120px;
+  z-index: 0;
+}
+
+.servicez .inner-box .icon-box {
+  color: var(--primary);
+  display: block;
+  font-size: 64px;
+  line-height: 1em;
+  margin-bottom: 42px;
+  position: relative;
+  transition: all .5s ease;
+}
+
+.servicez .text {
+  color: var(--dark);
+  display: block;
+  padding: 30px 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+.servicez .link-box {
+  bottom: 8px;
+  height: 30px;
+  position: absolute;
+  right: 3px;
+  width: 30px;
+  z-index: 1;
+}
+
+.servicez .link-box a {
+  color: #fff;
+  font-size: 20px;
+  line-height: 30px;
+  position: relative;
+}
+
+.servicez .inner-box:hover:before {
+  background: var(--dark);
+  bottom: -10px;
+}
+
+.servicez .inner-box:hover .bottom-curve {
+  transform: skewX(-45deg) scaleX(1);
+}
+
+.servicez .inner-box:hover .text {
+  color: #bdbdbd;
+}
+
+.servicez .inner-box:hover h5 a {
+  color: #fff;
+}
+
+.servicez .inner-box h5 {
+  position: relative;
+}
+
+.servicez .inner-box:hover .icon-box {
+  color: white;
+}
+
+.servicez .inner-box,
+.servicez .inner-box:before {
+  border-radius: 7px;
+  display: block;
+  transition: all .5s ease;
+}
+
+.servicez .inner-box:before {
+  bottom: 0;
+  box-shadow: 0 0 30px 0 rgb(0 0 0 / 4%);
+  content: "";
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

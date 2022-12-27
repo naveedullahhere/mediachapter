@@ -14,7 +14,7 @@ export const WebDevelopment = () => {
     const { APP_NAME, setTitle, Title } = useContext(AppContext);
 
     setTitle(`${APP_NAME}Web Development`);
- 
+
 
 
     return (
@@ -63,6 +63,70 @@ export const WebDevelopment = () => {
                     </div>
                 </div>
             </div>
+
+            <section class="services sec py-md-5 py-3">
+                <div class="container">
+                    <div class="sec-title mb-md-5 my-2">
+                        <div class="row">
+                            <div class="head  col-lg-12 col-md-12 col-sm-12">
+                                <h2 className='fs-3 heading pb-2'>Lorem ipsum is are many together</h2>
+                            </div>
+                            <div class=" col-lg-12 col-md-12 col-sm-12">
+                                <p class="para">There are many variations of passages of Lorem Ipsum available, but
+                                    the majority have suffered alteration in some form, by injected humour, or randomised.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services text-start">
+                        <div class="row">
+                            <div class="servicez col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box wow fadeInUp animated" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <div class="bottom-curve"></div>
+                                    <div class="icon-box"><span class="flaticon-vector"></span></div>
+                                    <h5><a href="#">Sincerity</a></h5>
+                                    <div class="text mt-0 pt-3">Lorem ipsum is are many variations of pass of majority.</div>
+                                    <div class="link-box"><a href="#"><span class="fa fa-angle-right"></span></a></div>
+                                </div>
+                            </div>
+
+
+                            <div class="servicez col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box wow fadeInUp animated" >
+                                    <div class="bottom-curve"></div>
+                                    <div class="icon-box"><span class="flaticon-digital"></span></div>
+                                    <h5><a href="#">Dedication</a></h5>
+                                    <div class="text mt-0 pt-3">Lorem ipsum is are many variations of pass of majority.</div>
+                                    <div class="link-box"><a href="#"><span class="fa fa-angle-right"></span></a></div>
+                                </div>
+                            </div>
+
+
+                            <div class="servicez col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms" >
+                                    <div class="bottom-curve"></div>
+                                    <div class="icon-box"><span class="flaticon-instant-camera"></span></div>
+                                    <h5><a href="#">Results</a></h5>
+                                    <div class="text mt-0 pt-3">Lorem ipsum is are many variations of pass of majority.</div>
+                                    <div class="link-box"><a href="#"><span class="fa fa-angle-right"></span></a></div>
+                                </div>
+                            </div>
+
+
+                            <div class="servicez col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box wow fadeInUp animated" data-wow-delay="900ms">
+                                    <div class="bottom-curve"></div>
+                                    <div class="icon-box"><span class="flaticon-monitor"></span></div>
+                                    <h5><a href="#">Development</a></h5>
+                                    <div class="text mt-0 pt-3">Lorem ipsum is are many variations of pass of majority.</div>
+                                    <div class="link-box"><a href="#"><span class="fa fa-angle-right"></span></a></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="design_section layout_padding-top">
                 <div class="container">
                     <div class="">
@@ -95,7 +159,7 @@ export const WebDevelopment = () => {
                 <hr class="section_hr" />
             </div>
             <div class="section sec py-md-5 py-3 mobile-padding-top_0">
-                <div class="container"> 
+                <div class="container">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="full text-align_left process_blog process_step">
