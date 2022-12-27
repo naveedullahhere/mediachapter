@@ -103,6 +103,7 @@ export const SingleInvoice = () => {
                                             trigger={() => <button className="btn btn-main" >Download Invoice</button>}
                                             content={() => componentRef.current}
                                         />
+
                                     </div>
                                     {isPay &&
                                         <div id='togglerBtnPaypal' className="togglerBtnPaypal my-3">

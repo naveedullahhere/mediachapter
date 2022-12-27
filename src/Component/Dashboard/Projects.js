@@ -2,9 +2,12 @@
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import { AppContext } from '../../context/AppContext';
 import { Sidebar } from './Sidebar'
+import $ from "jquery";
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Spinner } from '../Spinner';
+import { saveAs } from 'file-saver';
+
 import toast from "react-hot-toast";
 import { Error } from '../Error';
 
@@ -13,6 +16,7 @@ export const Projects = () => {
     const [projects, setProjects] = useState([]);
     const [categories, setCategories] = useState([]);
     const [isProjects, setIsProjects] = useState(true);
+    const [isCreatingProject, setCreatingProject] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isErr, setIsError] = useState(false);
     const [grater, setGrater] = useState(false);
@@ -74,60 +78,82 @@ export const Projects = () => {
 
     }
 
-    const createProject = (e) => {
+    async function convertToBase64(e) {
+        // var selectedFile = e.target["file"].files[0].file;
+        // if (selectedFile.length > 0) {
+        // var fileToLoad = selectedFile[0];
+        // var fileReader = new FileReader();
+        // var base64;
+        // fileReader.onload = function (fileLoadedEvent) {
+        //     base64 = fileLoadedEvent.target.result;
+        //     console.log(base64);
+        // };
+        // fileReader.readAsDataURL(selectedFile);
+        // } 
+        return await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(e);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+
+    var serializeForm = async function (form, e) {
+        var obj = {};
+        var formData = new FormData(form);
+        var file = await convertToBase64(e.target["file"].files[0]);
+
+        formData.delete('file');
+        formData.append('file', file);
+
+
+        // console.log(file);
+
+
+        for (var key of formData.keys()) {
+            obj[key] = formData.get(key);
+        }
+
+        // console.log(JSON.stringify(e.target["file"].files[0]));
+        console.log(obj);
+        return JSON.stringify(obj);
+        return obj;
+
+    };
+
+
+    async function createProject(e) {
         e.preventDefault();
 
         if (grater) {
             return toast.error("Minimum Budget Greater Than : " + parseInt(category.current.selectedOptions[0].getAttribute('data-set')));
         }
 
-        var data = {
-            name: e.target.projectname.value,
-            description: e.target.projectdescription.value,
-            category_id: category.current.value,
-            budget: isMin.current.value,
-            category_id: user.data.user_token,
-        }
+        setCreatingProject(true);
 
         fetch(`${URL}api/create-project`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: data
+            body: await serializeForm(e.target, e)
         })
             .then(res => res.json())
             .then(json => {
-                console.log(json);
+
+                setCreatingProject(false);
+                if (json.status) {
+                    projects.push(json);
+                    toast.success("Project Created Successfully");
+
+                }
+                console.log(projects);
 
             }).catch(err => {
                 console.log(err);
+                toast.error("Something went wrong!");
+                setCreatingProject(false);
             })
-
     }
 
-
-
-
-
-
-
-    function openFile(evt) {
-        let status = [];
-        const fileObj = evt.target.files[0];
-        const reader = new FileReader();
-
-
-        let fileloaded = e => {
-            const fileContents = e.target.result;
-            status.push(`File name: "${fileObj.name}". ` +
-                `Length: ${fileContents.length} bytes.`);
-            const first80char = fileContents.substring(0, 80);
-            status.push(`First 80 characters of the file:\n${first80char}`)
-            console.log({ status: status.join("\n") });
-        }
-        fileloaded = fileloaded.bind(this);
-        reader.onload = fileloaded;
-        reader.readAsText(fileObj);
-    }
     return (
         <div>
             <div className="container-fluid px-0">
@@ -147,35 +173,35 @@ export const Projects = () => {
                                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Create Project</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
                                                 </div>
-                                                <form onSubmit={createProject}>
+                                                <form onSubmit={createProject} id="formElem" >
                                                     {isCategLoading ?
                                                         <Spinner />
                                                         :
                                                         <div class="modal-body">
                                                             <div className="my-3">
 
-                                                                <input type="text" placeholder='Project Name' required name='projectname' className='input inp form-control text-dark' />
+                                                                <input type="text" placeholder='Project Name' required name='name' className='input inp form-control text-dark' />
 
                                                             </div>
 
                                                             <div className="my-3">
 
-                                                                <input type="text" placeholder='Project Description' name='projectdescription' required className='input inp form-control text-dark' />
+                                                                <input type="text" placeholder='Project Description' name='description' required className='input inp form-control text-dark' />
 
                                                             </div>
 
                                                             <div class="mb-3">
-                                                                <select class="text-dark input inp" ref={category} onChange={selectChanged} name="category">
+                                                                <select class="text-dark input inp" ref={category} onChange={selectChanged} name="category_id">
                                                                     <option selected hidden>Select one</option>
                                                                     {categories.map((item) => {
-                                                                        return <option data-set={item.min_budget} value={`${item.slug}`}>{item.title}</option>
+                                                                        return <option data-set={item.min_budget} value={`${item.id}`}>{item.title}</option>
                                                                     })}
                                                                 </select>
                                                             </div>
 
                                                             <div className="my-3">
 
-                                                                <input type="number" ref={isMin} onChange={selectChanged} placeholder='Minimum Budget' required className={`input inp form-control ${grater && "border-danger"} text-dark`} />
+                                                                <input type="number" ref={isMin} onChange={selectChanged} name="budget" placeholder='Minimum Budget' required className={`input inp form-control ${grater && "border-danger"} text-dark`} />
                                                                 {grater &&
                                                                     <p>{isMinv}</p>
                                                                 }
@@ -184,7 +210,12 @@ export const Projects = () => {
 
                                                             <div className="my-3">
 
-                                                                <input type="file" onChange={evt => openFile(evt)} placeholder='Choose File' required className='input inp form-control text-dark' />
+                                                                <input type="file" name="file" placeholder='Choose File' required className='input inp form-control text-dark' />
+
+                                                            </div>
+                                                            <div className="my-3">
+
+                                                                <input type="hidden" name="customer_id" value={user.data.id} />
 
                                                             </div>
 
@@ -193,7 +224,13 @@ export const Projects = () => {
 
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-main">Submit</button>
+                                                        <button type="submit" class="btn btn-main" style={{ "width": "84px" }}>
+
+                                                            {isCreatingProject ? <div class="spinner-border" role="status">
+                                                                <span class="visually-hidden">Loading...</span>
+                                                            </div> : "Submit"}
+
+                                                        </button>
                                                     </div>
                                                 </form>
                                             </div>
