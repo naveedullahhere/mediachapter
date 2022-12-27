@@ -8,6 +8,10 @@ import first from '../assets/first.png';
 import second from '../assets/sec.png';
 import third from '../assets/third.png';
 import fourth from '../assets/fifth.png';
+import portfolio2 from '../assets/Portfolio/2.png';
+import portfolio3 from '../assets/Portfolio/3.png';
+import portfolio4 from '../assets/Portfolio/4.png';
+import portfolio5 from '../assets/Portfolio/5.png';
 
 
 export const WebDevelopment = () => {
@@ -247,104 +251,25 @@ export const WebDevelopment = () => {
                                 <div className="row">
                                     <div className="col-lg-4 col-md-4 col-6 my-2">
                                         <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/e24b41a541a4ce552aad_tta5Y.jpg" alt="card" className='w-100' />
+                                            <img src={portfolio2} alt="card" className='w-100' />
                                         </div>
                                     </div>
                                     <div className="col-lg-4 col-md-4 col-6 my-2">
                                         <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/e2552f49714f244ea609_PaWJR-1.jpg" alt="card" className='w-100' />
+                                            <img src={portfolio3} alt="card" className='w-100' />
                                         </div>
                                     </div>
                                     <div className="col-lg-4 col-md-4 col-6 my-2">
                                         <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/ezgif_2_604d8c365d.jpg" alt="card" className='w-100' />
+                                            <img src={portfolio4} alt="card" className='w-100' />
                                         </div>
                                     </div>
                                     <div className="col-lg-4 col-md-4 col-6 my-2">
                                         <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/ezgif_2_ef94216e88.jpg" alt="card" className='w-100' />
+                                            <img src={portfolio5} alt="card" className='w-100' />
                                         </div>
                                     </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_0NiSN.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_2VLlY.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_192Ax.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_DQ5Qy.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_HtAta.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_i26TY.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_lU8gJ.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_p5krr.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_p5krr.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2021_TnZDN.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2022_BdVF2.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2022_e7NJx.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2022_gPRQZ.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2022_NmyXc.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src="https://www.mediachapter.us/wp-content/uploads/2021/12/image_processing2022_pco4a.jpg" alt="card" className='w-100' />
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
