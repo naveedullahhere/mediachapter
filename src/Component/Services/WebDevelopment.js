@@ -68,12 +68,12 @@ export const WebDevelopment = () => {
                 </div>
             </div>
 
-            <section class="services sec py-md-5 py-3">
+            <section class="services sec py-md-5 py-3 text-start">
                 <div class="container">
                     <div class="sec-title mb-md-5 my-2">
                         <div class="row">
                             <div class="head  col-lg-12 col-md-12 col-sm-12">
-                                <h2 className='fs-3 heading pb-2'>Lorem ipsum is are many together</h2>
+                                <h1 className=' heading pb-2'>Lorem ipsum is are many together</h1>
                             </div>
                             <div class=" col-lg-12 col-md-12 col-sm-12">
                                 <p class="para">There are many variations of passages of Lorem Ipsum available, but
@@ -131,7 +131,7 @@ export const WebDevelopment = () => {
                     </div>
                 </div>
             </section>
-            <section class="design_section layout_padding-top">
+            {/* <section class="design_section layout_padding-top">
                 <div class="container">
                     <div class="">
                         <h2 className='heading'>
@@ -161,8 +161,8 @@ export const WebDevelopment = () => {
             </section>
             <div>
                 <hr class="section_hr" />
-            </div>
-            <div class="section sec py-md-5 py-3 mobile-padding-top_0">
+            </div> */}
+            {/* <div class="section sec py-md-5 py-3 mobile-padding-top_0">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
@@ -233,8 +233,63 @@ export const WebDevelopment = () => {
                         </div>
                     </div>
                 </div>
+            </div> */}
+            <div className="sec py-5 text-start">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h1 className="heading">
+                                Technologies we use
+                            </h1>
+                            <p className="para-sm text-muted my-3">
+                                We create client-focused websites that generate desired results. Transform your digital presence with the help of our professional web developers.
+                            </p>
+                        </div>
+                        <div className="col-12">
+                            <div className="textCards row w-100 mx-auto">
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://seeklogo.com/images/F/flutter-logo-5086DD11C5-seeklogo.com.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://htmlbase.ru/storage/app/media/html5-css3.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/59/59137.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://assets.stickpng.com/images/58482ec0cef1014c0b5e4a70.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://assets.stickpng.com/images/58482acecef1014c0b5e4a1e.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://raw.githubusercontent.com/github/explore/ba9de12f88fd08825c51928e91f1678cb5c94b26/topics/solidity/solidity.png" alt="tech" />
+                                </div>
+                                <div className="col-lg-2 col-md-4 col-sm-6 col-6 crdd">
+                                    <img src="https://assets.stickpng.com/images/58482acecef1014c0b5e4a1e.png" alt="tech" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="sec py-5">
+
+            <div className="sec py-5 text-start">
                 <div className="container">
                     <div className="row">
                         <div className="col-12">

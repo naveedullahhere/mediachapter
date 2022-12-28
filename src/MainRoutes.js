@@ -25,6 +25,7 @@ import { Spinner } from './Component/Spinner';
 import { PrivateRoutes } from './PrivateRoutes';
 import { SingleInvoice } from './Component/Dashboard/SingleInvoice';
 import { Paypal } from './Component/Payment/Paypal';
+import { Chat } from './Component/Dashboard/Chat';
 
 
 export const MainRoutes = () => {
@@ -62,6 +63,7 @@ export const MainRoutes = () => {
                         <Route path="/projects/:singleProject" element={<SingleProject />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/invoices" element={<Invoices />} />
+                        <Route path="/private-chat" element={<Chat />} />
                     </Route>
                 </Routes>
             }

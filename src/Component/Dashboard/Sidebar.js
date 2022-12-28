@@ -48,6 +48,13 @@ export const Sidebar = ({ pageid }) => {
                         <span className="tooltip">Invoices</span>
                     </li>
                     <li>
+                        <Link to={'/private-chat'} className={`${pageid === "chat" && "active"}`}>
+                            <i class='fa fa-file-invoice' ></i>
+                            <span className="link_names">Chat</span>
+                        </Link>
+                        <span className="tooltip">Chat</span>
+                    </li>
+                    <li>
                         <a href='#' onClick={Logout}>
                             {isLoading ?
                                 <div className="spinner d-flex justify-content-center align-items-center">

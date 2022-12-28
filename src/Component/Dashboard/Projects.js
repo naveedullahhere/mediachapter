@@ -141,8 +141,7 @@ export const Projects = () => {
                 if (json.status) {
                     projects.push(json);
                     toast.success("Project Created Successfully");
-
-                } 
+                }
 
             }).catch(err => {
                 console.log(err);
