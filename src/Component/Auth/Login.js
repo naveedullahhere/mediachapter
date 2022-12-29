@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const Login = () => {
 
-    const { URL, dispatch, addUserData, user } = useContext(AppContext);
+    const { URL, dispatch, addUserData, user, removeUserData } = useContext(AppContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -60,14 +60,14 @@ export const Login = () => {
                         <h1>LOGIN</h1>
                     </div>
                     <div className="input-box">
-                        <input type="text" name="email" autoComplete={`false`} className={`inputLogin ${errors.email && " is-invalid"}`} id="username" required {...register('email', {  pattern: /^\S+@\S+$/i })} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="text" name="email" autoComplete={`false`} className={`inputLogin ${errors.email && " is-invalid"}`} id="username" required {...register('email', { pattern: /^\S+@\S+$/i })} onChange={(e) => setEmail(e.target.value)} />
                         <label for="username">Email</label>
                     </div>
 
                     {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>}
 
                     <div className="input-box">
-                        <input type="password" name="password" autoComplete="new-password" className="input pass-input" id="password"  {...register('password', )} required onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" name="password" autoComplete="new-password" className="input pass-input" id="password"  {...register('password',)} required onChange={(e) => setPassword(e.target.value)} />
                         <img src="assets/img/view.png" className="view-pass" alt="" />
                         <label for="password">Password</label>
                     </div>

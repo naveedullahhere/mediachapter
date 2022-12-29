@@ -53,9 +53,9 @@ function App() {
     intent: "capture",
     "disable-funding": 'credit,card'
   };
+ 
 
   document.title = Title;
-
   return (
     <PayPalScriptProvider options={initialOptions}>
       <AppContext.Provider value={values}>

@@ -10,6 +10,7 @@ import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
 import { Spinner } from '../Spinner';
 import { PaypalCheckoutButton } from '../Payment/PaypalCheckoutButton';
+import { Error } from '../Error';
 
 export const SingleInvoice = () => {
     const params = useParams();
@@ -36,6 +37,7 @@ export const SingleInvoice = () => {
                 setIsLoading(false);
                 setData([]);
                 setInvoiceItems([]);
+                console.log("err");
             });
     }, []);
     const isPayable = () => {
@@ -122,6 +124,9 @@ export const SingleInvoice = () => {
                             : ""}
                         {isLoading &&
                             <Spinner />
+                        }
+                        {isErr &&
+                            <Error />
                         }
                     </div>
                 </div>

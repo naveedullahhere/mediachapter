@@ -14,8 +14,8 @@ import { Error } from '../Error';
 export const Projects = () => {
     const { user, URL } = useContext(AppContext);
     const [projects, setProjects] = useState([]);
-    const [categories, setCategories] = useState([]);
     const [isProjects, setIsProjects] = useState(true);
+    const [categories, setCategories] = useState([]);
     const [isCreatingProject, setCreatingProject] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isErr, setIsError] = useState(false);
@@ -51,6 +51,7 @@ export const Projects = () => {
 
     const category = useRef();
     const isMin = useRef();
+    const close = useRef(null);
 
 
     const selectChanged = () => {
@@ -123,12 +124,10 @@ export const Projects = () => {
 
     async function createProject(e) {
         e.preventDefault();
-
         if (grater) {
             return toast.error("Minimum Budget Greater Than : " + parseInt(category.current.selectedOptions[0].getAttribute('data-set')));
         }
         setCreatingProject(true);
-        console.log(await serializeForm(e.target, e));
         fetch(`${URL}api/create-project`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -138,9 +137,12 @@ export const Projects = () => {
             .then(json => {
 
                 setCreatingProject(false);
-                if (json.status) {
+
+                if (json.status) { 
+                    close.current.click()
                     projects.push(json);
                     toast.success("Project Created Successfully");
+                    document.getElementById("formElem").reset();
                 }
 
             }).catch(err => {
@@ -182,13 +184,13 @@ export const Projects = () => {
 
                                                             <div className="my-3">
 
-                                                                <input type="text" placeholder='Project Description' name='description' required className='input inp form-control text-dark' />
+                                                                <textarea type="text" placeholder='Project Description' name='description' required className='input inp form-control text-dark' ></textarea>
 
                                                             </div>
 
                                                             <div class="mb-3">
                                                                 <select class="text-dark input inp" ref={category} onChange={selectChanged} name="category_id">
-                                                                    <option selected hidden>Select one</option>
+                                                                    <option selected hidden>Select Category</option>
                                                                     {categories.map((item) => {
                                                                         return <option data-set={item.min_budget} value={`${item.id}`}>{item.title}</option>
                                                                     })}
@@ -219,7 +221,7 @@ export const Projects = () => {
                                                     }
 
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-secondary" ref={close} data-bs-dismiss="modal">Close</button>
                                                         <button type="submit" class="btn btn-main" style={{ "width": "84px" }}>
 
                                                             {isCreatingProject ? <div class="spinner-border" role="status">

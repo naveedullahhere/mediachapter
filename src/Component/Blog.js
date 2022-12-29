@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import React, { useContext, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import { Error } from './Error';
 import { Spinner } from './Spinner';
@@ -63,7 +64,7 @@ export const Blog = () => {
                                                     </p>
                                                     <p className="card-text para-sm fs-smm text-muted" dangerouslySetInnerHTML={{ __html: item.short_description }}>
                                                     </p>
-                                                    <a href={`/blog/${item.slug}`} className="text-danger">Read More ↗</a>
+                                                    <Link to={`/blog/${item.slug}`} className="text-danger">Read More ↗</Link>
                                                 </div>
                                             </div>
                                         </div>

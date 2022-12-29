@@ -26,10 +26,13 @@ import { PrivateRoutes } from './PrivateRoutes';
 import { SingleInvoice } from './Component/Dashboard/SingleInvoice';
 import { Paypal } from './Component/Payment/Paypal';
 import { Chat } from './Component/Dashboard/Chat';
+import { NotFound } from './Component/404';
+import { Pricing } from './Component/Pricing';
+import { ProjectDiscussion } from './Component/Auth/ProjectDiscussion';
 
 
 export const MainRoutes = () => {
-    const { isPageLoading } = useContext(AppContext);
+    const { isPageLoading, user } = useContext(AppContext);
 
     const { pathname } = useLocation();
 
@@ -56,14 +59,16 @@ export const MainRoutes = () => {
                     <Route path="/terms-conditions" element={<TermsNConditions />} />
                     <Route path="/privacy-policy" element={<Privacy />} />
                     <Route path="/paypal" element={<Paypal />} />
+                    <Route path="/pricing" element={<Pricing />} />
                     <Route path="/blog/:singleBlog" element={<BlogDetails />} />
                     <Route element={<PrivateRoutes />}>
                         <Route path="/my-account" element={<MyAccount />} exact />
-                        <Route path="/invoices/:singleInvoice" element={<SingleInvoice />} exact />
-                        <Route path="/projects/:singleProject" element={<SingleProject />} />
-                        <Route path="/projects" element={<Projects />} />
-                        <Route path="/invoices" element={<Invoices />} />
+                        <Route path="/projects" element={user && user.data.user_type === "user" ? <Projects /> : <NotFound />} />
+                        <Route path="/projects/:singleProject" element={user && user.data.user_type === "user" ? <SingleProject /> : <NotFound />} />
+                        <Route path="/invoices" element={user && user.data.user_type === "user" ? <Invoices /> : <NotFound />} />
+                        <Route path="/invoices/:singleInvoice" element={user && user.data.user_type === "user" ? <SingleInvoice /> : <NotFound />} exact />
                         <Route path="/private-chat" element={<Chat />} />
+                        <Route path="/project-discussion" element={<ProjectDiscussion />} />
                     </Route>
                 </Routes>
             }

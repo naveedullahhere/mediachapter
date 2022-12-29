@@ -33,27 +33,31 @@ export const Sidebar = ({ pageid }) => {
                         </Link>
                         <span className="tooltip">My Account</span>
                     </li>
-                    <li>
-                        <Link to={'/projects'} className={`${pageid === "projects" && "active"}`}>
-                            <i class='fa fa-database' ></i>
-                            <span className="link_names">Projects</span>
-                        </Link>
-                        <span className="tooltip">Projects</span>
-                    </li>
-                    <li>
-                        <Link to={'/invoices'} className={`${pageid === "invoice" && "active"}`}>
-                            <i class='fa fa-file-invoice' ></i>
-                            <span className="link_names">Invoices</span>
-                        </Link>
-                        <span className="tooltip">Invoices</span>
-                    </li>
-                    <li>
+                    {user.data.user_type === "user" &&
+                        <>
+                            <li>
+                                <Link to={'/projects'} className={`${pageid === "projects" && "active"}`}>
+                                    <i class='fa fa-database' ></i>
+                                    <span className="link_names">Projects</span>
+                                </Link>
+                                <span className="tooltip">Projects</span>
+                            </li>
+                            <li>
+                                <Link to={'/invoices'} className={`${pageid === "invoice" && "active"}`}>
+                                    <i class='fa fa-file-invoice' ></i>
+                                    <span className="link_names">Invoices</span>
+                                </Link>
+                                <span className="tooltip">Invoices</span>
+                            </li>
+                        </>
+                    }
+                    {/* <li>
                         <Link to={'/private-chat'} className={`${pageid === "chat" && "active"}`}>
-                            <i class='fa fa-file-invoice' ></i>
-                            <span className="link_names">Chat</span>
+                            <i class='fa fa-snapchat' ></i>
+                            <span className="link_names">Project Discussion</span>
                         </Link>
-                        <span className="tooltip">Chat</span>
-                    </li>
+                        <span className="tooltip">Project Discussion</span>
+                    </li> */}
                     <li>
                         <a href='#' onClick={Logout}>
                             {isLoading ?

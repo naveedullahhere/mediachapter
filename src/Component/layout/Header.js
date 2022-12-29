@@ -53,6 +53,9 @@ export const Header = () => {
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Portfolio' && "active"}`}>
                                             <Link class={`nav-link`} to={'/portfolio'}>Portfolio</Link>
                                         </li>
+                                        <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/pricing' && "active"}`}>
+                                            <Link class={`nav-link`} to={'/pricing'}>Pricing</Link>
+                                        </li>
                                         <li class={`nav-item pl-4 pl-md-0 ml-0 ml-md-4 ${pathname === '/Blog' && "active"}`}>
                                             <Link class={`nav-link`} to={'/blog'}>Blog</Link>
                                         </li>
@@ -74,7 +77,7 @@ export const Header = () => {
                                                         <li><Link className="dropdown-item" to={'my-account'}>Account</Link></li>
                                                         <li><Link className="dropdown-item" to={'projects'}>Projects</Link></li>
                                                         <li><Link className="dropdown-item" to={'invoices'}>Invoices</Link></li>
-                                                        <li><Link className="dropdown-item" onClick={() => dispatch(removeUserData(user.id))}>Logout</Link></li>
+                                                        <li><Link className="dropdown-item" onClick={() => dispatch(removeUserData())}>Logout</Link></li>
                                                     </ul>
                                                     :
                                                     <ul className="dropdown-menu">
@@ -82,7 +85,7 @@ export const Header = () => {
                                                         <li><Link className="dropdown-item" to={'register'}>Signup</Link></li>
                                                     </ul>
                                                 }
-                                            </div> 
+                                            </div>
                                         </div>
                                         <Link to={'/contact'} className="btn btn-main">
                                             GET A QUOTE
