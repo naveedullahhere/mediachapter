@@ -104,7 +104,7 @@ export const ProjectDiscussion = () => {
               <div class='mail-search'>
                 <div class='input-box d-flex align-items-center'>
                   <input class='input' type='text' onChange={e => { setSearchTerm(e.target.value) }} />
-                  <button class='btn btn-main py-2'><i class="fa fa-search"></i></button>
+                  <button class='btn btn-main py-2'><i className="fa fa-search"></i></button>
 
                 </div>
               </div>
@@ -113,7 +113,7 @@ export const ProjectDiscussion = () => {
               <ul class='mail-menu'>
                 <li>
                   <div class='options-wrapper'>
-                    <button class="button-checkAll button-options button-large button-grey" onClick={() => setisActive(!isActive)}>
+                    <button className="button-checkAll button-options button-large button-grey" onClick={() => setisActive(!isActive)}>
                       Compose
                     </button>
                     <ul class='dropdown-menu drop-bottom hide'>
@@ -128,14 +128,14 @@ export const ProjectDiscussion = () => {
                 </li>
                 <li>
                   <button class='button-grey button-large' onClick={() => fetchProjects(user && user.data.user_type === "user" ? `${URL}api/project/${user.data.user_token}` : `${URL}api/project/management`)}>
-                    <i class="fa fa-refresh"></i>
+                    <i className="fa fa-refresh"></i>
                   </button>
                 </li>
                 <li>
                   <div class='options-wrapper'>
-                    <button class="button-options button-large button-grey">
+                    <button className="button-options button-large button-grey">
                       <p>More</p>
-                      <div class='more'><i class="fa fa-sort-asc"></i></div>
+                      <div class='more'><i className="fa fa-sort-asc"></i></div>
                     </button>
                     <ul class='dropdown-menu drop-bottom hide'>
                       <li>Mark all as read</li>
@@ -158,7 +158,7 @@ export const ProjectDiscussion = () => {
                     }
                     return null
                   }).map((item) => {
-                    return item['total-message'] != 0 && <Projects id={item.projects.id} setProjectId={setProjectId} unread={item['unread-count']} ProjectName={item.projects.name} joinDiscussion={joinDiscussion} lastMessage={item.message.message} time={item.message.created_at} />
+                    return item['total-message'] != 0 && <Projects id={item.projects.id} setProjectId={setProjectId} key={item.projects.id} unread={item['unread-count']} ProjectName={item.projects.name} joinDiscussion={joinDiscussion} lastMessage={item.message.message} time={item.message.created_at} />
                   })}
 
                   {isLoading &&
@@ -167,44 +167,44 @@ export const ProjectDiscussion = () => {
                   <div className="composeScreen">
 
                     <div class={`popup-window new-mail ${isActive && "minimized"}`}>
-                      <div class="header">
-                        <div class="title">
+                      <div className="header">
+                        <div className="title">
                           New Message
-                          <div class="right">
-                            <button class="button-grey button-small button-minimize" onClick={() => setisActive(true)}>＿</button>
-                            <button class="button-grey button-small button-fullscreen">
-                              <i class="fa fa-expand" onClick={() => setisActive(false)}></i></button>
-                            <button class="button-grey button-small button-exit" onClick={() => setisActive(false)}>
-                              <i class="fa fa-times"></i>
+                          <div className="right">
+                            <button className="button-grey button-small button-minimize" onClick={() => setisActive(true)}>＿</button>
+                            <button className="button-grey button-small button-fullscreen">
+                              <i className="fa fa-expand" onClick={() => setisActive(false)}></i></button>
+                            <button className="button-grey button-small button-exit" onClick={() => setisActive(false)}>
+                              <i className="fa fa-times"></i>
                             </button>
                           </div>
                         </div>
-                        <div class="min-hide">
+                        <div className="min-hide">
                           <SuggestProjects projects={projects} setProjectOuterId={setProjectOuterId} />
                         </div>
                       </div>
-                      {/* <textarea class="min-hide" placeholder='Subject' ref={message}></textarea> */}
+                      {/* <textarea className="min-hide" placeholder='Subject' ref={message}></textarea> */}
 
                       <Note
 
                       />
-                      <div class="menu footer min-hide">
-                        <button class="button-large button-blue" onClick={handleMessage}>Send</button>
-                        <button class="button-large button-silver">
-                          <i class="fa fa-font"></i>
+                      <div className="menu footer min-hide">
+                        <button className="button-large button-blue" onClick={handleMessage}>Send</button>
+                        <button className="button-large button-silver">
+                          <i className="fa fa-font"></i>
                         </button>
                         |
-                        <button class="button-large button-silver">
-                          <i class="fa fa-paperclip"></i>
+                        <button className="button-large button-silver">
+                          <i className="fa fa-paperclip"></i>
                         </button>
-                        <button class="button-large button-silver">
-                          <i class="fa fa-plus"></i>
+                        <button className="button-large button-silver">
+                          <i className="fa fa-plus"></i>
                         </button>
-                        <div class="right">
-                          <button class="button-large button-silver">
-                            <i class="fa fa-trash-o"></i>
-                          </button>|<button class="button-large button-silver">
-                            <i class="fa fa-sort-asc"></i>
+                        <div className="right">
+                          <button className="button-large button-silver">
+                            <i className="fa fa-trash-o"></i>
+                          </button>|<button className="button-large button-silver">
+                            <i className="fa fa-sort-asc"></i>
                           </button>
                         </div>
                       </div>

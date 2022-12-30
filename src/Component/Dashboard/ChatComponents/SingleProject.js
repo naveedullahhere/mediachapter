@@ -10,13 +10,9 @@ import { Note } from '../../SummerNote/Note';
 
 export const SingleProjectDiscussion = () => {
     const { user, URL, noteValue, setNoteValue } = useContext(AppContext);
-    const [projects, setProjects] = useState([]);
     const [allMessages, setAllMessges] = useState([]);
-    const [tempProjects, settempProjects] = useState([]);
     const [isErr, setIsError] = useState(false);
     const [projectId, setProjectId] = useState('');
-    const [projectName, setProjectName] = useState('');
-    const [isProjects, setIsProjects] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
     const [loadChat, setLoadChat] = useState(false);
     const [isActive, setisActive] = useState(true);
@@ -91,7 +87,7 @@ export const SingleProjectDiscussion = () => {
                                 (
                                     allMessages.map((item) => {
 
-                                        return <Message from={item.username} time={item.created_at} key={item.id} id={item.user_id} message={`${item.message}`} userid={user.data.id} />
+                                        return <Message key={item.id} from={item.username} time={item.created_at} keyid={item.id} id={item.user_id} message={`${item.message}`} userid={user.data.id} />
 
                                     })
                                 )
@@ -101,39 +97,39 @@ export const SingleProjectDiscussion = () => {
                         <div className="composeScreen">
 
                             <div class={`popup-window new-mail ${isActive && "minimized"}`}>
-                                <div class="header">
-                                    <div class="title">
+                                <div className="header">
+                                    <div className="title">
                                         New Message
-                                        <div class="right">
-                                            <button class="button-grey button-small button-minimize" onClick={() => setisActive(true)}>＿</button>
-                                            <button class="button-grey button-small button-fullscreen">
-                                                <i class="fa fa-expand" onClick={() => setisActive(false)}></i></button>
-                                            <button class="button-grey button-small button-exit" onClick={() => setisActive(false)}>
-                                                <i class="fa fa-times"></i>
+                                        <div className="right">
+                                            <button className="button-grey button-small button-minimize" onClick={() => setisActive(true)}>＿</button>
+                                            <button className="button-grey button-small button-fullscreen">
+                                                <i className="fa fa-expand" onClick={() => setisActive(false)}></i></button>
+                                            <button className="button-grey button-small button-exit" onClick={() => setisActive(false)}>
+                                                <i className="fa fa-times"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="min-hide">
-                                        <input class="receiver input-large" type="text" placeholder="Recipients" value="" />
+                                    <div className="min-hide">
+                                        <input className="receiver input-large" type="text" placeholder="Recipients" value="" />
                                     </div>
                                 </div>
-                                {/* <textarea class="min-hide" placeholder='Subject' ref={message}></textarea> */}
+                                {/* <textarea className="min-hide" placeholder='Subject' ref={message}></textarea> */}
                                 <Note />
-                                <div class="menu footer min-hide">
-                                    <button class="button-large button-blue" onClick={handleMessage}>Send</button>
-                                    <button class="button-large button-silver">
-                                        <i class="fa fa-font"></i>
-                                    </button>|<button class="button-large button-silver">
-                                        <i class="fa fa-paperclip"></i>
+                                <div className="menu footer min-hide">
+                                    <button className="button-large button-blue" onClick={handleMessage}>Send</button>
+                                    <button className="button-large button-silver">
+                                        <i className="fa fa-font"></i>
+                                    </button>|<button className="button-large button-silver">
+                                        <i className="fa fa-paperclip"></i>
                                     </button>
-                                    <button class="button-large button-silver">
-                                        <i class="fa fa-plus"></i>
+                                    <button className="button-large button-silver">
+                                        <i className="fa fa-plus"></i>
                                     </button>
-                                    <div class="right">
-                                        <button class="button-large button-silver">
-                                            <i class="fa fa-trash-o"></i>
-                                        </button>|<button class="button-large button-silver">
-                                            <i class="fa fa-sort-asc"></i>
+                                    <div className="right">
+                                        <button className="button-large button-silver">
+                                            <i className="fa fa-trash-o"></i>
+                                        </button>|<button className="button-large button-silver">
+                                            <i className="fa fa-sort-asc"></i>
                                         </button>
                                     </div>
                                 </div>
