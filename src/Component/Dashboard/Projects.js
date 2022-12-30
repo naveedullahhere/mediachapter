@@ -31,7 +31,7 @@ export const Projects = () => {
     const fetchProjects = () => {
         fetch(`${URL}api/project/${user.data.user_token}`)
             .then((response) => response.json())
-            .then((actualData) => { setProjects(actualData.projects); setIsLoading(false); actualData.length === 0 ? setIsProjects(false) : setIsProjects(true) })
+            .then((actualData) => { setProjects(actualData); setIsLoading(false); actualData.length === 0 ? setIsProjects(false) : setIsProjects(true) })
             .catch((err) => {
                 setProjects([]);
                 setIsError(true);
@@ -138,7 +138,7 @@ export const Projects = () => {
 
                 setCreatingProject(false);
 
-                if (json.status) { 
+                if (json.status) {
                     close.current.click()
                     projects.push(json);
                     toast.success("Project Created Successfully");
@@ -248,19 +248,19 @@ export const Projects = () => {
                                 {isProjects
                                     &&
                                     projects.map((item) => {
-                                        return <div className="col-xl-3 col-lg-4 col-md-6 col-12 my-3">
+                                        return <div className="col-xl-3 col-lg-4 col-md-6 col-12 my-3" key={item.projects.id}>
                                             <div className="card py-2 project-cards position-relative">
                                                 <div className="card-body py-0">
-                                                    <h5 className="heading fs-5 mb-0">{item.name}</h5>
-                                                    <p className="para-sm text-muted card-description mb-0" dangerouslySetInnerHTML={{ __html: item.description }}></p>
+                                                    <h5 className="heading fs-5 mb-0">{item.projects.name}</h5>
+                                                    <p className="para-sm text-muted card-description mb-0" dangerouslySetInnerHTML={{ __html: item.projects.description }}></p>
                                                 </div>
-                                                <span class={`position-absolute top-0 start-100 project-badge badge rounded-pill bg-${item.status === "0" ? "warning" : item.status === "1" ? "info" : item.status === "2" ? "success" : "danger"}`}>
+                                                <span class={`position-absolute top-0 start-100 project-badge badge rounded-pill bg-${item.projects.status === "0" ? "warning" : item.projects.status === "1" ? "info" : item.projects.status === "2" ? "success" : "danger"}`}>
                                                     {
-                                                        item.status === "0" ? "Pending" : item.status === "1" ? "Process" : item.status === "2" ? "Completed" : "Cancelled"
+                                                        item.projects.status === "0" ? "Pending" : item.projects.status === "1" ? "Process" : item.projects.status === "2" ? "Completed" : "Cancelled"
                                                     }
                                                 </span>
                                                 <div className='text-center'>
-                                                    <Link to={`/projects/${item.id}`} className="mb-3 w-auto btn btn-main">View Detail ↗</Link>
+                                                    <Link to={`/projects/${item.projects.id}`} className="mb-3 w-auto btn btn-main">View Detail ↗</Link>
                                                 </div>
                                             </div>
                                         </div>
