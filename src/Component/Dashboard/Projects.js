@@ -31,7 +31,7 @@ export const Projects = () => {
     const fetchProjects = () => {
         fetch(`${URL}api/project/${user.data.user_token}`)
             .then((response) => response.json())
-            .then((actualData) => { setProjects(actualData); setIsLoading(false); actualData.length === 0 ? setIsProjects(false) : setIsProjects(true) })
+            .then((actualData) => { setProjects(actualData.projects); setIsLoading(false); actualData.length === 0 ? setIsProjects(false) : setIsProjects(true) })
             .catch((err) => {
                 setProjects([]);
                 setIsError(true);

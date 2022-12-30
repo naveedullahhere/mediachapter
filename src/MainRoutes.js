@@ -28,7 +28,8 @@ import { Paypal } from './Component/Payment/Paypal';
 import { Chat } from './Component/Dashboard/Chat';
 import { NotFound } from './Component/404';
 import { Pricing } from './Component/Pricing';
-import { ProjectDiscussion } from './Component/Auth/ProjectDiscussion';
+import { ProjectDiscussion } from './Component/Dashboard/ProjectDiscussion';
+import { SingleProjectDiscussion } from './Component/Dashboard/ChatComponents/SingleProject';
 
 
 export const MainRoutes = () => {
@@ -63,12 +64,14 @@ export const MainRoutes = () => {
                     <Route path="/blog/:singleBlog" element={<BlogDetails />} />
                     <Route element={<PrivateRoutes />}>
                         <Route path="/my-account" element={<MyAccount />} exact />
-                        <Route path="/projects" element={user && user.data.user_type === "user" ? <Projects /> : <NotFound />} />
+                        <Route path="/projects" element={user && user.data.user_type === "user" ? <Projects /> : <Projects />} />
                         <Route path="/projects/:singleProject" element={user && user.data.user_type === "user" ? <SingleProject /> : <NotFound />} />
                         <Route path="/invoices" element={user && user.data.user_type === "user" ? <Invoices /> : <NotFound />} />
                         <Route path="/invoices/:singleInvoice" element={user && user.data.user_type === "user" ? <SingleInvoice /> : <NotFound />} exact />
                         <Route path="/private-chat" element={<Chat />} />
                         <Route path="/project-discussion" element={<ProjectDiscussion />} />
+                        {/* <Route path="/project-discussion/:project" element={user && user.data.user_type === "user" ? <SingleProjectDiscussion /> : <NotFound />} exact /> */}
+                        <Route path="/project-discussion/:project" element={ <SingleProjectDiscussion />} exact />
                     </Route>
                 </Routes>
             }

@@ -122,7 +122,7 @@ export const Chat = () => {
 
         fetch(`${URL}api/get-discussion/${id}`).then(response => response.json())
             .then(data => { setAllMessges(data); })
-            .catch(err => { }); 
+            .catch(err => { });
     }
 
     const startLoopp = (id, name) => {

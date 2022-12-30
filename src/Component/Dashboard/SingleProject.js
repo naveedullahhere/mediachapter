@@ -40,9 +40,7 @@ export const SingleProject = () => {
     }, []);
 
 
-
-
-    console.log(data);
+ 
 
 
     return (
