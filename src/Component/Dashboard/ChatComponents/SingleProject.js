@@ -6,9 +6,10 @@ import { Message } from '../../Discussion/Message';
 import { Spinner } from '../../Spinner';
 import toast from "react-hot-toast";
 import { Sidebar } from '../Sidebar';
+import { Note } from '../../SummerNote/Note';
 
 export const SingleProjectDiscussion = () => {
-    const { user, URL } = useContext(AppContext);
+    const { user, URL, noteValue, setNoteValue } = useContext(AppContext);
     const [projects, setProjects] = useState([]);
     const [allMessages, setAllMessges] = useState([]);
     const [tempProjects, settempProjects] = useState([]);
@@ -18,7 +19,7 @@ export const SingleProjectDiscussion = () => {
     const [isProjects, setIsProjects] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
     const [loadChat, setLoadChat] = useState(false);
-    const [isActive, setisActive] = useState(false);
+    const [isActive, setisActive] = useState(true);
     const params = useParams();
 
     const singleProject = params.project;
@@ -28,6 +29,7 @@ export const SingleProjectDiscussion = () => {
 
         return () => {
             joinDiscussion(singleProject);
+            // console.log("single Diss");
         }
     }, [])
 
@@ -47,11 +49,10 @@ export const SingleProjectDiscussion = () => {
 
 
     const handleMessage = () => {
-        postData(`${URL}api/discussion-post`, { user_id: user.data.id, project_id: projectId, message: message.current.value })
+        postData(`${URL}api/discussion-post`, { user_id: user.data.id, project_id: projectId, message: noteValue })
             .then(data => {
                 if (data.user_id) {
                     setAllMessges([...allMessages, data]);
-                    message.current.value = "";
                     setisActive(true);
                 } else {
                     toast.error("Something went wrong!");
@@ -98,6 +99,7 @@ export const SingleProjectDiscussion = () => {
 
                         </ul>
                         <div className="composeScreen">
+
                             <div class={`popup-window new-mail ${isActive && "minimized"}`}>
                                 <div class="header">
                                     <div class="title">
@@ -115,14 +117,13 @@ export const SingleProjectDiscussion = () => {
                                         <input class="receiver input-large" type="text" placeholder="Recipients" value="" />
                                     </div>
                                 </div>
-                                <textarea class="min-hide" placeholder='Subject' ref={message}></textarea>
+                                {/* <textarea class="min-hide" placeholder='Subject' ref={message}></textarea> */}
+                                <Note />
                                 <div class="menu footer min-hide">
                                     <button class="button-large button-blue" onClick={handleMessage}>Send</button>
                                     <button class="button-large button-silver">
                                         <i class="fa fa-font"></i>
-                                    </button>
-                                    |
-                                    <button class="button-large button-silver">
+                                    </button>|<button class="button-large button-silver">
                                         <i class="fa fa-paperclip"></i>
                                     </button>
                                     <button class="button-large button-silver">
@@ -145,12 +146,12 @@ export const SingleProjectDiscussion = () => {
                                 Compose
                             </button>
                             <button className="btn btn-main compose" onClick={() => joinDiscussion(singleProject)}>
-                            Sync
-                        </button>
+                                Sync
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div >
     )
 }

@@ -23,12 +23,13 @@ function App() {
   const [data, setData] = useState([]);
   const [teams, setTeams] = useState([]);
   const [teamsImgPath, setTeamsImgPath] = useState("");
+  const [noteValue, setNoteValue] = useState("");
   const [img, setImg] = useState(null);
 
   // var APP_NAME = APP_NAME;
 
   var values = {
-    teams, teamsImgPath, couponItems, setCouponItems, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, Title, APP_NAME, URL, data, setData, img, setImg, removeUserData, addUserData, updateUserData, dispatch, user
+    teams, teamsImgPath, couponItems, setCouponItems, setNoteValue, noteValue, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, Title, APP_NAME, URL, data, setData, img, setImg, removeUserData, addUserData, updateUserData, dispatch, user
   }
 
   useEffect(() => {
@@ -53,7 +54,7 @@ function App() {
     intent: "capture",
     "disable-funding": 'credit,card'
   };
- 
+
 
   document.title = Title;
   return (

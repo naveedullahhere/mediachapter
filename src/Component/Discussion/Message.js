@@ -7,8 +7,7 @@ export const Message = ({ from, time, key, id, message, userid }) => {
                 <h2>{`${userid === id ? "You" : from}`}</h2>
                 <h3>{time}</h3>
             </div>
-            <div class="message">
-                {message}
+            <div class="message" dangerouslySetInnerHTML={{ __html: message }}> 
             </div>
         </li>
     )

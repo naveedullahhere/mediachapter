@@ -1,14 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../context/AppContext';
 import { Spinner } from '../Spinner';
+import { Note } from '../SummerNote/Note';
+import App, { SuggestProjects } from '../SummerNote/SuggestProjects';
 import { Projects } from './ChatComponents/Projects'
 import { Sidebar } from './Sidebar'
+import toast from "react-hot-toast";
 
 export const ProjectDiscussion = () => {
 
-  const { user, URL } = useContext(AppContext);
+  const { user, URL, noteValue } = useContext(AppContext);
   const [projects, setProjects] = useState([]);
-  const [allMessages, setAllMessges] = useState([]);
+  // const [allMessages, setAllMessges] = useState([]);
   const [tempProjects, settempProjects] = useState([]);
   const [isErr, setIsError] = useState(false);
   const [projectId, setProjectId] = useState('');
@@ -22,7 +25,6 @@ export const ProjectDiscussion = () => {
     var url = user && user.data.user_type === "user" ? `${URL}api/project/${user.data.user_token}` : `${URL}api/project/management`
     fetchProjects(url);
   }, []);
-
 
   const fetchProjects = (url) => {
 
@@ -55,9 +57,40 @@ export const ProjectDiscussion = () => {
     //   .catch(err => { setIsError(true); setLoadChat(false); });
     // setLoadChat(true);
   }
-  projects.map((item) => {
-    console.log(item);
-  })
+
+
+  const handleMessage = () => {
+    // console.log(noteValue);
+
+    postData(`${URL}api/discussion-post`, { user_id: user.data.id, project_id: projectOuterId, message: noteValue })
+      .then(data => {
+        if (data.user_id) {
+          // setAllMessges([...allMessages, data]);
+          setisActive(true);
+          fetchProjects(user && user.data.user_type === "user" ? `${URL}api/project/${user.data.user_token}` : `${URL}api/project/management`);
+        } else {
+          toast.error("Something went wrong!");
+        }
+        setIsLoading(false);
+      }).catch((err) => {
+        setIsLoading(false);
+      });
+  }
+
+  async function postData(url, data) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    return response.json();
+  }
+
+  const [isActive, setisActive] = useState(true);
+  const [projectOuterId, setProjectOuterId] = useState('');
+
   return (
     <div>
       <div className="container-fluid px-0">
@@ -80,9 +113,8 @@ export const ProjectDiscussion = () => {
               <ul class='mail-menu'>
                 <li>
                   <div class='options-wrapper'>
-                    <button class="button-checkAll button-options button-large button-grey">
-                      <input type='checkbox' class='mail-check' id='chkAll' />
-                      <label for='chkAll'></label>
+                    <button class="button-checkAll button-options button-large button-grey" onClick={() => setisActive(!isActive)}>
+                      Compose
                     </button>
                     <ul class='dropdown-menu drop-bottom hide'>
                       <li>All</li>
@@ -95,7 +127,9 @@ export const ProjectDiscussion = () => {
                   </div>
                 </li>
                 <li>
-                  <button class='button-grey button-large' onClick={() => fetchProjects(user && user.data.user_type === "user" ? `${URL}api/project/${user.data.user_token}` : `${URL}api/project/management`)}><i class="fa fa-refresh"></i></button>
+                  <button class='button-grey button-large' onClick={() => fetchProjects(user && user.data.user_type === "user" ? `${URL}api/project/${user.data.user_token}` : `${URL}api/project/management`)}>
+                    <i class="fa fa-refresh"></i>
+                  </button>
                 </li>
                 <li>
                   <div class='options-wrapper'>
@@ -124,12 +158,60 @@ export const ProjectDiscussion = () => {
                     }
                     return null
                   }).map((item) => {
-                    return item['total-message'] != 0 && <Projects id={item.projects.id} unread={item['unread-count']} ProjectName={item.projects.name} joinDiscussion={joinDiscussion} lastMessage={"Fresh Pins for you!"} time={"10:43 PM"} />
+                    return item['total-message'] != 0 && <Projects id={item.projects.id} setProjectId={setProjectId} unread={item['unread-count']} ProjectName={item.projects.name} joinDiscussion={joinDiscussion} lastMessage={item.message.message} time={item.message.created_at} />
                   })}
 
                   {isLoading &&
                     <Spinner />
                   }
+                  <div className="composeScreen">
+
+                    <div class={`popup-window new-mail ${isActive && "minimized"}`}>
+                      <div class="header">
+                        <div class="title">
+                          New Message
+                          <div class="right">
+                            <button class="button-grey button-small button-minimize" onClick={() => setisActive(true)}>＿</button>
+                            <button class="button-grey button-small button-fullscreen">
+                              <i class="fa fa-expand" onClick={() => setisActive(false)}></i></button>
+                            <button class="button-grey button-small button-exit" onClick={() => setisActive(false)}>
+                              <i class="fa fa-times"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="min-hide">
+                          <SuggestProjects projects={projects} setProjectOuterId={setProjectOuterId} />
+                        </div>
+                      </div>
+                      {/* <textarea class="min-hide" placeholder='Subject' ref={message}></textarea> */}
+
+                      <Note
+
+                      />
+                      <div class="menu footer min-hide">
+                        <button class="button-large button-blue" onClick={handleMessage}>Send</button>
+                        <button class="button-large button-silver">
+                          <i class="fa fa-font"></i>
+                        </button>
+                        |
+                        <button class="button-large button-silver">
+                          <i class="fa fa-paperclip"></i>
+                        </button>
+                        <button class="button-large button-silver">
+                          <i class="fa fa-plus"></i>
+                        </button>
+                        <div class="right">
+                          <button class="button-large button-silver">
+                            <i class="fa fa-trash-o"></i>
+                          </button>|<button class="button-large button-silver">
+                            <i class="fa fa-sort-asc"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
 
                 </table>
                 <br /><br /><br />
