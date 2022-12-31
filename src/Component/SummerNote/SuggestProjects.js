@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-// import Autocomplete from 'react-autocomplete'
-// import Autocomplete from './ReactAutoComplete';
+
+import React, { useState } from 'react';
+import { AutoComplete } from 'antd';
 
 export const SuggestProjects = ({ projects, setProjectOuterId }) => {
 
@@ -10,11 +10,19 @@ export const SuggestProjects = ({ projects, setProjectOuterId }) => {
         const obj = {};
         var arr = item.projects.name
         for (let i = 0; i < arr.length; i++) {
-            obj["label"] = `${item.projects.name}|${item.projects.id}`;
+            obj["value"] = `${item.projects.name}|${item.projects.id}`;
         };
         return obj;
     })
 
+
+    // const options = [
+    //     { value: 'Burns Bay Road' },
+    //     { value: 'Downing Street' },
+    //     { value: 'Wall Street' },
+    // ];
+
+    // console.log(labels, options);
 
 
     const [value, setValue] = useState('');
@@ -66,6 +74,19 @@ export const SuggestProjects = ({ projects, setProjectOuterId }) => {
                         }}
                     />
                 </div> */}
+
+
+
+                <AutoComplete
+                    style={{ width: "100%", borderRadius: "0px" }}
+                    options={labels}
+                    placeholder="Search Projects"
+                    filterOption={(inputValue, option) => {
+                        return option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1;
+                    }
+                    }
+                />
+
             </div>
         </div>
     )

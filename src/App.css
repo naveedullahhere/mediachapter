@@ -4193,3 +4193,8 @@ main .mail-check:checked+label:before {
 }
 
 /* Chat  */
+
+
+:where(.css-dev-only-do-not-override-26rdvq).ant-select-single .ant-select-selector { 
+  border-radius: 0px;
+}
