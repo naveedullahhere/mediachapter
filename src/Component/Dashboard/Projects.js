@@ -36,6 +36,7 @@ export const Projects = () => {
                 setProjects([]);
                 setIsError(true);
                 setIsLoading(false);
+                toast.error("Something went wrong!");
             })
     }
 
@@ -46,6 +47,7 @@ export const Projects = () => {
             .catch((err) => {
                 setCategories([]);
                 setIsCategLoading(false);
+                toast.error("Something went wrong!");
             })
     }
 

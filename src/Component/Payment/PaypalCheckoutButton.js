@@ -22,6 +22,7 @@ export const PaypalCheckoutButton = ({ product }) => {
             .then((actualData) => { console.log(actualData); })
             .catch((err) => {
                 console.log(err);
+                toast.error("Something went wrong!");
             });
 
 

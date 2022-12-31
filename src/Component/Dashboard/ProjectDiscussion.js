@@ -37,6 +37,7 @@ export const ProjectDiscussion = () => {
         setProjects([]);
         setIsError(true);
         setIsLoading(false);
+        toast.error("Something went wrong!");
       })
   }
   const [searchTerm, setSearchTerm] = useState("");

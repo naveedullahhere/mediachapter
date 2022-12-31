@@ -11,6 +11,7 @@ import html2canvas from 'html2canvas';
 import { Spinner } from '../Spinner';
 import { PaypalCheckoutButton } from '../Payment/PaypalCheckoutButton';
 import { Error } from '../Error';
+import { toast } from 'react-hot-toast';
 
 export const SingleInvoice = () => {
     const params = useParams();
@@ -37,7 +38,7 @@ export const SingleInvoice = () => {
                 setIsLoading(false);
                 setData([]);
                 setInvoiceItems([]);
-                console.log("err");
+                toast.error("Something went wrong!");
             });
     }, []);
     const isPayable = () => {

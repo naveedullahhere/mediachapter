@@ -38,6 +38,7 @@ export const ContactForm = ({ action }) => {
 
                 }).catch(err => {
                     console.log(err);
+                    toast.error("Something went wrong!");
                     return null
                 })
         };

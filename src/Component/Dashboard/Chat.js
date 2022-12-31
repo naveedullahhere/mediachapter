@@ -59,6 +59,7 @@ export const Chat = () => {
                 setProjects([]);
                 setIsError(true);
                 setIsLoading(false);
+                toast.error("Something went wrong!");
             })
     }
 
@@ -76,6 +77,7 @@ export const Chat = () => {
                 setIsLoading(false);
             }).catch((err) => {
                 setIsLoading(false);
+                toast.error("Something went wrong!");
             });
     }
 
@@ -107,7 +109,7 @@ export const Chat = () => {
 
         fetch(`${URL}api/get-discussion/${id}`).then(response => response.json())
             .then(data => { setAllMessges(data); setLoadChat(false); })
-            .catch(err => { setIsError(true); setLoadChat(false); });
+            .catch(err => { setIsError(true); setLoadChat(false); toast.error("Something went wrong!"); });
         setLoadChat(true);
     }
 
@@ -122,13 +124,12 @@ export const Chat = () => {
 
         fetch(`${URL}api/get-discussion/${id}`).then(response => response.json())
             .then(data => { setAllMessges(data); })
-            .catch(err => { });
+            .catch(err => {toast.error("Something went wrong!"); });
     }
 
     const startLoopp = (id, name) => {
         setInterval(() => {
-            loadMags(id, name);
-            console.log("asd");
+            loadMags(id, name); 
         }, 5000);
     }
 

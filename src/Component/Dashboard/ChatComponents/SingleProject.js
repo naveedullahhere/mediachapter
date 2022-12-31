@@ -38,7 +38,7 @@ export const SingleProjectDiscussion = () => {
 
         fetch(`${URL}api/get-discussion/${id}`).then(response => response.json())
             .then(data => { setAllMessges(data); setLoadChat(false); })
-            .catch(err => { setIsError(true); setLoadChat(false); });
+            .catch(err => { setIsError(true); setLoadChat(false); toast.error("Something went wrong!"); });
         setLoadChat(true);
     }
     const message = useRef("");

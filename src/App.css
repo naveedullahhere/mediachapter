@@ -4104,7 +4104,92 @@ main .mail-check:checked+label:before {
   z-index: 200;
 }
 
+.mail-box .mail-title p {
+  max-width: 26rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1000px) {
+  .mail-box .mail-title p {
+    max-width: 14rem;
+  }
+
+  .mail-box .mail-sender {
+    min-width: 7rem;
+    max-width: 5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 
 
+@media (max-width: 768px) {
+  .mail-box .mail-title p {
+    width: 192px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .col-md-8.projects {
+    padding: 0 !important;
+    margin-left: -26px;
+    width: 86%;
+  }
+
+  .mail-sender {
+    width: 90px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mail-box .mail-sender {
+    max-width: 5.6rem;
+  }
+
+  .mail-box .mail-sender {
+    min-width: 5rem;
+  }
+}
+
+.mail-box>table>tr {
+  position: relative;
+}
+
+.mail-time {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media (max-width: 620px) {
+  .col-md-8.projects {
+    padding: 0 !important;
+    margin-left: -6px;
+    width: 84%;
+  }
+
+  .mail-box tr {
+    font-size: 10px;
+  }
+
+  .mail-box .mail-sender {
+    min-width: 4rem;
+  }
+
+  .mail-box .mail-title p {
+    width: 164px;
+  }
+
+
+
+  .mail-box .mail-sender {
+    max-width: 4.6rem;
+  }
+}
 
 /* Chat  */

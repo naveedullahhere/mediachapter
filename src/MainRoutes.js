@@ -24,7 +24,6 @@ import { SingleProject } from './Component/Dashboard/SingleProject';
 import { Spinner } from './Component/Spinner';
 import { PrivateRoutes } from './PrivateRoutes';
 import { SingleInvoice } from './Component/Dashboard/SingleInvoice';
-import { Paypal } from './Component/Payment/Paypal';
 import { Chat } from './Component/Dashboard/Chat';
 import { NotFound } from './Component/404';
 import { Pricing } from './Component/Pricing';
@@ -58,8 +57,7 @@ export const MainRoutes = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/terms-conditions" element={<TermsNConditions />} />
-                    <Route path="/privacy-policy" element={<Privacy />} />
-                    <Route path="/paypal" element={<Paypal />} />
+                    <Route path="/privacy-policy" element={<Privacy />} /> 
                     <Route path="/pricing" element={<Pricing />} />
                     <Route path="/blog/:singleBlog" element={<BlogDetails />} />
                     <Route element={<PrivateRoutes />}>

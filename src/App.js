@@ -10,7 +10,7 @@ import { URL, APP_NAME } from './config'
 import { Toaster } from "react-hot-toast";
 import { useSelector, useDispatch } from 'react-redux';
 import { removeUserData, addUserData, updateUserData } from './actions';
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 
 function App() {
@@ -43,6 +43,7 @@ function App() {
       .then((actualData) => { setTeams(actualData.team); setTeamsImgPath(actualData.media_path); })
       .catch((err) => {
         setData([]);
+        
       }
       );
   }

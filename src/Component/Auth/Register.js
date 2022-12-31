@@ -49,6 +49,7 @@ export const Register = () => {
                 setIsLoading(false);
             }).catch((err) => {
                 setIsLoading(false);
+                toast.error("Something went wrong!");
             });
 
     };

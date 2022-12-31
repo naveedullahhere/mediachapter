@@ -6,6 +6,7 @@ import { Sidebar } from './Sidebar'
 import { Link, useNavigate } from 'react-router-dom';
 import { Error } from '../Error';
 import { Spinner } from '../Spinner';
+import { toast } from 'react-hot-toast';
 
 export const Invoices = () => {
     const { user, URL } = useContext(AppContext);
@@ -26,6 +27,7 @@ export const Invoices = () => {
                 setInvoice([]);
                 setIsError(true);
                 setIsLoading(false);
+                toast.error("Something went wrong!");
             })
     }
 

@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Error } from '../Error';
 import { Spinner } from '../Spinner';
 import { Sidebar } from './Sidebar';
+import { toast } from 'react-hot-toast';
 
 export const SingleProject = () => {
 
@@ -27,6 +28,7 @@ export const SingleProject = () => {
                 setIsError(true);
                 setIsLoading(false);
                 setData([]);
+                toast.error("Something went wrong!");
             });
 
         fetch(`${URL}api/invoice/${user.data.user_token}?project_id=${singleProject}`)
@@ -36,6 +38,7 @@ export const SingleProject = () => {
                 setInvoice([]);
                 setIsError(true);
                 setIsLoading(false);
+                toast.error("Something went wrong!");
             })
     }, []);
 
