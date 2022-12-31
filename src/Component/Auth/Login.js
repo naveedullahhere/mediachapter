@@ -63,7 +63,7 @@ export const Login = () => {
                     </div>
                     <div className="input-box">
                         <input type="text" name="email" autoComplete={`false`} className={`inputLogin ${errors.email && " is-invalid"}`} id="username" required {...register('email', { pattern: /^\S+@\S+$/i })} onChange={(e) => setEmail(e.target.value)} />
-                        <label for="username">Email</label>
+                        <label htmlFor="username">Email</label>
                     </div>
 
                     {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>}
@@ -71,11 +71,11 @@ export const Login = () => {
                     <div className="input-box">
                         <input type="password" name="password" autoComplete="new-password" className="input pass-input" id="password"  {...register('password',)} required onChange={(e) => setPassword(e.target.value)} />
                         <img src="assets/img/view.png" className="view-pass" alt="" />
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                     </div>
                     {/* <div className="remember-me">
                         <input type="checkbox" checked name="" id="checkbox" />
-                        <label for="checkbox" className='ps-2'>Remember Me</label>
+                        <label htmlFor="checkbox" className='ps-2'>Remember Me</label>
                     </div> */}
                     <button type="submit" className=''>
                         Login

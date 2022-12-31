@@ -101,7 +101,7 @@ export const ContactForm = ({ action }) => {
                                         <div className="col-md-6">
                                             <div className="input-container">
                                                 <input {...register('firstname', { required: true })} type="text" name="firstname" class={`input ${errors.firstname && "form-control is-invalid"}`} placeholder='.' />
-                                                <label for="">First Name*</label>
+                                                <label htmlFor="">First Name*</label>
                                             </div>
 
                                         </div>
@@ -109,7 +109,7 @@ export const ContactForm = ({ action }) => {
 
                                             <div className="input-container">
                                                 <input type="text" name="lastname" class={`input ${errors.lastname && "form-control is-invalid"}`} placeholder='.' {...register('lastname', { required: true })} />
-                                                <label for="">Last Name*</label>
+                                                <label htmlFor="">Last Name*</label>
                                             </div>
 
                                         </div>
@@ -117,7 +117,7 @@ export const ContactForm = ({ action }) => {
 
                                             <div className="input-container mb-2">
                                                 <input type="email" name="email" class={`input ${errors.email && "form-control is-invalid"}`} placeholder='.' {...register('email', { required: true, pattern: /^\S+@\S+$/i })} />
-                                                <label for="">Email*</label>
+                                                <label htmlFor="">Email*</label>
                                             </div>
                                             {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>}
 
@@ -127,7 +127,7 @@ export const ContactForm = ({ action }) => {
 
                                             <div className="input-container">
                                                 <input type="tel" name="phone" class={`input ${errors.phone && "form-control is-invalid"}`} placeholder='.' {...register('phone', { required: true })} />
-                                                <label for="">Phone*</label>
+                                                <label htmlFor="">Phone*</label>
                                             </div>
 
                                         </div>
@@ -135,7 +135,7 @@ export const ContactForm = ({ action }) => {
 
                                             <div className="input-container">
                                                 <input type="text" name="company_name" class={`input ${errors.company_name && "form-control is-invalid"}`} placeholder='.' {...register('company_name', { required: true })} />
-                                                <label for="">Company Name*</label>
+                                                <label htmlFor="">Company Name*</label>
                                             </div>
 
                                         </div>
@@ -159,7 +159,7 @@ export const ContactForm = ({ action }) => {
 
                                             <div className="input-container textarea">
                                                 <textarea name="project_summary" class={`input ${errors.project_summary && "form-control is-invalid"}`} placeholder='.' {...register('project_summary', { required: true })}></textarea>
-                                                <label for="">Project Summary*
+                                                <label htmlFor="">Project Summary*
                                                 </label>
                                             </div>
 

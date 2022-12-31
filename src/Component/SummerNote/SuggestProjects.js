@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 // import Autocomplete from 'react-autocomplete'
+// import Autocomplete from './ReactAutoComplete';
+
 export const SuggestProjects = ({ projects, setProjectOuterId }) => {
+
 
 
     var labels = projects.map((item) => {
@@ -17,8 +20,8 @@ export const SuggestProjects = ({ projects, setProjectOuterId }) => {
     const [value, setValue] = useState('');
     return (
         <div>
-            {/* <div className='autoComplete'  >
-                <div>
+            <div className='autoComplete'>
+                {/* <div>
                     <Autocomplete
 
                         // Items is the list of suggestions 
@@ -62,8 +65,8 @@ export const SuggestProjects = ({ projects, setProjectOuterId }) => {
                             placeholder: 'Select Project'
                         }}
                     />
-                </div>
-            </div> */}
+                </div> */}
+            </div>
         </div>
     )
 }

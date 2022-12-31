@@ -76,7 +76,7 @@ export const Footer = () => {
                         </h5>
                         <div className="d-flex w-100 gap-2 flex-column mt-3">
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <label for="newsletter1" className="visually-hidden">Email address</label>
+                                <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
                                 <input id="newsletter1" type="text" class={`form-control shadow-none text-dark border-0 py-2 ${errors.email && "form-control is-invalid  text-dark"}`} {...register('email', { required: true, pattern: /^\S+@\S+$/i })} placeholder="Email address" />
                                 <input type="hidden" name="user_id" value={userid} />
 

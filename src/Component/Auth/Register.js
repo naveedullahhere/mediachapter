@@ -77,11 +77,11 @@ export const Register = () => {
                     </div>
                     <div className="input-box">
                         <input type="text" name="username" class={`inputLogin ${errors.username && "form-control is-invalid"}`} id="username"  {...register('username', { required: true })} onChange={(e) => setUsername(e.target.value)} />
-                        <label for="username">Username</label>
+                        <label htmlFor="username">Username</label>
                     </div>
                     <div className="input-box">
                         <input type="email" name="email" class={`inputLogin ${errors.email && "form-control is-invalid"}`} {...register('email', { required: true, pattern: /^\S+@\S+$/i })} onChange={(e) => setEmail(e.target.value)} />
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
                     </div>
                     {/* {errors.email && <span className='para-sm text-white'>Please Enter a Valid Email</span>} */}
 
@@ -89,19 +89,19 @@ export const Register = () => {
                         <input type="password" name="password" id="password"  {...register('password')} onChange={(e) => setPassword(e.target.value)}
                             className={`input pass-input ${errors.password ? 'is-invalid' : ''}`} />
                         <img src="assets/img/view.png" className="view-pass" alt="" />
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <div className="invalid-feedback text-white">{errors.password?.message}</div>
                     </div>
                     <div className="input-box">
                         <input type="password" name="cpassword"  {...register('confirmPwd')}
                             className={`input pass-input ${errors.confirmPwd ? 'is-invalid' : ''}`} id="cpassword" />
                         <img src="assets/img/view.png" className="view-pass" alt="" />
-                        <label for="cpassword">Confirm Password</label>
+                        <label htmlFor="cpassword">Confirm Password</label>
                         <div className="invalid-feedback text-white">{errors.confirmPwd?.message}</div>
                     </div>
                     {/* <div className="remember-me">
                         <input type="checkbox" checked name="" id="checkbox" />
-                        <label for="checkbox" className='px-2'>Remember Me</label>
+                        <label htmlFor="checkbox" className='px-2'>Remember Me</label>
                     </div> */}
 
                     <button type="submit">
