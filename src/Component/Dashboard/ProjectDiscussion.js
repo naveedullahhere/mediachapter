@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../context/AppContext';
 import { Spinner } from '../Spinner';
 import { Note } from '../SummerNote/Note';
-import App, { SuggestProjects } from '../SummerNote/SuggestProjects';
+import App, { Autocomplete } from '../SummerNote/SuggestProjects';
 import { Projects } from './ChatComponents/Projects'
 import { Sidebar } from './Sidebar'
 import toast from "react-hot-toast";
@@ -62,7 +62,7 @@ export const ProjectDiscussion = () => {
 
   const handleMessage = () => {
     // console.log(noteValue);
-
+    console.log(projectOuterId);
     postData(`${URL}api/discussion-post`, { user_id: user.data.id, project_id: projectOuterId, message: noteValue })
       .then(data => {
         if (data.user_id) {
@@ -169,7 +169,7 @@ export const ProjectDiscussion = () => {
 
                     <div class={`popup-window new-mail ${isActive && "minimized"}`}>
                       <div className="header">
-                        <div className="title">
+                        <div className="title mb-0">
                           New Message
                           <div className="right">
                             <button className="button-grey button-small button-minimize" onClick={() => setisActive(true)}>＿</button>
@@ -181,7 +181,7 @@ export const ProjectDiscussion = () => {
                           </div>
                         </div>
                         <div className="min-hide">
-                          <SuggestProjects projects={projects} setProjectOuterId={setProjectOuterId} />
+                          <Autocomplete projects={projects} projectOuterId={projectOuterId} setProjectOuterId={setProjectOuterId} />
                         </div>
                       </div>
                       {/* <textarea className="min-hide" placeholder='Subject' ref={message}></textarea> */}

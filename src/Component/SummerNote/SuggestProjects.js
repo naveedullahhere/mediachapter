@@ -1,93 +1,104 @@
 
 import React, { useState } from 'react';
-import { AutoComplete } from 'antd';
+import { Input } from 'antd';
 
-export const SuggestProjects = ({ projects, setProjectOuterId }) => {
 
+const SuggestionsList = props => {
+    const {
+        suggestions,
+        inputValue,
+        onSelectSuggestion,
+        displaySuggestions,
+        selectedSuggestion
+    } = props;
+
+    if (inputValue && displaySuggestions) {
+        if (suggestions.length > 0) {
+            return (
+                <ul className="suggestions-list">
+                    {suggestions.map((suggestion, index) => {
+                        const isSelected = selectedSuggestion === index;
+                        const classname = `suggestion ${isSelected ? "selected" : ""}`;
+                        return (
+                            <li
+                                key={index}
+                                className={classname}
+                                onClick={() => onSelectSuggestion(index)}
+                            >
+                                {suggestion}
+                            </li>
+                        );
+                    })}
+                </ul>
+            );
+        } else {
+            return <div>No suggestions available...</div>;
+        }
+    }
+    return <></>;
+};
+
+export const Autocomplete = ({ projects, setProjectOuterId, projectOuterId }) => {
+    const [inputValue, setInputValue] = React.useState("");
+    const [filteredSuggestions, setFilteredSuggestions] = React.useState([]);
+    const [mainfilteredSuggestions, setMainFilteredSuggestions] = React.useState([]);
+    const [selectedSuggestion, setSelectedSuggestion] = React.useState(0);
+    const [displaySuggestions, setDisplaySuggestions] = React.useState(false);
 
 
     var labels = projects.map((item) => {
-        const obj = {};
-        var arr = item.projects.name
-        for (let i = 0; i < arr.length; i++) {
-            obj["value"] = `${item.projects.name}|${item.projects.id}`;
-        };
-        return obj;
+        return `${item.projects.name}|${item.projects.id}`
     })
 
+    const onChange = event => {
+        const value = event.target.value;
+        setInputValue(value);
+        const filteredSuggestions = labels.filter(suggestion =>
+            suggestion.toLowerCase().includes(value.toLowerCase())
+        );
 
-    // const options = [
-    //     { value: 'Burns Bay Road' },
-    //     { value: 'Downing Street' },
-    //     { value: 'Wall Street' },
-    // ];
+        var lbls = labels.map((item) => {
+            return item.split("|")[0];
+        });
 
-    // console.log(labels, options);
+        const mainfilteredSuggestions = lbls.filter(suggestion =>
+            suggestion.toLowerCase().includes(value.toLowerCase())
+        );
 
+        setFilteredSuggestions(filteredSuggestions);
+        setMainFilteredSuggestions(mainfilteredSuggestions)
+        setDisplaySuggestions(true);
+        console.log(displaySuggestions);
+    };
 
-    const [value, setValue] = useState('');
+    const onSelectSuggestion = index => {
+        setSelectedSuggestion(index);
+        // labels = labels.map((item) => {
+        //     return item.split("|")[0];
+        // });
+
+        console.log(filteredSuggestions[index]);
+        setInputValue(filteredSuggestions[index].split("|")[0]);
+        setFilteredSuggestions([]);
+        setDisplaySuggestions(false);
+        setProjectOuterId(filteredSuggestions[index].split("|")[1]);
+
+    };
+
     return (
-        <div>
-            <div className='autoComplete'>
-                {/* <div>
-                    <Autocomplete
-
-                        // Items is the list of suggestions 
-                        // displayed while the user type
-                        items={labels}
-
-                        // To handle the case that when
-                        // the user type, suggested 
-                        // values should be independent
-                        // of upper or lower case 
-                        shouldItemRender={(item, value
-                        ) => item.label.toLowerCase()
-                            .indexOf(value.toLowerCase()) > -1}
-                        getItemValue={item => { setProjectOuterId(item.label.split("|")[1]); return item.label.split("|")[0]; }}
-                        renderItem={(item, isHighlighted) =>
-
-                            // Styling to highlight selected item
-                            <div style={{
-                                background: isHighlighted ?
-                                    'var(--primary)' : 'white',
-                                color: isHighlighted ?
-                                    'var(--white)' : 'black',
-                                padding: "12px"
-                            }}
-                                key={item.id}>
-                                {item.label.split("|")[0]}
-                            </div>
-                        }
-                        value={value}
-
-                        // The onChange event watches for
-                        // changes in an input field
-                        onChange={e => setValue(e.target.value)}
-
-                        // To set the state variable to value
-                        // selected from dropdown
-                        onSelect={(val) => setValue(val)}
-
-                        // Added style in Autocomplete component
-                        inputProps={{
-                            placeholder: 'Select Project'
-                        }}
-                    />
-                </div> */}
-
-
-
-                <AutoComplete
-                    style={{ width: "100%", borderRadius: "0px" }}
-                    options={labels}
-                    placeholder="Search Projects"
-                    filterOption={(inputValue, option) => {
-                        return option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1;
-                    }
-                    }
-                />
-
-            </div>
-        </div>
-    )
-}
+        <>
+            <Input placeholder='Select Project'
+                type="text"
+                className='rounded-0 py-2'
+                onChange={onChange}
+                value={inputValue} />
+            <SuggestionsList
+                inputValue={inputValue}
+                selectedSuggestion={selectedSuggestion}
+                onSelectSuggestion={onSelectSuggestion}
+                displaySuggestions={displaySuggestions}
+                suggestions={mainfilteredSuggestions}
+            />
+        </>
+    );
+};
