@@ -62,7 +62,7 @@ export const MainRoutes = () => {
                     <Route path="/blog/:singleBlog" element={<BlogDetails />} />
                     <Route element={<PrivateRoutes />}>
                         <Route path="/my-account" element={<MyAccount />} exact />
-                        <Route path="/projects" element={user && user.data.user_type === "user" ? <Projects /> : <Projects />} />
+                        <Route path="/projects" element={user && user.data.user_type === "user" ? <Projects /> : <NotFound />} />
                         <Route path="/projects/:singleProject" element={user && user.data.user_type === "user" ? <SingleProject /> : <NotFound />} />
                         <Route path="/invoices" element={user && user.data.user_type === "user" ? <Invoices /> : <NotFound />} />
                         <Route path="/invoices/:singleInvoice" element={user && user.data.user_type === "user" ? <SingleInvoice /> : <NotFound />} exact />

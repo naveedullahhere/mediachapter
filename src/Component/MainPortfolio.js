@@ -8,7 +8,8 @@ export const MainPortfolio = () => {
 
     const [filtered, setFiltered] = useState(PortfolioItems);
     const [activeFilter, setActiveFilter] = useState("all");
-
+console.log(filtered);
+console.log(PortfolioItems);
     return (
         <>
             <Filter

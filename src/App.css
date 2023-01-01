@@ -3794,7 +3794,8 @@ main .mail-check:checked+label:before {
   background-color: #8911344a;
   padding: 0px;
 }
-.message p{
+
+.message p {
   margin: 0;
 }
 
@@ -4155,6 +4156,10 @@ main .mail-check:checked+label:before {
     text-overflow: ellipsis;
   }
 
+  .textCards .crdd {
+    height: 98px;
+  }
+
   .mail-unread {
     right: 5rem;
   }
@@ -4185,9 +4190,10 @@ main .mail-check:checked+label:before {
   position: relative;
 }
 
-.mail-box a{
+.mail-box a {
   padding: 8px;
 }
+
 @media (max-width: 620px) {
   .new-mail {
     width: 78%;

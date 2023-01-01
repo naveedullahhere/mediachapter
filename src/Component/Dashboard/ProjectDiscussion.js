@@ -143,7 +143,7 @@ export const ProjectDiscussion = () => {
                     if (searchTerm === "") {
                       return item
                     }
-                    else if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    else if (item.projects.name.toLowerCase().includes(searchTerm.toLowerCase())) {
                       return item
                     }
                     return null
