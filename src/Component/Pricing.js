@@ -10,12 +10,12 @@ export const Pricing = () => {
 
                 <div className="container">
                     <div className="row">
-                        <div className="col-12">
+                        <div className="col-md-6 mx-auto mb-md-3">
                             <h1 className="heading fs-2">
-                                But Packages
+                                Buy Packages
                             </h1>
                             <p className="para-sm fs-6">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed molestiae veniam nulla
+                               Take a look at our affordable packages and choose one that suits your budget and needs.
                             </p>
                         </div>
                         <div className="col-12 px-0 pricing">

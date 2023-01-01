@@ -83,6 +83,9 @@ export const Invoices = () => {
                                                     })}
                                                 </tbody>
                                             }
+                                            {!isInvoice && <div className="col-12">
+                                                <h1 className="heading fs-3 mb-0 mt-4">No Invoices yet!</h1>
+                                            </div>}
 
                                         </table>
                                         {isLoading &&
@@ -91,9 +94,7 @@ export const Invoices = () => {
 
                                     </div>
                                 </div>
-                                {!isInvoice && <div className="col-12">
-                                    <h1 className="heading fs-3">No Invoices found!</h1>
-                                </div>}
+
                             </div>
                         </div>
                     </div>
