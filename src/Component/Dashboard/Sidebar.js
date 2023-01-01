@@ -51,13 +51,13 @@ export const Sidebar = ({ pageid }) => {
                             </li>
                         </>
                     }
-                    {/* <li>
-                        <Link to={'/private-chat'} className={`${pageid === "chat" && "active"}`}>
+                    <li>
+                        <Link to={'/project-discussion'} className={`${pageid === "chat" && "active"}`}>
                             <i class='fa fa-snapchat' ></i>
                             <span className="link_names">Project Discussion</span>
                         </Link>
                         <span className="tooltip">Project Discussion</span>
-                    </li> */}
+                    </li>
                     <li>
                         <a href='#' onClick={Logout}>
                             {isLoading ?

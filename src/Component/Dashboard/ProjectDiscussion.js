@@ -62,7 +62,7 @@ export const ProjectDiscussion = () => {
 
   const handleMessage = () => {
     // console.log(noteValue);
-    console.log(projectOuterId);
+    // console.log(projectOuterId);
     postData(`${URL}api/discussion-post`, { user_id: user.data.id, project_id: projectOuterId, message: noteValue })
       .then(data => {
         if (data.user_id) {
@@ -91,6 +91,8 @@ export const ProjectDiscussion = () => {
 
   const [isActive, setisActive] = useState(true);
   const [projectOuterId, setProjectOuterId] = useState('');
+
+
 
   return (
     <div>
@@ -132,19 +134,6 @@ export const ProjectDiscussion = () => {
                     <i className="fa fa-refresh"></i>
                   </button>
                 </li>
-                <li>
-                  <div class='options-wrapper'>
-                    <button className="button-options button-large button-grey">
-                      <p>More</p>
-                      <div class='more'><i className="fa fa-sort-asc"></i></div>
-                    </button>
-                    <ul class='dropdown-menu drop-bottom hide'>
-                      <li>Mark all as read</li>
-                      <li class='splitLine'></li>
-                      <li class='disable'>Select messages to <br /> see more actions</li>
-                    </ul>
-                  </div>
-                </li>
               </ul>
 
               <div class='mail-box'>
@@ -159,7 +148,7 @@ export const ProjectDiscussion = () => {
                     }
                     return null
                   }).map((item) => {
-                    return item['total-message'] != 0 && <Projects id={item.projects.id} setProjectId={setProjectId} key={item.projects.id} unread={item['unread-count']} ProjectName={item.projects.name} joinDiscussion={joinDiscussion} lastMessage={item.message.message} time={item.message.created_at} />
+                    return item['total-message'] != 0 && <Projects id={item.projects.id} userId={user.data.id} customerId={item.projects.customer_id} setProjectId={setProjectId} key={item.projects.id} unread={item['unread-count']} ProjectName={item.projects.name} joinDiscussion={joinDiscussion} lastMessage={!item.message ? "" : item.message.message} time={!item.message ? "" : item.message.created_at} />
                   })}
 
                   {isLoading &&

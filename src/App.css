@@ -3792,6 +3792,7 @@ main .mail-check:checked+label:before {
   border-bottom: solid 1px #626262;
   padding-left: 0.4rem;
   background-color: #8911344a;
+  padding: 8px;
 }
 
 .mail-box tr>a {
@@ -3815,9 +3816,9 @@ main .mail-check:checked+label:before {
 }
 
 .mail-box tr td {
-  height: 1rem;
+  /* height: 1rem; */
   line-height: 1rem;
-  padding: 0.4rem;
+  padding: 8px;
   white-space: nowrap;
 }
 
@@ -3925,8 +3926,14 @@ main .mail-check:checked+label:before {
 
 .mail-box .mail-time {
   text-align: right;
-  width: 5rem;
-  padding-right: 0.8rem;
+  max-width: 4rem;
+  /* padding-right: 12px; */
+  width: 100%;
+}
+
+
+.mail-unread {
+  /* float: right; */
 }
 
 .bottom-panel {
@@ -4111,9 +4118,20 @@ main .mail-check:checked+label:before {
   text-overflow: ellipsis;
 }
 
+.mail-unread {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  right: 5rem;
+}
+
 @media (max-width: 1000px) {
   .mail-box .mail-title p {
     max-width: 14rem;
+  }
+
+  .mail-unread {
+    right: 5rem;
   }
 
   .mail-box .mail-sender {
@@ -4132,6 +4150,10 @@ main .mail-check:checked+label:before {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .mail-unread {
+    right: 5rem;
   }
 
   .col-md-8.projects {
@@ -4160,13 +4182,16 @@ main .mail-check:checked+label:before {
   position: relative;
 }
 
-.mail-time {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
 
 @media (max-width: 620px) {
+  .new-mail {
+    width: 78%;
+  }
+
+  .mail-unread {
+    right: 4rem;
+  }
+
   .col-md-8.projects {
     padding: 0 !important;
     margin-left: -6px;
@@ -4189,6 +4214,17 @@ main .mail-check:checked+label:before {
 
   .mail-box .mail-sender {
     max-width: 4.6rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .mail-box .mail-title p {
+    width: 82px;
+  }
+
+  .mail-box .mail-sender {
+    max-width: 2.6rem;
+    min-width: 4rem;
   }
 }
 

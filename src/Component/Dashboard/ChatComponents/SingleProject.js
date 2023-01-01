@@ -22,11 +22,8 @@ export const SingleProjectDiscussion = () => {
 
     useEffect(() => {
 
-
-        return () => {
-            joinDiscussion(singleProject);
-            // console.log("single Diss");
-        }
+ 
+            joinDiscussion(singleProject); 
     }, [])
 
     const joinDiscussion = (id) => {
@@ -79,9 +76,6 @@ export const SingleProjectDiscussion = () => {
 
                     <div className="col-xl-9 col-lg-9 col-md-8 col-10 py-md-0 py-4 projects px-md-0 singleDiss position-relative" >
                         <ul id="chat">
-                            {
-                                allMessages.length === 0 && <p className="">Start Messaging</p>
-                            }
                             {loadChat ? <Spinner /> :
 
                                 (
