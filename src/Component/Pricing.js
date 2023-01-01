@@ -51,8 +51,8 @@ export const Pricing = () => {
                                 <div className="col-3">
 
                                     <div class="p-3 py-2 d-flex justify-content-center align-items-center ">
-                                        <p className='mb-0'>
-                                            GRAPHICS
+                                        <p className='mb-0 text-uppercase'>
+                                            Graphic design
                                         </p>
                                     </div>
                                 </div>
@@ -60,91 +60,13 @@ export const Pricing = () => {
 
                                     <div class="p-3 py-2 d-flex justify-content-center align-items-center ">
                                         <p className='mb-0'>
-                                            Starting From $29.99<span>upto</span>$399.99
+                                            Starting From $49 <span>to</span> $499
                                         </p>
                                     </div>
                                 </div>
                                 <div className="col-3">
 
                                     <div class="p-3 py-2 d-flex justify-content-center align-items-center ">
-                                        <p className='mb-0'>
-                                            <a href='#pricing' class="btn-custom">GET IN TOUCH!</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mx-auto w-100">
-                                <div className="col-3">
-
-                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
-                                        <p className='mb-0'>
-                                            WEB DEVELOPMENT
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="col-6">
-
-                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
-                                        <p className='mb-0'>
-                                            Starting From $29.99<span>upto</span>$399.99
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="col-3">
-
-                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
-                                        <p className='mb-0'>
-                                            <a href='#pricing' class="btn-custom">GET IN TOUCH!</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mx-auto w-100">
-                                <div className="col-3">
-
-                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center ">
-                                        <p className='mb-0'>
-                                            DIGITAL MARKETING
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="col-6">
-
-                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center  ">
-                                        <p className='mb-0'>
-                                            Starting From $29.99<span>upto</span>$399.99
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="col-3">
-
-                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center ">
-                                        <p className='mb-0'>
-                                            <a href='#pricing' class="btn-custom">GET IN TOUCH!</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mx-auto w-100">
-                                <div className="col-3">
-
-                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
-                                        <p className='mb-0'>
-                                            CONTENT WRITING
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="col-6">
-
-                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
-                                        <p className='mb-0'>
-                                            Starting From $29.99<span>upto</span>$399.99
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="col-3">
-
-                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
                                         <p className='mb-0'>
                                             <a href='#pricing' class="btn-custom">GET IN TOUCH!</a>
                                         </p>
@@ -155,8 +77,8 @@ export const Pricing = () => {
                                 <div className="col-3">
 
                                     <div class="p-3 py-2 d-flex justify-content-center align-items-center  ">
-                                        <p className='mb-0'>
-                                            SEO
+                                        <p className='mb-0 text-uppercase'>
+                                            Digital Marketing
                                         </p>
                                     </div>
                                 </div>
@@ -164,7 +86,7 @@ export const Pricing = () => {
 
                                     <div class="p-3 py-2 d-flex justify-content-center align-items-center">
                                         <p className='mb-0'>
-                                            Starting From $29.99<span>upto</span>$399.99
+                                            Starting From $349 <span>to</span> $6,999
                                         </p>
                                     </div>
                                 </div>
@@ -177,6 +99,139 @@ export const Pricing = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div class="row mx-auto w-100">
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center  ">
+                                        <p className='mb-0 text-uppercase'>
+                                            Content writing
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-6">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center">
+                                        <p className='mb-0'>
+                                            Starting From $100 <span>to</span> $1,199
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center  ">
+                                        <p className='mb-0'>
+                                            <a href='#pricing' class="btn-custom">GET IN TOUCH!</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row mx-auto w-100">
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center ">
+                                        <p className='mb-0 text-uppercase'>
+                                            Website development
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-6">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center  ">
+                                        <p className='mb-0'>
+                                            Starting From $249 <span>to</span> $15,000
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center ">
+                                        <p className='mb-0'>
+                                            <a href='#pricing' class="btn-custom">GET IN TOUCH!</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mx-auto w-100">
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
+                                        <p className='mb-0 text-uppercase'>
+                                            LOGO
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-6">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
+                                        <p className='mb-0'>
+                                            Starting From $49 <span>to </span>$524
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
+                                        <p className='mb-0'>
+                                            <a href='#pricing' class="btn-custom">GET IN TOUCH!</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mx-auto w-100">
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
+                                        <p className='mb-0'>
+                                            SEO
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-6">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
+                                        <p className='mb-0'>
+                                            Starting From $449 <span>to </span>$2,149
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center bg-light">
+                                        <p className='mb-0'>
+                                            <a href='#pricing' class="btn-custom">GET IN TOUCH!</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mx-auto w-100">
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center  ">
+                                        <p className='mb-0'>
+                                            SMM
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-6">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center">
+                                        <p className='mb-0'>
+                                            Starting From $349 <span>to </span>$1,199
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-3">
+
+                                    <div class="p-3 py-2 d-flex justify-content-center align-items-center  ">
+                                        <p className='mb-0'>
+                                            <a href='#pricing' class="btn-custom">GET IN TOUCH!</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>

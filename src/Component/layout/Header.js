@@ -75,8 +75,13 @@ export const Header = () => {
                                                 {user ?
                                                     <ul className="dropdown-menu">
                                                         <li><Link className="dropdown-item" to={'my-account'}>Account</Link></li>
-                                                        <li><Link className="dropdown-item" to={'projects'}>Projects</Link></li>
-                                                        <li><Link className="dropdown-item" to={'invoices'}>Invoices</Link></li>
+                                                        {user.data.user_type === "user" &&
+                                                            <>
+                                                                <li><Link className="dropdown-item" to={'projects'}>Projects</Link></li>
+                                                                <li><Link className="dropdown-item" to={'invoices'}>Invoices</Link></li>
+                                                            </>
+                                                        }
+                                                        <li><Link className="dropdown-item" to={'/project-discussion'}>Projects Discussion</Link></li>
                                                         <li><Link className="dropdown-item" onClick={() => dispatch(removeUserData())}>Logout</Link></li>
                                                     </ul>
                                                     :

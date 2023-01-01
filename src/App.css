@@ -2804,7 +2804,7 @@ main header h3 {
 }
 
 #chat .message {
-  padding: 20px;
+  padding: 10px 22px;
   color: #fff;
   line-height: 25px;
   max-width: 90%;
@@ -3792,7 +3792,10 @@ main .mail-check:checked+label:before {
   border-bottom: solid 1px #626262;
   padding-left: 0.4rem;
   background-color: #8911344a;
-  padding: 8px;
+  padding: 0px;
+}
+.message p{
+  margin: 0;
 }
 
 .mail-box tr>a {
@@ -4182,7 +4185,9 @@ main .mail-check:checked+label:before {
   position: relative;
 }
 
-
+.mail-box a{
+  padding: 8px;
+}
 @media (max-width: 620px) {
   .new-mail {
     width: 78%;
