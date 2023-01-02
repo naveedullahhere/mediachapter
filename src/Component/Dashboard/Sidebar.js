@@ -49,6 +49,13 @@ export const Sidebar = ({ pageid }) => {
                                 </Link>
                                 <span className="tooltip">Invoices</span>
                             </li>
+                            {/* <li>
+                                <Link to={'/completed-projects'} className={`${pageid === "cproject" && "active"}`}>
+                                    <i class='fa fa-project-diagram'></i>
+                                    <span className="link_names">Completed Projects</span>
+                                </Link>
+                                <span className="tooltip">Completed Projects</span>
+                            </li> */}
                         </>
                     }
                     <li>

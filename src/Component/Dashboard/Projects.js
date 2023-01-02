@@ -261,7 +261,7 @@ export const Projects = () => {
                                                     }
                                                 </span>
                                                 <div className='text-center'>
-                                                    <Link to={`/projects/${item.projects.id}`} className="mb-3 w-auto btn btn-main">View Detail ↗</Link>
+                                                    <Link to={`/projects/${item.projects.id}`} className="mt-3 mb-2 w-auto btn btn-main">View Detail ↗</Link>
                                                 </div>
                                             </div>
                                         </div>

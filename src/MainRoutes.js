@@ -29,6 +29,7 @@ import { NotFound } from './Component/404';
 import { Pricing } from './Component/Pricing';
 import { ProjectDiscussion } from './Component/Dashboard/ProjectDiscussion';
 import { SingleProjectDiscussion } from './Component/Dashboard/ChatComponents/SingleProject';
+import { CompletedProjects } from './Component/Dashboard/CompletedProjects';
 
 
 export const MainRoutes = () => {
@@ -57,7 +58,7 @@ export const MainRoutes = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/terms-conditions" element={<TermsNConditions />} />
-                    <Route path="/privacy-policy" element={<Privacy />} /> 
+                    <Route path="/privacy-policy" element={<Privacy />} />
                     <Route path="/pricing" element={<Pricing />} />
                     <Route path="/blog/:singleBlog" element={<BlogDetails />} />
                     <Route element={<PrivateRoutes />}>
@@ -66,10 +67,11 @@ export const MainRoutes = () => {
                         <Route path="/projects/:singleProject" element={user && user.data.user_type === "user" ? <SingleProject /> : <NotFound />} />
                         <Route path="/invoices" element={user && user.data.user_type === "user" ? <Invoices /> : <NotFound />} />
                         <Route path="/invoices/:singleInvoice" element={user && user.data.user_type === "user" ? <SingleInvoice /> : <NotFound />} exact />
+                        {/* <Route path="/completed-projects" element={user && user.data.user_type === "user" ? <CompletedProjects /> : <NotFound />} exact /> */}
                         <Route path="/private-chat" element={<Chat />} />
                         <Route path="/project-discussion" element={<ProjectDiscussion />} />
                         {/* <Route path="/project-discussion/:project" element={user && user.data.user_type === "user" ? <SingleProjectDiscussion /> : <NotFound />} exact /> */}
-                        <Route path="/project-discussion/:project" element={ <SingleProjectDiscussion />} exact />
+                        <Route path="/project-discussion/:project" element={<SingleProjectDiscussion />} exact />
                     </Route>
                 </Routes>
             }

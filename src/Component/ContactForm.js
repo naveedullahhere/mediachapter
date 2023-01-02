@@ -75,7 +75,7 @@ export const ContactForm = ({ action }) => {
                                     </div>
                                     <div className="information mb-4">
                                         <img src={email} className="icon" alt="" />
-                                        <p className='mb-0'>info@eliteblue.net</p>
+                                        <p className='mb-0'>info@mediachapter.com</p>
                                     </div>
                                     <div className="information mb-4">
                                         <img src={phone} className="icon" alt="" />

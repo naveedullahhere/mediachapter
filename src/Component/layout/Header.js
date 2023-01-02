@@ -79,6 +79,7 @@ export const Header = () => {
                                                             <>
                                                                 <li><Link className="dropdown-item" to={'projects'}>Projects</Link></li>
                                                                 <li><Link className="dropdown-item" to={'invoices'}>Invoices</Link></li>
+                                                                {/* <li><Link className="dropdown-item" to={'completed-projects'}>Completed Projects</Link></li> */}
                                                             </>
                                                         }
                                                         <li><Link className="dropdown-item" to={'/project-discussion'}>Projects Discussion</Link></li>

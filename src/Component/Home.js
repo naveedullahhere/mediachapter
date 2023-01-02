@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -12,8 +12,28 @@ import card1 from './assets/card1.png';
 import card2 from './assets/card2.png';
 import card3 from './assets/card3.png';
 import card4 from './assets/card4.png';
+import Brand1 from './assets/Brands/Brand1.png';
+import Brand2 from './assets/Brands/Brand2.png';
+import Brand3 from './assets/Brands/Brand3.png';
+import Brand4 from './assets/Brands/Brand4.png';
+import Brand5 from './assets/Brands/Brand5.png';
+import Brand6 from './assets/Brands/Brand6.png';
+import Brand7 from './assets/Brands/Brand7.png';
+import Brand8 from './assets/Brands/Brand8.png';
+import Brand9 from './assets/Brands/Brand9.png';
+import Brand0 from './assets/Brands/Brand0.png';
+import Brand10 from './assets/Brands/Brand10.png';
+import Brand11 from './assets/Brands/Brand11.png';
+import Brand12 from './assets/Brands/Brand12.png';
+import Brand13 from './assets/Brands/Brand13.png';
+import Brand14 from './assets/Brands/Brand14.png';
+import Brand15 from './assets/Brands/Brand15.png';
+import Brand16 from './assets/Brands/Brand16.png';
+import Brand17 from './assets/Brands/Brand17.png';
+import TrustPiolot from './assets/trustpilot.png';
 import { motion } from 'framer-motion';
-import { Testimonials } from './Testimonials'; 
+import { Testimonials } from './Testimonials';
+import { MainPortfolio } from './MainPortfolioSingleHome';
 
 export const Home = () => {
 
@@ -170,46 +190,7 @@ export const Home = () => {
             </div>
             <div className="sec py-5">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h1 className="heading">Our Work</h1>
-                            <p className="my-3 para-sm text-muted">Take a look at our top-notch work and get inspired.
-                            </p>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div className="overflow-hidden rounded-3 bg-light shadow-sm my-3 minimalHover">
-                                <img draggable="false" src="https://www.mediachapter.us/wp-content/uploads/2021/12/Logo-17-500x500.png" alt="portfolio" className="w-100" />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div className="overflow-hidden rounded-3 bg-light shadow-sm my-3 minimalHover">
-                                <img draggable="false" src="https://www.mediachapter.us/wp-content/uploads/2021/12/Logo-43-500x500.png" alt="portfolio" className="w-100" />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div className="overflow-hidden rounded-3 bg-light shadow-sm my-3 minimalHover">
-                                <img draggable="false" src="https://www.mediachapter.us/wp-content/uploads/2021/12/Logo-40-500x500.png" alt="portfolio" className="w-100" />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div className="overflow-hidden rounded-3 bg-light shadow-sm my-3 minimalHover">
-                                <img draggable="false" src="https://www.mediachapter.us/wp-content/uploads/2021/12/Book-Cover-6.jpg" alt="portfolio" className="w-100" />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div className="overflow-hidden rounded-3 bg-light shadow-sm my-3 minimalHover">
-                                <img draggable="false" src="https://www.mediachapter.us/wp-content/uploads/2021/12/Book-Cover-2.jpg" alt="portfolio" className="w-100" />
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <div className="overflow-hidden rounded-3 bg-light shadow-sm my-3 minimalHover">
-                                <img draggable="false" src="https://www.mediachapter.us/wp-content/uploads/2021/12/Book-Cover-7.jpg" alt="portfolio" className="w-100" />
-                            </div>
-                        </div>
-                        <div className="col-12 mx-auto my-4">
-                            <Link to="/portfolio" className="btn btn-main">see more</Link>
-                        </div>
-                    </div>
+                    <MainPortfolio />
                 </div>
             </div>
             <div className="sec py-5">
@@ -276,16 +257,24 @@ export const Home = () => {
                 <section className="customer-logos slider">
                     <Sliderz {...settings}>
 
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-08.png" /></div>
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-11.png" /></div>
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-14.png" /></div>
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-17.png" /></div>
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-03.png" /></div>
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-06.png" /></div>
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-12.png" /></div>
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-09.png" /></div>
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-15.png" /></div>
-                        <div className="slide"><img alt="" src="https://www.mediachapter.us/wp-content/uploads/2021/10/Logos-18.png" /></div>
+                        <div className="slide"><img alt="" src={Brand1} /></div>
+                        <div className="slide"><img alt="" src={Brand2} /></div>
+                        <div className="slide"><img alt="" src={Brand3} /></div>
+                        <div className="slide"><img alt="" src={Brand4} /></div>
+                        <div className="slide"><img alt="" src={Brand5} /></div>
+                        <div className="slide"><img alt="" src={Brand6} /></div>
+                        <div className="slide"><img alt="" src={Brand7} /></div>
+                        <div className="slide"><img alt="" src={Brand8} /></div>
+                        <div className="slide"><img alt="" src={Brand9} /></div>
+                        <div className="slide"><img alt="" src={Brand10} /></div>
+                        <div className="slide"><img alt="" src={Brand11} /></div>
+                        <div className="slide"><img alt="" src={Brand12} /></div>
+                        <div className="slide"><img alt="" src={Brand13} /></div>
+                        <div className="slide"><img alt="" src={Brand14} /></div>
+                        <div className="slide"><img alt="" src={Brand15} /></div>
+                        <div className="slide"><img alt="" src={Brand16} /></div>
+                        <div className="slide"><img alt="" src={Brand17} /></div> 
+
                     </Sliderz>
                 </section>
             </div>
@@ -294,7 +283,7 @@ export const Home = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col text-center">
-                            <img src="https://www.mediachapter.us/wp-content/uploads/2022/02/trust-pilot-img.png" alt="trustpiolet" />
+                            <img src={TrustPiolot} alt="trustpiolet" />
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,11 @@
   --black: #000;
   --white: #fff;
   --light: #eee;
+  --yellow: #FFBD13;
+  --blue: #4383FF;
+  --blue-d-1: #3278FF;
+  --grey: #AAA;
+  --shadow: 8px 8px 30px rgba(0, 0, 0, .05);
 }
 
 html {
@@ -1517,7 +1522,7 @@ textarea.input:not(:placeholder-shown)+label {
 
 input.input::-webkit-input-placeholder,
 textarea.input::-webkit-input-placeholder {
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 
@@ -1712,9 +1717,28 @@ textarea.input::-webkit-input-placeholder {
 
 .project-cards:hover .project-badge {
 
-  transform: scale(1.25) translate(-88%, -10%);
+  transform: scale(1.15) translate(-88%, -10%);
 }
 
+.sendd {
+  position: absolute;
+  bottom: 14px;
+  right: 20px;
+  z-index: 999;
+}
+
+.public-DraftEditor-content {
+  max-height: 100px;
+}
+
+.rdw-editor-wrapper {
+  background-color: white;
+  position: relative;
+}
+
+.bg-light {
+  background-color: var(--light);
+}
 
 .logo_content.logo i {
   font-size: 28px;
@@ -3230,12 +3254,17 @@ input.receiver::-webkit-input-placeholder {
 
 
 main.mail {
-  background: linear-gradient(188deg, var(--secondary) 8%, var(--primary) 66%);
+  /* background: linear-gradient(188deg, var(--secondary) 8%, var(--primary) 66%); */
+  background-color: var(--light);
 }
 
 ul,
 li {
   list-style: none;
+}
+
+.searchh {
+  display: flex;
 }
 
 .comment {
@@ -3631,12 +3660,30 @@ main {
   /* right: 0; */
   /* top: 0; */
   /* bottom: 0; */
-  padding-inline: 2.2rem;
+  padding-inline: 1.2rem;
   color: #999;
   /* min-width: 37rem; */
   height: 100%;
   z-index: 0;
   width: 100%;
+}
+
+.mail-box p {
+  margin-bottom: 10px;
+}
+
+.smmm p,
+.smmm {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.msggg {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  overflow: hidden;
 }
 
 main .mail-check+label {
@@ -3759,19 +3806,19 @@ main .mail-check:checked+label:before {
 }
 
 .mail-box {
-  position: absolute;
+  /* position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0; */
   /* padding-right: 1rem; */
-  top: 106px;
+  /* top: 106px; */
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .mail-box .unread {
-  color: #fff;
-  background: var(--primary);
+  color: var(--black);
+  background: var(--white);
 }
 
 .mail-box table {
@@ -3779,7 +3826,8 @@ main .mail-check:checked+label:before {
   border-spacing: 0;
   width: 100%;
   display: flex;
-  padding: 2.2rem;
+  /* padding: 1rem; */
+  /* margin-top: 1.45em; */
   padding-top: 0;
   flex-direction: column;
 }
@@ -3789,26 +3837,49 @@ main .mail-check:checked+label:before {
   text-align: left;
   cursor: pointer;
   position: relative;
-  border-bottom: solid 1px #626262;
+  border-bottom: solid 1px #62626226;
   padding-left: 0.4rem;
-  background-color: #8911344a;
+  background-color: var(--white);
+  border-left: 2px solid var(--primary);
   padding: 0px;
 }
 
+.row:nth-child(even) :is(.pricingtitle, .pricingaction, .pricing) {
+  background-color: var(--light);
+}
+
+.row :is(.pricingtitle, .pricingaction, .pricing) {
+  padding: 0.5rem !important;
+}
+
+.pricings .bg-radiant {
+  margin-block: .45em;
+}
+
+.btn-custom {
+  font-size: 10px;
+  padding: 8px;
+}
+.portfolioo>div{
+  height: 100%;
+}
+.CircularProgressbar-text{
+  font-family: fantasy;
+}
 .message p {
   margin: 0;
 }
 
 .mail-box tr>a {
-  color: #999;
+  color: var(--dark);
 }
 
 .mail-box tr.unread>a {
-  color: #fff;
+  color: var(--dark);
 }
 
 .mail-box tr:first-of-type {
-  border-top: solid 1px #626262;
+  border-top: solid 1px #62626226;
 }
 
 .mail-box tr:hover .blank-cell:before {
@@ -3816,7 +3887,7 @@ main .mail-check:checked+label:before {
 }
 
 .mail-box tr:hover {
-  background-color: var(--primary);
+  background-color: #ddd;
 }
 
 .mail-box tr td {
@@ -4188,6 +4259,8 @@ main .mail-check:checked+label:before {
 
 .mail-box>table>tr {
   position: relative;
+  /* border-radius: 8px;
+  margin-block: 1px; */
 }
 
 .mail-box a {
@@ -4260,4 +4333,164 @@ main .mail-check:checked+label:before {
 .suggestion:hover {
   background-color: var(--primary);
   color: white;
+}
+
+
+.completed-projects>div {
+  min-height: 100%;
+  height: 100%;
+}
+
+.projects {
+  position: relative;
+}
+
+.review {
+  bottom: 0;
+  background: var(--light);
+  padding: 0.65em;
+  border-radius: 10px;
+  padding-top: 28px;
+}
+
+
+
+
+.wrapper {
+  background: var(--white);
+  padding: 2rem;
+  max-width: 576px;
+  width: 100%;
+  border-radius: .75rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.wrapper h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: .5rem;
+  font-size: 2rem;
+  color: var(--yellow);
+  margin-bottom: 2rem;
+}
+
+.rating .star {
+  cursor: pointer;
+}
+
+.rating .star.active {
+  opacity: 0;
+  animation: animate .5s calc(var(--i) * .1s) ease-in-out forwards;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.rating .star:hover {
+  transform: scale(1.1);
+}
+
+textarea {
+  width: 100%;
+  background: var(--light);
+  padding: 1rem;
+  border-radius: .5rem;
+  border: none;
+  outline: none;
+  resize: none;
+  margin-bottom: .5rem;
+}
+
+.btn-group {
+  display: flex;
+  grid-gap: .5rem;
+  align-items: center;
+}
+
+.btn-group .btn {
+  padding: .75rem 1rem;
+  border-radius: .5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.btn-group .btn.submit {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-group .btn.submit:hover {
+  background: var(--primary-light);
+}
+
+.btn-group .btn.cancel {
+  background: var(--white);
+  color: var(--dark);
+}
+
+.btn-group .btn.cancel:hover {
+  background: var(--light);
+}
+
+.retingstars {
+  cursor: pointer;
+}
+
+.sidebar {
+  height: 100%;
+}
+
+.review-box {
+  background-color: var(--primary);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  position: relative
+}
+
+.review-box:before {
+  content: '';
+  background: var(--primary);
+  position: absolute;
+  top: -11px;
+  right: 50%;
+  width: 22px;
+  height: 22px;
+  transform: rotate(45deg);
+
+}
+
+.retingstars .star {
+  transition: all .3s ease;
+  display: inline-block
+}
+
+.retingstars .star:hover {
+  transform: scale(1.1) translateY(-4px);
 }

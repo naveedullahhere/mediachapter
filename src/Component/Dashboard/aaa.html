@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>Real-Time Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    #chat-window {
+        height: 300px;
+        overflow-y: auto;
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    #chat-form {
+        display: flex;
+    }
+
+    #chat-input {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+</style>
+
+<body>
+    <h1>Real-Time Chat</h1>
+    <div id="chat-window"></div>
+    <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Enter your message...">
+        <button type="submit">Send</button>
+    </form>
+    <script src="chat.js"></script>
+</body>
+
+</html>
+<script>
+    const chatWindow = document.querySelector('#chat-window');
+    const chatForm = document.querySelector('#chat-form');
+    const chatInput = document.querySelector('#chat-input');
+
+    chatForm.addEventListener('submit', e => {
+        e.preventDefault();
+
+        // Send the message to the server
+        socket.emit('send-message', chatInput.value);
+
+        // Clear the input field
+        chatInput.value = '';
+    });
+
+    // Receive messages from the server
+    socket.on('received-message', data => {
+        // Append the message to the chat window
+        chatWindow.innerHTML += `<p><strong>${data.username}:</strong> ${data.message}</p>`;
+
+        // Scroll the chat window to the bottom
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    });
+</script>

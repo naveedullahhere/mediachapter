@@ -5,6 +5,7 @@ import { Error } from '../Error';
 import { Spinner } from '../Spinner';
 import { Sidebar } from './Sidebar';
 import { toast } from 'react-hot-toast';
+import { StarRating } from './StarRating';
 
 export const SingleProject = () => {
 
@@ -40,17 +41,24 @@ export const SingleProject = () => {
                 setIsLoading(false);
                 toast.error("Something went wrong!");
             })
+
     }, []);
 
 
- 
+
+    const [rating, setRating] = useState(3);
+
+    const handleChange = (value) => {
+        setRating(value);
+    }
+
 
 
     return (
         <div className="container-fluid px-0">
             <div className="row">
                 <div className="col-xl-3 col-lg-3 col-md-4 col-2"><Sidebar pageid={'projects'} /></div>
-                <div className="col-xl-9 col-lg-9 col-md-8 col-10 py-md-0 py-4 projects " >
+                <div className="col-xl-9 col-lg-9 col-md-8 col-10 py-md-0 py-4 projects ps-md-0" >
 
                     {isLoading &&
                         <Spinner />
@@ -134,6 +142,41 @@ export const SingleProject = () => {
 
                         </div>
                     </> : ""}
+                    {data.status === "2" &&
+                        <div className="row w-100 mx-auto review pe-md-4">
+                            <div className="col-12 pb-3">
+                                <div className="review-box d-flex justify-content-between align-items-center">
+                                    <p className="para-sm mb-0 w-75">
+                                        Hello, world
+                                    </p>
+
+                                    <span className={"star d-flex justify-content-center align-items-center"}
+                                        style={{ color: "#fff", width: 24, height: 24, fontSize: 24 }}
+                                    >🟊</span>
+                                </div>
+                            </div>
+                            <div className="col-12">
+                                <div class="wrapper mx-auto pt-3">
+                                    <form action="#">
+
+                                        <StarRating
+                                            count={5}
+                                            size={40}
+                                            value={rating}
+                                            activeColor={'var(--primary)'}
+                                            inactiveColor={'#ddd'}
+                                            onChange={handleChange} />
+                                        <textarea name="opinion" cols="30" rows="5" placeholder="Your opinion..."></textarea>
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn submit">Submit</button>
+                                            <button class="btn cancel">Cancel</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
                 </div>
             </div>
         </div >

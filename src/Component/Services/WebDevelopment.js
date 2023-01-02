@@ -69,11 +69,7 @@ export const WebDevelopment = () => {
                                         <br />
                                         <br />
                                         We give the best solutions to your any problem that you face. We make sure to provide the tech stack required according to the requirement of your product or project.</p>
-                                </div>
-                                <div class="single-about b-0">
-                                    <h5>Lorem ipsum dolor sit.</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem repudiandae quis excepturi.</p>
-                                </div>
+                                </div> 
                             </div>
                         </div>
                     </div>

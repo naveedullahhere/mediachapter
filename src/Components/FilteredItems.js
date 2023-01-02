@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
 
-function FilteredItems({ item }) {
+function FilteredItems({ item, img }) {
     return (
         <motion.div
             layout
@@ -11,7 +11,7 @@ function FilteredItems({ item }) {
         >
             <Link class={`${item.filter}`} to="#" data-cat={`${item.filter}`} key={item.id}>
                 <div className="inside">
-                    <img src={item.image} alt="" />
+                    <img src={`${img}/${item.image}`} alt="" />
                 </div>
             </Link>
         </motion.div>

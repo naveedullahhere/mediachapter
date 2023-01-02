@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react"
 
-const Filter = ({ activeFilter, setActiveFilter, setFiltered, all }) => {
-  const links = [
-    { 'link': "All", "category": "all" },
-    { 'link': "Logo", "category": "logo" },
-    { 'link': "Business Card", "category": "bcard" },
-    { 'link': "Brochure", "category": "broc" },
-    { 'link': "Branding/Guideline", "category": "brand" },
-    { 'link': "PPT", "category": "ppt" },
-    { 'link': "Flyer", "category": "fly" },
-    { 'link': "Infographics", "category": "infograp" },
-    { 'link': "Label", "category": "label" },
-    { 'link': "Web", "category": "web" },
-    { 'link': "Book Cover", "category": "book" }
-  ];
+const Filter = ({ activeFilter, setActiveFilter, setFiltered, all, filtered, tempData }) => {
+  // const links = [
+  //   { 'link': "All", "category": "all" },
+  //   { 'link': "Logo", "category": "logo" },
+  //   { 'link': "Business Card", "category": "bcard" },
+  //   { 'link': "Brochure", "category": "broc" },
+  //   { 'link': "Branding/Guideline", "category": "brand" },
+  //   { 'link': "PPT", "category": "ppt" },
+  //   { 'link': "Flyer", "category": "fly" },
+  //   { 'link': "Infographics", "category": "infograp" },
+  //   { 'link': "Label", "category": "label" },
+  //   { 'link': "Web", "category": "web" },
+  //   { 'link': "Book Cover", "category": "book" }
+  // ];
+
+
+
+  const links = tempData;
 
 
   const [active, setActive] = useState(null);
@@ -24,21 +28,30 @@ const Filter = ({ activeFilter, setActiveFilter, setFiltered, all }) => {
     }
     const filtered = all.filter(items => {
       if (activeFilter === "all") {
-        console.log("is one");
         return all
       }
       else {
-        console.log("is prod");
-        return items.filter === activeFilter
+        return items.category === activeFilter
       }
     });
     setFiltered(filtered);
-  },[])
+  }, [])
 
-  const handleFilter = ({ category, link }) => {
+  const handleFilter = ({ link }) => {
     setActive(link);
-    setActiveFilter(category)
+    setActiveFilter(link);
+
+    const filtered = all.filter(items => {
+      if (activeFilter === "all") {
+        return all
+      }
+      else {
+        return items.category === link
+      }
+    });
+    setFiltered(filtered);
   }
+
 
   return (
     <>

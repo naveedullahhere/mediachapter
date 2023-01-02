@@ -22,8 +22,8 @@ export const SingleProjectDiscussion = () => {
 
     useEffect(() => {
 
- 
-            joinDiscussion(singleProject); 
+
+        joinDiscussion(singleProject);
     }, [])
 
     const joinDiscussion = (id) => {
@@ -88,56 +88,16 @@ export const SingleProjectDiscussion = () => {
                             }
 
                         </ul>
-                        <div className="composeScreen">
+                        <div className="composeScreen p-4 bg-light">
 
-                            <div class={`popup-window new-mail ${isActive && "minimized"}`}>
-                                <div className="header">
-                                    <div className="title">
-                                        New Message
-                                        <div className="right">
-                                            <button className="button-grey button-small button-minimize" onClick={() => setisActive(true)}>＿</button>
-                                            <button className="button-grey button-small button-fullscreen">
-                                                <i className="fa fa-expand" onClick={() => setisActive(false)}></i></button>
-                                            <button className="button-grey button-small button-exit" onClick={() => setisActive(false)}>
-                                                <i className="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="min-hide">
-                                        <input className="receiver input-large" type="text" placeholder="Recipients" value="" />
-                                    </div>
-                                </div>
-                                {/* <textarea className="min-hide" placeholder='Subject' ref={message}></textarea> */}
+                            <div className='d-flex align-items-center border-muted rounded-3 position-relative'>
                                 <Note />
-                                <div className="menu footer min-hide">
-                                    <button className="button-large button-blue" onClick={handleMessage}>Send</button>
-                                    <button className="button-large button-silver">
-                                        <i className="fa fa-font"></i>
-                                    </button>|<button className="button-large button-silver">
-                                        <i className="fa fa-paperclip"></i>
-                                    </button>
-                                    <button className="button-large button-silver">
-                                        <i className="fa fa-plus"></i>
-                                    </button>
-                                    <div className="right">
-                                        <button className="button-large button-silver">
-                                            <i className="fa fa-trash-o"></i>
-                                        </button>|<button className="button-large button-silver">
-                                            <i className="fa fa-sort-asc"></i>
-                                        </button>
-                                    </div>
+                                <div className="sendd">
+                                    <button className="btn btn-main" onClick={() => joinDiscussion(singleProject)}>Sync</button>
+                                    <button className="btn btn-main mx-3" onClick={handleMessage}>Send</button>
                                 </div>
                             </div>
 
-                        </div>
-                        <div className="buttonbar">
-
-                            <button className="btn btn-main compose" onClick={() => setisActive(!isActive)}>
-                                Compose
-                            </button>
-                            <button className="btn btn-main compose" onClick={() => joinDiscussion(singleProject)}>
-                                Sync
-                            </button>
                         </div>
                     </div>
                 </div>

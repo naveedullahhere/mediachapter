@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
 import { Link } from 'react-router-dom';
-import { MainPortfolio } from '../MainPortfolio';
+import { MainPortfolio } from '../MainPortfolioSingle';
 import { motion } from 'framer-motion';
 
 
@@ -36,7 +36,7 @@ export const Graphics = () => {
                             </p>
                         </div>
                         <div className="col-12 my-md-5 my-4">
-                            <MainPortfolio />
+                            <MainPortfolio pageid={"grap"} />
                         </div>
                         {/* <div className="col-12 text-center my-md-5">
                             <button className="btn btn-main">See More</button>
