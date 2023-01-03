@@ -1,5 +1,5 @@
 import Logo from '../assets/logo.png';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AppContext } from '../../context/AppContext';
 import React, { useState, useEffect, useContext } from 'react';
 
@@ -7,7 +7,7 @@ import React, { useState, useEffect, useContext } from 'react';
 export const Header = () => {
 
     const { dispatch, removeUserData, user } = useContext(AppContext);
-
+    const navigate = useNavigate();
     const { pathname } = useLocation();
     const [isActive, setActive] = useState(false);
 
@@ -74,16 +74,26 @@ export const Header = () => {
                                                 </Link>
                                                 {user ?
                                                     <ul className="dropdown-menu">
-                                                        <li><Link className="dropdown-item" to={'my-account'}>Account</Link></li>
-                                                        {user.data.user_type === "user" &&
+                                                        {!user.data.is_varified &&
+
+                                                            <li><Link className="dropdown-item" to={'verify'}>Verify</Link></li>
+
+                                                        }
+                                                        {user && user.data.is_varified &&
                                                             <>
-                                                                <li><Link className="dropdown-item" to={'projects'}>Projects</Link></li>
-                                                                <li><Link className="dropdown-item" to={'invoices'}>Invoices</Link></li>
-                                                                {/* <li><Link className="dropdown-item" to={'completed-projects'}>Completed Projects</Link></li> */}
+                                                                <li><Link className="dropdown-item" to={'my-account'}>Account</Link></li>
+                                                                {
+                                                                    user.data.user_type === "user" &&
+                                                                    <>
+                                                                        <li><Link className="dropdown-item" to={'projects'}>Projects</Link></li>
+                                                                        <li><Link className="dropdown-item" to={'invoices'}>Invoices</Link></li>
+                                                                        {/* <li><Link className="dropdown-item" to={'completed-projects'}>Completed Projects</Link></li> */}
+                                                                    </>
+                                                                }
+                                                                <li><Link className="dropdown-item" to={'/project-discussion'}>Discussion</Link></li>
                                                             </>
                                                         }
-                                                        <li><Link className="dropdown-item" to={'/project-discussion'}>Projects Discussion</Link></li>
-                                                        <li><Link className="dropdown-item" onClick={() => dispatch(removeUserData())}>Logout</Link></li>
+                                                        <li><Link className="dropdown-item" onClick={() => { dispatch(removeUserData()); navigate("/login") }}>Logout</Link></li>
                                                     </ul>
                                                     :
                                                     <ul className="dropdown-menu">
@@ -93,8 +103,8 @@ export const Header = () => {
                                                 }
                                             </div>
                                         </div>
-                                        <Link to={'/contact'} className="btn btn-main">
-                                            GET A QUOTE
+                                        <Link to={'/contact'} className="btn btn-main text-uppercase">
+                                            GET A proposal
                                         </Link>
                                     </div>
                                 </div>

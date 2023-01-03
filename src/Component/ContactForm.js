@@ -142,6 +142,14 @@ export const ContactForm = ({ action }) => {
                                         <div className="col-12">
 
                                             <div className="input-container">
+                                                <input type="text" name="website_link" class={`input ${errors.website_link && "form-control is-invalid"}`} placeholder='.' {...register('website_link', { required: false })} />
+                                                <label htmlFor="">Website</label>
+                                            </div>
+
+                                        </div>
+                                        <div className="col-12">
+
+                                            <div className="input-container">
                                                 <select name="inquiry_about" class={`input ${errors.inquiry_about && "form-control is-invalid"}`}  {...register('inquiry_about', { required: true })}>
                                                     <option hidden value=''>Select About</option>
                                                     <option value="Software Development">Software Development</option>

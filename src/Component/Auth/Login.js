@@ -13,6 +13,7 @@ export const Login = () => {
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     // user && navigate("/my-account");
+
     const {
         register,
         reset,
@@ -28,8 +29,13 @@ export const Login = () => {
             .then(data => {
                 if (data.success != false) {
                     toast.success(data.message);
-                    dispatch(addUserData(data.data));
-                    navigate("/my-account");
+                    dispatch(addUserData(data.data)); 
+                    if (data.data.is_varified) {
+                        navigate("/my-account");
+                    }
+                    else {
+                        navigate("/verify");
+                    }
                     reset();
                 } else {
                     toast.error(data.message);

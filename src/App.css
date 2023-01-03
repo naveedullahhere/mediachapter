@@ -1508,6 +1508,11 @@ textarea.input {
   }
 }
 
+input.input:focus {
+
+  box-shadow: 0 0.125rem 1rem rgb(0 0 0 / 8%) !important;
+}
+
 input.input:focus+label,
 textarea.input:focus+label {
   transform: translateY(-30px);
@@ -3860,12 +3865,15 @@ main .mail-check:checked+label:before {
   font-size: 10px;
   padding: 8px;
 }
-.portfolioo>div{
+
+.portfolioo>div {
   height: 100%;
 }
-.CircularProgressbar-text{
+
+.CircularProgressbar-text {
   font-family: fantasy;
 }
+
 .message p {
   margin: 0;
 }
@@ -4364,6 +4372,14 @@ main .mail-check:checked+label:before {
   border-radius: .75rem;
   box-shadow: var(--shadow);
   text-align: center;
+}
+
+.border-dark {
+  border-color: #4a4a4a3d !important;
+}
+
+.filter-none.form-control {
+  filter: unset !important
 }
 
 .wrapper h3 {
