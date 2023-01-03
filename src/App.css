@@ -4490,7 +4490,7 @@ textarea {
   position: relative
 }
 
-.review-box:before {
+.review-box:first-child:before {
   content: '';
   background: var(--primary);
   position: absolute;
