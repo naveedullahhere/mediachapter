@@ -56,6 +56,7 @@ export const MainRoutes = () => {
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={!user ? <Login /> : <NotFound />} />
+                    <Route path="/notfound" element={<NotFound />} />
                     <Route path="/register" element={!user ? <Register /> : <NotFound />} />
                     <Route path="/terms-conditions" element={<TermsNConditions />} />
                     <Route path="/privacy-policy" element={<Privacy />} />

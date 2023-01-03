@@ -122,8 +122,8 @@ export const ProjectDiscussion = () => {
                       </div>
                       <div>
 
-                      <button class='btn btn-main py-2 mx-2' onClick={() => setisActive(!isActive)}>Start New iDiscussion</button>
-                      <button class='btn btn-main py-2' onClick={() => fetchProjects(user && user.data.user_type === "user" ? `${URL}api/project/${user.data.user_token}` : `${URL}api/project/management`)}><i className="fa fa-sync-alt"></i></button>
+                        <button class='btn btn-main py-2 mx-2' onClick={() => setisActive(!isActive)}>Start New iDiscussion</button>
+                        <button class='btn btn-main py-2' onClick={() => fetchProjects(user && user.data.user_type === "user" ? `${URL}api/project/${user.data.user_token}` : `${URL}api/project/management`)}><i className="fa fa-sync-alt"></i></button>
                       </div>
 
                     </div>
@@ -175,10 +175,7 @@ export const ProjectDiscussion = () => {
                           <div className="right">
                             <button className="button-grey button-small button-minimize" onClick={() => setisActive(true)}>＿</button>
                             <button className="button-grey button-small button-fullscreen">
-                              <i className="fa fa-expand" onClick={() => setisActive(false)}></i></button>
-                            <button className="button-grey button-small button-exit" onClick={() => setisActive(false)}>
-                              <i className="fa fa-times"></i>
-                            </button>
+                              <i className="fa fa-expand" onClick={() => setisActive(false)}></i></button> 
                           </div>
                         </div>
                         <div className="min-hide">

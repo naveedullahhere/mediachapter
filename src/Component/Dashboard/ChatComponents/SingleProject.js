@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AppContext } from '../../../context/AppContext';
 import { DiscussionHeader } from '../../Discussion/DiscussionHeader';
 import { Message } from '../../Discussion/Message';
@@ -17,6 +17,7 @@ export const SingleProjectDiscussion = () => {
     const [loadChat, setLoadChat] = useState(false);
     const [isActive, setisActive] = useState(true);
     const params = useParams();
+    const navigate = useNavigate();
 
     const singleProject = params.project;
 
@@ -26,7 +27,7 @@ export const SingleProjectDiscussion = () => {
         joinDiscussion(singleProject);
     }, [])
 
-    const joinDiscussion = (id) => {
+    const joinDiscussion = async (id) => {
 
         // message.current.value = "";
         setLoadChat(true);
@@ -36,6 +37,9 @@ export const SingleProjectDiscussion = () => {
         fetch(`${URL}api/get-discussion/${id}`).then(response => response.json())
             .then(data => { setAllMessges(data); setLoadChat(false); })
             .catch(err => { setIsError(true); setLoadChat(false); toast.error("Something went wrong!"); });
+        // if (allMessages.length === 0) {
+        //     navigate("/notfound");
+        // }
         setLoadChat(true);
     }
     const message = useRef("");
@@ -54,6 +58,8 @@ export const SingleProjectDiscussion = () => {
             }).catch((err) => {
                 setIsLoading(false);
             });
+
+
     }
 
     async function postData(url, data) {
@@ -66,6 +72,10 @@ export const SingleProjectDiscussion = () => {
         });
         return response.json();
     }
+
+
+
+
 
     return (
         <div>
@@ -88,17 +98,20 @@ export const SingleProjectDiscussion = () => {
                             }
 
                         </ul>
-                        <div className="composeScreen p-4 bg-light">
 
-                            <div className='d-flex align-items-center border-muted rounded-3 position-relative'>
-                                <Note />
-                                <div className="sendd">
-                                    <button className="btn btn-main" onClick={() => joinDiscussion(singleProject)}>Sync</button>
-                                    <button className="btn btn-main mx-3" onClick={handleMessage}>Send</button>
+                        {allMessages.length ?
+                            <div className="composeScreen p-4 bg-light">
+
+                                <div className='d-flex align-items-center border-muted rounded-3 position-relative'>
+                                    <Note />
+                                    <div className="sendd">
+                                        <button className="btn btn-main" onClick={() => joinDiscussion(singleProject)}>Sync</button>
+                                        <button className="btn btn-main mx-3" onClick={handleMessage}>Send</button>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </div>
+                            </div>
+                            : ""}
                     </div>
                 </div>
             </div>

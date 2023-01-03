@@ -21,8 +21,7 @@ export const Sidebar = ({ pageid }) => {
 
             <div className="sidebar active">
                 <div className="logo_content">
-                    <div className="logo">
-                        <i class='bx bxl-c-plus-plus' style={{ "fontSize": "30px" }}></i>
+                    <div className="logo"> 
                         <div className="heading fs-4" style={{ "marginLeft": "5px" }}>{user.data.name}</div>
                     </div>
                     <i class='bx bx-menu-alt-right' id="btn" style={{ "fontSize": "25px" }}></i>
@@ -62,7 +61,7 @@ export const Sidebar = ({ pageid }) => {
                     }
                     <li>
                         <Link to={'/project-discussion'} className={`${pageid === "chat" && "active"}`}>
-                            <i class='fa fa-snapchat' ></i>
+                            <i class='fa fa-mail-bulk' ></i>
                             <span className="link_names">Project Discussion</span>
                         </Link>
                         <span className="tooltip">Project Discussion</span>

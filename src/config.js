@@ -1,4 +1,4 @@
 module.exports = {
     APP_NAME: "Media Chapter - ",
-    URL: "https://eliteblue.net/webcms/public/"
+    URL: "https://www.mediachapter.us/e-panel/"
 }
