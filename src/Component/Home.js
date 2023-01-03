@@ -190,6 +190,16 @@ export const Home = () => {
             </div>
             <div className="sec py-5">
                 <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h1 className="heading">
+                                Our Recent Works
+                            </h1>
+                            <p className="para-sm text-muted my-3">
+                                We create client-focused websites that generate desired results. Transform your digital presence with the help of our professional web developers.
+                            </p>
+                        </div>
+                    </div>
                     <MainPortfolio />
                 </div>
             </div>
@@ -273,7 +283,7 @@ export const Home = () => {
                         <div className="slide"><img alt="" src={Brand14} /></div>
                         <div className="slide"><img alt="" src={Brand15} /></div>
                         <div className="slide"><img alt="" src={Brand16} /></div>
-                        <div className="slide"><img alt="" src={Brand17} /></div> 
+                        <div className="slide"><img alt="" src={Brand17} /></div>
 
                     </Sliderz>
                 </section>
