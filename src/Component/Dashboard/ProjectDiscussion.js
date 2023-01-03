@@ -175,7 +175,7 @@ export const ProjectDiscussion = () => {
                           <div className="right">
                             <button className="button-grey button-small button-minimize" onClick={() => setisActive(true)}>＿</button>
                             <button className="button-grey button-small button-fullscreen">
-                              <i className="fa fa-expand" onClick={() => setisActive(false)}></i></button> 
+                              <i className="fa fa-expand" onClick={() => setisActive(false)}></i></button>
                           </div>
                         </div>
                         <div className="min-hide">

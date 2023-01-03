@@ -31,10 +31,6 @@ export const MainPortfolio = ({ pageid }) => {
             });
     }, []);
 
-    let filteredItm = fltr.map((item) => {
-        return item.category
-    })
-
 
     let filteredItmFilter = fltr.map((item) => {
 
@@ -42,21 +38,12 @@ export const MainPortfolio = ({ pageid }) => {
     })
 
 
+
     var tempData = [];
-    console.log([...new Set(filteredItmFilter.flat())].length);
     for (var index = 0; index < [...new Set(filteredItmFilter.flat())].length; index++) {
         var aa = { "link": `${[...new Set(filteredItmFilter.flat())][index]}` };
         tempData.push(aa);
-    }
-
-    // console.log(tempData);
-    // for (var index = 0; index < [...new Set(filteredItm.flat())].length; index++) {
-    //     var aa = { "link": `${[...new Set(filteredItm.flat())][index]}` };
-    //     tempData.push(aa);
-    // }
-
-
-
+    } 
 
     return (
         <>

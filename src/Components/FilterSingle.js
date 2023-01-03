@@ -69,24 +69,32 @@ const Filter = ({ activeFilter, setActiveFilter, setFiltered, all, filtered, lin
         })
       }
     });
-    console.log(filtered);
     setFiltered(filtered);
   }
 
+  console.log(links);
 
   return (
     <>
-      <div className="filters">
-        <ul id="filters" className="filter-tabs my-4 filter-btns">
-          {links.map((link) => {
-            return <li onClick={() => handleFilter(link)}>
-              <span class={`filter ${active === link.link && 'active'}`}>
-                {link.link}
-              </span>
-            </li>
-          })}
-        </ul>
-      </div>
+      {all.filter.toString() === "null" ?
+        ""
+        :
+        <div className="filters">
+          <ul id="filters" className="filter-tabs my-4 filter-btns">
+            {links.map((link) => {
+              return (link.link === "null" ?
+                ""
+                :
+                <li onClick={() => handleFilter(link)}>
+                  <span class={`filter ${active === link.link && 'active'}`}>
+                    {link.link}
+                  </span>
+                </li>)
+
+            })}
+          </ul>
+        </div >
+      }
     </>
   )
 }

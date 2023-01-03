@@ -24,6 +24,7 @@ import tech9 from '../assets/Tech/tech9.png';
 import tech10 from '../assets/Tech/tech10.png';
 import tech11 from '../assets/Tech/tech11.png';
 import tech12 from '../assets/Tech/tech12.png';
+import { MainPortfolio } from '../MainPortfolioSingle';
 
 
 export const WebDevelopment = () => {
@@ -69,7 +70,7 @@ export const WebDevelopment = () => {
                                         <br />
                                         <br />
                                         We give the best solutions to your any problem that you face. We make sure to provide the tech stack required according to the requirement of your product or project.</p>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -313,32 +314,8 @@ export const WebDevelopment = () => {
                             </p>
                         </div>
 
-                        <div className="col-12">
-                            <div className="basic-cards">
-                                <div className="row">
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src={portfolio2} alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src={portfolio3} alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src={portfolio4} alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-md-4 col-6 my-2">
-                                        <div className="crd-image">
-                                            <img src={portfolio5} alt="card" className='w-100' />
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
+                        <div className="col-12 my-md-5 my-4">
+                            <MainPortfolio pageid={"web"} />
                         </div>
                         {/* <div className="col-12 text-center my-5">
                             <button className="btn btn-main">See More</button>
