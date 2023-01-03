@@ -36,11 +36,11 @@ export const Invoices = () => {
 
     return (
         <div>
-            <div className="container-fluid px-0">
+            <div className="container-fluid px-0 ">
                 <div className="row">
                     <div className="col-xl-3 col-lg-3 col-md-4 col-2"><Sidebar pageid={'invoice'} /></div>
 
-                    <div className="col-xl-9 col-lg-9 col-md-8 col-10 py-md-0 py-4 projects" >
+                    <div className="col-xl-9 col-lg-9 col-md-8 col-10 projects py-md-4 py-3" >
 
                         <div className="row w-100 mx-auto">
                             <div className="col-12">
@@ -83,8 +83,12 @@ export const Invoices = () => {
                                                     })}
                                                 </tbody>
                                             }
-                                            {!isInvoice && <div className="col-12">
-                                                <h1 className="heading fs-3 mb-0 mt-4">No Invoices yet!</h1>
+                                            {!isInvoice && <div className="row">
+                                                <div className="col-12">
+
+                                                    <h1 className="heading fs-3 mb-0 mt-4">No Invoices yet!</h1>
+
+                                                </div>
                                             </div>}
 
                                         </table>
