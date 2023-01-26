@@ -72,12 +72,12 @@ export const Footer = () => {
                     </div>
 
                     <div className="col-md-3 my-md-0 my-3">
-                        <h5>Get Our Brochure
+                        <h5>To Subscribe
                         </h5>
                         <div className="d-flex w-100 gap-2 flex-column mt-3">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
-                                <input id="newsletter1" type="text" class={`form-control shadow-none text-dark border-0 py-2 ${errors.email && "form-control is-invalid  text-dark"}`} {...register('email', { required: true, pattern: /^\S+@\S+$/i })} placeholder="Email address" />
+                                <input id="newsletter1" type="text" class={`form-control mb-2 shadow-none text-dark border-0 py-2 ${errors.email && "form-control is-invalid  text-dark"}`} {...register('email', { required: true, pattern: /^\S+@\S+$/i })} placeholder="Email address" />
                                 <input type="hidden" name="user_id" value={userid} />
 
                                 <button className="btn btn-main w-100" type="submit">

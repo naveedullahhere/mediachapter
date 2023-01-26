@@ -7455,7 +7455,12 @@ fieldset:disabled .btn {
         background-color: transparent !important
     }
 }
-
+.overflow-y-hidden{
+    overflow-y: hidden!important;
+}
+.overflow-y-scroll{
+    overflow-y: auto!important;
+}
 .offcanvas {
     position: fixed;
     bottom: 0;

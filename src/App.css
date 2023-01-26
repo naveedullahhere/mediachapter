@@ -1739,6 +1739,8 @@ textarea.input::-webkit-input-placeholder {
 .rdw-editor-wrapper {
   background-color: white;
   position: relative;
+  width: 100%;
+  min-height: 212px;
 }
 
 .bg-light {
@@ -2771,7 +2773,7 @@ main header h3 {
   margin: 0;
   list-style-type: none;
   overflow-y: scroll;
-  height: 80vh;
+  height: 64vh;
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
   padding-top: 66px;
@@ -3226,11 +3228,6 @@ input.receiver::-webkit-input-placeholder {
   box-shadow: 0 0 1px #626262;
 }
 
-.popup-window.minimized {
-  height: 2.6rem;
-  width: 17rem;
-  overflow: hidden;
-}
 
 .popup-window.minimized .min-hide {
   display: none;
@@ -3871,11 +3868,18 @@ main .mail-check:checked+label:before {
 }
 
 .CircularProgressbar-text {
-  font-family: fantasy;
+  /* font-family: fantasy; */
+  font-weight: 600;
 }
 
 .message p {
   margin: 0;
+}
+
+.synccc {
+  position: absolute;
+  top: 24px;
+  left: 24px;
 }
 
 .mail-box tr>a {
@@ -4137,8 +4141,9 @@ main .mail-check:checked+label:before {
 }
 
 .popup-window.minimized {
-  height: 2.6rem;
-  width: 17rem;
+  height: 0px;
+  width: 17rem; 
+  overflow: hidden;
 }
 
 .popup-window.minimized .min-hide {

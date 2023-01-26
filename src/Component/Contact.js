@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import email from "./assets/email0.png";
-import { motion } from 'framer-motion';
 import phone from "./assets/phone0.png";
+import address from "./assets/location0.png";
+import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import toast from "react-hot-toast";
-import address from "./assets/location0.png";
 import { AppContext } from '../context/AppContext';
 
 export const Contact = () => {

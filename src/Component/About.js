@@ -8,6 +8,7 @@ import number4 from "./assets/num4.png";
 import Video from "./assets/about.mp4";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { ContactForm } from './ContactForm';
 
 
 export const About = () => {
@@ -165,6 +166,7 @@ export const About = () => {
                     </div>
                 </div>
             </div>
+            <ContactForm action={'/'} />
         </motion.div>
     )
 }

@@ -6,8 +6,6 @@ import { Error } from './Error';
 import { Spinner } from './Spinner';
 
 
-
-
 export const Blog = () => {
 
     const { APP_NAME, setTitle, URL } = useContext(AppContext);
@@ -28,11 +26,7 @@ export const Blog = () => {
             }
             );
     }, []);
-
-    if (data.length > 0) {
-        console.log(data[0].short_description);
-    }
-
+ 
 
     setTitle(`${APP_NAME}Blog`);
     return (

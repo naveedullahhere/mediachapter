@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 
 export const ProjectDiscussion = () => {
 
-  const { user, URL, noteValue } = useContext(AppContext);
+  const { user, URL, noteValue, setEditorState, EditorState } = useContext(AppContext);
   const [projects, setProjects] = useState([]);
   // const [allMessages, setAllMessges] = useState([]);
   const [tempProjects, settempProjects] = useState([]);
@@ -68,6 +68,7 @@ export const ProjectDiscussion = () => {
         if (data.user_id) {
           // setAllMessges([...allMessages, data]);
           setisActive(true);
+          setEditorState(() => EditorState.createEmpty(),);
           fetchProjects(user && user.data.user_type === "user" ? `${URL}api/project/${user.data.user_token}` : `${URL}api/project/management`);
         } else {
           toast.error("Something went wrong!");

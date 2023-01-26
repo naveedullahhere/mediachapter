@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter } from "react-router-dom";
 import { Header } from './Component/layout/Header';
 import { Footer } from './Component/layout/Footer';
+import { EditorState, ContentState } from 'draft-js';
 import { MainRoutes } from './MainRoutes';
 import { AppContext } from "./context/AppContext.js";
 import { useState, useEffect } from 'react';
@@ -25,11 +26,13 @@ function App() {
   const [teamsImgPath, setTeamsImgPath] = useState("");
   const [noteValue, setNoteValue] = useState("");
   const [img, setImg] = useState(null);
-
+  const [editorState, setEditorState] = useState(
+    () => EditorState.createEmpty(),
+  );
   // var APP_NAME = APP_NAME;
 
   var values = {
-    teams, teamsImgPath, couponItems, setCouponItems, setNoteValue, noteValue, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, Title, APP_NAME, URL, data, setData, img, setImg, removeUserData, addUserData, updateUserData, dispatch, user
+    teams, teamsImgPath, couponItems, setCouponItems, EditorState, setNoteValue, ContentState, editorState, setEditorState, noteValue, FilterCategory, setFilterCategory, FilterStore, setFilterStore, setTitle, Title, APP_NAME, URL, data, setData, img, setImg, removeUserData, addUserData, updateUserData, dispatch, user
   }
 
   useEffect(() => {
@@ -43,7 +46,7 @@ function App() {
       .then((actualData) => { setTeams(actualData.team); setTeamsImgPath(actualData.media_path); })
       .catch((err) => {
         setData([]);
-        
+
       }
       );
   }

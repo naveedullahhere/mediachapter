@@ -281,7 +281,7 @@ export const Home = () => {
                         <div className="slide"><img alt="" src={Brand12} /></div>
                         <div className="slide"><img alt="" src={Brand13} /></div>
                         <div className="slide"><img alt="" src={Brand14} /></div>
-                        <div className="slide"><img alt="" src={Brand15} /></div>
+                        {/* <div className="slide"><img alt="" src={Brand15} /></div> */}
                         <div className="slide"><img alt="" src={Brand16} /></div>
                         <div className="slide"><img alt="" src={Brand17} /></div>
 

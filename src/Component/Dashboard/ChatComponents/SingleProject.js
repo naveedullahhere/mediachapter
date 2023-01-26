@@ -9,7 +9,7 @@ import { Sidebar } from '../Sidebar';
 import { Note } from '../../SummerNote/Note';
 
 export const SingleProjectDiscussion = () => {
-    const { user, URL, noteValue, setNoteValue } = useContext(AppContext);
+    const { user, URL, noteValue, setEditorState, EditorState, ContentState, editorState } = useContext(AppContext);
     const [allMessages, setAllMessges] = useState([]);
     const [isErr, setIsError] = useState(false);
     const [projectId, setProjectId] = useState('');
@@ -21,13 +21,18 @@ export const SingleProjectDiscussion = () => {
 
     const singleProject = params.project;
 
+
+
+    const messageEndRef = useRef(null);
     useEffect(() => {
-
-
         joinDiscussion(singleProject);
-    }, [])
+    }, []);
 
+    const scrollToBottom = () => {
+        messageEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
+    }
     const joinDiscussion = async (id) => {
+        scrollToBottom();
 
         // message.current.value = "";
         setLoadChat(true);
@@ -42,19 +47,23 @@ export const SingleProjectDiscussion = () => {
         // }
         setLoadChat(true);
     }
-    const message = useRef("");
 
 
     const handleMessage = () => {
+
         postData(`${URL}api/discussion-post`, { user_id: user.data.id, project_id: projectId, message: noteValue })
             .then(data => {
                 if (data.user_id) {
                     setAllMessges([...allMessages, data]);
                     setisActive(true);
+                    scrollToBottom();
+
+                    setEditorState(() => EditorState.createEmpty(),);
                 } else {
                     toast.error("Something went wrong!");
                 }
                 setIsLoading(false);
+                scrollToBottom();
             }).catch((err) => {
                 setIsLoading(false);
             });
@@ -75,8 +84,6 @@ export const SingleProjectDiscussion = () => {
 
 
 
-
-
     return (
         <div>
             <div className="container-fluid px-0">
@@ -85,6 +92,8 @@ export const SingleProjectDiscussion = () => {
                     <div className="col-xl-3 col-lg-3 col-md-4 col-2 pe-0"><Sidebar pageid={'chat'} /></div>
 
                     <div className="col-xl-9 col-lg-9 col-md-8 col-10 py-md-0 py-4 projects px-md-0 singleDiss position-relative" >
+
+
                         <ul id="chat">
                             {loadChat ? <Spinner /> :
 
@@ -97,16 +106,22 @@ export const SingleProjectDiscussion = () => {
                                 )
                             }
 
+                            <li ref={messageEndRef} ></li>
                         </ul>
+                        <button className="btn btn-main synccc" onClick={() => joinDiscussion(singleProject)}>
 
+                            <i className="fa fa-sync-alt">
+
+                            </i>
+
+                        </button>
                         {allMessages.length ?
                             <div className="composeScreen p-4 bg-light">
 
                                 <div className='d-flex align-items-center border-muted rounded-3 position-relative'>
                                     <Note />
                                     <div className="sendd">
-                                        <button className="btn btn-main" onClick={() => joinDiscussion(singleProject)}>Sync</button>
-                                        <button className="btn btn-main mx-3" onClick={handleMessage}>Send</button>
+                                        <button className="btn btn-main mx-3 " onClick={handleMessage}>Send</button>
                                     </div>
                                 </div>
 
