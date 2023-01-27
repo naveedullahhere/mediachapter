@@ -13,6 +13,9 @@ export const Contact = () => {
 
     const { APP_NAME, setTitle, URL } = useContext(AppContext);
     setTitle(`${APP_NAME}Contact`);
+    const query = new URLSearchParams(window.location.search);
+    const mail = query.get('websilte');
+
 
     const {
         register,
@@ -159,7 +162,7 @@ export const Contact = () => {
                                         <div className="col-12">
 
                                             <div className="input-container">
-                                                <input type="text" name="website_link" class={`input ${errors.website_link && "form-control is-invalid"}`} placeholder='.' {...register('website_link', { required: false })} />
+                                                <input type="text" name="website_link" value={mail ? mail : ""} class={`input ${errors.website_link && "form-control is-invalid"}`} placeholder='.' {...register('website_link', { required: false })} />
                                                 <label htmlFor="">Website</label>
                                             </div>
 

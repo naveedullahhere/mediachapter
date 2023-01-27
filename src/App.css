@@ -260,6 +260,12 @@ footer {
   margin-bottom: 2em;
 }
 
+@media (max-width: 992px) {
+  .mainSlide h1 {
+    font-size: 22px;
+  }
+}
+
 @media (max-width: 954px) {
   .scroll-on .nav-link {
     font-size: 12px !important;
@@ -267,6 +273,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .mainSlide a {
+    font-size: 8px !important;
+  }
+
   .login-box {
     min-width: 90% !important;
   }
@@ -4140,9 +4150,24 @@ main .mail-check:checked+label:before {
   box-shadow: 0 0 1px #626262;
 }
 
+.mainSlide h1>span {
+  color: var(--secondary);
+}
+
+.mainSlide a {
+  font-size: 12px;
+}
+
+.mainSlide h1 {
+  text-transform: capitalize;
+  color: var(--primary-light);
+  font-weight: 700;
+}
+
+
 .popup-window.minimized {
   height: 0px;
-  width: 17rem; 
+  width: 17rem;
   overflow: hidden;
 }
 
@@ -4731,3 +4756,12 @@ textarea {
 
 
 /* Not Found */
+
+
+.sliderMain .horizontalSlider___281Ls,
+.sliderMain {
+  color: var(--black);
+  background: #f1faf9 url(http://localhost:3000/static/media/mainBannerBg.32990d8….jpg) no-repeat center center/cover;
+  background-position-x: 86%;
+  /* background: linear-gradient(151deg, rgba(24, 9, 41, 1) 0%, rgba(98, 15, 39, 1) 100%); */
+}

@@ -34,8 +34,12 @@ import TrustPiolot from './assets/trustpilot.png';
 import { motion } from 'framer-motion';
 import { Testimonials } from './Testimonials';
 import { MainPortfolio } from './MainPortfolioSingleHome';
+import { useState } from 'react';
 
 export const Home = () => {
+
+    const [email, setEmail] = useState(null);
+
 
     const settings = {
         slidesToShow: 6,
@@ -59,7 +63,7 @@ export const Home = () => {
     };
     return (
         <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
-            <div className="sliderMain position-relative">
+            {/* <div className="sliderMain position-relative">
                 <CarouselProvider className='slider container bannerSlider'
                     naturalSlideWidth={100}
                     naturalSlideHeight={50}
@@ -113,7 +117,42 @@ export const Home = () => {
                     <ButtonBack>Back</ButtonBack>
                     <ButtonNext>Next</ButtonNext>
                 </CarouselProvider>
+            </div> */}
+
+
+            <div className="sliderMain position-relative">
+                <div className='slider container bannerSlider' >
+                    <div>
+                        <div className="mainSlide">
+                            <div className="row w-100 h-100">
+                                <div className="col-sm-6 col-8 my-auto p-4">
+                                    <h1 className='mb-3 text-uppercase'><span>World Full of Wonder</span> We write the best chapter for your brand</h1>
+                                    <div className="row w-100 mx-auto">
+                                        <div className="col-lg-5 px-0 col-12">
+
+                                            <input type="email" onChange={(e) => setEmail(e.target.value)} className='form-control shadow-sm d-inline-block text-dark' placeholder='Enter Your Website' />
+
+                                        </div>
+                                        <div className="col-lg-6 col-12 text-lg-start text-center my-lg-0 my-2">
+                                            <Link className="btn btn-dark py-2 shadow-sm"
+                                                to={{
+                                                    pathname: "/contact",
+                                                    search: `?websilte=${email}`,
+                                                    state: { fromDashboard: true }
+                                                }}
+                                            >Send me a Proposal</Link>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div className="col-sm-6 col-4 sliderImage my-auto p-sm-4 p-1"><img src={slide1} alt="slide" className='w-100' /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
             <div className="sec py-5">
                 <div className="container">
 
