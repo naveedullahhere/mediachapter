@@ -79,7 +79,7 @@ export const ContactForm = ({ action }) => {
                                     </div>
                                     <div className="information mb-4">
                                         <img src={phone} className="icon" alt="" />
-                                        <p className='mb-0'>+92 333 051 8880</p>
+                                        <p className='mb-0'>+1 240 473 3928</p>
                                     </div>
                                 </div>
                             </div>

@@ -124,16 +124,16 @@ export const Home = () => {
                 <div className='slider container bannerSlider' >
                     <div>
                         <div className="mainSlide">
-                            <div className="row w-100 h-100">
-                                <div className="col-sm-6 col-8 my-auto p-4">
+                            <div className="row w-100 h-100 mx-auto">
+                                <div className="col-sm-6 col-7 my-auto pt-md-4 p-0">
                                     <h1 className='mb-3 text-uppercase'><span>World Full of Wonder</span> We write the best chapter for your brand</h1>
                                     <div className="row w-100 mx-auto">
-                                        <div className="col-lg-5 px-0 col-12">
+                                        <div className="col-lg-5 px-0 col-10">
 
                                             <input type="email" onChange={(e) => setEmail(e.target.value)} className='form-control shadow-sm d-inline-block text-dark' placeholder='Enter Your Website' />
 
                                         </div>
-                                        <div className="col-lg-6 col-12 text-lg-start text-center my-lg-0 my-2">
+                                        <div className="col-lg-6 col-10 ps-0 my-lg-0 my-sm-2 my-1">
                                             <Link className="btn btn-dark py-2 shadow-sm"
                                                 to={{
                                                     pathname: "/contact",
@@ -144,8 +144,7 @@ export const Home = () => {
                                         </div>
 
                                     </div>
-                                </div>
-                                <div className="col-sm-6 col-4 sliderImage my-auto p-sm-4 p-1"><img src={slide1} alt="slide" className='w-100' /></div>
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -328,7 +327,7 @@ export const Home = () => {
                 </section>
             </div>
             <Testimonials />
-            <div className="sec py-5">
+            {/* <div className="sec py-5">
                 <div className="container">
                     <div className="row">
                         <div className="col text-center">
@@ -336,7 +335,7 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </motion.div>
     )
 }

@@ -39,7 +39,7 @@ export const MainPortfolio = () => {
         var aa = { "link": `${[...new Set(filteredItm.flat())][index]}` };
         tempData.push(aa);
     }
- 
+
 
     return (
         <>

@@ -57,8 +57,8 @@ export const Seo = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 mx-auto">
-                            <h2 className="heading fs-2">
-                                Our Digital Marketing Services Cover Everything
+                            <h2 className="heading">
+                                Our Seo  Services Cover Everything
                             </h2>
                             <p className="para-sm text-muted">
                                 We help startups rise as industry leaders with our innovative digital marketing strategies
@@ -66,7 +66,7 @@ export const Seo = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5 position-relative">
-                            <SkillsCircle value={96} />
+                            <SkillsCircle value={64} />
 
                             <h1 className="heading fs-4">
                                 Keyword Research
@@ -76,7 +76,7 @@ export const Seo = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5 position-relative">
-                            <SkillsCircle value={46} />
+                            <SkillsCircle value={49} />
 
                             <h1 className="heading fs-4">
                                 Link Building
@@ -86,7 +86,7 @@ export const Seo = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5 position-relative">
-                            <SkillsCircle value={36} />
+                            <SkillsCircle value={68} />
 
                             <h1 className="heading fs-4">
                                 Local Search
