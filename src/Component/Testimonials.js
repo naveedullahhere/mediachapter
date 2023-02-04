@@ -5,7 +5,7 @@ import { AppContext } from '../context/AppContext';
 
 
 
-export const Testimonials = () => {
+export const Testimonials = ({ isBg }) => {
 
     const [data, setData] = useState([]);
     const [img, setImg] = useState(null);
@@ -34,7 +34,7 @@ export const Testimonials = () => {
             {
                 data.length >= 1 &&
 
-                <div className="sec py-5">
+                <div className={`sec py-5 ${isBg && isBg}`}>
                     <Slider {...settings}>
                         {data.map((item) => {
 

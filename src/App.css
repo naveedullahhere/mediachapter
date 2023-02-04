@@ -4835,3 +4835,13 @@ textarea {
     background-position-x: -64% !important;
   }
 }
+
+.is-invalid.form-control {
+  border: 1px solid #dc3545;
+}
+
+.websiteUrl {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
+}
