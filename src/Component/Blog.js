@@ -16,6 +16,9 @@ export const Blog = () => {
     const [img, setImg] = useState(null);
 
     useEffect(() => {
+
+        setTitle(`${APP_NAME}Blog`);
+
         fetch(`${URL}api/blogs?token=152784823qtjzdfg213&paginate=2&since_id=0`)
             .then((response) => response.json())
             .then((actualData) => { setData(actualData.data.data); setIsLoading(false); setImg(actualData.media_path); })
@@ -26,9 +29,12 @@ export const Blog = () => {
             }
             );
     }, []);
- 
 
-    setTitle(`${APP_NAME}Blog`);
+    const trimEllip = function (length, txt) {
+        console.log("length");
+        return txt.length > length ? txt.substring(0, length) + "..." : txt;
+    }
+
     return (
         <motion.div initial={{ transition: { duration: 1 }, opacity: 0 }} animate={{ transition: { duration: 1 }, opacity: 1 }} exit={{ transition: { duration: 1 }, opacity: 0 }}>
             <div className="sec py-5 blog  ">
@@ -56,7 +62,7 @@ export const Blog = () => {
                                                     <p className="my-3 text-danger fs-smm">
                                                         {new Date(item.updated_at).toLocaleString("en-us")}
                                                     </p>
-                                                    <p className="card-text para-sm fs-smm text-muted" dangerouslySetInnerHTML={{ __html: item.short_description }}>
+                                                    <p className="card-text para-sm fs-smm text-muted" dangerouslySetInnerHTML={{ __html: trimEllip(182, item.short_description) }}>
                                                     </p>
                                                     <Link to={`/blog/${item.slug}`} className="text-danger">Read More ↗</Link>
                                                 </div>

@@ -77,7 +77,7 @@ export const DigitalMarketing = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
-                            <SkillsCircle value={90} />
+                            <SkillsCircle value={78} />
                             <h1 className="heading fs-4">
                                 Social Media Marketing (SMM)
                             </h1>
@@ -87,7 +87,7 @@ export const DigitalMarketing = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
-                            <SkillsCircle value={80} />
+                            <SkillsCircle value={74} />
                             <h1 className="heading fs-4">
                                 Social Media Marketing (SMM)
                             </h1>
@@ -98,7 +98,7 @@ export const DigitalMarketing = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5">
-                            <SkillsCircle value={85} />
+                            <SkillsCircle value={75} />
                             <h1 className="heading fs-4">
                                 Content Writing
                             </h1>

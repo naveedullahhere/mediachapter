@@ -66,7 +66,7 @@ export const Seo = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5 position-relative">
-                            <SkillsCircle value={64} />
+                            <SkillsCircle value={74} />
 
                             <h1 className="heading fs-4">
                                 Keyword Research
@@ -76,7 +76,7 @@ export const Seo = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5 position-relative">
-                            <SkillsCircle value={49} />
+                            <SkillsCircle value={79} />
 
                             <h1 className="heading fs-4">
                                 Link Building
@@ -86,7 +86,7 @@ export const Seo = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5 position-relative">
-                            <SkillsCircle value={68} />
+                            <SkillsCircle value={78} />
 
                             <h1 className="heading fs-4">
                                 Local Search
@@ -98,7 +98,7 @@ export const Seo = () => {
                             </p>
                         </div>
                         <div className="col-md-6 my-3 px-md-5 position-relative">
-                            <SkillsCircle value={56} />
+                            <SkillsCircle value={76} />
 
                             <h1 className="heading fs-4">
                                 eCommerce SEO

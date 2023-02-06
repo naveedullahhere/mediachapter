@@ -139,12 +139,12 @@ export const Projects = () => {
             .then(json => {
 
                 setCreatingProject(false);
- 
-                    close.current.click() 
-                    projects.push(json[0]);
-                    toast.success("Project Created Successfully");
-                    document.getElementById("formElem").reset();
-              
+
+                close.current.click()
+                projects.push(json[0]);
+                toast.success("Project Created Successfully");
+                document.getElementById("formElem").reset();
+
 
             }).catch(err => {
                 console.log(err);

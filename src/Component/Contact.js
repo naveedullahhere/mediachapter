@@ -94,7 +94,7 @@ export const Contact = () => {
                                 </p>
 
 
-                                {/* <div className="info">
+                                <div className="info">
                                     <div className="information mb-4">
                                         <p className='mb-0'><span><b>USA:</b></span><br /> </p>
                                     </div>
@@ -108,20 +108,20 @@ export const Contact = () => {
                                     </div>
                                     <div className="information mb-4">
                                         <img src={phone} className="icon" alt="" />
-                                        <p className='mb-0'>+92 333 051 8880</p>
+                                        <p className='mb-0'>+1 240 473 3928</p>
                                     </div>
-                                </div> */}
+                                </div>
                                 <div className="info">
-                                    {/* <div className="information mb-4">
+                                    <div className="information mb-4">
                                         <p className='mb-0'><span><b>Pakistan:</b></span><br /></p>
-                                    </div> */}
+                                    </div>
                                     <div className="information mb-4">
                                         <img src={address} className="icon" alt="" />
                                         <p className='mb-0'> Address Omega Heights, 103, E11/3, Islamabad, Pakistan</p>
                                     </div>
                                     <div className="information mb-4">
                                         <img src={email} className="icon" alt="" />
-                                        <p className='mb-0'>info@marketingchapter.com.pk</p>
+                                        <p className='mb-0'>info@mediachapter.us</p>
                                     </div>
                                     <div className="information mb-4">
                                         <img src={phone} className="icon" alt="" />
@@ -198,15 +198,13 @@ export const Contact = () => {
                                         <div className="col-12">
                                             <div className="input-container">
                                                 <select name="inquiry_about" class={`input ${errors.inquiry_about && "form-control is-invalid"}`}  {...register('inquiry_about', { required: true })}>
-                                                    <option hidden value=''>Select About</option>
-                                                    <option value="Inquiring About">Inquiring About</option>
+                                                <option selected value='inquiry_about'>Inquiry About</option>
                                                     <option value="Software Development">Software Development</option>
                                                     <option value="Web Development">Web Development</option>
                                                     <option value="Digital Marketing">Digital Marketing</option>
-
                                                     <option value="Graphic Design">Graphic Design</option>
                                                     <option value="Branding">Branding</option>
-                                                    <option value="SEO">SEO</option>
+                                                    <option value="seo">SEO</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -359,9 +357,9 @@ export const Contact = () => {
                                             With the data-driven insights of MarketingCloudFX, plus the knowledge of our award-winning team, Maryland Sunrooms exceeded its annual revenue goals by 120%.
                                         </p>
                                     </div>
-                                    <div className="col-md-7 my-auto">
+                                    <div className="col-md-10 mx-auto my-auto">
                                         <div className="row w-100 mx-auto my-3">
-                                            <div className="col-md-4 col-12 text-md-start text-center my-md-auto my-3">
+                                            <div className="col-md-4 col-12 text-center my-md-auto my-3">
                                                 <h1 className="display-4 text-main fw-bold">670%
                                                 </h1>
                                                 <p className="fs-6 text-muted">
@@ -369,7 +367,7 @@ export const Contact = () => {
                                                     AD CONVERSIONS
                                                 </p>
                                             </div>
-                                            <div className="col-md-4 col-12 text-md-start text-center my-md-auto my-3">
+                                            <div className="col-md-4 col-12 text-center my-md-auto my-3">
                                                 <h1 className="display-4 text-main fw-bold">327%
                                                 </h1>
                                                 <p className="fs-6 text-muted">
@@ -377,7 +375,7 @@ export const Contact = () => {
                                                     WEBSITE SESSIONS
                                                 </p>
                                             </div>
-                                            <div className="col-md-4 col-12 text-md-start text-center my-md-auto my-3">
+                                            <div className="col-md-4 col-12 text-center my-md-auto my-3">
                                                 <h1 className="display-4 text-main fw-bold">321%
                                                 </h1>
                                                 <p className="fs-6 text-muted">
@@ -387,9 +385,9 @@ export const Contact = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-md-5 my-3">
+                                    {/* <div className="col-md-5 my-3">
                                         <img src="https://www.webfx.com/wp-content/themes/fx/assets/img/special-pages/fx-free-quote/version-c/featured-img.png" alt="img" className="w-100" />
-                                    </div>
+                                    </div> */}
 
 
                                 </div>
@@ -401,7 +399,7 @@ export const Contact = () => {
                                 <div className="row">
                                     <div className="col-12 mb-4">
                                         <h1 className="headings fw-bold ">
-                                            Over +1,020 testimonials
+                                            Over testimonials
                                         </h1>
                                         <p className="headings fw-normal fs-5">
                                             Hear From Our Clients

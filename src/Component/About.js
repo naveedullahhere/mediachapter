@@ -130,7 +130,7 @@ export const About = () => {
                     </div>
                 </div>
             </div>
-            <div className="sec py-5">
+            {/* <div className="sec py-5">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 mx-auto my-4">
@@ -165,7 +165,7 @@ export const About = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <ContactForm action={'/'} />
         </motion.div>
     )

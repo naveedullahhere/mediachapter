@@ -2592,7 +2592,7 @@ img {
 }
 
 .servicez .inner-box:hover:before {
-  background: var(--dark);
+  background: var(--primary);
   bottom: -10px;
 }
 
