@@ -1,7 +1,7 @@
 
 import './App.css';
 import { BrowserRouter } from "react-router-dom";
-import { Header } from './Component/layout/Header';
+import Header from './Component/layout/Header';
 import { Footer } from './Component/layout/Footer';
 import { EditorState, ContentState } from 'draft-js';
 import { MainRoutes } from './MainRoutes';

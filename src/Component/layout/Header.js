@@ -4,7 +4,7 @@ import { AppContext } from '../../context/AppContext';
 import React, { useState, useEffect, useContext } from 'react';
 
 
-export const Header = () => {
+const Header = () => {
 
     const { dispatch, removeUserData, user } = useContext(AppContext);
     const navigate = useNavigate();
@@ -26,7 +26,7 @@ export const Header = () => {
                     <div className="row w-100 mx-auto">
                         <div className="col-12">
                             <nav className="navbar navbar-expand-md navbar-light px-xl-5 px-3">
-                                <Link className="navbar-brand me-lg-5" to={'/'}><img src={Logo} alt="MediaChapter" width="136" /></Link>
+                                <Link className="navbar-brand me-lg-5" to={'/'}><img src={Logo} alt="Media Chapter - Header" width="136" /></Link>
                                 <button class={`navbar-toggler ${isActive && ""}`} onClick={toggleClass} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={isActive} >
                                     <span className="navbar-toggler-icon"></span>
                                 </button>
@@ -118,3 +118,4 @@ export const Header = () => {
         </>
     )
 }
+export default Header

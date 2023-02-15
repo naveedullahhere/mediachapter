@@ -11,7 +11,7 @@ function FilteredItems({ item, img }) {
         >
             <Link class={`${item.filter}`} to="#" data-cat={`${item.filter}`} key={item.id}>
                 <div className="inside">
-                    <img src={`${img}/${item.image}`} alt="" />
+                    <img src={`${img}/${item.image}`} alt={`${item.title}`} />
                 </div>
             </Link>
         </motion.div>

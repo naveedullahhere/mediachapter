@@ -185,7 +185,7 @@ export const Home = () => {
                         <div className="col-md-4 col-12 my-3">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
-                                    <img src={card0} draggable={false} className={'w-card'} alt="card" />
+                                    <img src={card0} draggable={false} className={'w-card'} alt="Graphic Design" />
                                 </div>
                                 <div className="content">
                                     <a href="https://mediachapter.us/graphic-design/" className='fs-3 text-dark my-3 d-inline-block'>
@@ -197,7 +197,7 @@ export const Home = () => {
                         <div className="col-md-4 col-12 my-3">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
-                                    <img src={card1} draggable={false} className={'w-card'} alt="card" />
+                                    <img src={card1} draggable={false} className={'w-card'} alt="Web Development" />
                                 </div>
                                 <div className="content">
                                     <a href="https://mediachapter.us/web-development/" className='fs-3 text-dark my-3 d-inline-block'>
@@ -209,7 +209,7 @@ export const Home = () => {
                         <div className="col-md-4 col-12 my-3">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
-                                    <img src={card2} draggable={false} className={'w-card'} alt="card" />
+                                    <img src={card2} draggable={false} className={'w-card'} alt="Digital Marketing" />
                                 </div>
                                 <div className="content">
                                     <a href="https://mediachapter.us/digital-marketing/" className='fs-3 text-dark my-3 d-inline-block'>
@@ -221,7 +221,7 @@ export const Home = () => {
                         <div className="col-md-4 col-12 my-3 ms-auto">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
-                                    <img src={card3} draggable={false} className={'w-card'} alt="card" />
+                                    <img src={card3} draggable={false} className={'w-card'} alt="Content Writing" />
                                 </div>
                                 <div className="content">
                                     <a href="https://mediachapter.us/content-writing/" className='fs-3 text-dark my-3 d-inline-block'>
@@ -233,7 +233,7 @@ export const Home = () => {
                         <div className="col-md-4 col-12 my-3 me-auto">
                             <div className="crd rounded-4 h-100 shadow p-4 bg-light">
                                 <div className="cardImg">
-                                    <img src={card4} draggable={false} className={'w-card'} alt="card" />
+                                    <img src={card4} draggable={false} className={'w-card'} alt=" SEO" />
                                 </div>
                                 <div className="content">
                                     <a href="https://mediachapter.us/seo" className='fs-3 text-dark my-3 d-inline-block'>
@@ -324,23 +324,23 @@ export const Home = () => {
                 <section className="customer-logos slider">
                     <Sliderz {...settings}>
 
-                        <div className="slide"><img alt="" src={Brand1} /></div>
-                        <div className="slide"><img alt="" src={Brand2} /></div>
-                        <div className="slide"><img alt="" src={Brand3} /></div>
-                        <div className="slide"><img alt="" src={Brand4} /></div>
-                        <div className="slide"><img alt="" src={Brand5} /></div>
-                        <div className="slide"><img alt="" src={Brand6} /></div>
-                        <div className="slide"><img alt="" src={Brand7} /></div>
-                        <div className="slide"><img alt="" src={Brand8} /></div>
-                        <div className="slide"><img alt="" src={Brand9} /></div>
-                        <div className="slide"><img alt="" src={Brand10} /></div>
-                        <div className="slide"><img alt="" src={Brand11} /></div>
-                        <div className="slide"><img alt="" src={Brand12} /></div>
-                        <div className="slide"><img alt="" src={Brand13} /></div>
-                        <div className="slide"><img alt="" src={Brand14} /></div>
-                        {/* <div className="slide"><img alt="" src={Brand15} /></div> */}
-                        <div className="slide"><img alt="" src={Brand16} /></div>
-                        <div className="slide"><img alt="" src={Brand17} /></div>
+                        <div className="slide"><img alt="Brand 1" src={Brand1} /></div>
+                        <div className="slide"><img alt="Brand 2" src={Brand2} /></div>
+                        <div className="slide"><img alt="Brand 3" src={Brand3} /></div>
+                        <div className="slide"><img alt="Brand 4" src={Brand4} /></div>
+                        <div className="slide"><img alt="Brand 5" src={Brand5} /></div>
+                        <div className="slide"><img alt="Brand 6" src={Brand6} /></div>
+                        <div className="slide"><img alt="Brand 7" src={Brand7} /></div>
+                        <div className="slide"><img alt="Brand 8" src={Brand8} /></div>
+                        <div className="slide"><img alt="Brand 9" src={Brand9} /></div>
+                        <div className="slide"><img alt="Brand 10" src={Brand10} /></div>
+                        <div className="slide"><img alt="Brand 11" src={Brand11} /></div>
+                        <div className="slide"><img alt="Brand 12" src={Brand12} /></div>
+                        <div className="slide"><img alt="Brand 13" src={Brand13} /></div>
+                        <div className="slide"><img alt="Brand 14" src={Brand14} /></div>
+                        {/* <div className="slide"><img aBrand lt="" src={Brand15} /></div> */}
+                        <div className="slide"><img alt="Brand 15" src={Brand16} /></div>
+                        <div className="slide"><img alt="Brand 16" src={Brand17} /></div>
 
                     </Sliderz>
                 </section>

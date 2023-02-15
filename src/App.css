@@ -21,7 +21,6 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  /*overflow-x: hidden;*/
 }
 
 a {
@@ -2598,6 +2597,15 @@ img {
 
 .servicez .inner-box:hover .bottom-curve {
   transform: skewX(-45deg) scaleX(1);
+}
+
+.Business.card {
+  border: none;
+  background: transparent;
+}
+
+.inside {
+  height: 256px;
 }
 
 .servicez .inner-box:hover .text {

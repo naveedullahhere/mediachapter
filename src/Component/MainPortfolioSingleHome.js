@@ -60,11 +60,11 @@ export const MainPortfolio = ({ pageid }) => {
 
     return (
         <>
-       
+
 
             <div className="row">
                 {/* <AnimatePresence> */}
-                {filtered.slice(0,6).map(items => (
+                {filtered.slice(0, 6).map(items => (
                     <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-12 portfolioo">
                         <FilteredItems
                             key={items.id}

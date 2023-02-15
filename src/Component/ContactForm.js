@@ -151,14 +151,15 @@ export const ContactForm = ({ action }) => {
 
                                             <div className="input-container">
                                                 <select name="inquiry_about" class={`input ${errors.inquiry_about && "form-control is-invalid"}`}  {...register('inquiry_about', { required: true })}>
-                                                <option selected value='inquiry_about'>Inquiry About</option>
+                                                    <option selected value='inquiry_about'>Inquiry About</option>
                                                     <option value="Software Development">Software Development</option>
                                                     <option value="Digital Marketing">Digital Marketing</option>
                                                     <option value="Web Development">Web Development</option>
                                                     <option value="Content Writing">Content Writing</option>
                                                     <option value="Graphic Design">Graphic Design</option>
                                                     <option value="Branding">Branding</option>
-                                                    <option value="SEO">SEO</option>
+                                                     <option value="SEO">Search Engine Optimization</option>
+                                                    <option value="SMM">Social Media Marketing</option>
                                                 </select>
                                             </div>
                                         </div>

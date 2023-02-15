@@ -42,7 +42,7 @@ export const Testimonials = ({ isBg }) => {
                                 <div className="testimonials row">
                                     <div className="col-lg-6 col-md-8 col-12 mx-auto">
                                         <div className="testimonialImg">
-                                            <img className='testImg' src={`${img}/${item.image}`} alt="clients" />
+                                            <img className='testImg' src={`${img}/${item.image}`} alt={`${item.name} - ${item.designation}`} />
                                         </div>
                                         <div className="testimonialsContent my-4 px-3">
                                             <p className="text-muted para-sm"><i dangerouslySetInnerHTML={{ __html: item.comment }}></i></p>

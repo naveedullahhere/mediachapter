@@ -13,14 +13,14 @@ function FilteredItems({ item, img }) {
             {item.filter.toString() === "null" ?
                 <Link class={``} to="#" key={item.id}>
                     <div className="inside">
-                        <img src={`${img}/${item.image}`} alt="" />
+                        <img src={`${img}/${item.image}`} alt={`${item.title}`} />
                     </div>
                 </Link>
 
                 :
                 <Link class={`${JSON.parse(item.filter).toString().includes(",") ? JSON.parse(item.filter).toString().replace(/,/g, " ") : JSON.parse(item.filter).toString()}`} to="#" key={item.id}>
                     <div className="inside">
-                        <img src={`${img}/${item.image}`} alt="" />
+                        <img src={`${img}/${item.image}`} alt={`${item.title}`} />
                     </div>
                 </Link>
             }

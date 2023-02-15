@@ -22,6 +22,7 @@ export const Contact = () => {
 
     const query = new URLSearchParams(window.location.search);
     const site = query.get('website')
+    const [web, setWeb] = useState(site ? site : "");
 
     const {
         register,
@@ -189,7 +190,7 @@ export const Contact = () => {
                                         <div className="col-12">
 
                                             <div className="input-container">
-                                                <input type="text" name="website_link" value={site ? site : ""} class={`input ${errors.website_link && "form-control is-invalid"}`} placeholder='.' {...register('website_link', { required: false })} />
+                                                <input type="text" name="website_link" value={web} onInput={e => setWeb(e.target.value)} class={`input ${errors.website_link && "form-control is-invalid"}`} placeholder='.' {...register('website_link', { required: false })} />
                                                 <label htmlFor="">Website</label>
                                             </div>
 
@@ -198,13 +199,14 @@ export const Contact = () => {
                                         <div className="col-12">
                                             <div className="input-container">
                                                 <select name="inquiry_about" class={`input ${errors.inquiry_about && "form-control is-invalid"}`}  {...register('inquiry_about', { required: true })}>
-                                                <option selected value='inquiry_about'>Inquiry About</option>
+                                                    <option selected value='inquiry_about'>Inquiry About</option>
                                                     <option value="Software Development">Software Development</option>
                                                     <option value="Web Development">Web Development</option>
                                                     <option value="Digital Marketing">Digital Marketing</option>
                                                     <option value="Graphic Design">Graphic Design</option>
                                                     <option value="Branding">Branding</option>
-                                                    <option value="seo">SEO</option>
+                                                <option value="SEO">Search Engine Optimization</option>
+                                                    <option value="SMM">Social Media Marketing</option>
                                                 </select>
                                             </div>
                                         </div>

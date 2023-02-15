@@ -27,6 +27,8 @@ export const MainPortfolio = () => {
     }, []);
 
 
+    console.log(fltr);
+
 
     let filteredItm = fltr.map((item) => {
         return item.category
@@ -39,6 +41,8 @@ export const MainPortfolio = () => {
         var aa = { "link": `${[...new Set(filteredItm.flat())][index]}` };
         tempData.push(aa);
     }
+
+    console.log(filteredItm);
 
 
     return (
