@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { MainPortfolio } from './MainPortfolio';
+import { MainPortfolio } from './MainPortfolioSingle';
 import { AppContext } from '../context/AppContext';
 
 
@@ -21,7 +21,7 @@ export const Portfolio = () => {
                             </h1>
                         </div>
                         <div className="col-12 my-5">
-                            <MainPortfolio />
+                            <MainPortfolio pageid={"grap"} />
                         </div>
                     </div>
                 </div>

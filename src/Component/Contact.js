@@ -205,7 +205,7 @@ export const Contact = () => {
                                                     <option value="Digital Marketing">Digital Marketing</option>
                                                     <option value="Graphic Design">Graphic Design</option>
                                                     <option value="Branding">Branding</option>
-                                                <option value="SEO">Search Engine Optimization</option>
+                                                    <option value="SEO">Search Engine Optimization</option>
                                                     <option value="SMM">Social Media Marketing</option>
                                                 </select>
                                             </div>

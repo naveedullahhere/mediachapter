@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import { ContactForm } from '../ContactForm';
@@ -25,13 +25,31 @@ import tech10 from '../assets/Tech/tech10.png';
 import tech11 from '../assets/Tech/tech11.png';
 import tech12 from '../assets/Tech/tech12.png';
 import { MainPortfolio } from '../MainPortfolioSingle';
+import FilteredItems from '../../Components/FilteredItemsSingle';
+import { toast } from 'react-hot-toast';
 
 
 export const WebDevelopment = () => {
-    const { APP_NAME, setTitle, Title } = useContext(AppContext);
+    const { APP_NAME, setTitle, URL } = useContext(AppContext);
+    const [filtered, setFiltered] = useState([]);
+    const [img, setImg] = useState(null);
+
 
     setTitle(`${APP_NAME}Web Development`);
 
+
+    useEffect(() => {
+
+        // setLinks(tempData);
+
+        fetch(`${URL}api/portfolio`)
+            .then((response) => response.json())
+            .then((actualData) => { setFiltered(actualData.data?.filter(item => item.filter === '["Web"]')); setImg(actualData.media_path) })
+            .catch((err) => {
+                setFiltered([]);
+                toast.error("Something went wrong!");
+            });
+    }, []);
 
 
     return (
@@ -76,7 +94,31 @@ export const WebDevelopment = () => {
                     </div>
                 </div>
             </div>
-
+            <div className="sec py-5">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h1 className="heading">
+                                Our Recent Works
+                            </h1>
+                            <p className="para-sm text-muted my-3">
+                                We create client-focused websites that generate desired results. Transform your digital presence with the help of our professional web developers.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="row"> 
+                        {filtered.map(items => (
+                            <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-12">
+                                <FilteredItems
+                                    key={items.id}
+                                    item={items}
+                                    img={img}
+                                />
+                            </div>
+                        ))} 
+                    </div>
+                </div>
+            </div>
             <section class="services sec py-md-5 py-3 text-start">
                 <div class="container">
                     <div class="sec-title mb-md-5 my-2">

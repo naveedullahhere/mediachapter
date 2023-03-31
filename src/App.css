@@ -2605,7 +2605,8 @@ img {
 }
 
 .inside {
-  height: 256px;
+  height: 276px;
+  background-color: white;
 }
 
 .servicez .inner-box:hover .text {

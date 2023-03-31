@@ -24,7 +24,7 @@ export const MainPortfolio = ({ pageid }) => {
 
         fetch(`${URL}api/portfolio?like=${pageid}`)
             .then((response) => response.json())
-            .then((actualData) => { setFiltered(actualData.data); setfltr(actualData.data); setImg(actualData.media_path) })
+            .then((actualData) => { setFiltered(actualData.data?.filter(item => item.filter === '["Web"]')); setfltr(actualData.data); setImg(actualData.media_path) })
             .catch((err) => {
                 setFiltered([]);
                 toast.error("Something went wrong!");
@@ -33,7 +33,6 @@ export const MainPortfolio = ({ pageid }) => {
 
 
     let filteredItmFilter = fltr.map((item) => {
-
         return JSON.parse(item.filter);
     })
 
@@ -44,6 +43,8 @@ export const MainPortfolio = ({ pageid }) => {
         var aa = { "link": `${[...new Set(filteredItmFilter.flat())][index]}` };
         tempData.push(aa);
     }
+
+    console.log({ filtered });
 
     return (
         <>

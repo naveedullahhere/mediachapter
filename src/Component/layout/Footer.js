@@ -67,7 +67,14 @@ export const Footer = () => {
                         <ul className="nav flex-column mt-3">
                             <li className="nav-item mb-2"><Link to="/privacy-policy" className="nav-link p-0 para-sm">Privacy Policy</Link></li>
                             <li className="nav-item mb-2"><Link to="/terms-conditions" className="nav-link p-0 para-sm">Terms & Condition</Link></li>
-
+                            <li className="nav-item mb-2">
+                                <button type="button" id="hs_show_banner_button" className='btn btn-main w-100 px-1' onClick={(function () {
+                                    var _hsp = window._hsp = window._hsp || [];
+                                    _hsp.push(['showBanner']);
+                                })()}>
+                                    Cookie Settings
+                                </button>
+                            </li>
                         </ul>
                     </div>
 
@@ -79,7 +86,6 @@ export const Footer = () => {
                                 <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
                                 <input id="newsletter1" type="text" class={`form-control mb-2 shadow-none text-dark border-0 py-2 ${errors.email && "form-control is-invalid  text-dark"}`} {...register('email', { required: true, pattern: /^\S+@\S+$/i })} placeholder="Email address" />
                                 <input type="hidden" name="user_id" value={userid} />
-
                                 <button className="btn btn-main w-100" type="submit">
                                     Subscribe
                                     {isLoading &&

@@ -62,9 +62,9 @@ const Filter = ({ activeFilter, setActiveFilter, setFiltered, all, filtered, lin
         return all
       }
       else {
+        console.log(items.filter);
         return JSON.parse(items.filter).indexOf(link) != -1
         JSON.parse(items.filter).map((item) => {
-
           // console.table(all);
         })
       }

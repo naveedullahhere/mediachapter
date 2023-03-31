@@ -15,6 +15,7 @@ import card4 from './assets/card4.png';
 import Brand1 from './assets/Brands/Brand1.png';
 import Brand2 from './assets/Brands/Brand2.png';
 import Brand3 from './assets/Brands/Brand3.png';
+import FilteredItems from '../Components/FilteredItemsSingleHome';
 import Brand4 from './assets/Brands/Brand4.png';
 import Brand5 from './assets/Brands/Brand5.png';
 import Brand6 from './assets/Brands/Brand6.png';
@@ -30,6 +31,12 @@ import Brand14 from './assets/Brands/Brand14.png';
 import Brand15 from './assets/Brands/Brand15.png';
 import Brand16 from './assets/Brands/Brand16.png';
 import Brand17 from './assets/Brands/Brand17.png';
+import st1 from './assets/statics/1.png';
+import st3 from './assets/statics/2.jpg';
+import st4 from './assets/statics/3.jpg';
+import st5 from './assets/statics/4.jpg';
+import st6 from './assets/statics/5.jpg';
+import st7 from './assets/statics/6.jpg';
 import TrustPiolot from './assets/trustpilot.png';
 import { motion } from 'framer-motion';
 import { Testimonials } from './Testimonials';
@@ -245,6 +252,21 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
+            {/* <div className="sec py-5">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h1 className="heading">
+                                Our Recent Works
+                            </h1>
+                            <p className="para-sm text-muted my-3">
+                                We create client-focused websites that generate desired results. Transform your digital presence with the help of our professional web developers.
+                            </p>
+                        </div>
+                    </div>
+                    <MainPortfolio pageid={"grap"} />
+                </div>
+            </div> */}
             <div className="sec py-5">
                 <div className="container">
                     <div className="row">
@@ -257,7 +279,59 @@ export const Home = () => {
                             </p>
                         </div>
                     </div>
-                    <MainPortfolio />
+                    {/* <MainPortfolio /> */}
+                    <div className="row">
+                        {/* <AnimatePresence> */}     <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-12 portfolioo">
+                            <motion.div layout initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }} transition={{ duration: 0.5 }} >
+
+                                <Link to='/web-development' className="inside">
+                                    <img src={st5} alt={``} />
+                                </Link>
+                            </motion.div>
+                        </div>
+                        <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-12 portfolioo">
+                            <motion.div layout initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }} transition={{ duration: 0.5 }} >
+
+                                <Link to='/web-development' className="inside">
+                                    <img src={st1} alt={``} />
+                                </Link>
+                            </motion.div>
+                        </div>
+                        <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-12 portfolioo">
+                            <motion.div layout initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }} transition={{ duration: 0.5 }} >
+
+                                <Link to='/web-development' className="inside">
+                                    <img src={st3} alt={``} />
+                                </Link>
+                            </motion.div>
+                        </div>
+                        <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-12 portfolioo">
+                            <motion.div layout initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }} transition={{ duration: 0.5 }} >
+
+                                <Link to='/web-development' className="inside">
+                                    <img src={st4} alt={``} />
+                                </Link>
+                            </motion.div>
+                        </div>
+
+                        <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-12 portfolioo">
+                            <motion.div layout initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }} transition={{ duration: 0.5 }} >
+
+                                <Link to='/web-development' className="inside">
+                                    <img src={st6} alt={``} />
+                                </Link>
+                            </motion.div>
+                        </div>
+                        <div className="col-lg-4 my-2 col-md-4 col-sm-6 col-12 portfolioo">
+                            <motion.div layout initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ transition: { duration: 0.3 }, opacity: 0, x: 100 }} transition={{ duration: 0.5 }} >
+
+                                <Link to='/web-development' className="inside">
+                                    <img src={st7} alt={``} />
+                                </Link>
+                            </motion.div>
+                        </div>
+                        {/* </AnimatePresence> */}
+                    </div>
                 </div>
             </div>
             <div className="sec py-5">

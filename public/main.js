@@ -3,6 +3,7 @@ $(document).ready(function () {
         "use strict";
 
 
+      
 
         $(function () {
             var header = $(".start-style");
